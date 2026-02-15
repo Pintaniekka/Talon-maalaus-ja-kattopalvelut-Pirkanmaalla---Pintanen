@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { getStorageUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const logoUrl = getStorageUrl("logo.webp");
+const logoUrl = getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp") + "?width=600&format=webp";
 
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground py-12">
@@ -13,10 +13,10 @@ const Footer = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus"
-              className="h-16 w-auto mb-4 brightness-0 invert"
-              sizes="64px"
-              width={180}
-              height={64}
+              className="h-16 w-auto mb-4 brightness-0 invert object-contain"
+              sizes="200px"
+              width={600}
+              height={200}
             />
             <p className="text-primary-foreground/70 text-sm">
               <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
