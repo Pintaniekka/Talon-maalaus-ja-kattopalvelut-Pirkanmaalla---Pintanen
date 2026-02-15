@@ -15,7 +15,7 @@ interface OptimizedImageProps {
   transformWidth?: number;
 }
 
-const SRCSET_WIDTHS = [300, 600, 1200];
+const SRCSET_WIDTHS = [320, 640, 960, 1200];
 
 function buildSrcSet(src: string): string | undefined {
   if (!src.includes('supabase.co')) return undefined;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
+import OptimizedImage from "./OptimizedImage";
 
 const kattoEnnen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen liakainen katto ennen maalauspinnoitusta.webp");
 const kattoJalkeen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp");
@@ -50,14 +51,13 @@ const BeforeAfter = () => {
             onTouchMove={handleMove}
           >
             {/* After Image (Full width, behind) */}
-            <img
-              src={getOptimizedUrl(kattoJalkeen, 800)}
+            <OptimizedImage
+              src={kattoJalkeen}
               alt="Jälkeen"
               className="absolute inset-0 w-full h-full object-cover"
               width={800}
               height={600}
-              loading="lazy"
-              decoding="async"
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
               draggable={false}
             />
 
@@ -66,14 +66,13 @@ const BeforeAfter = () => {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <img
-                src={getOptimizedUrl(kattoEnnen, 800)}
+              <OptimizedImage
+                src={kattoEnnen}
                 alt="Ennen"
                 className="absolute inset-0 w-full h-full object-cover"
                 width={800}
                 height={600}
-                loading="lazy"
-                decoding="async"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
                 draggable={false}
               />
             </div>
