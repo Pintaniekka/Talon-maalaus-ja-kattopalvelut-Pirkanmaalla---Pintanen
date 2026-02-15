@@ -4,6 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
 import SEO from '@/components/SEO';
+import OptimizedImage from '@/components/OptimizedImage';
 import { getStorageUrl } from '@/lib/storage';
 
 type Category = 'all' | 'pinnoitus' | 'puhdistus' | 'maalaus';
@@ -33,10 +34,12 @@ const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
   <div className="relative w-full h-full flex overflow-hidden">
     {images.map((img, idx) => (
       <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
-        <img
+        <OptimizedImage
           src={img.src}
           alt={img.label}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          width={600}
+          height={450}
           style={{
             objectPosition: idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
           }}
@@ -100,6 +103,8 @@ const Lightbox = ({
         src={project.images[currentIndex].src}
         alt={project.images[currentIndex].label}
         className="max-w-full max-h-[75vh] object-contain rounded-lg"
+        width={1200}
+        height={900}
         onClick={(e) => e.stopPropagation()}
       />
 
@@ -116,7 +121,7 @@ const Lightbox = ({
                 onClick={(e) => { e.stopPropagation(); onSelectIndex(idx); }}
                 className={`relative w-16 h-12 rounded overflow-hidden border-2 transition-all ${idx === currentIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
+                <img src={img.src} alt={img.label} className="w-full h-full object-cover" width={64} height={48} loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
@@ -278,10 +283,12 @@ const Referenssit = () => {
                     {project.type === 'group' && project.images.length > 1 ? (
                       <CompositeThumbnail images={project.images} />
                     ) : (
-                      <img
+                      <OptimizedImage
                         src={project.type === 'group' ? project.images[0].src : project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        width={1200}
+                        height={900}
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

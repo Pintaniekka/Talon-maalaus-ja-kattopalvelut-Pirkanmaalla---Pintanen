@@ -172,6 +172,8 @@ const KattopalvelutPinnoitus = () => {
             <BeforeAfterSlider
               beforeImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kulunut katto ennen maalauspinnoitusta.webp")}
               afterImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen katto maalauspinnoituksen jalkeen.webp")}
+              beforeAlt="Kulunut punainen tiilikatto ennen maalauspinnoitusta Pirkanmaalla"
+              afterAlt="Punainen tiilikatto maalauspinnoituksen jälkeen – suojattu ja kiiltävä pinta"
             />
           </div>
         </div>

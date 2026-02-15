@@ -1,12 +1,21 @@
 import { useState } from "react";
+import OptimizedImage from "./OptimizedImage";
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
   afterImage: string;
+  beforeAlt?: string;
+  afterAlt?: string;
   aspectRatio?: string;
 }
 
-const BeforeAfterSlider = ({ beforeImage, afterImage, aspectRatio = "4/3" }: BeforeAfterSliderProps) => {
+const BeforeAfterSlider = ({
+  beforeImage,
+  afterImage,
+  beforeAlt = "Tiilikatto ennen käsittelyä – kulunut ja sammaleinen pinta",
+  afterAlt = "Tiilikatto käsittelyn jälkeen – suojattu ja uudenveroinen",
+  aspectRatio = "4/3",
+}: BeforeAfterSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -31,12 +40,12 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, aspectRatio = "4/3" }: Bef
       onTouchMove={handleMove}
     >
       {/* After image (full, behind) */}
-      <img
+      <OptimizedImage
         src={afterImage}
-        alt="Tiilikatto pinnoituksen jälkeen – suojattu ja uudenveroinen"
+        alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-        decoding="async"
+        width={1200}
+        height={900}
         draggable={false}
       />
 
@@ -45,12 +54,12 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, aspectRatio = "4/3" }: Bef
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
-        <img
+        <OptimizedImage
           src={beforeImage}
-          alt="Tiilikatto ennen pinnoitusta – kulunut ja sammaleinen pinta"
+          alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
+          width={1200}
+          height={900}
           draggable={false}
         />
       </div>
