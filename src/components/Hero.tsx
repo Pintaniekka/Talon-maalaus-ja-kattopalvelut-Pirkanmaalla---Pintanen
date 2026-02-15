@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
+import { getStorageUrl } from "@/lib/storage";
+
+const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/sininen talo maalauksen jalkeen.webp");
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-primary">
-      {/* Solid background for fast LCP */}
-      <div className="absolute inset-0 bg-primary" />
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img src={heroImage} alt="Laivastonsininen maalattu talo" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-primary/60" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 section-container py-32">
