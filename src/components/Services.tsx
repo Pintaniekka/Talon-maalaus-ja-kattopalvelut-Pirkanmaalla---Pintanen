@@ -91,16 +91,21 @@ const Services = () => {
       }} viewport={{
         once: true
       }} className="mt-8 max-w-4xl mx-auto">
-          <Link to="/kattopalvelut/puhdistus" className="block card-elevated bg-muted/50 hover:bg-muted transition-colors group">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <Droplets className="w-6 h-6 text-primary" />
+          <Link
+            to="/kattopalvelut/puhdistus"
+            className="block rounded-2xl overflow-hidden relative group"
+            style={{ backgroundImage: `url(${getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
+            <div className="relative flex items-center gap-4 p-6 md:p-8">
+              <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Droplets className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-foreground font-heading">Tarvitseeko kattosi vain puhdistuksen?</h4>
-                <p className="text-muted-foreground text-sm">Mekaaninen puhdistus ja kasvuston torjuntakäsittely pidentävät kattosi ikää.</p>
+                <h4 className="font-bold text-white font-heading">Tarvitseeko kattosi vain puhdistuksen?</h4>
+                <p className="text-white/80 text-sm">Mekaaninen puhdistus ja kasvuston torjuntakäsittely pidentävät kattosi ikää.</p>
               </div>
-              <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
         </motion.div>
