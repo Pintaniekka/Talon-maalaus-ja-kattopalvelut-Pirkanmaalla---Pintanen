@@ -231,6 +231,8 @@ const TalonMaalaus = () => {
             <BeforeAfterSlider
               beforeImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen talo ennen varin vahtoa.webp")}
               afterImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Violetti talo varin vaihdon jalkeen.webp")}
+              beforeAlt="Keltainen omakotitalo ennen ulkomaalausta ja värinvaihtoa"
+              afterAlt="Violetiksi maalattu omakotitalo värinvaihdon jälkeen – ammattitaitoinen julkisivumaalaus"
             />
           </div>
         </div>
