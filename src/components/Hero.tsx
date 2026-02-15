@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
 const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
@@ -18,6 +18,7 @@ const Hero = () => {
           sizes="100vw"
           width={1600}
           height={900}
+          transformWidth={1200}
         />
         <div className="absolute inset-0 bg-primary/55" />
       </div>

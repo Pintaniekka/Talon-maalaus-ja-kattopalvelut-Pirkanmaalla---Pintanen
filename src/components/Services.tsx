@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Droplets } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 
 const services = [{
@@ -94,7 +94,7 @@ const Services = () => {
           <Link
             to="/kattopalvelut/puhdistus"
             className="block rounded-2xl overflow-hidden relative group"
-            style={{ backgroundImage: `url(${getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{ backgroundImage: `url(${getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
             <div className="relative flex items-center gap-4 p-6 md:p-8">

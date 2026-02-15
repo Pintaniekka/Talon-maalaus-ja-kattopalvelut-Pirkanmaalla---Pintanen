@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const logoUrl = getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp") + "?width=600&format=webp";
+const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp"), 400);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

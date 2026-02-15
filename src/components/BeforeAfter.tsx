@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 
 const kattoEnnen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen liakainen katto ennen maalauspinnoitusta.webp");
 const kattoJalkeen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp");
@@ -51,9 +51,13 @@ const BeforeAfter = () => {
           >
             {/* After Image (Full width, behind) */}
             <img
-              src={kattoJalkeen}
+              src={getOptimizedUrl(kattoJalkeen, 800)}
               alt="Jälkeen"
               className="absolute inset-0 w-full h-full object-cover"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
               draggable={false}
             />
 
@@ -63,9 +67,13 @@ const BeforeAfter = () => {
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <img
-                src={kattoEnnen}
+                src={getOptimizedUrl(kattoEnnen, 800)}
                 alt="Ennen"
                 className="absolute inset-0 w-full h-full object-cover"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 draggable={false}
               />
             </div>

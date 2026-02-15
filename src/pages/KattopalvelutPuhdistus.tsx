@@ -4,8 +4,8 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
-const puhdistusImage = getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp");
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
 
 const KattopalvelutPuhdistus = () => {
   const features = [

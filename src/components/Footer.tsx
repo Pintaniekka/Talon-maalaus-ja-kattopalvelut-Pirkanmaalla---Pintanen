@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const logoUrl = getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp") + "?width=600&format=webp";
+const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp"), 400);
 
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground py-12">
