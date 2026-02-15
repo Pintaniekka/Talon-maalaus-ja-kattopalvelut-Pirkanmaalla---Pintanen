@@ -11,7 +11,7 @@ export function getStorageUrl(path: string): string {
 export function getOptimizedUrl(url: string, width: number): string {
   if (url.includes('supabase.co')) {
     const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}width=${width}&format=webp&quality=60`;
+    return `${url}${separator}width=${width}&format=webp&quality=40`;
   }
   return url;
 }

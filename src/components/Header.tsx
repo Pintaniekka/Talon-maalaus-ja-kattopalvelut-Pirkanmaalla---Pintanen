@@ -64,8 +64,9 @@ const Header = () => {
               className="h-12 md:h-20 w-auto shrink-0 object-contain"
               priority={true}
               sizes="200px"
-              width={600}
-              height={200}
+              width={300}
+              height={100}
+              transformWidth={300}
             />
           </Link>
 

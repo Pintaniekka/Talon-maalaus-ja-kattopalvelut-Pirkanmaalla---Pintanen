@@ -26,12 +26,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 section-container py-32">
         <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             {/* Location & Trust Badges */}
             <div className="flex flex-wrap items-center gap-3">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
@@ -92,7 +87,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

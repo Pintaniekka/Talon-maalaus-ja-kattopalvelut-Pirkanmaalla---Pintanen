@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Droplets } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
+import OptimizedImage from "./OptimizedImage";
 
 const services = [{
   title: "Tiilikaton pinnoitus",
@@ -94,8 +95,15 @@ const Services = () => {
           <Link
             to="/kattopalvelut/puhdistus"
             className="block rounded-2xl overflow-hidden relative group"
-            style={{ backgroundImage: `url(${getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 800)})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           >
+            <OptimizedImage
+              src={getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")}
+              alt="Puhdistettu tiilikatto"
+              className="absolute inset-0 w-full h-full object-cover"
+              width={800}
+              height={400}
+              sizes="(max-width: 640px) 90vw, 800px"
+            />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
             <div className="relative flex items-center gap-4 p-6 md:p-8">
               <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
