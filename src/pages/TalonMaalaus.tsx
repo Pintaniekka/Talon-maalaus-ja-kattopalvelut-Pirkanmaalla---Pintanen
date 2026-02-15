@@ -69,6 +69,9 @@ const TalonMaalaus = () => {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed"
           >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center">
+              Miksi maalata talo?
+            </h2>
             <p>
               Talo kannattaa maalata noin 10 vuoden välein tai kun alat huomaamaan seinässä epäkohtia kuten hilseilevää maalia tai homepilkkuja.
             </p>
