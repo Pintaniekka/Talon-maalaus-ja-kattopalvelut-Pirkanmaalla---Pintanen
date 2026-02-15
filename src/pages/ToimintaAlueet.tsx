@@ -5,7 +5,7 @@ import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
 import SEO from '@/components/SEO';
 import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
-const kattoImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Kiiltava maalattu katto.webp"), 1200);
+const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"), 1200);
 
 const pirkanmaanKunnat = [
   'Tampere',
