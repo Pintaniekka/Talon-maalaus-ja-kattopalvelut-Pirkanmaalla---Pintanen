@@ -57,11 +57,11 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
-              className="h-[clamp(36px,4vw,56px)] w-auto max-w-[200px] shrink-0"
+              className="h-[40px] md:h-[52px] w-auto shrink-0"
               priority={true}
               sizes="200px"
               width={160}
@@ -70,7 +70,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Päänavigaatio" className="hidden md:flex items-center gap-4 lg:gap-6">
+          <nav aria-label="Päänavigaatio" className="hidden md:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4">
             {navItems.map(item => item.dropdown ? <div key={item.label} className="relative group" onMouseEnter={() => setIsKattoDropdownOpen(true)} onMouseLeave={() => setIsKattoDropdownOpen(false)}>
                   <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
                     {item.label}
