@@ -1,54 +1,65 @@
 
+# Fix: Desktop/Mobile Scroll Bug
 
-# Puhdistuskortin taustakuva
+## Root Cause
 
-## Muutos
+The CSS in `index.css` sets `overflow-y: auto !important` on **both** `html` and `body`. This creates two competing scroll containers. The browser doesn't know which one to scroll, so wheel/touch events on the main content get swallowed. The `fixed` header sits outside this conflict, which is why scrolling works only when hovering over it.
 
-Muokataan etusivun "Tarvitseeko kattosi vain puhdistuksen?" -kortti niin, että taustalla nakyy kuva puhdistetusta katosta. Teksti sailyy luettavana tumman overlayn paalla.
+A secondary contributor is `overscroll-behavior: none` on `body`, which in an iframe context (the Lovable preview) can suppress scroll propagation.
 
-## Toteutus
+## Fix (single file: `src/index.css`)
 
-### Tiedosto: `src/components/Services.tsx`
+### 1. Simplify html/body overflow rules
 
-- Tuodaan `getStorageUrl` ja haetaan sama puhdistuskuva kuin puhdistussivulla: `Muut_referenssit/Puhdistuksen jalkeen.webp`
-- Korvataan nykyinen yksinkertainen kortti (rivit 94-105) taustakuvallisella versiolla:
-  - Kortin taustalle `background-image` kuva `cover`-asetuksella
-  - Tumma gradient-overlay (esim. `bg-gradient-to-r from-black/70 to-black/40`) jotta valkoinen teksti erottuu
-  - Teksti muutetaan valkoiseksi (`text-white`)
-  - Droplets-ikoni saa valkoisen/vaalean taustan
-  - Kortin korkeus hieman suuremmaksi (~py-8) jotta kuva nakyy paremmin
-  - Hover-efekti sailyy (esim. lievasti tummenee tai skaalautuu)
-  - `rounded-2xl overflow-hidden` pyoristetyt kulmat
+- `html`: Set `overflow-x: hidden` and leave `overflow-y` unset (browser default handles scrolling)
+- `body`: Only set `overflow-x: hidden`. Remove `overflow-y: auto !important` and `height: auto !important`. Remove `overscroll-behavior: none`.
+- Keep `max-width: 100vw` on both to prevent horizontal sway.
 
-### Visuaalinen tulos
-Kortti nayttaa premium-bannerilta jossa kaunis kuva puhdistetusta katosta nakyy taustalla, ja teksti + nuoli-ikoni erottuvat selkeasti paalla.
+### 2. Keep `#root` clean
 
-## Tekniset yksityiskohdat
+- `min-height: 100vh`, `display: flex`, `flex-direction: column` (current values are fine)
+- `overflow-x: hidden` stays
+- No `overflow-y` or fixed `height`
 
-```tsx
-const cleaningImage = getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp");
+### 3. Remove `overscroll-behavior: none`
 
-// Kortin Link-elementti:
-<Link to="/kattopalvelut/puhdistus"
-  className="block rounded-2xl overflow-hidden relative group"
-  style={{ backgroundImage: `url(${cleaningImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
->
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
-  {/* Content */}
-  <div className="relative flex items-center gap-4 p-6 md:p-8">
-    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm ...">
-      <Droplets className="w-6 h-6 text-white" />
-    </div>
-    <div className="flex-1">
-      <h4 className="font-bold text-white ...">Tarvitseeko kattosi vain puhdistuksen?</h4>
-      <p className="text-white/80 text-sm">...</p>
-    </div>
-    <ArrowRight className="w-5 h-5 text-white ..." />
-  </div>
-</Link>
+This property on body in an iframe prevents scroll chaining. Removing it lets the browser handle scrolling normally.
+
+### Resulting CSS (lines 7-26 of index.css)
+
+```css
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
 ```
 
-## Muokattavat tiedostot
-- `src/components/Services.tsx`
+And in the second `body` block (around line 145), remove `overscroll-behavior: none`:
 
+```css
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-overflow-scrolling: touch;
+}
+```
+
+## What stays unchanged
+
+- Hero, colors, layout, images, all other components
+- `touch-pan-y` on BeforeAfter sliders
+- Mobile bottom padding
+- The `scroll-behavior: smooth` on html
