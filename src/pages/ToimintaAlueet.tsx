@@ -3,6 +3,7 @@ import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
+import SEO from '@/components/SEO';
 import kattoImage from '@/assets/katto_1.png';
 
 const pirkanmaanKunnat = [
@@ -34,6 +35,7 @@ const lahialueet = ['Forssa'];
 const ToimintaAlueet = () => {
   return (
     <div>
+      <SEO title="Toiminta-alueet" description="Pintanen palvelee koko Pirkanmaan alueella: Tampere, Nokia, Kangasala, Ylöjärvi, Sastamala ja muut kunnat." />
       <ServicePageHero
         title="Toiminta-alueet"
         subtitle="Pirkanmaa ja lähialueet"

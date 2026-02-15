@@ -5,6 +5,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 const kattoImage = getStorageUrl("Muut_referenssit/Kiiltava maalattu katto.webp");
 const KattopalvelutPinnoitus = () => {
@@ -31,6 +32,7 @@ const KattopalvelutPinnoitus = () => {
   }];
   const benefits = ["Jopa 15-20 vuotta lisäikää katolle", "Suojaa tiiliä rapautumiselta", "Estää sammalen ja jäkälän kasvun", "Parantaa kiinteistön ulkonäköä", "5 vuoden takuu työlle"];
   return <div>
+      <SEO title="Tiilikaton pinnoitus" description="Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu. Ilmainen kuntotarkastus Pirkanmaalla." />
       <ServicePageHero title="Tiilikaton pinnoitus" subtitle='"Eikö me sovittu, että se kiiltää?"' backgroundImage={kattoImage} />
 
       {/* Seloste-osio */}

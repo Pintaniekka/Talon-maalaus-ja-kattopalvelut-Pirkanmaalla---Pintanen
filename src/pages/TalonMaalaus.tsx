@@ -4,6 +4,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
 
@@ -52,6 +53,7 @@ const TalonMaalaus = () => {
 
   return (
     <div>
+      <SEO title="Talon maalaus" description="Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla Pirkanmaalla. 2 vuoden takuu. Ilmainen arviointi." />
       <ServicePageHero
         title="Talon maalaus"
         subtitle="Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla – 2 vuoden takuu"
