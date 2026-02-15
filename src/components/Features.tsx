@@ -18,8 +18,13 @@ const Features = () => {
               Palvelualueet: Pirkanmaa –
             </span>
           </div>
-          <div className="text-primary-foreground/90 text-sm md:text-base">
-            Tampere, Sastamala, Hämeenkyrö, Ylöjärvi, Nokia sekä Forssa
+          <div className="text-primary-foreground/90 text-sm md:text-base flex flex-wrap gap-x-1">
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Tampere</Link>,
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Sastamala</Link>,
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Hämeenkyrö</Link>,
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Ylöjärvi</Link>,
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Nokia</Link> sekä
+            <Link to="/kattopalvelut/pinnoitus" className="hover:text-accent transition-colors underline underline-offset-2">Forssa</Link>
           </div>
           <Link 
             to="/kattopalvelut/pinnoitus" 
