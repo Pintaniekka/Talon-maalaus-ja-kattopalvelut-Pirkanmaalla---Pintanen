@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
+import OptimizedImage from "./OptimizedImage";
 
 const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
 
@@ -9,7 +10,15 @@ const Hero = () => {
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Laivastonsininen maalattu talo" className="w-full h-full object-cover" />
+        <OptimizedImage
+          src={heroImage}
+          alt="Laivastonsiniseksi maalattu puutalo Pirkanmaalla – ammattitaitoinen julkisivumaalaus"
+          className="w-full h-full object-cover"
+          priority={true}
+          sizes="100vw"
+          width={1600}
+          height={900}
+        />
         <div className="absolute inset-0 bg-primary/60" />
       </div>
 
@@ -52,7 +61,7 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Trust Indicators - Simplified */}
+            {/* Trust Indicators */}
             <div className="flex flex-wrap gap-8 pt-8 border-t border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">

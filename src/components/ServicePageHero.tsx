@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 interface ServicePageHeroProps {
   title: string;
@@ -13,10 +14,16 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, children }: Service
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       {backgroundImage ? (
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src={backgroundImage}
+            alt={`${title} – Pintanen Oy`}
+            className="w-full h-full object-cover"
+            priority={true}
+            sizes="100vw"
+            width={1600}
+            height={900}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary-dark/60" />
         </div>
       ) : (

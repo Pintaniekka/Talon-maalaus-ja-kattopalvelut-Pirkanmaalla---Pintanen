@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { getStorageUrl } from '@/lib/storage';
+import OptimizedImage from './OptimizedImage';
+
+const logoUrl = getStorageUrl("logo.webp");
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,11 +20,11 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsKattoDropdownOpen(false);
   }, [location.pathname]);
+
   const isHomePage = location.pathname === '/';
   const navItems = [{
     label: 'Etusivu',
@@ -48,12 +52,21 @@ const Header = () => {
     label: 'Tutustu Pintaseen',
     href: '/meista'
   }];
+
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Pintanen Oy" className="h-14 w-auto" />
+            <OptimizedImage
+              src={logoUrl}
+              alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
+              className="h-14 w-auto"
+              priority={true}
+              sizes="56px"
+              width={160}
+              height={56}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,18 +78,7 @@ const Header = () => {
                   </button>
                   
                   <AnimatePresence>
-                    {isKattoDropdownOpen && <motion.div initial={{
-                opacity: 0,
-                y: 10
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} exit={{
-                opacity: 0,
-                y: 10
-              }} transition={{
-                duration: 0.2
-              }} className="absolute top-full left-0 mt-2 w-56 bg-card rounded-xl shadow-lg border border-border overflow-hidden z-50">
+                    {isKattoDropdownOpen && <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.2 }} className="absolute top-full left-0 mt-2 w-56 bg-card rounded-xl shadow-lg border border-border overflow-hidden z-50">
                         {item.dropdown.map(subItem => <Link key={subItem.href} to={subItem.href} className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium">
                             {subItem.label}
                           </Link>)}
@@ -102,16 +104,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && <motion.div initial={{
-        opacity: 0,
-        height: 0
-      }} animate={{
-        opacity: 1,
-        height: 'auto'
-      }} exit={{
-        opacity: 0,
-        height: 0
-      }} className="md:hidden bg-card border-t border-border">
+        {isMobileMenuOpen && <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-card border-t border-border">
             <nav className="section-container py-4 flex flex-col gap-2">
               {navItems.map(item => item.dropdown ? <div key={item.label}>
                     <button onClick={() => setIsKattoDropdownOpen(!isKattoDropdownOpen)} className="w-full flex items-center justify-between py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors">
@@ -119,16 +112,7 @@ const Header = () => {
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isKattoDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     <AnimatePresence>
-                      {isKattoDropdownOpen && <motion.div initial={{
-                opacity: 0,
-                height: 0
-              }} animate={{
-                opacity: 1,
-                height: 'auto'
-              }} exit={{
-                opacity: 0,
-                height: 0
-              }} className="ml-4 border-l-2 border-primary/30">
+                      {isKattoDropdownOpen && <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="ml-4 border-l-2 border-primary/30">
                           {item.dropdown.map(subItem => <Link key={subItem.href} to={subItem.href} className="block py-2 px-4 text-foreground/80 hover:text-primary transition-colors">
                               {subItem.label}
                             </Link>)}

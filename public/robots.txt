@@ -14,3 +14,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://pintanen.fi/sitemap.xml
+Sitemap: https://pintanen.fi/image-sitemap.xml

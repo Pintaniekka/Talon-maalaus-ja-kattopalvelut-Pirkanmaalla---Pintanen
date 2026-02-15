@@ -1,35 +1,36 @@
 import { motion } from "framer-motion";
 import { getStorageUrl } from "@/lib/storage";
+import OptimizedImage from "./OptimizedImage";
 
 const images = [
   {
     src: getStorageUrl("Muut_referenssit/katto valmist tiilen punainen.webp"),
-    alt: "Valmis punainen tiilikatto",
+    alt: "Valmis punainen tiilikaton pinnoitus Pirkanmaalla – kiiltävä ja suojattu kattopinta",
     category: "Tiilikaton pinnoitus",
   },
   {
     src: getStorageUrl("Muut_referenssit/katto valmis harmaa.webp"),
-    alt: "Harmaa tiilikatto",
+    alt: "Harmaa tiilikaton maalauspinnoitus – kestävä suoja katollesi",
     category: "Tiilikaton pinnoitus",
   },
   {
     src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"),
-    alt: "Kiiltava punainen katto",
+    alt: "Kiiltävä punainen tiilikatto pinnoituksen jälkeen – ammattimainen lopputulos",
     category: "Tiilikaton pinnoitus",
   },
   {
     src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"),
-    alt: "Laivastonsininen talo",
+    alt: "Laivastonsiniseksi maalattu puutalo – julkisivumaalaus Pirkanmaalla",
     category: "Talon maalaus",
   },
   {
     src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Violetti talo varin vaihdon jalkeen.webp"),
-    alt: "Violetti talo värinvaihdon jälkeen",
+    alt: "Violetiksi maalattu omakotitalo värinvaihdon jälkeen – ulkomaalaus ammattitaidolla",
     category: "Talon maalaus",
   },
   {
     src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"),
-    alt: "Harmaa seinä värinvaihdon jälkeen",
+    alt: "Harmaaksi maalattu talon seinä värinvaihdon jälkeen – siisti ja kestävä lopputulos",
     category: "Talon maalaus",
   },
 ];
@@ -60,10 +61,13 @@ const Gallery = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
-              <img
+              <OptimizedImage
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                width={1200}
+                height={900}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

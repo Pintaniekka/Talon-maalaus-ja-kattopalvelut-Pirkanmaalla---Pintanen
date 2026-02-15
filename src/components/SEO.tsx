@@ -1,16 +1,21 @@
 import { Helmet } from 'react-helmet-async';
+import { getStorageUrl } from '@/lib/storage';
 
 interface SEOProps {
   title?: string;
   description?: string;
+  preloadImage?: string;
 }
 
 const defaultTitle = 'Pintanen.fi - Tiilikattojen pinnoitukset ja ulkomaalaukset Pirkanmaalla';
 const defaultDescription = 'Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu. Ota yhteyttä jo tänään.';
 
-const SEO = ({ title, description }: SEOProps) => {
+const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
+
+const SEO = ({ title, description, preloadImage }: SEOProps) => {
   const pageTitle = title ? `${title} | Pintanen Oy` : defaultTitle;
   const pageDescription = description || defaultDescription;
+  const imageToPreload = preloadImage || (!title ? heroImage : undefined);
 
   return (
     <Helmet>
@@ -20,6 +25,9 @@ const SEO = ({ title, description }: SEOProps) => {
       <meta property="og:description" content={pageDescription} />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
+      {imageToPreload && (
+        <link rel="preload" as="image" href={imageToPreload} type="image/webp" />
+      )}
     </Helmet>
   );
 };
