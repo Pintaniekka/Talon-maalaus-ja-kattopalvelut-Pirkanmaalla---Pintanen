@@ -136,10 +136,10 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Nimi *
                   </label>
-                  <input type="text" required value={formState.name} onChange={e => setFormState({
+                    <input type="text" required value={formState.name} onChange={e => setFormState({
                   ...formState,
                   name: e.target.value
-                })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Matti Meikäläinen" />
+                })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="Matti Meikäläinen" />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
@@ -150,7 +150,7 @@ const Contact = () => {
                     <input type="email" required value={formState.email} onChange={e => setFormState({
                     ...formState,
                     email: e.target.value
-                  })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder="matti@esimerkki.fi" />
+                  })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="matti@esimerkki.fi" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -159,18 +159,18 @@ const Contact = () => {
                     <input type="tel" value={formState.phone} onChange={e => setFormState({
                     ...formState,
                     phone: e.target.value
-                  })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder="040 123 4567" />
+                  })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" placeholder="040 123 4567" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
                     Palvelu
                   </label>
-                  <select value={formState.service} onChange={e => setFormState({
+                  <select id="service" name="service" value={formState.service} onChange={e => setFormState({
                   ...formState,
                   service: e.target.value
-                })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
+                })} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                     <option value="">Valitse palvelu</option>
                     <option value="tiilikatto">Tiilikaton pinnoitus</option>
                     <option value="ulkomaalaus">Ulkomaalaus</option>
@@ -186,7 +186,7 @@ const Contact = () => {
                   <textarea value={formState.message} onChange={e => setFormState({
                   ...formState,
                   message: e.target.value
-                })} rows={4} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="Kerro projektistasi..." />
+                })} rows={4} className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 resize-none" placeholder="Kerro projektistasi..." />
                 </div>
 
                 <button type="submit" disabled={isSubmitted || isLoading} className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold transition-all ${isSubmitted ? 'bg-green-500 text-white' : 'bg-accent text-accent-foreground hover:bg-accent/90'}`}>

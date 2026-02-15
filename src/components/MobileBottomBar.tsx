@@ -2,7 +2,7 @@ import { Phone, FileText } from 'lucide-react';
 
 const MobileBottomBar = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+    <nav aria-label="Mobiilitoiminnot" className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div className="backdrop-blur-md bg-white/70 dark:bg-black/70 border-t border-white/20 dark:border-black/10 px-4 py-3 flex items-center justify-between gap-3">
         <a
           href="tel:+358409640066"
@@ -19,7 +19,7 @@ const MobileBottomBar = () => {
           Pyydä tarjous
         </a>
       </div>
-    </div>
+    </nav>
   );
 };
 

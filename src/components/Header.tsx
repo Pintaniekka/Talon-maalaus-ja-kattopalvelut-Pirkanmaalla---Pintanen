@@ -70,7 +70,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
+          <nav aria-label="Päänavigaatio" className="hidden md:flex items-center gap-4 lg:gap-6">
             {navItems.map(item => item.dropdown ? <div key={item.label} className="relative group" onMouseEnter={() => setIsKattoDropdownOpen(true)} onMouseLeave={() => setIsKattoDropdownOpen(false)}>
                   <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
                     {item.label}
@@ -105,7 +105,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-card border-t border-border">
-            <nav className="section-container py-4 flex flex-col gap-2">
+            <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
               {navItems.map(item => item.dropdown ? <div key={item.label}>
                     <button onClick={() => setIsKattoDropdownOpen(!isKattoDropdownOpen)} className="w-full flex items-center justify-between py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors">
                       {item.label}
