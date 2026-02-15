@@ -19,7 +19,7 @@ const Hero = () => {
           width={1600}
           height={900}
         />
-        <div className="absolute inset-0 bg-primary/60" />
+        <div className="absolute inset-0 bg-primary/55" />
       </div>
 
       {/* Content */}
@@ -52,7 +52,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="#hintalaskuri" className="btn-hero">
+              <a href="#hintalaskuri" className="btn-hero shadow-lg">
                 Laske hinta
                 <ArrowRight className="w-5 h-5" />
               </a>
@@ -62,32 +62,32 @@ const Hero = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-8 pt-8 border-t border-white/10">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <Award className="w-5 h-5 text-accent" />
+            <div className="flex flex-wrap gap-4 pt-8 border-t border-white/10">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <div className="text-white font-bold text-lg">5+ vuotta</div>
-                  <div className="text-white/50 text-sm">kokemusta</div>
+                  <div className="text-white/80 text-sm">kokemusta</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-accent" />
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <div className="text-white font-bold text-lg">200+</div>
-                  <div className="text-white/50 text-sm">tyytyväistä asiakasta</div>
+                  <div className="text-white/80 text-sm">tyytyväistä asiakasta</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-accent" />
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <div className="text-white font-bold text-lg">24h</div>
-                  <div className="text-white/50 text-sm">vastausaika</div>
+                  <div className="text-white/80 text-sm">vastausaika</div>
                 </div>
               </div>
             </div>
