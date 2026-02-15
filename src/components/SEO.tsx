@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
 
 interface SEOProps {
   title?: string;
@@ -10,7 +10,7 @@ interface SEOProps {
 const defaultTitle = 'Pintanen.fi - Tiilikattojen pinnoitukset ja ulkomaalaukset Pirkanmaalla';
 const defaultDescription = 'Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu. Ota yhteyttä jo tänään.';
 
-const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
+const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
 
 const SEO = ({ title, description, preloadImage }: SEOProps) => {
   const pageTitle = title ? `${title} | Pintanen Oy` : defaultTitle;

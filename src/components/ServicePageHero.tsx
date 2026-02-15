@@ -23,6 +23,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, children }: Service
             sizes="100vw"
             width={1600}
             height={900}
+            transformWidth={1200}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary-dark/60" />
         </div>

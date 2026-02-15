@@ -5,8 +5,8 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
-const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
 
 const TalonMaalaus = () => {
   const processSteps = [

@@ -1,3 +1,5 @@
+import { getOptimizedUrl } from '@/lib/storage';
+
 interface OptimizedImageProps {
   src: string;
   alt: string;
@@ -9,14 +11,10 @@ interface OptimizedImageProps {
   draggable?: boolean;
   style?: React.CSSProperties;
   onError?: React.ReactEventHandler<HTMLImageElement>;
+  /** Target render width for Supabase image transform. Defaults to width prop or 800. */
+  transformWidth?: number;
 }
 
-/**
- * SEO- ja suorituskykyoptimoitu kuvakomponentti.
- * - Hero-kuvat: priority=true (ei lazy, fetchpriority=high)
- * - Muut kuvat: loading=lazy, decoding=async
- * - Kaikki kuvat: sizes-attribuutti responsiivisuuteen
- */
 const OptimizedImage = ({
   src,
   alt,
@@ -28,10 +26,13 @@ const OptimizedImage = ({
   draggable,
   style,
   onError,
+  transformWidth,
 }: OptimizedImageProps) => {
+  const optimizedSrc = getOptimizedUrl(src, transformWidth ?? width ?? 800);
+
   return (
     <img
-      src={src}
+      src={optimizedSrc}
       alt={alt}
       className={className}
       width={width}

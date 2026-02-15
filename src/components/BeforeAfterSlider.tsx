@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getOptimizedUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
 interface BeforeAfterSliderProps {
@@ -44,8 +45,9 @@ const BeforeAfterSlider = ({
         src={afterImage}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
-        width={1200}
-        height={900}
+        width={800}
+        height={600}
+        transformWidth={800}
         draggable={false}
       />
 
@@ -58,8 +60,9 @@ const BeforeAfterSlider = ({
           src={beforeImage}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
-          width={1200}
-          height={900}
+          width={800}
+          height={600}
+          transformWidth={800}
           draggable={false}
         />
       </div>

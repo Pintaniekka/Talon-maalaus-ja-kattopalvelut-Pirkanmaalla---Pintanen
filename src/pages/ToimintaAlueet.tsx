@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
 import SEO from '@/components/SEO';
-import kattoImage from '@/assets/katto_1.png';
+import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
+const kattoImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Kiiltava maalattu katto.webp"), 1200);
 
 const pirkanmaanKunnat = [
   'Tampere',

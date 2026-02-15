@@ -4,8 +4,8 @@ import { Check, MapPin, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
-const pensselikuva = getStorageUrl("Muut_referenssit/pensselikuva.webp");
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+const pensselikuva = getOptimizedUrl(getStorageUrl("Muut_referenssit/pensselikuva.webp"), 1200);
 
 const Meista = () => {
   const values = [
