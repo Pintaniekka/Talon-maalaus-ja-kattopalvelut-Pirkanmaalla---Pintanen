@@ -197,7 +197,7 @@ const PriceCalculator = () => {
                     value={roofSquareMeters}
                     onChange={(e) => setRoofSquareMeters(e.target.value)}
                     placeholder="Esim. 150"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   />
                 </div>
 
@@ -296,7 +296,7 @@ const PriceCalculator = () => {
                       step="10"
                       value={squareMeters}
                       onChange={(e) => setSquareMeters(Number(e.target.value))}
-                      className="flex-1 h-2 bg-secondary rounded-full appearance-none cursor-pointer accent-primary"
+                      className="flex-1 h-2 bg-secondary rounded-full appearance-none cursor-pointer accent-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                     />
                     <div className="flex items-center gap-2 min-w-[100px]">
                       <input
@@ -305,7 +305,7 @@ const PriceCalculator = () => {
                         max="350"
                         value={squareMeters}
                         onChange={(e) => setSquareMeters(Math.min(350, Math.max(50, Number(e.target.value))))}
-                        className="w-20 px-3 py-2 rounded-lg border border-border bg-background text-foreground text-center focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-20 px-3 py-2 rounded-lg border border-border bg-background text-foreground text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                       />
                       <span className="text-muted-foreground">m²</span>
                     </div>
