@@ -7,6 +7,7 @@ import OptimizedImage from "./OptimizedImage";
 
 const services = [{
   title: "Tiilikaton pinnoitus",
+  href: "/kattopalvelut/pinnoitus",
   beforeImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen liakainen katto ennen maalauspinnoitusta.webp"),
   afterImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"),
   description: "Vanha tiilikatto uuteen loistoon. Puhdistamme sammaleen, suojaamme tiilen ja maalaamme pinnan kestäväksi.",
@@ -14,6 +15,7 @@ const services = [{
   warranty: "5v takuu",
 }, {
   title: "Ulkomaalaus",
+  href: "/talon-maalaus",
   beforeImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen seina ennen maalausta.webp"),
   afterImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen seina maalauksen jalkeen.webp"),
   description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
@@ -50,7 +52,8 @@ const Services = () => {
           once: true
         }} transition={{
           delay: index * 0.15
-        }} className="card-elevated group">
+        }}>
+              <Link to={service.href} className="card-elevated group block hover:bg-muted/50 transition-colors duration-300">
               {/* Before/After Slider */}
               <div className="mb-6">
                 <BeforeAfterSlider
@@ -74,11 +77,12 @@ const Services = () => {
               {/* Warranty Badge */}
               <div className="flex items-center justify-between">
                 <span className="feature-badge">{service.warranty}</span>
-                <a href="#hintalaskuri" className="flex items-center gap-1 text-primary font-medium text-sm hover:gap-2 transition-all">
-                  Laske hinta
+                <span className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
+                  Lue lisää
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </span>
               </div>
+              </Link>
             </motion.div>)}
         </div>
 
