@@ -30,7 +30,7 @@ const BeforeAfterSlider = ({
 
   return (
     <div
-      className="relative rounded-xl overflow-hidden cursor-ew-resize select-none"
+      className="relative rounded-xl overflow-hidden cursor-ew-resize select-none touch-pan-y"
       style={{ aspectRatio }}
       onMouseDown={() => setIsDragging(true)}
       onMouseUp={() => setIsDragging(false)}
