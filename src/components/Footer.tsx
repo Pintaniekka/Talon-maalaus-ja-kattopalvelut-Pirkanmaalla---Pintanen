@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.png';
+import { getStorageUrl } from '@/lib/storage';
+import OptimizedImage from './OptimizedImage';
+
+const logoUrl = getStorageUrl("logo.webp");
 
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground py-12">
@@ -7,7 +10,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Info */}
           <div>
-            <img src={logo} alt="Pintanen Oy" className="h-16 w-auto mb-4 brightness-0 invert" />
+            <OptimizedImage
+              src={logoUrl}
+              alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus"
+              className="h-16 w-auto mb-4 brightness-0 invert"
+              sizes="64px"
+              width={180}
+              height={64}
+            />
             <p className="text-primary-foreground/70 text-sm">
               <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
               Toiminta-alue: <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Pirkanmaa</Link> ja lähialueet (Forssa)

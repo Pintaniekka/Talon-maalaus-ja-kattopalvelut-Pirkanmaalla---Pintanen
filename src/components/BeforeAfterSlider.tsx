@@ -33,8 +33,10 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, aspectRatio = "4/3" }: Bef
       {/* After image (full, behind) */}
       <img
         src={afterImage}
-        alt="Jälkeen"
+        alt="Tiilikatto pinnoituksen jälkeen – suojattu ja uudenveroinen"
         className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
         draggable={false}
       />
 
@@ -45,8 +47,10 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, aspectRatio = "4/3" }: Bef
       >
         <img
           src={beforeImage}
-          alt="Ennen"
+          alt="Tiilikatto ennen pinnoitusta – kulunut ja sammaleinen pinta"
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
           draggable={false}
         />
       </div>
