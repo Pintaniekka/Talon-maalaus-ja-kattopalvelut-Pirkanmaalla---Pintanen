@@ -1,69 +1,95 @@
 
-# Korjaussuunnitelma: Referenssit-kuvat, hero-kuvat, favicon, navigaatio ja mobiili-blur
+# SEO Configuration Improvement Plan
 
-## 1. Referenssit-sivun rikkinaiset kuvat
+## Overview
+Enhance the `index.html` `<head>` section with complete SEO metadata, structured data, and social sharing tags. Also create an OG image placeholder.
 
-Ongelma: Osa kuvien tiedostonimista koodissa ei vastaa Storagessa olevia nimia. Tama aiheuttaa 404-virheita, jotka selain blokkaa (ERR_BLOCKED_BY_ORB).
+## Changes
 
-Korjattavat tiedostonimet `Referenssit.tsx`:ssa:
+### 1. Update `index.html` head section
+- Add `<meta name="robots" content="index, follow">`
+- Update Open Graph tags with correct `og:url`, `og:image` pointing to `https://pintanen.fi/og-image.png`
+- Add missing `og:locale` and `og:site_name`
+- Update Twitter Card tags with proper `twitter:title`, `twitter:description`, `twitter:image`
+- Remove duplicate/outdated Lovable OG image references
+- Add JSON-LD LocalBusiness structured data with real company info:
+  - Name: Pintanen Oy
+  - Phone: +358409640066
+  - Email: myynti@pintanen.fi
+  - Area: Pirkanmaa, Finland
+  - Services: Tiilikaton pinnoitus, Ulkomaalaus, Katon puhdistus
+  - Business ID (taxID): 3525786-9
 
-| Koodissa nyt | Storagessa oikeasti |
-|---|---|
-| `Samaan_.../Katto ennen mekaanista puhdistusta.jpg` | `Muut_referenssit/Katto ennen mekaanista puhdistusta.jpg` |
-| `Samaan_.../Katto mekaanisen puhdistuksen jalkeen.jpg` | `Muut_referenssit/Katto mekaanisen puhdistuksen jalkeen.jpg` |
-| `Samaan_.../Punainen kiiltava katto maalauspinnoituksen jalkeen.jpg` | `Samaan_.../Punainen kiiltava katto maalaukspinnoituksen jalkeen.jpg` |
-| `Samaan_.../Sininen talo maalauksen jalkeen.jpg` | `Samaan_.../sininen talo maalauksen jalkeen.jpg` (pieni s) |
-| `Samaan_.../Punainen seina ennen varinvaihtoa.jpg` | `Samaan_.../Punainen seina ennen maalausta varinvaihdos.jpg` |
-| `Samaan_.../Harmaa seina varinvaihdon jalkeen.jpg` | `Samaan_.../Harmaa seina varinvaihdon jalkeen.jpg` (OK) |
+### 2. Create OG image
+- Need an `og-image.png` (1200x630px) in the `public/` folder
+- Since we cannot generate images, we will reference the existing favicon-512.png as a temporary fallback OR use the hero background image from storage as the OG image
+- Best approach: reference the navy blue house image from storage as the OG image URL directly, since it is already publicly accessible
 
-Korjaus: Paivitetaan polut vastaamaan Storagessa olevia oikeita nimia.
+## Technical Details
 
-## 2. Hero-kuvien paivitys
+**`index.html` final head section will include:**
 
-Sivukohtaiset hero-kuvat paivitetaan Storagen kuvilla:
+```html
+<!-- Basic SEO -->
+<meta name="description" content="Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu. Ota yhteytta jo tanaan.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Pintanen Oy">
+<meta name="keywords" content="tiilikatto, katon pinnoitus, ulkomaalaus, kattomaalaus, Pirkanmaa, Tampere">
 
-| Sivu | Nykyinen kuva | Uusi kuva (Storagesta) |
-|---|---|---|
-| Meista (Tutustu Pintaseen) | `@/assets/pensselikuva.png` (lokaali) | `pensselikuva.jpg` (Storage juuressa) |
-| Tiilikaton puhdistus | `Paallekkain_.../Punainen maalattu katto ennen ja jalkeen.jpg` | `Muut_referenssit/Katto mekaanisen puhdistuksen jalkeen.jpg` |
-| Talon maalaus | `Paallekkain_.../Sininen maalattu talo ennen ja jalkeen.jpg` | `Samaan_.../Harmaa seina varinvaihdon jalkeen.jpg` |
-| Referenssit | Ei hero-kuvaa (vain gradient) | `Muut_referenssit/kattoprojekti, jossa puolet katosta pesty.jpg` |
+<!-- Open Graph -->
+<meta property="og:title" content="Pintanen Oy | Tiilikattojen pinnoitukset ja ulkomaalaukset">
+<meta property="og:description" content="Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu.">
+<meta property="og:url" content="https://pintanen.fi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Pintanen Oy">
+<meta property="og:image" content="https://pintanen.fi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-Muutettavat tiedostot:
-- `src/pages/Meista.tsx` -- vaihdetaan import getStorageUrl-kutsuun
-- `src/pages/KattopalvelutPuhdistus.tsx` -- vaihdetaan hero-kuvan polku
-- `src/pages/TalonMaalaus.tsx` -- vaihdetaan hero-kuvan polku
-- `src/pages/Referenssit.tsx` -- lisataan backgroundImage-prop ServicePageHeroon
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pintanen Oy | Tiilikattojen pinnoitukset ja ulkomaalaukset">
+<meta name="twitter:description" content="Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu.">
+<meta name="twitter:image" content="https://pintanen.fi/og-image.png">
 
-## 3. Favicon-paivitys
+<!-- JSON-LD LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Pintanen Oy",
+  "url": "https://pintanen.fi",
+  "logo": "https://pintanen.fi/favicon-512.png",
+  "image": "https://pintanen.fi/og-image.png",
+  "description": "Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu.",
+  "telephone": "+358409640066",
+  "email": "myynti@pintanen.fi",
+  "taxID": "3525786-9",
+  "areaServed": {
+    "@type": "State",
+    "name": "Pirkanmaa"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Pirkanmaa",
+    "addressCountry": "FI"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Palvelut",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tiilikaton pinnoitus" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ulkomaalaus" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Katon puhdistus" } }
+    ]
+  }
+}
+</script>
+```
 
-Storagessa on `Uusi favicon.svg` ja `Uusi favicon.png`. Suunnitelma:
-- Ladataan molemmat tiedostot ja kopioidaan `public/`-kansioon nimilla `favicon.svg` ja `favicon.png`
-- Paivitetaan `index.html` kayttamaan uutta SVG-faviconia ja PNG-varavaihtoehtona
-- Kaytetaan isoa kokoa (laidasta laitaan)
+### 3. OG Image Note
+You will need to provide or upload a proper 1200x630px `og-image.png` to the `public/` folder. As a temporary solution, I will use `favicon-512.png` as the OG image reference. Once you have a proper OG image, just replace the file at `public/og-image.png`.
 
-## 4. Navigaation yhtenaisyys
-
-Nykyinen tilanne: Header-komponentti on jo jaettu `Layout.tsx`n kautta kaikille sivuille. Navigaatio nakyy samanlaisena joka sivulla. Mahdollinen ongelma on, etta taustavari vaihtuu vain etusivulla (isHomePage-ehto). Korjaus: Poistetaan transparentti tausta kokonaan -- navigaatio on aina `bg-primary/95 backdrop-blur-md`.
-
-Muutettava tiedosto: `src/components/Header.tsx`
-
-## 5. Mobiili-haivytys -> blur
-
-Nykyisessa CSS:ssa ei ole eksplisiittista valkoista haivytysta. Todennakoisesti ongelma tulee hero-osion gradient-overlaysta tai scroll-indikaattorista. Tarkistetaan Hero-komponentti ja lisataan `backdrop-filter: blur()` valkoisen gradientin tilalle, tai muokataan hero-gradient CSS-muuttujaa mobiilissa.
-
-Koska hero-gradient on jo maaritelty `index.css`:ssa eika kayta valkoista, ongelma saattaa liittya ServicePageHero-komponenttien gradient-overlayhin tai body-taustan nakymiseen. Lisaan mobiililla blurrin hero-osioiden alaosaan valkoisen haivytyksen tilalle.
-
-## Muutettavat tiedostot yhteenveto
-
-| Tiedosto | Muutos |
-|---|---|
-| `src/pages/Referenssit.tsx` | Korjataan kuvapolut + lisataan hero-kuva |
-| `src/pages/Meista.tsx` | Vaihdetaan hero-kuva Storageen |
-| `src/pages/KattopalvelutPuhdistus.tsx` | Vaihdetaan hero-kuva |
-| `src/pages/TalonMaalaus.tsx` | Vaihdetaan hero-kuva |
-| `src/components/Header.tsx` | Poistetaan transparentti tila, aina kiintea tausta |
-| `index.html` | Paivitetaan favicon-viittaukset |
-| `public/favicon.svg` | Uusi favicon (Storagesta) |
-| `public/favicon.png` | Uusi favicon PNG (Storagesta) |
-| `src/components/Hero.tsx` tai `src/index.css` | Mobiili-blur-korjaus |
+## Files Modified
+- `index.html` -- complete head section rewrite with all SEO tags and structured data
