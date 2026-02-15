@@ -15,6 +15,15 @@ interface OptimizedImageProps {
   transformWidth?: number;
 }
 
+const SRCSET_WIDTHS = [300, 600, 1200];
+
+function buildSrcSet(src: string): string | undefined {
+  if (!src.includes('supabase.co')) return undefined;
+  return SRCSET_WIDTHS.map(
+    (w) => `${getOptimizedUrl(src, w)} ${w}w`
+  ).join(', ');
+}
+
 const OptimizedImage = ({
   src,
   alt,
@@ -22,17 +31,19 @@ const OptimizedImage = ({
   width,
   height,
   priority = false,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   draggable,
   style,
   onError,
   transformWidth,
 }: OptimizedImageProps) => {
   const optimizedSrc = getOptimizedUrl(src, transformWidth ?? width ?? 800);
+  const srcSet = buildSrcSet(src);
 
   return (
     <img
       src={optimizedSrc}
+      srcSet={srcSet}
       alt={alt}
       className={className}
       width={width}
