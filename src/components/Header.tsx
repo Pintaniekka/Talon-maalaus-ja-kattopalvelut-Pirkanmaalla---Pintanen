@@ -61,9 +61,10 @@ const Header = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
-              className="h-14 w-auto"
+              className="w-auto flex-shrink-0"
+              style={{ height: 'clamp(32px, 4vw, 52px)', maxWidth: '180px' }}
               priority={true}
-              sizes="56px"
+              sizes="180px"
               width={160}
               height={56}
             />
@@ -90,7 +91,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <a className="hidden md:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-accent-foreground hover:scale-105" href="tel:+358409640066">
+          <a className="hidden md:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary" href="tel:+358409640066">
             <Phone className="w-4 h-4" />
             Soita ja kysy!  
           </a>
