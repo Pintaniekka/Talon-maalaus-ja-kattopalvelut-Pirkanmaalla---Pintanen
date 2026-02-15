@@ -114,15 +114,39 @@ const Services = () => {
         y: 0
       }} viewport={{
         once: true
-      }} className="mt-20 card-elevated bg-primary text-primary-foreground">
-          <h3 className="text-2xl font-bold mb-8 text-center font-heading">Tiilikaton pinnoituksen työvaiheet</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {["Pesu painepesurilla", "Rikkoutuneiden tiilien vaihto", "Kasvuston torjunta-aine", "Pohjamaalaus", "Pintamaalaus"].map((step, index) => <div key={step} className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm flex-shrink-0">
-                  {index + 1}
+      }} className="mt-20">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-center font-heading text-foreground">
+            Näin homma etenee Pintasilla
+          </h3>
+          <p className="text-muted-foreground text-center mb-12 text-lg max-w-2xl mx-auto">
+            Avaimet käteen -palvelu alusta loppuun
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { num: 1, label: "Ilmainen kuntotarkastus", icon: "🔍" },
+              { num: 2, label: "Pitävä tarjous", icon: "📋" },
+              { num: 3, label: "Suunnittelu & tarvikkeet kohteelle", icon: "🚚" },
+              { num: 4, label: "Perusteelliset pohjatyöt", icon: "🧹" },
+              { num: 5, label: "Maalaus", icon: "🎨" },
+              { num: 6, label: "Loppusiivous", icon: "✨" },
+              { num: 7, label: "Lopputarkastus & dokumentointi", icon: "📸" },
+              { num: 8, label: "Takuu", icon: "🛡️" },
+            ].map((step, index) => (
+              <motion.div
+                key={step.num}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="relative card-elevated text-center flex flex-col items-center py-6 px-4"
+              >
+                <div className="text-3xl mb-3">{step.icon}</div>
+                <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm mb-3">
+                  {step.num}
                 </div>
-                <span className="text-sm">{step}</span>
-              </div>)}
+                <span className="text-sm font-medium text-foreground leading-tight">{step.label}</span>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
