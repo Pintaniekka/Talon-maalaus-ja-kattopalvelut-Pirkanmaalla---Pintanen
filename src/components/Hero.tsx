@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/sininen talo maalauksen jalkeen.webp");
+const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
 
 const Hero = () => {
   return (

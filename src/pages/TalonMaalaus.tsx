@@ -5,7 +5,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { getStorageUrl } from "@/lib/storage";
-const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/sininen talo maalauksen jalkeen.webp");
+const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
 
 const TalonMaalaus = () => {
   const processSteps = [
