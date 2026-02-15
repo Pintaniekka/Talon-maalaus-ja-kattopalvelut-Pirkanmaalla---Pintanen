@@ -5,7 +5,7 @@ import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { getStorageUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const logoUrl = getStorageUrl("logo.webp");
+const logoUrl = getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp") + "?width=600&format=webp";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,11 +61,11 @@ const Header = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
-              className="h-[40px] md:h-[52px] w-auto shrink-0"
+              className="h-12 md:h-20 w-auto shrink-0 object-contain"
               priority={true}
               sizes="200px"
-              width={160}
-              height={56}
+              width={600}
+              height={200}
             />
           </Link>
 
