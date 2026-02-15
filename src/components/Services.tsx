@@ -105,46 +105,93 @@ const Services = () => {
           </Link>
         </motion.div>
 
-        {/* Process Steps */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} className="mt-20">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-center font-heading text-foreground">
-            Näin homma etenee Pintasilla
-          </h3>
-          <p className="text-muted-foreground text-center mb-12 text-lg max-w-2xl mx-auto">
-            Avaimet käteen -palvelu alusta loppuun
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {/* Process Timeline */}
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-24">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground font-heading mb-3">
+              Näin projekti etenee
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              Avaimet käteen -palvelu alusta loppuun
+            </p>
+          </div>
+
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block">
+            <div className="relative">
+              {/* Connection line */}
+              <div className="absolute top-[28px] left-[calc(100%/16)] right-[calc(100%/16)] h-px bg-border" />
+              <div className="grid grid-cols-8 gap-3">
+                {[
+                  { num: "01", title: "Kuntokartoitus", desc: "Kohteen arviointi paikan päällä ja tarvittavien toimenpiteiden määrittely." },
+                  { num: "02", title: "Sitova tarjous", desc: "Selkeä erittely työn sisällöstä, aikataulusta ja hinnasta." },
+                  { num: "03", title: "Suunnittelu", desc: "Sävy- ja tuotesuunnittelu kohteen vaatimusten mukaan." },
+                  { num: "04", title: "Pohjatyöt", desc: "Pintojen pesu, hionta, tasoitus ja suojaus ennen maalausta." },
+                  { num: "05", title: "Maalaus", desc: "Työ suoritetaan sovitulla menetelmällä ja laatustandardilla." },
+                  { num: "06", title: "Loppusiivous", desc: "Työmaa luovutetaan siistinä ja valmiina käyttöön." },
+                  { num: "07", title: "Lopputarkastus", desc: "Kohde käydään läpi asiakkaan kanssa ja dokumentoidaan." },
+                  { num: "08", title: "Takuutodistus", desc: "Kirjallinen takuu tehdylle työlle." },
+                ].map((step, index) => (
+                  <motion.div
+                    key={step.num}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.07 }}
+                    className="group flex flex-col items-center text-center"
+                  >
+                    {/* Number circle */}
+                    <div className="w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center mb-4 relative z-10 group-hover:border-primary group-hover:shadow-md transition-all duration-300">
+                      <span className="text-sm font-bold text-muted-foreground group-hover:text-primary transition-colors duration-300 font-heading">
+                        {step.num}
+                      </span>
+                    </div>
+                    {/* Content */}
+                    <h4 className="text-sm font-bold text-foreground mb-1.5 font-heading leading-tight">
+                      {step.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed px-1">
+                      {step.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet Timeline */}
+          <div className="lg:hidden max-w-lg mx-auto">
             {[
-              { num: 1, label: "Ilmainen kuntotarkastus", icon: "🔍" },
-              { num: 2, label: "Pitävä tarjous", icon: "📋" },
-              { num: 3, label: "Suunnittelu & tarvikkeet kohteelle", icon: "🚚" },
-              { num: 4, label: "Perusteelliset pohjatyöt", icon: "🧹" },
-              { num: 5, label: "Maalaus", icon: "🎨" },
-              { num: 6, label: "Loppusiivous", icon: "✨" },
-              { num: 7, label: "Lopputarkastus & dokumentointi", icon: "📸" },
-              { num: 8, label: "Takuu", icon: "🛡️" },
+              { num: "01", title: "Maksuton kuntokartoitus", desc: "Kohteen arviointi paikan päällä ja tarvittavien toimenpiteiden määrittely." },
+              { num: "02", title: "Kirjallinen ja sitova tarjous", desc: "Selkeä erittely työn sisällöstä, aikataulusta ja hinnasta." },
+              { num: "03", title: "Suunnittelu & materiaalivalinnat", desc: "Sävy- ja tuotesuunnittelu kohteen vaatimusten mukaan." },
+              { num: "04", title: "Huolelliset suojaus- ja pohjatyöt", desc: "Pintojen pesu, hionta, tasoitus ja suojaus ennen maalausta." },
+              { num: "05", title: "Ammattimainen maalaus", desc: "Työ suoritetaan sovitulla menetelmällä ja laatustandardilla." },
+              { num: "06", title: "Viimeistely & loppusiivous", desc: "Työmaa luovutetaan siistinä ja valmiina käyttöön." },
+              { num: "07", title: "Yhteinen lopputarkastus", desc: "Kohde käydään läpi asiakkaan kanssa ja dokumentoidaan." },
+              { num: "08", title: "Takuutodistus", desc: "Kirjallinen takuu tehdylle työlle." },
             ].map((step, index) => (
               <motion.div
                 key={step.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="relative card-elevated text-center flex flex-col items-center py-6 px-4"
+                transition={{ delay: index * 0.06 }}
+                className="flex gap-5 relative"
               >
-                <div className="text-3xl mb-3">{step.icon}</div>
-                <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm mb-3">
-                  {step.num}
+                {/* Vertical line */}
+                {index < 7 && (
+                  <div className="absolute left-[23px] top-[56px] bottom-0 w-px bg-border" />
+                )}
+                {/* Number circle */}
+                <div className="w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center flex-shrink-0 relative z-10">
+                  <span className="text-sm font-bold text-muted-foreground font-heading">{step.num}</span>
                 </div>
-                <span className="text-sm font-medium text-foreground leading-tight">{step.label}</span>
+                {/* Content */}
+                <div className="pb-8">
+                  <h4 className="text-base font-bold text-foreground font-heading mb-1">{step.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
