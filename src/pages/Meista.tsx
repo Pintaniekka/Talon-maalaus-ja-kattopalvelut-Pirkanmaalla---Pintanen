@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Check, MapPin, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
+import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 const pensselikuva = getStorageUrl("Muut_referenssit/pensselikuva.webp");
 
@@ -34,6 +35,7 @@ const Meista = () => {
 
   return (
     <div>
+      <SEO title="Meistä" description="Tutustu Pintaseen – pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen." />
       <ServicePageHero
         title="Tutustu Pintaseen"
         subtitle="Tutustu meihin – olemme pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen"

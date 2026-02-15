@@ -3,6 +3,7 @@ import { Check, Droplets, Shield, Sparkles, Clock } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 const puhdistusImage = getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp");
 
@@ -42,6 +43,7 @@ const KattopalvelutPuhdistus = () => {
 
   return (
     <div>
+      <SEO title="Tiilikaton puhdistus" description="Ammattimainen tiilikaton mekaaninen puhdistus ja sammaleentorjunta. Alkaen 800 €. Ilmainen kuntotarkastus Pirkanmaalla." />
       <ServicePageHero
         title="Tiilikaton puhdistus"
         subtitle="Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti"

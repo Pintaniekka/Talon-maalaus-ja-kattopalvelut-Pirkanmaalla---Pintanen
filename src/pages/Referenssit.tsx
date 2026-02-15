@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
+import SEO from '@/components/SEO';
 import { getStorageUrl } from '@/lib/storage';
 
 type Category = 'all' | 'pinnoitus' | 'puhdistus' | 'maalaus';
@@ -234,6 +235,7 @@ const Referenssit = () => {
 
   return (
     <div>
+      <SEO title="Referenssit" description="Tutustu Pintasen tekemiin tiilikattojen pinnoituksiin, puhdistuksiin ja ulkomaalauksiin. Laatu puhuu puolestaan." />
       <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getStorageUrl('Muut_referenssit/katto puolet pesty.webp')} />
 
       <section className="section-padding bg-background">
