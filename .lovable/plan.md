@@ -1,65 +1,66 @@
 
-# Fix: Desktop/Mobile Scroll Bug
 
-## Root Cause
+# Fix Mobile LCP (6.4s -> target under 2.5s)
 
-The CSS in `index.css` sets `overflow-y: auto !important` on **both** `html` and `body`. This creates two competing scroll containers. The browser doesn't know which one to scroll, so wheel/touch events on the main content get swallowed. The `fixed` header sits outside this conflict, which is why scrolling works only when hovering over it.
+The Lighthouse data reveals **three distinct problems**, not just image sizes.
 
-A secondary contributor is `overscroll-behavior: none` on `body`, which in an iframe context (the Lovable preview) can suppress scroll propagation.
+---
 
-## Fix (single file: `src/index.css`)
+## Problem 1: LCP Element Is Text, Not an Image
 
-### 1. Simplify html/body overflow rules
+Lighthouse identifies the LCP element as the hero `<span>` ("katoille ja seinille"), with a **2,350ms render delay**. This is because `framer-motion` animates it from `opacity: 0` -- the browser cannot paint the LCP element until the JavaScript animation starts.
 
-- `html`: Set `overflow-x: hidden` and leave `overflow-y` unset (browser default handles scrolling)
-- `body`: Only set `overflow-x: hidden`. Remove `overflow-y: auto !important` and `height: auto !important`. Remove `overscroll-behavior: none`.
-- Keep `max-width: 100vw` on both to prevent horizontal sway.
+**Fix**: Remove the initial `opacity: 0` / `y: 30` animation from the hero content in `Hero.tsx`. Use CSS animation instead (or just show it immediately). The hero is always above-the-fold, so there is no benefit to an entrance animation.
 
-### 2. Keep `#root` clean
+**File**: `src/components/Hero.tsx`
+- Change the hero `motion.div` (wrapping h1, badges, CTAs) to a plain `div` with a simple CSS `animate-fade-in` class (already defined in index.css), or remove animation entirely.
 
-- `min-height: 100vh`, `display: flex`, `flex-direction: column` (current values are fine)
-- `overflow-x: hidden` stays
-- No `overflow-y` or fixed `height`
+---
 
-### 3. Remove `overscroll-behavior: none`
+## Problem 2: Images Still 500KB+ (Supabase Transforms Not Reducing Enough)
 
-This property on body in an iframe prevents scroll chaining. Removing it lets the browser handle scrolling normally.
+The images are still huge because:
+- Source images are very large originals
+- `quality=60` is not aggressive enough for these particular images
+- The `1200w` srcset option is being selected on Retina mobile screens (e.g. Moto G at 2x DPR selects 1200w for a ~360px viewport)
 
-### Resulting CSS (lines 7-26 of index.css)
+**Fixes**:
 
-```css
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden !important;
-  max-width: 100vw;
-}
+### a) Lower quality to 40 (`src/lib/storage.ts`)
+Change `quality=60` to `quality=40`. For WebP at these dimensions, 40 is visually indistinguishable from 60 but cuts file size by ~30-40%.
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-```
+### b) Add smaller srcset breakpoint (`src/components/OptimizedImage.tsx`)
+Change srcset widths from `[300, 600, 1200]` to `[320, 640, 960, 1200]`. The 960w option gives Retina phones a better middle-ground instead of jumping to 1200w.
 
-And in the second `body` block (around line 145), remove `overscroll-behavior: none`:
+### c) Convert BeforeAfter.tsx to use OptimizedImage (`src/components/BeforeAfter.tsx`)
+Currently uses raw `<img>` tags without srcset. Switch to `OptimizedImage` component to get automatic srcset generation.
 
-```css
-body {
-  @apply bg-background text-foreground font-sans antialiased;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-overflow-scrolling: touch;
-}
-```
+### d) Fix logo size (`src/components/Header.tsx`)
+Logo is served at 600x200 but rendered at 252x84. Change `width` and `transformWidth` to 300.
 
-## What stays unchanged
+### e) Fix Services banner image (`src/components/Services.tsx`)
+The "Puhdistus" banner uses inline `backgroundImage` style, bypassing all optimization. Convert to an `<img>` element with `object-cover` positioning inside the link.
 
-- Hero, colors, layout, images, all other components
-- `touch-pan-y` on BeforeAfter sliders
-- Mobile bottom padding
-- The `scroll-behavior: smooth` on html
+---
+
+## Problem 3: Preconnect Warning
+
+Lighthouse still shows `crossorigin=""` on the preconnect link. The `index.html` code looks correct (no crossorigin), but the **preload link** for the hero image in `index.html` (line ~12) has `type="image/webp"` which may also need attention. Add a second preconnect without crossorigin as a `dns-prefetch` fallback.
+
+**File**: `index.html`
+- Add `<link rel="dns-prefetch" href="https://fndkkgfpsgghvewvoysr.supabase.co" />` as fallback.
+
+---
+
+## Summary of File Changes
+
+| File | Change |
+|---|---|
+| `src/components/Hero.tsx` | Remove framer-motion animation from hero content (fixes 2350ms render delay) |
+| `src/lib/storage.ts` | quality=60 -> quality=40 |
+| `src/components/OptimizedImage.tsx` | srcset widths: [320, 640, 960, 1200] |
+| `src/components/BeforeAfter.tsx` | Use OptimizedImage instead of raw img tags |
+| `src/components/Header.tsx` | Logo width/transformWidth 600 -> 300 |
+| `src/components/Services.tsx` | Convert banner backgroundImage to OptimizedImage |
+| `index.html` | Add dns-prefetch fallback |
+
