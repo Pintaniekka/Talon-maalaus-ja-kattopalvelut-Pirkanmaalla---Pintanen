@@ -4,13 +4,14 @@ import { Check, Droplets, Paintbrush, Shield, Clock, BadgeCheck, MapPin } from "
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import CityServices from "@/components/CityServices";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Kiiltava maalattu katto.webp"), 1200);
+const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
 
 const KattopalvelutPinnoitusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -159,6 +160,7 @@ const KattopalvelutPinnoitusCity = () => {
         </div>
       </section>
 
+      <CityServices cityName={cityData.name} citySlug={city!} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>

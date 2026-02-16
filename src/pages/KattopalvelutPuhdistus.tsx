@@ -5,7 +5,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
-const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
+const puhdistusImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
 
 const KattopalvelutPuhdistus = () => {
   const features = [

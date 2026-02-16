@@ -5,6 +5,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import CityServices from "@/components/CityServices";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
@@ -183,6 +184,7 @@ const TalonMaalausCity = () => {
         </div>
       </section>
 
+      <CityServices cityName={cityData.name} citySlug={city!} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
