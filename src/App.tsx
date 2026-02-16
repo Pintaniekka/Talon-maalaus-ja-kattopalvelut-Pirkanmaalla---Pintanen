@@ -12,6 +12,7 @@ import KattopalvelutPuhdistusCity from "./pages/KattopalvelutPuhdistusCity";
 import TalonMaalaus from "./pages/TalonMaalaus";
 import TalonMaalausCity from "./pages/TalonMaalausCity";
 import ToimintaAlueet from "./pages/ToimintaAlueet";
+import AlueCity from "./pages/AlueCity";
 import Referenssit from "./pages/Referenssit";
 import Meista from "./pages/Meista";
 import NotFound from "./pages/NotFound";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/talon-maalaus" element={<TalonMaalaus />} />
             <Route path="/talon-maalaus/:city" element={<TalonMaalausCity />} />
             <Route path="/toiminta-alueet" element={<ToimintaAlueet />} />
+            <Route path="/alue/:city" element={<AlueCity />} />
             <Route path="/referenssit" element={<Referenssit />} />
             <Route path="/meista" element={<Meista />} />
           </Route>

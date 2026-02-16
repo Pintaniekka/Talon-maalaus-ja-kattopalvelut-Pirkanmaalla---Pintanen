@@ -261,10 +261,10 @@ const Meista = () => {
                 { name: "Nokia", slug: "nokia" },
                 { name: "Hämeenkyrö", slug: "hameenkyro" },
                 { name: "Sastamala", slug: "sastamala" },
-                { name: "Kangasala", slug: undefined },
+                { name: "Ylöjärvi", slug: "ylojarvi" },
                 { name: "Forssa", slug: "forssa" },
               ].map((city) => (
-                <Link key={city.name} to={city.slug ? `/kattopalvelut/pinnoitus/${city.slug}` : "/kattopalvelut/pinnoitus"} className="px-4 py-2 bg-card rounded-full text-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
+                <Link key={city.name} to={`/alue/${city.slug}`} className="px-4 py-2 bg-card rounded-full text-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
                   {city.name}
                 </Link>
               ))}

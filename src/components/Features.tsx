@@ -19,18 +19,18 @@ const Features = () => {
             </span>
           </div>
           <div className="text-primary-foreground/90 text-sm md:text-base flex flex-wrap gap-x-1">
-            <Link to="/kattopalvelut/pinnoitus/tampere" className="hover:text-accent transition-colors underline underline-offset-2">Tampere</Link>,
-            <Link to="/kattopalvelut/pinnoitus/sastamala" className="hover:text-accent transition-colors underline underline-offset-2">Sastamala</Link>,
-            <Link to="/kattopalvelut/pinnoitus/hameenkyro" className="hover:text-accent transition-colors underline underline-offset-2">Hämeenkyrö</Link>,
-            <Link to="/kattopalvelut/pinnoitus/ylojarvi" className="hover:text-accent transition-colors underline underline-offset-2">Ylöjärvi</Link>,
-            <Link to="/kattopalvelut/pinnoitus/nokia" className="hover:text-accent transition-colors underline underline-offset-2">Nokia</Link> sekä
-            <Link to="/kattopalvelut/pinnoitus/forssa" className="hover:text-accent transition-colors underline underline-offset-2">Forssa</Link>
+            <Link to="/alue/tampere" className="hover:text-accent transition-colors underline underline-offset-2">Tampere</Link>,
+            <Link to="/alue/sastamala" className="hover:text-accent transition-colors underline underline-offset-2">Sastamala</Link>,
+            <Link to="/alue/hameenkyro" className="hover:text-accent transition-colors underline underline-offset-2">Hämeenkyrö</Link>,
+            <Link to="/alue/ylojarvi" className="hover:text-accent transition-colors underline underline-offset-2">Ylöjärvi</Link>,
+            <Link to="/alue/nokia" className="hover:text-accent transition-colors underline underline-offset-2">Nokia</Link>,
+            <Link to="/alue/forssa" className="hover:text-accent transition-colors underline underline-offset-2">Forssa</Link>
           </div>
           <Link 
-            to="/kattopalvelut/pinnoitus" 
+            to="/toiminta-alueet" 
             className="text-accent hover:text-accent/80 text-sm font-medium underline underline-offset-2 transition-colors"
           >
-            Tiilikaton pinnoitus →
+            Kaikki alueet →
           </Link>
         </motion.div>
       </div>

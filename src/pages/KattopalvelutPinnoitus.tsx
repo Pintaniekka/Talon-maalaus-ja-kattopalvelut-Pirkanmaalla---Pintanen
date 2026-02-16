@@ -5,6 +5,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import ToimintaAlueetSection from "@/components/ToimintaAlueetSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
@@ -38,15 +39,7 @@ const KattopalvelutPinnoitus = () => {
       {/* Seloste-osio */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
               Miksi tiilikaton pinnoitus?
             </h2>
@@ -77,15 +70,7 @@ const KattopalvelutPinnoitus = () => {
       {/* Process Steps */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} className="text-center mb-12">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">5-vaiheinen pinnoitusprosessi</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Jokainen vaihe on tarkasti suunniteltu takaamaan pitkäikäinen ja kaunis lopputulos.
@@ -93,17 +78,7 @@ const KattopalvelutPinnoitus = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => <motion.div key={step.title} initial={{
-            opacity: 0,
-            y: 30
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            delay: index * 0.1
-          }} className="card-elevated text-center">
+            {processSteps.map((step, index) => <motion.div key={step.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="card-elevated text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <step.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -118,32 +93,14 @@ const KattopalvelutPinnoitus = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }}>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi pinnoittaa tiilikatto?</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Tiilikaton pinnoitus on edullisin tapa pidentää katon käyttöikää merkittävästi verrattuna täydelliseen
                 katon uusimiseen.
               </p>
               <ul className="space-y-4">
-                {benefits.map((benefit, index) => <motion.li key={benefit} initial={{
-                opacity: 0,
-                x: -20
-              }} whileInView={{
-                opacity: 1,
-                x: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                delay: index * 0.1
-              }} className="flex items-center gap-3">
+                {benefits.map((benefit, index) => <motion.li key={benefit} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-accent" />
                     </div>
@@ -151,7 +108,6 @@ const KattopalvelutPinnoitus = () => {
                   </motion.li>)}
               </ul>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -159,12 +115,7 @@ const KattopalvelutPinnoitus = () => {
       {/* Before/After */}
       <section className="section-padding bg-muted">
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-8"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Ennen & Jälkeen</h2>
             <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
           </motion.div>
@@ -187,6 +138,8 @@ const KattopalvelutPinnoitus = () => {
       </section>
 
       <KotitalousVahennys />
+
+      <ToimintaAlueetSection />
 
       <ServiceCTA />
     </div>;
