@@ -7,33 +7,41 @@ import SEO from '@/components/SEO';
 import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
 const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"), 1200);
 
+// Cities that have dedicated pages
+const citySlugMap: Record<string, string> = {
+  'Tampere': 'tampere',
+  'Nokia': 'nokia',
+  'Ylöjärvi': 'ylojarvi',
+  'Hämeenkyrö': 'hameenkyro',
+  'Sastamala': 'sastamala',
+  'Forssa': 'forssa',
+  'Hämeenlinna': 'hameenlinna',
+  'Huittinen': 'huittinen',
+};
+
 const pirkanmaanKunnat = [
-  'Tampere',
-  'Nokia',
-  'Ylöjärvi',
-  'Kangasala',
-  'Lempäälä',
-  'Pirkkala',
-  'Vesilahti',
-  'Valkeakoski',
-  'Akaa',
-  'Urjala',
-  'Pälkäne',
-  'Orivesi',
-  'Juupajoki',
-  'Ruovesi',
-  'Virrat',
-  'Parkano',
-  'Kihniö',
-  'Ikaalinen',
-  'Hämeenkyrö',
-  'Sastamala',
-  'Mänttä-Vilppula',
+  'Tampere', 'Nokia', 'Ylöjärvi', 'Kangasala', 'Lempäälä', 'Pirkkala',
+  'Vesilahti', 'Valkeakoski', 'Akaa', 'Urjala', 'Pälkäne', 'Orivesi',
+  'Juupajoki', 'Ruovesi', 'Virrat', 'Parkano', 'Kihniö', 'Ikaalinen',
+  'Hämeenkyrö', 'Sastamala', 'Mänttä-Vilppula',
 ];
 
 const lahialueet = ['Forssa'];
 
 const ToimintaAlueet = () => {
+  const renderCityLink = (kunta: string) => {
+    const slug = citySlugMap[kunta];
+    const linkTo = slug ? `/kattopalvelut/pinnoitus/${slug}` : '/kattopalvelut/pinnoitus';
+    return (
+      <Link
+        to={linkTo}
+        className="block bg-secondary text-secondary-foreground px-4 py-3 rounded-lg text-center font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+      >
+        {kunta}
+      </Link>
+    );
+  };
+
   return (
     <div>
       <SEO title="Toiminta-alueet" description="Pintanen palvelee koko Pirkanmaan alueella: Tampere, Nokia, Kangasala, Ylöjärvi, Sastamala ja muut kunnat." />
@@ -45,7 +53,6 @@ const ToimintaAlueet = () => {
 
       <section className="section-padding bg-background">
         <div className="section-container max-w-4xl">
-          {/* Johdanto */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,12 +85,7 @@ const ToimintaAlueet = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.02 }}
                 >
-                  <Link
-                    to="/kattopalvelut/pinnoitus"
-                    className="block bg-secondary text-secondary-foreground px-4 py-3 rounded-lg text-center font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    {kunta}
-                  </Link>
+                  {renderCityLink(kunta)}
                 </motion.div>
               ))}
             </div>
@@ -110,12 +112,7 @@ const ToimintaAlueet = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.02 }}
                 >
-                  <Link
-                    to="/kattopalvelut/pinnoitus"
-                    className="block bg-secondary text-secondary-foreground px-4 py-3 rounded-lg text-center font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    {alue}
-                  </Link>
+                  {renderCityLink(alue)}
                 </motion.div>
               ))}
             </div>
@@ -130,8 +127,9 @@ const ToimintaAlueet = () => {
             className="bg-muted p-6 rounded-xl text-center"
           >
             <p className="text-muted-foreground">
-              Tarvittaessa palvelemme myös <strong>Hämeenlinnan</strong> ja{' '}
-              <strong>Huittisten</strong> alueella sopimuksen mukaan.
+              Tarvittaessa palvelemme myös{' '}
+              <Link to="/kattopalvelut/pinnoitus/hameenlinna" className="text-foreground font-semibold hover:text-primary transition-colors underline underline-offset-2">Hämeenlinnan</Link> ja{' '}
+              <Link to="/kattopalvelut/pinnoitus/huittinen" className="text-foreground font-semibold hover:text-primary transition-colors underline underline-offset-2">Huittisten</Link> alueella sopimuksen mukaan.
             </p>
           </motion.div>
         </div>
