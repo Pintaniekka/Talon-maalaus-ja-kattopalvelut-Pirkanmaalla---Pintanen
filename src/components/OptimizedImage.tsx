@@ -31,7 +31,7 @@ const OptimizedImage = ({
   width,
   height,
   priority = false,
-  sizes = "(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw",
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   draggable,
   style,
   onError,
