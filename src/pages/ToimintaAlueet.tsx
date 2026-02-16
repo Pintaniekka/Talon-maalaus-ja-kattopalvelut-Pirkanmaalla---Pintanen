@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
 import SEO from '@/components/SEO';
-import { cities } from '@/data/cityData';
+import { allCities } from '@/data/cityData';
 import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
+
 const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"), 1200);
 
 const ToimintaAlueet = () => {
@@ -42,8 +43,8 @@ const ToimintaAlueet = () => {
               <MapPin className="w-6 h-6 text-primary" />
               Palvelualueet
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {cities.map((city, index) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+              {allCities.map((city, index) => (
                 <motion.div
                   key={city.slug}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -53,9 +54,10 @@ const ToimintaAlueet = () => {
                 >
                   <Link
                     to={`/alue/${city.slug}`}
-                    className="block bg-secondary text-secondary-foreground px-4 py-3 rounded-lg text-center font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="flex items-center justify-between gap-1 bg-secondary text-secondary-foreground px-4 py-3 rounded-full text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors group"
                   >
-                    {city.name}
+                    <span>{city.name}</span>
+                    <ChevronRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                   </Link>
                 </motion.div>
               ))}

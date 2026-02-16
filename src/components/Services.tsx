@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getStorageUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
+import { RoofTileIcon, PaintBrushIcon } from "./ServiceIcons";
 
 const services = [{
   title: "Tiilikaton pinnoitus",
@@ -63,7 +64,10 @@ const Services = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-foreground mb-3 font-heading">{service.title}</h3>
+              <div className="flex items-center gap-2 mb-3">
+                {index === 0 ? <RoofTileIcon className="w-6 h-6 text-primary flex-shrink-0" /> : <PaintBrushIcon className="w-6 h-6 text-primary flex-shrink-0" />}
+                <h3 className="text-xl font-bold text-foreground font-heading">{service.title}</h3>
+              </div>
               <p className="text-muted-foreground mb-6">{service.description}</p>
 
               {/* Features List */}

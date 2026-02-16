@@ -10,6 +10,7 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
+import TeamContactSection from "@/components/TeamContactSection";
 
 const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
 
@@ -161,6 +162,7 @@ const KattopalvelutPinnoitusCity = () => {
       </section>
 
       <CityServices cityName={cityData.name} citySlug={city!} />
+      <TeamContactSection cityName={cityData.name} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>

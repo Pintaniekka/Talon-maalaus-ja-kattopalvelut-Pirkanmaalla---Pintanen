@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calculator, Home, ArrowRight, Check } from 'lucide-react';
+import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
 
 type CalculatorType = 'roof' | 'wall' | null;
 type RoofSlope = '5-19' | '20-30' | '31+' | null;
@@ -139,7 +140,7 @@ const PriceCalculator = () => {
                 className="card-elevated text-left group hover:border-primary border-2 border-transparent transition-colors"
               >
                 <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Home className="w-8 h-8 text-accent" />
+                   <RoofTileIcon className="w-8 h-8 text-accent" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
                   Tiilikaton pinnoitus
@@ -154,7 +155,7 @@ const PriceCalculator = () => {
                 className="card-elevated text-left group hover:border-primary border-2 border-transparent transition-colors"
               >
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Calculator className="w-8 h-8 text-primary" />
+                   <PaintBrushIcon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
                   Ulkomaalaus

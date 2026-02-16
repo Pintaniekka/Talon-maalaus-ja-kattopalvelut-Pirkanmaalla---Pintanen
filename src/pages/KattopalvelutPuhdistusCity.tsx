@@ -8,8 +8,9 @@ import CityServices from "@/components/CityServices";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
+import TeamContactSection from "@/components/TeamContactSection";
 
-const puhdistusImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
+const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
 
 const KattopalvelutPuhdistusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -134,6 +135,7 @@ const KattopalvelutPuhdistusCity = () => {
       </section>
 
       <CityServices cityName={cityData.name} citySlug={city!} />
+      <TeamContactSection cityName={cityData.name} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
