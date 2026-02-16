@@ -45,9 +45,9 @@ const BeforeAfterSlider = ({
         src={afterImage}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
-        width={800}
-        height={600}
-        transformWidth={800}
+        width={600}
+        height={450}
+        transformWidth={500}
         draggable={false}
       />
 
@@ -60,9 +60,9 @@ const BeforeAfterSlider = ({
           src={beforeImage}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
-          width={800}
-          height={600}
-          transformWidth={800}
+          width={600}
+          height={450}
+          transformWidth={500}
           draggable={false}
         />
       </div>
