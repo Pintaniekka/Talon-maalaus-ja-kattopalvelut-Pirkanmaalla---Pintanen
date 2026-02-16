@@ -35,4 +35,31 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Tiilikaton pinnoitus - kaupunkisivut -->
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/tampere</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/sastamala</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/hameenkyro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/ylojarvi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/nokia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/forssa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/hameenlinna</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/huittinen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Tiilikaton puhdistus - kaupunkisivut -->
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/tampere</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/sastamala</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/hameenkyro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/ylojarvi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/nokia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/forssa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/hameenlinna</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/kattopalvelut/puhdistus/huittinen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Talon maalaus - kaupunkisivut -->
+  <url><loc>https://pintanen.fi/talon-maalaus/tampere</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/sastamala</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/hameenkyro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/ylojarvi</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/nokia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/forssa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/hameenlinna</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pintanen.fi/talon-maalaus/huittinen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
