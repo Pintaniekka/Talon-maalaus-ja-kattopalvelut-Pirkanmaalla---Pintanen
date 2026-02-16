@@ -256,9 +256,16 @@ const Meista = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Toiminta-alue</h2>
             <p className="text-lg text-muted-foreground mb-6">Palvelemme koko Pirkanmaan alueella ja lähikunnissa:</p>
             <div className="flex flex-wrap justify-center gap-2">
-              {["Tampere", "Nokia", "Hämeenkyrö", "Sastamala", "Kangasala", "Forssa"].map((city) => (
-                <Link key={city} to="/kattopalvelut/pinnoitus" className="px-4 py-2 bg-card rounded-full text-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
-                  {city}
+              {[
+                { name: "Tampere", slug: "tampere" },
+                { name: "Nokia", slug: "nokia" },
+                { name: "Hämeenkyrö", slug: "hameenkyro" },
+                { name: "Sastamala", slug: "sastamala" },
+                { name: "Kangasala", slug: undefined },
+                { name: "Forssa", slug: "forssa" },
+              ].map((city) => (
+                <Link key={city.name} to={city.slug ? `/kattopalvelut/pinnoitus/${city.slug}` : "/kattopalvelut/pinnoitus"} className="px-4 py-2 bg-card rounded-full text-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
+                  {city.name}
                 </Link>
               ))}
             </div>
