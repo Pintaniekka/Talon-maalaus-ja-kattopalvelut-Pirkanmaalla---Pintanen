@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Droplets } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getStorageUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
-import { RoofTileIcon, PaintBrushIcon } from "./ServiceIcons";
+import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
 
 const services = [{
   title: "Tiilikaton pinnoitus",
@@ -115,7 +115,7 @@ const Services = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
             <div className="relative flex items-center gap-4 p-6 md:p-8">
               <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <Droplets className="w-6 h-6 text-white" />
+                <RoofCleanIcon className="w-6 h-6" />
               </div>
               <div className="flex-1">
                 <h4 className="font-bold text-white font-heading">Tarvitseeko kattosi vain puhdistuksen?</h4>
