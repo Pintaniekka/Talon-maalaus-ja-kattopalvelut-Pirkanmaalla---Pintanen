@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
@@ -35,7 +36,13 @@ const images = [
   },
 ];
 
+const INITIAL_COUNT = 3;
+
 const Gallery = () => {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const visibleImages = images.slice(0, visibleCount);
+  const hasMore = visibleCount < images.length;
+
   return (
     <section id="referenssit" className="section-padding bg-muted">
       <div className="section-container">
@@ -52,7 +59,7 @@ const Gallery = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((image, index) => (
+          {visibleImages.map((image, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -80,6 +87,17 @@ const Gallery = () => {
             </motion.div>
           ))}
         </div>
+
+        {hasMore && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setVisibleCount(images.length)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+            >
+              Näytä lisää
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
