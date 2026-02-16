@@ -35,7 +35,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- Aluesivut -->
+  <!-- Aluesivut (alkuperäiset) -->
   <url><loc>https://pintanen.fi/alue/tampere</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pintanen.fi/alue/sastamala</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pintanen.fi/alue/hameenkyro</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -44,6 +44,23 @@
   <url><loc>https://pintanen.fi/alue/forssa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pintanen.fi/alue/hameenlinna</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pintanen.fi/alue/huittinen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Aluesivut (uudet) -->
+  <url><loc>https://pintanen.fi/alue/akaa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/ikaalinen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/juupajoki</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/kangasala</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/kihnio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/lempaala</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/mantta-vilppula</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/orivesi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/parkano</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/pirkkala</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/palkane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/ruovesi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/urjala</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/valkeakoski</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/vesilahti</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pintanen.fi/alue/virrat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Tiilikaton pinnoitus - kaupunkisivut -->
   <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/tampere</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://pintanen.fi/kattopalvelut/pinnoitus/sastamala</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

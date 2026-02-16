@@ -2,12 +2,13 @@ export interface CityData {
   name: string;
   slug: string;
   alueIntro: string;
-  pinnoitusIntro: string;
-  puhdistusIntro: string;
-  maalausIntro: string;
-  localSection: string;
+  pinnoitusIntro?: string;
+  puhdistusIntro?: string;
+  maalausIntro?: string;
+  localSection?: string;
 }
 
+/** Cities with full service subpages (pinnoitus/puhdistus/maalaus per city) */
 export const cities: CityData[] = [
   {
     name: "Tampere",
@@ -83,6 +84,98 @@ export const cities: CityData[] = [
   },
 ];
 
+/** Cities with area page but NO dedicated service subpages */
+export const simpleCities: CityData[] = [
+  {
+    name: "Akaa",
+    slug: "akaa",
+    alueIntro: "Pintanen toimii aktiivisesti Akaan alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Akaa sijaitsee noin tunnin ajomatkan päässä Tampereelta ja kuuluu luontevasti palvelualueeseemme.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä, jossa selvitämme työn laajuuden ja tarpeet. Yrittäjät tekevät työn itse alusta loppuun – emme käytä aliurakoitsijoita emmekä välitä urakoita eteenpäin. Työmaat viimeistellään huolellisesti ja jälki siivotaan ennen luovutusta.\n\nAkaan alueella on runsaasti omakotitaloja, joiden tiilikatot ja puujulkisivut hyötyvät säännöllisestä huollosta. Oikea-aikainen kunnossapito ehkäisee suurempia korjaustarpeita ja pidentää rakenteiden käyttöikää. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Akaan alueelle.",
+  },
+  {
+    name: "Ikaalinen",
+    slug: "ikaalinen",
+    alueIntro: "Pintanen palvelee Ikaalisten aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Ikaalinen sijaitsee noin tunnin matkan päässä Tampereelta ja kuuluu vakituiseen toiminta-alueeseemme.\n\nKäymme aina arvioimassa kohteen paikan päällä maksutta ennen työn aloittamista. Yrittäjät ovat itse työmaalla tekemässä työn alusta loppuun, joten laatu pysyy tasaisena. Työmaat viimeistellään siististi ja aikatauluista pidetään kiinni.\n\nIkaalisten järviympäristössä ilmankosteus on ajoittain korkeaa, mikä edistää kasvuston muodostumista katoille. Säännöllinen katon huolto ja julkisivujen maalaus pitävät kiinteistön kunnossa pitkään. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Ikaalisten alueelle.",
+  },
+  {
+    name: "Juupajoki",
+    slug: "juupajoki",
+    alueIntro: "Pintanen palvelee myös Juupajoen aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Toimimme noin tunnin ajomatkan säteellä Tampereelta.\n\nJokaiseen kohteeseen tehdään ilmainen arviointikäynti paikan päällä. Yrittäjät tekevät työn itse – emme välitä urakoita eteenpäin. Työmaat viimeistellään huolellisesti ja sovitusta aikataulusta pidetään kiinni.\n\nJuupajoen metsäisessä ja luonnonläheisessä ympäristössä katot keräävät helposti neulasia ja kasvustoa. Puujulkisivut altistuvat kosteudelle erityisesti varjoisilla tonteilla. Säännöllinen huolto pidentää rakenteiden ikää merkittävästi. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Juupajoen alueelle.",
+  },
+  {
+    name: "Kangasala",
+    slug: "kangasala",
+    alueIntro: "Pintanen toimii aktiivisesti Kangasalan alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Kangasala sijaitsee aivan Tampereen vieressä ja kuuluu ydintoiminta-alueeseemme.\n\nKäymme aina ensin arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun – emme käytä aliurakoitsijoita. Työmaat viimeistellään huolellisesti ja jälki siivotaan ennen luovutusta.\n\nKangasalan monipuolisilla asuinalueilla on runsaasti eri-ikäisiä omakotitaloja, joiden katto- ja julkisivupinnat kaipaavat säännöllistä huoltoa. Järvien läheisyys tuo kosteutta, joka rasittaa pintoja ajan myötä. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Kangasalan alueelle.",
+  },
+  {
+    name: "Kihniö",
+    slug: "kihnio",
+    alueIntro: "Pintanen palvelee myös Kihniön aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Kihniö sijaitsee Pohjois-Pirkanmaalla noin tunnin matkan päässä Tampereelta.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä. Yrittäjät ovat itse paikalla tekemässä työn alusta loppuun, ja työmaa viimeistellään huolellisesti. Aikatauluista pidetään aina kiinni.\n\nKihniön maaseutumaisessa ympäristössä rakennukset altistuvat avoimille tuulille ja kosteudelle. Tiilikattojen ja puujulkisivujen säännöllinen huolto on tärkeää rakenteiden pitkäikäisyyden kannalta. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Kihniön alueelle.",
+  },
+  {
+    name: "Lempäälä",
+    slug: "lempaala",
+    alueIntro: "Pintanen toimii aktiivisesti Lempäälän alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Lempäälä sijaitsee Tampereen eteläpuolella ja kuuluu ydintoiminta-alueeseemme.\n\nJokaiseen kohteeseen tehdään ensin maksuton arviokäynti paikan päällä. Yrittäjät tekevät työn itse – emme välitä urakoita eteenpäin. Viimeistely ja siisteys kuuluvat aina työhön.\n\nLempäälän kasvavilla asuinalueilla on paljon eri-ikäisiä omakotitaloja, joiden katot ja julkisivut kaipaavat huoltoa vuosien kuluessa. Säännöllinen kunnossapito pitää kiinteistön kunnossa ja ehkäisee suurempia korjaustarpeita. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Lempäälän alueelle.",
+  },
+  {
+    name: "Mänttä-Vilppula",
+    slug: "mantta-vilppula",
+    alueIntro: "Pintanen palvelee Mänttä-Vilppulan aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Toimimme noin tunnin ajomatkan säteellä Tampereelta, ja Mänttä-Vilppula kuuluu palvelualueeseemme.\n\nKäymme aina arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun, joten laatu pysyy tasaisena. Työmaat viimeistellään siististi ja sovitussa aikataulussa.\n\nMänttä-Vilppulan seudulla on paljon perinteisiä omakotitaloja ja teollisuuspaikkakunnalle tyypillisiä kiinteistöjä, joiden katot ja julkisivut hyötyvät säännöllisestä huollosta. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Mänttä-Vilppulan alueelle.",
+  },
+  {
+    name: "Orivesi",
+    slug: "orivesi",
+    alueIntro: "Pintanen toimii aktiivisesti Oriveden alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Orivesi sijaitsee Tampereen itäpuolella ja kuuluu vakituiseen toiminta-alueeseemme.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä. Yrittäjät ovat itse paikalla tekemässä työn alusta loppuun – emme käytä aliurakoitsijoita. Työmaat viimeistellään huolellisesti ennen luovutusta.\n\nOriveden metsäisessä ympäristössä katot keräävät helposti neulasia ja sammalta. Puujulkisivut altistuvat kosteudelle erityisesti järvien läheisyydessä. Säännöllinen huolto pitää kiinteistön kunnossa pitkään. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Oriveden alueelle.",
+  },
+  {
+    name: "Parkano",
+    slug: "parkano",
+    alueIntro: "Pintanen palvelee myös Parkanon aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Parkano sijaitsee Pohjois-Pirkanmaalla noin tunnin matkan päässä Tampereelta.\n\nJokaiseen kohteeseen tehdään ilmainen arviointikäynti paikan päällä. Yrittäjät tekevät työn itse – emme välitä urakoita eteenpäin. Sovitusta aikataulusta pidetään kiinni ja työmaat viimeistellään siististi.\n\nParkanon seudulla metsäisillä tonteilla katot sammaloituvat helposti. Puujulkisivujen huoltomaalaus on tärkeää Suomen vaihtelevissa sääolosuhteissa. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Parkanon alueelle.",
+  },
+  {
+    name: "Pirkkala",
+    slug: "pirkkala",
+    alueIntro: "Pintanen toimii aktiivisesti Pirkkalan alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Pirkkala sijaitsee aivan Tampereen kupeessa ja kuuluu ydintoiminta-alueeseemme.\n\nKäymme aina ensin arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun, joten laatu pysyy tasaisena kohteesta toiseen. Työmaat viimeistellään huolellisesti ja jälki siivotaan.\n\nPirkkalan tiiviillä asuinalueilla on runsaasti omakotitaloja ja rivitaloja, joiden katot ja julkisivut kaipaavat säännöllistä huoltoa. Pyhäjärven ja lentoaseman läheisyys tuovat alueelle kosteutta ja pölyä. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Pirkkalan alueelle.",
+  },
+  {
+    name: "Pälkäne",
+    slug: "palkane",
+    alueIntro: "Pintanen palvelee Pälkäneen aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Pälkäne sijaitsee noin tunnin matkan päässä Tampereelta ja kuuluu palvelualueeseemme.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä. Yrittäjät ovat itse paikalla tekemässä työn alusta loppuun. Työmaat viimeistellään huolellisesti ja aikatauluista pidetään kiinni.\n\nPälkäneen järviluonto tuo kosteutta, joka rasittaa kattopintoja ja julkisivuja ajan myötä. Säännöllinen huolto on hyvä tapa pitää kiinteistö kunnossa. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Pälkäneen alueelle.",
+  },
+  {
+    name: "Ruovesi",
+    slug: "ruovesi",
+    alueIntro: "Pintanen palvelee myös Ruoveden aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Toimimme noin tunnin ajomatkan säteellä Tampereelta.\n\nKäymme aina arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään huolellisesti ja sovitusta aikataulusta pidetään kiinni.\n\nRuoveden metsäisessä ja järvisessä ympäristössä katot keräävät helposti sammalta ja neulasia. Puujulkisivut hyötyvät oikea-aikaisesta huoltomaalauksesta. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Ruoveden alueelle.",
+  },
+  {
+    name: "Urjala",
+    slug: "urjala",
+    alueIntro: "Pintanen palvelee Urjalan aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Urjala sijaitsee noin tunnin matkan päässä Tampereelta ja kuuluu palvelualueeseemme.\n\nJokaiseen kohteeseen tehdään ilmainen arviointikäynti paikan päällä. Yrittäjät tekevät työn itse alusta loppuun, ja työmaa viimeistellään huolellisesti. Aikatauluista pidetään aina kiinni.\n\nUrjalan maaseutumaisessa ympäristössä on paljon perinteisiä omakotitaloja, joiden katot ja julkisivut hyötyvät säännöllisestä huollosta. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Urjalan alueelle.",
+  },
+  {
+    name: "Valkeakoski",
+    slug: "valkeakoski",
+    alueIntro: "Pintanen toimii aktiivisesti Valkeakosken alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin. Valkeakoski sijaitsee noin tunnin matkan päässä Tampereelta.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä, jossa selvitämme työn laajuuden. Yrittäjät tekevät työn itse – emme välitä urakoita eteenpäin. Työmaat viimeistellään siististi ja sovitussa aikataulussa.\n\nValkeakosken alueella vesistöjen läheisyys tuo kosteutta, joka rasittaa katto- ja seinäpintoja. Säännöllinen huolto pidentää rakenteiden käyttöikää merkittävästi. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Valkeakosken alueelle.",
+  },
+  {
+    name: "Vesilahti",
+    slug: "vesilahti",
+    alueIntro: "Pintanen palvelee Vesilahden aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Vesilahti sijaitsee Tampereen lounaispuolella ja kuuluu vakituiseen toiminta-alueeseemme.\n\nKäymme aina arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun, joten laatu pysyy tasaisena. Työmaat viimeistellään huolellisesti ennen luovutusta.\n\nVesilahden maaseutumaisessa ympäristössä omakotitalojen katot ja julkisivut altistuvat Suomen vaihtelevalle säälle. Säännöllinen kunnossapito on järkevä tapa pitää kiinteistö hyvässä kunnossa. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Vesilahden alueelle.",
+  },
+  {
+    name: "Virrat",
+    slug: "virrat",
+    alueIntro: "Pintanen palvelee myös Virtain aluetta ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen kiinteistöihin. Virrat sijaitsee Pohjois-Pirkanmaalla noin tunnin matkan päässä Tampereelta.\n\nJokaiseen kohteeseen tehdään ilmainen arviointikäynti paikan päällä. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään siististi ja aikatauluista pidetään kiinni.\n\nVirtain metsäisessä ja järvisessä ympäristössä katot keräävät helposti sammalta ja neulasia. Puujulkisivujen huoltomaalaus on tärkeää rakenteiden pitkäikäisyyden kannalta. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Virtain alueelle.",
+  },
+];
+
+/** All cities combined */
+export const allCities: CityData[] = [...cities, ...simpleCities];
+
 export const getCityBySlug = (slug: string): CityData | undefined => {
-  return cities.find(c => c.slug === slug);
+  return allCities.find(c => c.slug === slug);
+};
+
+/** Check if a city has dedicated service subpages */
+export const cityHasServicePages = (city: CityData): boolean => {
+  return !!city.pinnoitusIntro;
 };

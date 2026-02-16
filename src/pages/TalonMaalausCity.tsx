@@ -9,6 +9,7 @@ import CityServices from "@/components/CityServices";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
+import TeamContactSection from "@/components/TeamContactSection";
 
 const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
 
@@ -185,6 +186,7 @@ const TalonMaalausCity = () => {
       </section>
 
       <CityServices cityName={cityData.name} citySlug={city!} />
+      <TeamContactSection cityName={cityData.name} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
