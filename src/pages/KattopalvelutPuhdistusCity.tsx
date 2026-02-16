@@ -4,11 +4,12 @@ import { Check, Droplets, Shield, Sparkles, Clock, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import CityServices from "@/components/CityServices";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
+const puhdistusImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
 
 const KattopalvelutPuhdistusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -132,6 +133,7 @@ const KattopalvelutPuhdistusCity = () => {
         </div>
       </section>
 
+      <CityServices cityName={cityData.name} citySlug={city!} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
