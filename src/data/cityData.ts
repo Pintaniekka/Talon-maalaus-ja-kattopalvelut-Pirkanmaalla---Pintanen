@@ -1,6 +1,7 @@
 export interface CityData {
   name: string;
   slug: string;
+  alueIntro: string;
   pinnoitusIntro: string;
   puhdistusIntro: string;
   maalausIntro: string;
@@ -11,6 +12,7 @@ export const cities: CityData[] = [
   {
     name: "Tampere",
     slug: "tampere",
+    alueIntro: "Pintanen toimii aktiivisesti Tampereen alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nTeemme jokaiseen kohteeseen ilmaisen arviointikäynnin paikan päällä, jossa kartoitamme työn laajuuden ja tarpeet. Yrittäjät tekevät työn itse alusta loppuun – emme välitä urakoita eteenpäin. Jokainen työmaa viimeistellään huolellisesti ja jälki siivotaan ennen luovutusta.\n\nTampereen seudulla on runsaasti tiilikattoisia omakotitaloja, joissa säännöllinen huolto pidentää katon käyttöikää merkittävästi. Myös julkisivujen huoltomaalaus on ajankohtaista monessa talossa, kun edellisestä maalauksesta on kulunut vuosia.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Tampereen alueelle.",
     pinnoitusIntro: "Tarjoamme ammattimaista tiilikaton pinnoitusta Tampereella ja lähialueilla. Pirkanmaan pääkaupungissa tiilikatot altistuvat vaihteleville sääolosuhteille, ja säännöllinen huolto on avainasemassa katon pitkäikäisyyden kannalta. Ota yhteyttä ja sovitaan ilmainen kuntotarkastus Tampereella.",
     puhdistusIntro: "Tiilikaton mekaaninen puhdistus Tampereella – pidä kattosi kunnossa Pirkanmaan vaihtelevissa sääoloissa. Sammalen ja jäkälän poisto pidentää katon käyttöikää merkittävästi. Palvelemme koko Tampereen aluetta nopealla aikataululla.",
     maalausIntro: "Ammattitaitoinen talon ulkomaalaus Tampereella. Pirkanmaan suurimmassa kaupungissa löytyy runsaasti sekä vanhoja puutaloja että uudempia omakotitaloja, joiden julkisivut kaipaavat säännöllistä huoltoa. Tarjoamme ilmaisen arvioinnin Tampereen alueella.",
@@ -19,6 +21,7 @@ export const cities: CityData[] = [
   {
     name: "Sastamala",
     slug: "sastamala",
+    alueIntro: "Pintanen toimii aktiivisesti Sastamalan alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nKäymme aina ensin arvioimassa kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse – näin varmistamme tasalaatuisen lopputuloksen jokaisessa kohteessa. Työmaat viimeistellään siististi ja sovitussa aikataulussa.\n\nSastamalan alueella on paljon perinteisiä puutaloja ja maatilakiinteistöjä, joissa oikea-aikainen huoltomaalaus suojaa rakenteita Suomen vaihtelevissa sääolosuhteissa. Myös tiilikattojen kunnossapito on monessa kohteessa ajankohtaista.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Sastamalan alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoituspalvelut Sastamalassa ja ympäristössä. Sastamalan maaseutumaisessa ympäristössä katot altistuvat luonnon lähellä kosteudelle ja kasvustolle. Tulemme mielellämme tekemään ilmaisen kuntotarkastuksen kohteellesi.",
     puhdistusIntro: "Mekaaninen tiilikaton puhdistus Sastamalassa. Metsäisessä ja kosteassa ympäristössä katot sammaloituvat helposti, ja säännöllinen puhdistus on tärkeää. Palvelemme Sastamalan aluetta joustavasti.",
     maalausIntro: "Talon ulkomaalaus Sastamalassa ammattitaidolla. Sastamalan alueella on runsaasti perinteisiä puutaloja ja maatiloja, joiden julkisivut kaipaavat säännöllistä huoltoa. Arvioimme kohteesi kunnon maksutta.",
@@ -27,6 +30,7 @@ export const cities: CityData[] = [
   {
     name: "Hämeenkyrö",
     slug: "hameenkyro",
+    alueIntro: "Pintanen toimii aktiivisesti Hämeenkyrön alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nAloitamme aina ilmaisella arviokäynnillä, jossa selvitämme kohteen kunnon ja työn laajuuden. Yrittäjät ovat itse paikalla tekemässä työn alusta loppuun, ja työmaa viimeistellään huolellisesti ennen luovutusta.\n\nHämeenkyrössä on runsaasti omakotitaloja, joiden tiilikatot ja puujulkisivut hyötyvät säännöllisestä huollosta. Luonnonläheisillä tonteilla katot sammaloituvat helposti, ja julkisivut altistuvat kosteudelle.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Hämeenkyrön alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoitusta Hämeenkyrössä ja naapurikunnissa. Hämeenkyrön metsäinen ja kosteahko ilmasto kiihdyttää katon kulumista, joten pinnoitus on tehokas tapa pidentää katon ikää. Ilmainen kuntotarkastus kuuluu palveluun.",
     puhdistusIntro: "Tiilikaton puhdistus Hämeenkyrössä – metsäisessä ympäristössä katot sammaloituvat nopeasti. Mekaaninen puhdistus ja käsittely suojaavat kattoasi vuosiksi eteenpäin. Ota yhteyttä ja sovitaan ajankohta.",
     maalausIntro: "Ulkomaalauspalvelut Hämeenkyrössä. Kunnan vanhat ja uudemmat omakotitalot tarvitsevat säännöllistä julkisivun huoltoa kestääkseen Pirkanmaan sääoloja. Teemme ilmaisen arvion kohteellesi.",
@@ -35,6 +39,7 @@ export const cities: CityData[] = [
   {
     name: "Ylöjärvi",
     slug: "ylojarvi",
+    alueIntro: "Pintanen toimii aktiivisesti Ylöjärven alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nJokaiseen kohteeseen tehdään ensin maksuton arviokäynti paikan päällä. Yrittäjät tekevät työn itse, joten laatu pysyy tasaisena kohteesta toiseen. Viimeistely ja siisteys kuuluvat aina työhön.\n\nYlöjärvellä on paljon eri-ikäisiä omakotitaloja, joiden katto- ja julkisivupinnat kaipaavat huoltoa vuosien kuluessa. Metsäisillä tonteilla katot keräävät helposti sammalta ja kasvustoa.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Ylöjärven alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoituspalvelut Ylöjärvellä. Tampereen naapurikaupungissa on runsaasti omakotitaloalueita, joiden tiilikatot hyötyvät ammattimaisesta pinnoituksesta. Tarjoamme ilmaisen kuntotarkastuksen Ylöjärvellä.",
     puhdistusIntro: "Tiilikaton mekaaninen puhdistus Ylöjärvellä. Lähimetsien ja järvien ympäröimissä pientaloissa katot sammaloituvat helposti. Puhdistamme kattosi ammattitaidolla ja nopealla aikataululla.",
     maalausIntro: "Ammattitaitoinen talon maalaus Ylöjärvellä. Kaupungin kasvavilla omakotitaloalueilla julkisivujen huolto pitää rakennukset edustavina ja suojattuina. Ilmainen arviointi kuuluu palveluumme.",
@@ -43,6 +48,7 @@ export const cities: CityData[] = [
   {
     name: "Nokia",
     slug: "nokia",
+    alueIntro: "Pintanen toimii aktiivisesti Nokian alueella ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nTeemme aina ilmaisen arviointikäynnin ennen työn aloittamista. Yrittäjät tekevät työn itse alusta loppuun, ja työmaa jätetään siistiksi. Pidämme kiinni sovituista aikatauluista.\n\nNokialla vesistöjen läheisyys tuo kosteutta, joka rasittaa sekä kattopintoja että julkisivuja. Säännöllinen huolto on hyvä tapa pitää kiinteistö kunnossa ja välttää suuremmat korjaustarpeet.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Nokian alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoitusta Nokialla ja lähikunnissa. Nokian vesistöjen läheisyys tuo kosteutta, joka rasittaa kattopintoja. Pinnoitus suojaa tiilikattoa tehokkaasti ja pidentää sen käyttöikää merkittävästi.",
     puhdistusIntro: "Mekaaninen tiilikaton puhdistus Nokialla. Vesistöjen ja metsien ympäröimässä kaupungissa katot sammaloituvat helposti. Puhdistamme kattosi ja käsittelemme sen kasvuston torjunta-aineella.",
     maalausIntro: "Talon ulkomaalaus Nokialla laadukkailla materiaaleilla. Nokian omakotitaloalueet hyötyvät säännöllisestä julkisivujen huollosta kostean ilmaston vuoksi. Teemme ilmaisen arvioinnin kohteellesi.",
@@ -51,6 +57,7 @@ export const cities: CityData[] = [
   {
     name: "Forssa",
     slug: "forssa",
+    alueIntro: "Pintanen palvelee myös Forssan seutua ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nKäymme arvioimassa kohteen aina paikan päällä maksutta ennen työn aloittamista. Yrittäjät tekevät työn itse, ja jokainen työmaa viimeistellään huolellisesti. Sovitusta aikataulusta pidetään kiinni.\n\nForssan seudulla on paljon perinteisiä omakotitaloja, joiden puujulkisivut ja tiilikatot hyötyvät säännöllisestä kunnossapidosta. Avoimilla alueilla sää rasittaa pintoja erityisesti.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Forssan alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoitusta Forssassa. Vaikka Forssa sijaitsee Pirkanmaan ulkopuolella, palvelemme aluetta säännöllisesti. Forssan seudun vaihtelevat sääolot tekevät katon pinnoituksesta järkevän investoinnin katon suojaamiseksi.",
     puhdistusIntro: "Tiilikaton puhdistus Forssassa – palvelemme myös Pirkanmaan lähialueilla. Forssan seudun katot altistuvat samoille säärasituksille kuin muuallakin Etelä-Hämeessä. Mekaaninen puhdistus ja käsittely pitävät kattosi kunnossa.",
     maalausIntro: "Ulkomaalauspalvelut Forssassa. Palvelemme Forssan seutua säännöllisesti, ja teemme ammattitaitoisen ulkomaalauksen laadukkailla materiaaleilla. Arviointi on aina maksuton.",
@@ -59,6 +66,7 @@ export const cities: CityData[] = [
   {
     name: "Hämeenlinna",
     slug: "hameenlinna",
+    alueIntro: "Pintanen palvelee myös Hämeenlinnan seutua ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nTeemme jokaiseen kohteeseen maksuttoman arviokäynnin paikan päällä. Yrittäjät ovat itse työmaalla alusta loppuun, ja työ viimeistellään huolellisesti ennen luovutusta.\n\nHämeenlinnan seudulla on monipuolinen rakennuskanta vanhoista puutaloista uudempiin omakotitaloihin. Tiilikattojen ja julkisivujen säännöllinen huolto pitää kiinteistön kunnossa ja ehkäisee suurempia korjaustarpeita.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Hämeenlinnan alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoituspalvelut Hämeenlinnassa sopimuksen mukaan. Hämeenlinnan alueella on runsaasti omakotitaloja, joiden tiilikatot hyötyvät ammattimaisesta pinnoituksesta. Ota yhteyttä, niin sovitaan kuntotarkastus.",
     puhdistusIntro: "Tiilikaton mekaaninen puhdistus Hämeenlinnassa. Vanajaveden rannoilla ja metsäisillä tonteilla katot sammaloituvat helposti. Puhdistamme ja käsittelemme kattosi ammattitaidolla.",
     maalausIntro: "Talon ulkomaalaus Hämeenlinnassa ammattitaidolla. Hämeenlinnan monipuolinen rakennuskanta tarjoaa maalareille töitä vanhoista puutaloista uusiin omakotitaloihin. Arvioimme kohteesi kunnon maksutta.",
@@ -67,6 +75,7 @@ export const cities: CityData[] = [
   {
     name: "Huittinen",
     slug: "huittinen",
+    alueIntro: "Pintanen palvelee myös Huittisten seutua ja toteuttaa tiilikaton pinnoituksia, katon puhdistuksia sekä talon maalauksia alueen omakotitaloihin ja kiinteistöihin.\n\nArvioimme jokaisen kohteen paikan päällä maksutta ennen työn aloittamista. Yrittäjät tekevät työn itse ja viimeistelevät työmaan huolellisesti. Aikatauluista pidetään kiinni.\n\nHuittisten seudulla on paljon perinteisiä pientaloja ja maatilakiinteistöjä, joiden katot ja julkisivut kaipaavat huoltoa vuosien saatossa. Jokivarsien kosteassa ympäristössä säännöllinen kunnossapito on erityisen tärkeää.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Huittisten alueelle.",
     pinnoitusIntro: "Tiilikaton pinnoitusta Huittisissa sopimuksen mukaan. Satakunnan rajan tuntumassa sijaitseva Huittinen on osa toiminta-aluettamme. Pinnoitus suojaa kattoa tehokkaasti alueen kosteissa olosuhteissa.",
     puhdistusIntro: "Tiilikaton puhdistus Huittisissa. Loimijoen varren kosteassa ympäristössä katot sammaloituvat helposti. Mekaaninen puhdistus ja käsittely pitävät kattosi kunnossa pitkään.",
     maalausIntro: "Ulkomaalauspalvelut Huittisissa. Palvelemme Huittisten aluetta, ja laadukas maalaus suojaa taloasi Satakunnan vaihtelevissa sääoloissa. Teemme ilmaisen arvion kohteellesi.",

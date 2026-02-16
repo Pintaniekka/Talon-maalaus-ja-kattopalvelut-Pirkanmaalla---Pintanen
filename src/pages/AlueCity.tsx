@@ -71,6 +71,24 @@ const AlueCity = () => {
         backgroundImage={heroImage}
       />
 
+      {/* Aluekohtainen intro */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-3xl mx-auto">
+          {cityData.alueIntro.split('\n\n').map((paragraph, index) => (
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-muted-foreground leading-relaxed mb-4 last:mb-0"
+            >
+              {paragraph}
+            </motion.p>
+          ))}
+        </div>
+      </section>
+
       {/* Palvelut kaupunki-alueella */}
       <section className="section-padding bg-background">
         <div className="section-container">
