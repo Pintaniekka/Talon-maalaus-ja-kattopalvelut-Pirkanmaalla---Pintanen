@@ -74,6 +74,7 @@
     --card-shadow: 0 4px 20px -4px hsl(215 25% 15% / 0.1);
     --card-shadow-hover: 0 8px 30px -4px hsl(215 25% 15% / 0.15);
     --glow-primary: 0 0 40px hsl(210 25% 18% / 0.3);
+    --highlight-blue: 205 70% 88%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
