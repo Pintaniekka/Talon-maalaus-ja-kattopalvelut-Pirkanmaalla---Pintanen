@@ -70,7 +70,7 @@ const BeforeAfterSlider = ({
         className="absolute inset-0 w-full h-full object-cover"
         width={600}
         height={450}
-        transformWidth={500}
+        transformWidth={400}
         draggable={false}
       />
 
@@ -85,7 +85,7 @@ const BeforeAfterSlider = ({
           className="absolute inset-0 w-full h-full object-cover"
           width={600}
           height={450}
-          transformWidth={500}
+          transformWidth={400}
           draggable={false}
         />
       </div>
