@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getStorageUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
@@ -25,36 +25,26 @@ const services = [{
 }];
 
 const Services = () => {
+  const navigate = useNavigate();
+
   return <section id="palvelut" className="section-padding bg-background">
       <div className="section-container">
         {/* Section Header */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Palvelumme</h2>
           <p className="text-muted-foreground text-lg">Ammattitaitoinen maalari edullisesti. Yli 200 tyytyväistä asiakasta.</p>
         </motion.div>
 
         {/* Services Grid - 2 columns */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {services.map((service, index) => <motion.div key={service.title} initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: index * 0.15
-        }}>
-              <Link to={service.href} className="card-elevated group block hover:bg-muted/50 transition-colors duration-300">
+          {services.map((service, index) => <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15 }}>
+              <div
+                role="link"
+                tabIndex={0}
+                onClick={() => navigate(service.href)}
+                onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
+                className="card-elevated group block hover:bg-muted/50 transition-colors duration-300 cursor-pointer"
+              >
               {/* Before/After Slider */}
               <div className="mb-6">
                 <BeforeAfterSlider
@@ -86,23 +76,18 @@ const Services = () => {
                   <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-              </Link>
+              </div>
             </motion.div>)}
         </div>
 
         {/* Roof Cleaning Banner */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} className="mt-8 max-w-4xl mx-auto">
-          <Link
-            to="/kattopalvelut/puhdistus"
-            className="block rounded-2xl overflow-hidden relative group"
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-8 max-w-4xl mx-auto">
+          <div
+            role="link"
+            tabIndex={0}
+            onClick={() => navigate("/kattopalvelut/puhdistus")}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/kattopalvelut/puhdistus"); }}
+            className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage
               src={getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")}
@@ -123,7 +108,7 @@ const Services = () => {
               </div>
               <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
             </div>
-          </Link>
+          </div>
         </motion.div>
 
         {/* Process Timeline */}
@@ -140,7 +125,6 @@ const Services = () => {
           {/* Desktop Timeline */}
           <div className="hidden lg:block">
             <div className="relative">
-              {/* Connection line */}
               <div className="absolute top-[28px] left-[calc(100%/16)] right-[calc(100%/16)] h-px bg-border" />
               <div className="grid grid-cols-8 gap-3">
                 {[
@@ -161,13 +145,11 @@ const Services = () => {
                     transition={{ delay: index * 0.07 }}
                     className="group flex flex-col items-center text-center"
                   >
-                    {/* Number circle */}
                     <div className="w-14 h-14 rounded-full bg-card border-2 border-border flex items-center justify-center mb-4 relative z-10 group-hover:border-primary group-hover:shadow-md transition-all duration-300">
                       <span className="text-sm font-bold text-muted-foreground group-hover:text-primary transition-colors duration-300 font-heading">
                         {step.num}
                       </span>
                     </div>
-                    {/* Content */}
                     <h4 className="text-sm font-bold text-foreground mb-1.5 font-heading leading-tight">
                       {step.title}
                     </h4>
@@ -200,15 +182,12 @@ const Services = () => {
                 transition={{ delay: index * 0.06 }}
                 className="flex gap-5 relative"
               >
-                {/* Vertical line */}
                 {index < 7 && (
                   <div className="absolute left-[23px] top-[56px] bottom-0 w-px bg-border" />
                 )}
-                {/* Number circle */}
                 <div className="w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center flex-shrink-0 relative z-10">
                   <span className="text-sm font-bold text-muted-foreground font-heading">{step.num}</span>
                 </div>
-                {/* Content */}
                 <div className="pb-8">
                   <h4 className="text-base font-bold text-foreground font-heading mb-1">{step.title}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>

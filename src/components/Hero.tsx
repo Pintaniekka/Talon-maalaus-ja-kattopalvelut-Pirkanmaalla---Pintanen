@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={getOptimizedUrl(heroImage, 640, 40)}
-          srcSet={`${getOptimizedUrl(heroImage, 640, 40)} 640w, ${getOptimizedUrl(heroImage, 960, 50)} 960w, ${getOptimizedUrl(heroImage, 1200, 55)} 1200w`}
+          srcSet={`${getOptimizedUrl(heroImage, 640, 40)} 640w, ${getOptimizedUrl(heroImage, 960, 60)} 960w, ${getOptimizedUrl(heroImage, 1200, 70)} 1200w, ${getOptimizedUrl(heroImage, 1920, 75)} 1920w`}
           alt="Laivastonsiniseksi maalattu puutalo Pirkanmaalla – ammattitaitoinen julkisivumaalaus"
           className="w-full h-full object-cover"
           sizes="100vw"

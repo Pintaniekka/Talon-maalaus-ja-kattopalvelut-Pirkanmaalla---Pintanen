@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Check, MapPin, Award, Users, Target } from "lucide-react";
+import { Check, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import SEO from "@/components/SEO";
@@ -238,38 +237,6 @@ const Meista = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Toiminta-alue */}
-      <section className="section-padding bg-secondary">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <MapPin className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Toiminta-alue</h2>
-            <p className="text-lg text-muted-foreground mb-6">Palvelemme koko Pirkanmaan alueella ja lähikunnissa:</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {[
-                { name: "Tampere", slug: "tampere" },
-                { name: "Nokia", slug: "nokia" },
-                { name: "Hämeenkyrö", slug: "hameenkyro" },
-                { name: "Sastamala", slug: "sastamala" },
-                { name: "Ylöjärvi", slug: "ylojarvi" },
-                { name: "Forssa", slug: "forssa" },
-              ].map((city) => (
-                <Link key={city.name} to={`/alue/${city.slug}`} className="px-4 py-2 bg-card rounded-full text-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
-                  {city.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 

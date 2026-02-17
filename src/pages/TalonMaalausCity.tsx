@@ -11,7 +11,7 @@ import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 import TeamContactSection from "@/components/TeamContactSection";
 
-const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
+const heroImage = getOptimizedUrl(getStorageUrl("Talon maalaus herokuva.webp"), 1200);
 
 const TalonMaalausCity = () => {
   const { city } = useParams<{ city: string }>();

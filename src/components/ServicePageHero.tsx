@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import OptimizedImage from './OptimizedImage';
+import { getOptimizedUrl } from '@/lib/storage';
 
 interface ServicePageHeroProps {
   title: string;
@@ -15,15 +15,17 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, children }: Service
       {/* Background */}
       {backgroundImage ? (
         <div className="absolute inset-0">
-          <OptimizedImage
-            src={backgroundImage}
+          <img
+            src={getOptimizedUrl(backgroundImage, 640, 40)}
+            srcSet={`${getOptimizedUrl(backgroundImage, 640, 40)} 640w, ${getOptimizedUrl(backgroundImage, 960, 60)} 960w, ${getOptimizedUrl(backgroundImage, 1200, 70)} 1200w, ${getOptimizedUrl(backgroundImage, 1920, 75)} 1920w`}
             alt={`${title} – Pintanen Oy`}
             className="w-full h-full object-cover"
-            priority={true}
             sizes="100vw"
             width={1600}
             height={900}
-            transformWidth={1200}
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary-dark/60" />
         </div>

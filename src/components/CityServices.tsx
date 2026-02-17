@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getStorageUrl } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
@@ -12,6 +12,8 @@ interface CityServicesProps {
 }
 
 const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
+  const navigate = useNavigate();
+
   const services = [
     {
       title: "Tiilikaton pinnoitus",
@@ -59,7 +61,13 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
             >
-              <Link to={service.href} className="card-elevated group block hover:bg-muted/50 transition-colors duration-300">
+              <div
+                role="link"
+                tabIndex={0}
+                onClick={() => navigate(service.href)}
+                onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
+                className="card-elevated group block hover:bg-muted/50 transition-colors duration-300 cursor-pointer"
+              >
                 <div className="mb-6">
                   <BeforeAfterSlider
                     beforeImage={service.beforeImage}
@@ -83,7 +91,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -95,9 +103,12 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
           viewport={{ once: true }}
           className="mt-8 max-w-4xl mx-auto"
         >
-          <Link
-            to={`/kattopalvelut/puhdistus/${citySlug}`}
-            className="block rounded-2xl overflow-hidden relative group"
+          <div
+            role="link"
+            tabIndex={0}
+            onClick={() => navigate(`/kattopalvelut/puhdistus/${citySlug}`)}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/kattopalvelut/puhdistus/${citySlug}`); }}
+            className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage
               src={getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")}
@@ -118,7 +129,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
               </div>
               <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
             </div>
-          </Link>
+          </div>
         </motion.div>
       </div>
     </section>

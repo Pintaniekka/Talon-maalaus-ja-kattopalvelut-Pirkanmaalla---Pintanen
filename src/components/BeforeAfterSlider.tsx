@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { getOptimizedUrl } from "@/lib/storage";
+import { useState, useRef, useCallback } from "react";
 import OptimizedImage from "./OptimizedImage";
 
 interface BeforeAfterSliderProps {
@@ -19,26 +18,50 @@ const BeforeAfterSlider = ({
 }: BeforeAfterSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const didDrag = useRef(false);
 
-  const handleMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+  const handleMove = useCallback((e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging) return;
+    didDrag.current = true;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = "touches" in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
     setSliderPosition(percentage);
-  };
+  }, [isDragging]);
+
+  const handlePointerDown = useCallback(() => {
+    setIsDragging(true);
+    didDrag.current = false;
+  }, []);
+
+  const handlePointerUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  /**
+   * Prevent parent <Link> from navigating when user drags the slider.
+   * The click event fires after mouseup/touchend; if we detected a drag, stop propagation.
+   */
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    if (didDrag.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      didDrag.current = false;
+    }
+  }, []);
 
   return (
     <div
       className="relative rounded-xl overflow-hidden cursor-ew-resize select-none touch-pan-y"
       style={{ aspectRatio }}
-      onMouseDown={() => setIsDragging(true)}
-      onMouseUp={() => setIsDragging(false)}
-      onMouseLeave={() => setIsDragging(false)}
+      onMouseDown={handlePointerDown}
+      onMouseUp={handlePointerUp}
+      onMouseLeave={handlePointerUp}
       onMouseMove={handleMove}
-      onTouchStart={() => setIsDragging(true)}
-      onTouchEnd={() => setIsDragging(false)}
+      onTouchStart={handlePointerDown}
+      onTouchEnd={handlePointerUp}
       onTouchMove={handleMove}
+      onClick={handleClick}
     >
       {/* After image (full, behind) */}
       <OptimizedImage
