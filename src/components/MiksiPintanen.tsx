@@ -6,7 +6,7 @@ const sideImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laiv
 
 const MiksiPintanen = () => {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'hsl(200 60% 95%)' }}>
+    <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Text */}
