@@ -137,32 +137,38 @@ const PriceCalculator = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <button
                 onClick={() => setCalculatorType('roof')}
-                className="card-elevated text-left group hover:border-primary border-2 border-transparent transition-colors"
+                className="relative overflow-hidden rounded-2xl text-left group hover:border-primary border-2 border-transparent transition-colors card-elevated"
               >
-                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                   <RoofTileIcon className="w-8 h-8 text-accent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-red-500/5 to-transparent pointer-events-none" />
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-2xl bg-red-600/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                     <RoofTileIcon className="w-8 h-8 text-red-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
+                    Tiilikaton pinnoitus
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Laske katon pinnoituksen hinta-arvio neliömetrien ja kaltevuuden perusteella.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
-                  Tiilikaton pinnoitus
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Laske katon pinnoituksen hinta-arvio neliömetrien ja kaltevuuden perusteella.
-                </p>
               </button>
 
               <button
                 onClick={() => setCalculatorType('wall')}
-                className="card-elevated text-left group hover:border-primary border-2 border-transparent transition-colors"
+                className="relative overflow-hidden rounded-2xl text-left group hover:border-primary border-2 border-transparent transition-colors card-elevated"
               >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                   <PaintBrushIcon className="w-8 h-8 text-primary" />
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-yellow-400/5 to-transparent pointer-events-none" />
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                     <PaintBrushIcon className="w-8 h-8 text-yellow-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
+                    Ulkomaalaus
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Laske seinien maalauksen hinta-arvio pinta-alan ja kerrosten perusteella.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
-                  Ulkomaalaus
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Laske seinien maalauksen hinta-arvio pinta-alan ja kerrosten perusteella.
-                </p>
               </button>
             </div>
           )}

@@ -2,7 +2,7 @@ import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getStorageUrl } from '@/lib/storage';
 
-const mapImage = getStorageUrl("Suomi kartta pirkanmaa ja kanta-hame.webp");
+const mapImage = getStorageUrl("Suomi kartta pirkanmaa ja kanta-hame.png");
 
 const cities = [
   { name: "Tampere", slug: "tampere" },
