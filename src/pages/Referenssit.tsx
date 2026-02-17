@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServicePageHero from '@/components/ServicePageHero';
-import ServiceCTA from '@/components/ServiceCTA';
+import ServiceContactSection from '@/components/ServiceContactSection';
 import SEO from '@/components/SEO';
 import OptimizedImage from '@/components/OptimizedImage';
 import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
@@ -334,7 +334,7 @@ const Referenssit = () => {
         )}
       </AnimatePresence>
 
-      <ServiceCTA title="Haluatko nähdä lisää?" subtitle="Ota yhteyttä niin kerromme mielellämme lisää töistämme ja vastaamme kysymyksiisi." />
+      <ServiceContactSection variant="general" />
     </div>
   );
 };

@@ -68,10 +68,17 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
                 onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
                 className="card-elevated group block hover:bg-muted/50 transition-colors duration-300 cursor-pointer"
               >
-                <div className="mb-6">
+                <div className="mb-6 relative">
                   <BeforeAfterSlider
                     beforeImage={service.beforeImage}
                     afterImage={service.afterImage}
+                  />
+                  <div
+                    className={`absolute inset-0 pointer-events-none rounded-xl ${
+                      index === 0
+                        ? 'bg-gradient-to-t from-red-600/25 to-transparent'
+                        : 'bg-gradient-to-t from-yellow-500/25 to-transparent'
+                    }`}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 font-heading">{service.title}</h3>

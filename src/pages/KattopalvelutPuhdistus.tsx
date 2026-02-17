@@ -3,6 +3,7 @@ import { Check, Droplets, Shield, Sparkles, Clock } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
@@ -112,6 +113,7 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
+      <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>

@@ -4,8 +4,7 @@ import Services from '@/components/Services';
 import MiksiPintanen from '@/components/MiksiPintanen';
 import PriceCalculator from '@/components/PriceCalculator';
 import Gallery from '@/components/Gallery';
-import TeamContactSection from '@/components/TeamContactSection';
-import Contact from '@/components/Contact';
+import ServiceContactSection from '@/components/ServiceContactSection';
 import KotitalousVahennys from '@/components/KotitalousVahennys';
 import SEO from '@/components/SEO';
 
@@ -19,8 +18,7 @@ const Index = () => {
       <MiksiPintanen />
       <PriceCalculator />
       <Gallery />
-      <TeamContactSection />
-      <Contact />
+      <ServiceContactSection variant="general" />
       <KotitalousVahennys />
     </>
   );

@@ -4,6 +4,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 const heroImage = getOptimizedUrl(getStorageUrl("Talon maalaus herokuva.webp"), 1200);
@@ -148,6 +149,7 @@ const TalonMaalaus = () => {
         </div>
       </section>
 
+      <ServiceContactSection variant="maalaus" />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
