@@ -23,7 +23,7 @@ const team = [
 ];
 
 const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
-  const title = cityName ? `Ota yhteyttä – ${cityName}` : 'Yhteystiedot';
+  const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Yhteystiedot';
 
   return (
     <section className="section-padding bg-background">

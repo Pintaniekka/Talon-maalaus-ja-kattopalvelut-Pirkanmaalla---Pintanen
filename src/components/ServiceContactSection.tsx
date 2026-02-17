@@ -60,7 +60,7 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
     }
   };
 
-  const title = cityName ? `Ota yhteyttä – ${cityName}` : 'Ota yhteyttä';
+  const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Ota yhteyttä';
 
   const persons = variant === 'general'
     ? [contactPersons.katto, contactPersons.maalaus]
