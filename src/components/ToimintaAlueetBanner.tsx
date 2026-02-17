@@ -1,6 +1,5 @@
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import OptimizedImage from './OptimizedImage';
 import { getStorageUrl } from '@/lib/storage';
 
 const mapImage = getStorageUrl("Suomi kartta pirkanmaa ja kanta-hame.webp");
@@ -18,16 +17,16 @@ const cities = [
 
 const ToimintaAlueetBanner = () => {
   return (
-    <section className="section-padding bg-secondary">
+    <section className="py-10 md:py-14" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 items-center max-w-4xl mx-auto">
           {/* Text + list */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground font-heading">Toiminta-alueet</h2>
+            <div className="flex items-center gap-2 mb-3">
+              <MapPin className="w-5 h-5 text-primary" />
+              <h2 className="text-xl md:text-2xl font-bold text-foreground font-heading">Toiminta-alueet</h2>
             </div>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4 text-sm">
               Palvelemme koko Pirkanmaan alueella ja lähikunnissa:
             </p>
             <div className="flex flex-wrap gap-2">
@@ -51,14 +50,13 @@ const ToimintaAlueetBanner = () => {
 
           {/* Map image */}
           <div className="flex justify-center">
-            <OptimizedImage
+            <img
               src={mapImage}
               alt="Pintanen Oy:n toiminta-alue – Pirkanmaa ja Kanta-Häme kartalla"
-              className="w-full max-w-sm rounded-2xl"
-              sizes="(max-width: 1024px) 80vw, 400px"
-              width={400}
-              height={500}
-              transformWidth={400}
+              className="w-full max-w-[280px] rounded-2xl object-contain"
+              loading="lazy"
+              width={280}
+              height={350}
             />
           </div>
         </div>

@@ -28,17 +28,18 @@ const TalonMaalausCity = () => {
   ];
 
   const benefits = [
+    "Huolelliset pohjatyöt (märkähomepesu aina)",
+    "Laadukkaat maalit ja materiaalit",
+    "Tarkka työnjälki",
+    "Työmaa jätetään siistiin kuntoon",
+    "Vankka kokemus",
     "2 vuoden takuu työlle",
-    "Ammattimaiset pohjatöt",
-    "Laadukkaat maalit",
-    "Siisti ja huolellinen jälki",
-    "Ilmainen arviointi",
-    `Palvelemme: ${cityData.name}`,
   ];
 
   const services = [
     { name: "Puutalon ulkomaalaus", description: "Lautaverhoilut, hirsi- ja paneelipinnat" },
-    { name: "Kuistit ja terassit", description: "Terassien ja kuistien maalaus" },
+    { name: "Terassien ja kuistien maalaus ja öljyäminen", description: "Kuistit ja terassit" },
+    { name: "Sokkeleiden maalaus", description: "Sokkeleiden pinnoitus ja maalaus" },
   ];
 
   return (
@@ -72,15 +73,15 @@ const TalonMaalausCity = () => {
       </section>
 
       {/* Services */}
-      <section className="section-padding bg-background">
+      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Maalauspalvelumme</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tarjoamme kattavat ulkomaalauspavelit kaikenlaisiin taloihin.
+              Tarjoamme kattavat ulkomaalauspalvelut kaikenlaisiin taloihin.
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {services.map((service, index) => (
               <motion.div key={service.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="card-elevated">
                 <h3 className="font-bold text-foreground mb-2">{service.name}</h3>

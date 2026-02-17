@@ -53,10 +53,16 @@ const Meista = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Mikä ihmeen Pintanen?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                Vaikka Pintanen on yrityksenä uusi, sen juuret ja osaaminen ulottuvat syvälle alan huipulle. Me tiedämme, mitä kestävä pinta vaatii. Olemme veljekset Eerik ja Eemil, ja Pintanen syntyi halusta tehdä asiat yksinkertaisesti paremmin ja reilummin.
+                Pintanen on uudehko Oulusta kotoisin oleva perheyritys, jonka tekeminen nojaa vahvaan ja monipuoliseen kokemukseen. Vaikka yritys on nuori, olemme itse olleet alalla jo pitkään ja tiedämme, mikä toimii ja mikä ei. Tiedämme, mitä kestävä, siisti ja huolellisesti tehty pinta vaatii.
               </p>
               <p>
-                Kun yhdistimme voimamme, syntyi yritys, joka nimensä mukaisesti tuntee pintojen luonteen lattiasta kattoon (ja nimenomaan sinne kattoon saakka).
+                Me olemme veljekset Eemil ja Eerik. Vuosien varrella meille molemmille on kertynyt oma vahva osaamisalueemme: Eemilin käsissä seinäpinnat saavat laadukkaan ja viimeistellyn ilmeen, kun taas Eerik on erikoistunut kattoihin – sinne, minne harvempi katsoo, mutta mikä on itseasiassa talon tärkein elementti.
+              </p>
+              <p>
+                Kun seinäosaaminen ja katto-osaaminen yhdistyivät, syntyi Pintanen. Yritys, joka nimensä mukaisesti tuntee pinnat lattiasta kattoon. Homma hoidetaan niin, että kokonaisuus kestää katseet ja aikaa.
+              </p>
+              <p>
+                Pintanen syntyi halusta tehdä asiat paremmin ja reilummin. Ei raskasta kulurakennetta, vaan selkeää tekemistä, suoraa puhetta ja laadukasta jälkeä. Meille tärkeintä on, että asiakas voi luottaa siihen, että homma hoituu sovitusti – ja että lopputulos näyttää siltä kuin pitääkin.
               </p>
             </div>
           </motion.div>
@@ -64,7 +70,7 @@ const Meista = () => {
       </section>
 
       {/* Kaksi veljestä, kaksi erikoisalaa */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
