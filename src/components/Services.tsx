@@ -43,7 +43,9 @@ const Services = () => {
                 tabIndex={0}
                 onClick={() => navigate(service.href)}
                 onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
-                className="card-elevated group block hover:bg-muted/50 transition-colors duration-300 cursor-pointer"
+                className={`card-elevated group block transition-colors duration-300 cursor-pointer ${
+                  index === 0 ? 'bg-red-600/5 hover:bg-red-600/10' : 'bg-yellow-500/5 hover:bg-yellow-500/10'
+                }`}
               >
               {/* Before/After Slider with gradient overlay */}
               <div className="mb-6 relative">
