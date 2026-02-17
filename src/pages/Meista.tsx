@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 const pensselikuva = getOptimizedUrl(getStorageUrl("Muut_referenssit/pensselikuva.webp"), 1200);
@@ -246,10 +246,7 @@ const Meista = () => {
         </div>
       </section>
 
-      <ServiceCTA
-        title="Ota yhteyttä"
-        subtitle="Kerromme mielellämme lisää yrityksestämme ja palveluistamme. Vastaamme kaikkiin kysymyksiin!"
-      />
+      <ServiceContactSection variant="general" />
     </div>
   );
 };

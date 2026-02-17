@@ -5,6 +5,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
@@ -136,6 +137,7 @@ const KattopalvelutPinnoitus = () => {
         </div>
       </section>
 
+      <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>;

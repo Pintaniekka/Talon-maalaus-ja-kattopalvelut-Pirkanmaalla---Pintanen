@@ -6,10 +6,10 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import CityServices from "@/components/CityServices";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
-import TeamContactSection from "@/components/TeamContactSection";
 
 const heroImage = getOptimizedUrl(getStorageUrl("Talon maalaus herokuva.webp"), 1200);
 
@@ -187,7 +187,7 @@ const TalonMaalausCity = () => {
       </section>
 
       <CityServices cityName={cityData.name} citySlug={city!} />
-      <TeamContactSection cityName={cityData.name} />
+      <ServiceContactSection variant="maalaus" cityName={cityData.name} />
       <KotitalousVahennys />
       <ServiceCTA />
     </div>
