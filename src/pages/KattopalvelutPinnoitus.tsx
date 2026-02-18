@@ -33,7 +33,7 @@ const KattopalvelutPinnoitus = () => {
   }];
   const benefits = ["Jopa 15-20 vuotta lisäikää katolle", "Suojaa tiiliä rapautumiselta", "Estää sammalen ja jäkälän kasvun", "Parantaa kiinteistön ulkonäköä", "5 vuoden takuu työlle"];
   return <div>
-      <SEO title="Tiilikaton pinnoitus" description="Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu. Ilmainen kuntotarkastus Pirkanmaalla." />
+      <SEO title="Tiilikaton pinnoitus Pirkanmaa – 5v takuu" description="Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu. Ilmainen kuntotarkastus Pirkanmaalla." />
       <ServicePageHero title="Tiilikaton pinnoitus" subtitle='"Eikö me sovittu, että se kiiltää?"' backgroundImage={kattoImage} />
 
       {/* Seloste-osio */}

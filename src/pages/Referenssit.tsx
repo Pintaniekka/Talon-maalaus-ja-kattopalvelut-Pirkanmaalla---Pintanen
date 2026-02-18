@@ -243,7 +243,7 @@ const Referenssit = () => {
 
   return (
     <div>
-      <SEO title="Referenssit" description="Tutustu Pintasen tekemiin tiilikattojen pinnoituksiin, puhdistuksiin ja ulkomaalauksiin. Laatu puhuu puolestaan." />
+      <SEO title="Referenssit – Katon pinnoitus ja talon maalaus" description="Tutustu Pintasen tekemiin tiilikattojen pinnoituksiin, puhdistuksiin ja ulkomaalauksiin. Laatu puhuu puolestaan." />
       <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getStorageUrl('Muut_referenssit/katto puolet pesty.webp')} />
 
       <section className="section-padding bg-background">

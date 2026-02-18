@@ -12,7 +12,7 @@ const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuv
 const ToimintaAlueet = () => {
   return (
     <div>
-      <SEO title="Toiminta-alueemme" description="Pintanen palvelee koko Pirkanmaan alueella: Tampere, Nokia, Kangasala, Ylöjärvi, Sastamala ja muut kunnat." />
+      <SEO title="Toiminta-alueet Pirkanmaa ja lähikunnat" description="Pintanen palvelee koko Pirkanmaan alueella: Tampere, Nokia, Kangasala, Ylöjärvi, Sastamala ja muut kunnat." />
       <ServicePageHero
         title="Toiminta-alueemme"
         subtitle="Pirkanmaa ja lähialueet"

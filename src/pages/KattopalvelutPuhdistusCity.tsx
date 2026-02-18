@@ -37,7 +37,7 @@ const KattopalvelutPuhdistusCity = () => {
   return (
     <div>
       <SEO
-        title={`Tiilikaton puhdistus ${cityData.name}`}
+        title={cityData.puhdistusMetaTitle || `Tiilikaton puhdistus ${cityData.name}`}
         description={`Tiilikaton mekaaninen puhdistus ja sammaleentorjunta ${cityData.name}. Alkaen 800 €. Ilmainen kuntotarkastus.`}
       />
       <ServicePageHero

@@ -77,7 +77,7 @@ const AlueCity = () => {
   return (
     <div>
       <SEO
-        title={`Palvelut – ${cityData.name}`}
+        title={cityData.alueMetaTitle || `Palvelut – ${cityData.name}`}
         description={`Maalaus- ja kattopalvelut ${cityData.name} – tiilikaton pinnoitus, katon puhdistus ja talon maalaus ammattitaidolla. Pintanen Oy.`}
       />
       <ServicePageHero

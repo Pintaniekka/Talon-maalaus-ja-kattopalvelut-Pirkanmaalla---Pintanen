@@ -45,7 +45,7 @@ const TalonMaalausCity = () => {
   return (
     <div>
       <SEO
-        title={`Talon maalaus ${cityData.name}`}
+        title={cityData.maalausMetaTitle || `Talon maalaus ${cityData.name}`}
         description={`Ammattitaitoinen ulkomaalaus ${cityData.name} laadukkailla materiaaleilla. 2 vuoden takuu. Ilmainen arviointi.`}
       />
       <ServicePageHero
