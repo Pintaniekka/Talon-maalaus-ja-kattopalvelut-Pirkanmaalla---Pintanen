@@ -7,13 +7,13 @@ interface SEOProps {
   preloadImage?: string;
 }
 
-const defaultTitle = 'Pintanen.fi - Tiilikattojen pinnoitukset ja ulkomaalaukset Pirkanmaalla';
+const defaultTitle = 'Tiilikaton pinnoitus ja talon maalaus Pirkanmaa | Pintanen';
 const defaultDescription = 'Tiilikattojen pinnoitukset ja ulkomaalaukset ammattitaidolla Pirkanmaalla. 5 vuoden takuu. Ota yhteyttä jo tänään.';
 
 const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
 
 const SEO = ({ title, description, preloadImage }: SEOProps) => {
-  const pageTitle = title ? `${title} | Pintanen Oy` : defaultTitle;
+  const pageTitle = title ? `${title} | Pintanen` : defaultTitle;
   const pageDescription = description || defaultDescription;
   const imageToPreload = preloadImage || (!title ? heroImage : undefined);
 

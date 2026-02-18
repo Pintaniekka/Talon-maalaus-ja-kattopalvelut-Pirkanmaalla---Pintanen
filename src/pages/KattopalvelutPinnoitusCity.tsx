@@ -39,7 +39,7 @@ const KattopalvelutPinnoitusCity = () => {
   return (
     <div>
       <SEO
-        title={`Tiilikaton pinnoitus ${cityData.name}`}
+        title={cityData.pinnoitusMetaTitle || `Tiilikaton pinnoitus ${cityData.name}`}
         description={`Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu. Ilmainen kuntotarkastus.`}
       />
       <ServicePageHero
