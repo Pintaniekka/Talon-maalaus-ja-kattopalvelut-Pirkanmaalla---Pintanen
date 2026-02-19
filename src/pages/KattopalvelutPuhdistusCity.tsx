@@ -38,7 +38,7 @@ const KattopalvelutPuhdistusCity = () => {
     <div>
       <SEO
         title={cityData.puhdistusMetaTitle || `Tiilikaton puhdistus ${cityData.name}`}
-        description={`Tiilikaton mekaaninen puhdistus ja sammaleentorjunta ${cityData.name}. Alkaen 800 €. Ilmainen kuntotarkastus.`}
+        description={cityData.puhdistusMetaDesc || `Tiilikaton mekaaninen puhdistus ja sammaleentorjunta ${cityData.name}. Alkaen 800 €. Ilmainen kuntotarkastus.`}
       />
       <ServicePageHero
         title={`Tiilikaton puhdistus – ${cityData.name}`}

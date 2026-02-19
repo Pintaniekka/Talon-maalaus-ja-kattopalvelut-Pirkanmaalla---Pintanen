@@ -46,7 +46,7 @@ const TalonMaalausCity = () => {
     <div>
       <SEO
         title={cityData.maalausMetaTitle || `Talon maalaus ${cityData.name}`}
-        description={`Ammattitaitoinen ulkomaalaus ${cityData.name} laadukkailla materiaaleilla. 2 vuoden takuu. Ilmainen arviointi.`}
+        description={cityData.maalausMetaDesc || `Ammattitaitoinen ulkomaalaus ${cityData.name} laadukkailla materiaaleilla. 2 vuoden takuu.`}
       />
       <ServicePageHero
         title={`Talon maalaus – ${cityData.name}`}

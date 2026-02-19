@@ -12,7 +12,7 @@ const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuv
 const ToimintaAlueet = () => {
   return (
     <div>
-      <SEO title="Toiminta-alueet Pirkanmaa ja lähikunnat" description="Pintanen palvelee koko Pirkanmaan alueella: Tampere, Nokia, Kangasala, Ylöjärvi, Sastamala ja muut kunnat." />
+      <SEO title="Toiminta-alueet Pirkanmaa ja lähikunnat" description="Palvelemme koko Pirkanmaan alueella ja lähikunnissa. Katon pinnoitus, puhdistus ja talon maalaus noin tunnin säteellä Tampereelta." />
       <ServicePageHero
         title="Toiminta-alueemme"
         subtitle="Pirkanmaa ja lähialueet"

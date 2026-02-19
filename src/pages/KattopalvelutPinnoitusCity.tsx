@@ -40,7 +40,7 @@ const KattopalvelutPinnoitusCity = () => {
     <div>
       <SEO
         title={cityData.pinnoitusMetaTitle || `Tiilikaton pinnoitus ${cityData.name}`}
-        description={`Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu. Ilmainen kuntotarkastus.`}
+        description={cityData.pinnoitusMetaDesc || `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`}
       />
       <ServicePageHero
         title={`Tiilikaton pinnoitus – ${cityData.name}`}
