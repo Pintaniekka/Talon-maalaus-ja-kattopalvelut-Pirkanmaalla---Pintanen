@@ -35,7 +35,7 @@ const TalonMaalaus = () => {
 
   return (
     <div>
-      <SEO title="Talon maalaus Pirkanmaa – 2v takuu" description="Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla Pirkanmaalla. 2 vuoden takuu. Ilmainen arviointi." />
+      <SEO title="Talon maalaus Pirkanmaa – 2v takuu" description="Talon maalaus Pirkanmaalla huolellisella pohjatyöllä ja laadukkailla maaleilla. Ammattimainen lopputulos. 2 vuoden takuu." />
       <ServicePageHero
         title="Talon maalaus"
         subtitle="Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla – 2 vuoden takuu"

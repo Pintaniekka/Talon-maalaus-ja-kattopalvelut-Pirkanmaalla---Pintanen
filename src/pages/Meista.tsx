@@ -34,7 +34,7 @@ const Meista = () => {
 
   return (
     <div>
-      <SEO title="Pintanen Oy – Perheyritys katto- ja maalaustöissä" description="Tutustu Pintaseen – pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen." />
+      <SEO title="Pintanen Oy – Perheyritys katto- ja maalaustöissä" description="Pintanen on perheyritys, joka on erikoistunut katto- ja seinämaalauksiin. Teemme työt itse ja panostamme huolelliseen lopputulokseen." />
       <ServicePageHero
         title="Tutustu Pintaseen"
         subtitle="Tutustu meihin – olemme pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen"

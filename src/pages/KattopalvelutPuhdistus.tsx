@@ -27,7 +27,7 @@ const KattopalvelutPuhdistus = () => {
 
   return (
     <div>
-      <SEO title="Katon puhdistus Pirkanmaa – Ilmainen arvio" description="Ammattimainen tiilikaton mekaaninen puhdistus ja sammaleentorjunta. Alkaen 800 €. Ilmainen kuntotarkastus Pirkanmaalla." />
+      <SEO title="Katon puhdistus Pirkanmaa – Ilmainen arvio" description="Tiilikaton puhdistus Pirkanmaalla - tehokas suoja katollesi. Sammaleet ja lika poistetaan mekaanisesti." />
       <ServicePageHero
         title="Tiilikaton puhdistus"
         subtitle="Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti"
