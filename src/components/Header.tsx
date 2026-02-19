@@ -57,11 +57,11 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0">
+          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-2 md:ml-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
-              className="h-16 md:h-20 w-auto shrink-0 object-contain"
+              className="h-20 md:h-24 w-auto shrink-0 object-contain"
               priority={true}
               sizes="200px"
               width={300}
