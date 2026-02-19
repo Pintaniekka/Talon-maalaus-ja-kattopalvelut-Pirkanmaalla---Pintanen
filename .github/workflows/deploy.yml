@@ -36,6 +36,69 @@ jobs:
       - name: Copy index.html to 404.html for SPA routing
         run: cp dist/index.html dist/404.html
 
+      - name: Create SPA route directories
+        run: |
+          # Static routes
+          ROUTES=(
+            "kattopalvelut/pinnoitus"
+            "kattopalvelut/puhdistus"
+            "talon-maalaus"
+            "toiminta-alueet"
+            "referenssit"
+            "meista"
+          )
+
+          # City slugs for dynamic routes
+          CITIES=(
+            "tampere"
+            "sastamala"
+            "hameenkyro"
+            "ylojarvi"
+            "nokia"
+            "forssa"
+            "hameenlinna"
+            "huittinen"
+            "akaa"
+            "ikaalinen"
+            "juupajoki"
+            "kangasala"
+            "kihnio"
+            "lempaala"
+            "mantta-vilppula"
+            "orivesi"
+            "parkano"
+            "pirkkala"
+            "palkane"
+            "ruovesi"
+            "urjala"
+            "valkeakoski"
+            "vesilahti"
+            "virrat"
+          )
+
+          # Create static route directories
+          for route in "${ROUTES[@]}"; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
+
+          # Create city-specific route directories
+          for city in "${CITIES[@]}"; do
+            mkdir -p "dist/alue/$city"
+            cp dist/index.html "dist/alue/$city/index.html"
+
+            mkdir -p "dist/kattopalvelut/pinnoitus/$city"
+            cp dist/index.html "dist/kattopalvelut/pinnoitus/$city/index.html"
+
+            mkdir -p "dist/kattopalvelut/puhdistus/$city"
+            cp dist/index.html "dist/kattopalvelut/puhdistus/$city/index.html"
+
+            mkdir -p "dist/talon-maalaus/$city"
+            cp dist/index.html "dist/talon-maalaus/$city/index.html"
+          done
+
+          echo "Created route directories for $(echo ${#ROUTES[@]} + ${#CITIES[@]} '*' 4 | bc) pages"
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
