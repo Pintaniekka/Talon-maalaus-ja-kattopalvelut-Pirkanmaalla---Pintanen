@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
 
 interface SEOProps {
@@ -13,13 +14,16 @@ const defaultDescription = 'Tiilikaton pinnoitus, katon puhdistus ja talon maala
 const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
 
 const SEO = ({ title, description, preloadImage }: SEOProps) => {
+  const { pathname } = useLocation();
   const pageTitle = title ? `${title} | Pintanen` : defaultTitle;
   const pageDescription = description || defaultDescription;
+  const canonicalUrl = `https://pintanen.fi${pathname === '/' ? '' : pathname}`;
   const imageToPreload = preloadImage || (!title ? heroImage : undefined);
 
   return (
     <Helmet>
       <title>{pageTitle}</title>
+      <link rel="canonical" href={canonicalUrl} />
       <meta name="description" content={pageDescription} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
