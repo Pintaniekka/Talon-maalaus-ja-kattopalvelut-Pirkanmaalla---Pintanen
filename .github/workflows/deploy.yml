@@ -76,25 +76,25 @@ jobs:
             "virrat"
           )
 
-          # Create static route directories
-          for route in "${ROUTES[@]}"; do
+          # Helper: copy index.html and set canonical for given route
+          copy_with_canonical() {
+            local route="$1"
             mkdir -p "dist/$route"
             cp dist/index.html "dist/$route/index.html"
+            sed -i "s|href=\"https://pintanen.fi\"|href=\"https://pintanen.fi/$route\"|" "dist/$route/index.html"
+          }
+
+          # Create static route directories
+          for route in "${ROUTES[@]}"; do
+            copy_with_canonical "$route"
           done
 
           # Create city-specific route directories
           for city in "${CITIES[@]}"; do
-            mkdir -p "dist/alue/$city"
-            cp dist/index.html "dist/alue/$city/index.html"
-
-            mkdir -p "dist/kattopalvelut/pinnoitus/$city"
-            cp dist/index.html "dist/kattopalvelut/pinnoitus/$city/index.html"
-
-            mkdir -p "dist/kattopalvelut/puhdistus/$city"
-            cp dist/index.html "dist/kattopalvelut/puhdistus/$city/index.html"
-
-            mkdir -p "dist/talon-maalaus/$city"
-            cp dist/index.html "dist/talon-maalaus/$city/index.html"
+            copy_with_canonical "alue/$city"
+            copy_with_canonical "kattopalvelut/pinnoitus/$city"
+            copy_with_canonical "kattopalvelut/puhdistus/$city"
+            copy_with_canonical "talon-maalaus/$city"
           done
 
           echo "Created route directories for $(echo ${#ROUTES[@]} + ${#CITIES[@]} '*' 4 | bc) pages"
