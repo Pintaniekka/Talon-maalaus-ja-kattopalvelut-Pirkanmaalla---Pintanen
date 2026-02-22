@@ -53,11 +53,11 @@ const Header = () => {
     href: '/meista'
   }];
 
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-      <div className="section-container !px-2 sm:!px-6 lg:!px-8">
-        <div className="flex items-center justify-between h-20">
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      <div className="pl-0 pr-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="flex items-center justify-between w-full h-20">
           {/* Logo */}
-          <Link to="/" className="absolute left-0 top-1/2 -translate-y-1/2 z-50 md:relative md:transform-none md:left-auto md:top-auto md:z-auto flex items-center gap-3 shrink-0">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
