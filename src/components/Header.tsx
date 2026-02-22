@@ -54,10 +54,10 @@ const Header = () => {
   }];
 
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-      <div className="section-container">
+      <div className="section-container !px-2 sm:!px-6 lg:!px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-6 md:ml-0">
+          <Link to="/" className="flex items-center gap-3 shrink-0 md:ml-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
