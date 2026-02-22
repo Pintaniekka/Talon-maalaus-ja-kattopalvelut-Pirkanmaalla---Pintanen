@@ -57,7 +57,7 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-4 md:ml-0">
+          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-6 md:ml-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
