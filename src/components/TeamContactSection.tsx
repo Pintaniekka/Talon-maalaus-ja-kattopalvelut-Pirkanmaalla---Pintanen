@@ -26,7 +26,7 @@ const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
   const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Yhteystiedot';
 
   return (
-    <section className="section-padding bg-background">
+    <section id="yhteystiedot" className="section-padding bg-background">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
