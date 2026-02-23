@@ -86,7 +86,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav
             aria-label="Päänavigaatio"
-            className="hidden md:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+            className="hidden lg:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
           >
             {navItems.map((item) =>
               item.dropdown ? (
@@ -139,7 +139,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <a
-            className="hidden md:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
             href="tel:+358409640066"
           >
             <Phone className="w-4 h-4" />
@@ -149,7 +149,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-primary-foreground"
+            className="lg:hidden p-2 rounded-lg text-primary-foreground"
             aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -164,7 +164,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-t border-border"
+            className="lg:hidden bg-card border-t border-border"
           >
             <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
               {navItems.map((item) =>
