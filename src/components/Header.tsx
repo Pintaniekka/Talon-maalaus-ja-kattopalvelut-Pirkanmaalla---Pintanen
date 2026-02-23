@@ -67,7 +67,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
     >
-      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <div className="px-8 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex items-center justify-between w-full h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0 -ml-0 md:-ml-0 lg:-ml-0">
