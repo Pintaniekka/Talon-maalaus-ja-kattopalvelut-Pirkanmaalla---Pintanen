@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const logoUrl = getStorageUrl("Pintanen-logo.webp");
+const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp"), 400);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,19 +27,40 @@ const Header = () => {
 
   const isHomePage = location.pathname === "/";
   const navItems = [
-    { label: "Etusivu", href: "/" },
+    {
+      label: "Etusivu",
+      href: "/",
+    },
     {
       label: "Kattopalvelut",
       href: "#",
       dropdown: [
-        { label: "Tiilikaton pinnoitus", href: "/kattopalvelut/pinnoitus" },
-        { label: "Tiilikaton puhdistus", href: "/kattopalvelut/puhdistus" },
+        {
+          label: "Tiilikaton pinnoitus",
+          href: "/kattopalvelut/pinnoitus",
+        },
+        {
+          label: "Tiilikaton puhdistus",
+          href: "/kattopalvelut/puhdistus",
+        },
       ],
     },
-    { label: "Talon maalaus", href: "/talon-maalaus" },
-    { label: "Toiminta-alueet", href: "/toiminta-alueet" },
-    { label: "Referenssit", href: "/referenssit" },
-    { label: "Tutustu Pintaseen", href: "/meista" },
+    {
+      label: "Talon maalaus",
+      href: "/talon-maalaus",
+    },
+    {
+      label: "Toiminta-alueet",
+      href: "/toiminta-alueet",
+    },
+    {
+      label: "Referenssit",
+      href: "/referenssit",
+    },
+    {
+      label: "Tutustu Pintaseen",
+      href: "/meista",
+    },
   ];
 
   return (
@@ -49,20 +70,23 @@ const Header = () => {
       <div className="pl-0 pr-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex items-center justify-between w-full h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-14 md:-ml-18 lg:-ml-22">
+          <Link to="/" className="flex items-center gap-3 shrink-0 -ml-10 md:-ml-14 lg:-ml-18">
             <OptimizedImage
               src={logoUrl}
-              alt="Pintanen logo"
+              alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
               className="h-24 md:h-28 lg:h-32 w-auto shrink-0 object-contain"
               priority={true}
               sizes="250px"
+              width={350}
+              height={120}
+              transformWidth={350}
             />
           </Link>
 
           {/* Desktop Navigation */}
           <nav
             aria-label="Päänavigaatio"
-            className="hidden md:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+            className="hidden lg:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
           >
             {navItems.map((item) =>
               item.dropdown ? (
@@ -115,7 +139,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <a
-            className="hidden md:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
             href="tel:+358409640066"
           >
             <Phone className="w-4 h-4" />
@@ -125,7 +149,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-primary-foreground"
+            className="lg:hidden p-2 rounded-lg text-primary-foreground"
             aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -140,7 +164,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-t border-border"
+            className="lg:hidden bg-card border-t border-border"
           >
             <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
               {navItems.map((item) =>
