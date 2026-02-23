@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
+const heroImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const Hero = () => {
   return (
@@ -10,13 +10,9 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={getOptimizedUrl(heroImage, 640, 40)}
-          srcSet={`${getOptimizedUrl(heroImage, 640, 40)} 640w, ${getOptimizedUrl(heroImage, 960, 60)} 960w, ${getOptimizedUrl(heroImage, 1200, 70)} 1200w, ${getOptimizedUrl(heroImage, 1920, 75)} 1920w`}
-          alt="Laivastonsiniseksi maalattu puutalo Pirkanmaalla – ammattitaitoinen julkisivumaalaus"
+          src={heroImage}
+          alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
-          sizes="100vw"
-          width={1600}
-          height={900}
           loading="eager"
           decoding="sync"
           fetchPriority="high"
@@ -24,7 +20,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-primary/55" />
       </div>
 
-      {/* Content — no opacity:0 animation, renders instantly for LCP */}
+      {/* Content */}
       <div className="relative z-10 section-container py-32">
         <div className="max-w-3xl">
           <div className="space-y-6">

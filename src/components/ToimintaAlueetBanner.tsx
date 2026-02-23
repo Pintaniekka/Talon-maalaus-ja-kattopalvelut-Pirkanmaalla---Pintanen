@@ -2,7 +2,7 @@ import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getStorageUrl } from '@/lib/storage';
 
-const mapImage = getStorageUrl("Suomi kartta pirkanmaa ja kanta-hame.png");
+const mapImage = getStorageUrl("Suomi-kartta-pirkanmaa-ja-kanta-hame.png");
 
 const cities = [
   { name: "Tampere", slug: "tampere" },
@@ -52,11 +52,9 @@ const ToimintaAlueetBanner = () => {
           <div className="flex justify-center">
             <img
               src={mapImage}
-              alt="Pintanen Oy:n toiminta-alue – Pirkanmaa ja Kanta-Häme kartalla"
+              alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
               className="w-full max-w-[280px] rounded-2xl object-contain"
               loading="lazy"
-              width={280}
-              height={350}
             />
           </div>
         </div>

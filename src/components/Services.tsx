@@ -9,16 +9,16 @@ import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
 const services = [{
   title: "Tiilikaton pinnoitus",
   href: "/kattopalvelut/pinnoitus",
-  beforeImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen liakainen katto ennen maalauspinnoitusta.webp"),
-  afterImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"),
+  beforeImage: getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
+  afterImage: getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
   description: "Vanha tiilikatto uuteen loistoon. Puhdistamme sammaleen, suojaamme tiilen ja maalaamme pinnan kestäväksi.",
   features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
   warranty: "5v takuu",
 }, {
   title: "Ulkomaalaus",
   href: "/talon-maalaus",
-  beforeImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen seina ennen maalausta.webp"),
-  afterImage: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen seina maalauksen jalkeen.webp"),
+  beforeImage: getStorageUrl("keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
+  afterImage: getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
   description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
   features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
   warranty: "2v takuu",
@@ -99,11 +99,9 @@ const Services = () => {
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage
-              src={getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp")}
-              alt="Puhdistettu tiilikatto"
+              src={getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
+              alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
               className="absolute inset-0 w-full h-full object-cover"
-              width={800}
-              height={400}
               sizes="(max-width: 640px) 90vw, 800px"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />

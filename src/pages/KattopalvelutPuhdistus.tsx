@@ -5,8 +5,9 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
-const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
+import { getStorageUrl } from "@/lib/storage";
+
+const puhdistusImage = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 
 const KattopalvelutPuhdistus = () => {
   const features = [

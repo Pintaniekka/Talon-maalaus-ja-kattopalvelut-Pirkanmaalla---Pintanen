@@ -6,8 +6,9 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
-const heroImage = getOptimizedUrl(getStorageUrl("Talon maalaus herokuva.webp"), 1200);
+import { getStorageUrl } from "@/lib/storage";
+
+const heroImage = getStorageUrl("talon-maalaus-ylojarvi-header.webp");
 
 const TalonMaalaus = () => {
   const processSteps = [
@@ -140,10 +141,10 @@ const TalonMaalaus = () => {
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Keltainen talo ennen varin vahtoa.webp")}
-              afterImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Violetti talo varin vaihdon jalkeen.webp")}
-              beforeAlt="Keltainen omakotitalo ennen ulkomaalausta ja värinvaihtoa"
-              afterAlt="Violetiksi maalattu omakotitalo värinvaihdon jälkeen – ammattitaitoinen julkisivumaalaus"
+              beforeImage={getStorageUrl("keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp")}
+              afterImage={getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp")}
+              beforeAlt="Puutalo ennen värinvaihtoa ja maalaustyötä Tampereella"
+              afterAlt="Violetti omakotitalo värinvaihdon jälkeen Tampereella"
             />
           </div>
         </div>

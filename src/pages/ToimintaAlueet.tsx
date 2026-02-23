@@ -5,9 +5,9 @@ import ServicePageHero from '@/components/ServicePageHero';
 import ServiceCTA from '@/components/ServiceCTA';
 import SEO from '@/components/SEO';
 import { allCities } from '@/data/cityData';
-import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
+import { getStorageUrl } from '@/lib/storage';
 
-const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"), 1200);
+const heroImage = getStorageUrl("keltainen-talo-maalaus-jalkeen-hameenlinna.webp");
 
 const ToimintaAlueet = () => {
   return (

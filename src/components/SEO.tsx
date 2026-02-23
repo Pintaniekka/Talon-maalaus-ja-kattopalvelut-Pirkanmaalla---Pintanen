@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { getStorageUrl, getOptimizedUrl } from '@/lib/storage';
+import { getStorageUrl } from '@/lib/storage';
 
 interface SEOProps {
   title?: string;
@@ -11,7 +11,7 @@ interface SEOProps {
 const defaultTitle = 'Tiilikaton pinnoitus ja talon maalaus Pirkanmaa | Pintanen';
 const defaultDescription = 'Tiilikaton pinnoitus, katon puhdistus ja talon maalaus takuutyönä Pirkanmaalla. Yrittäjät mukana jokaisessa työssä. Pyydä maksuton arvio.';
 
-const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"), 1200);
+const heroImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const SEO = ({ title, description, preloadImage }: SEOProps) => {
   const { pathname } = useLocation();

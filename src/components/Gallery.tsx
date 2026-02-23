@@ -5,33 +5,33 @@ import OptimizedImage from "./OptimizedImage";
 
 const images = [
   {
-    src: getStorageUrl("Muut_referenssit/katto valmist tiilen punainen.webp"),
-    alt: "Valmis punainen tiilikaton pinnoitus Pirkanmaalla – kiiltävä ja suojattu kattopinta",
+    src: getStorageUrl("tiilikatto-maalattu-forssa.webp"),
+    alt: "Ammattimaisesti maalattu tiilikatto Forssassa",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/katto valmis harmaa.webp"),
-    alt: "Harmaa tiilikaton maalauspinnoitus – kestävä suoja katollesi",
+    src: getStorageUrl("tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp"),
+    alt: "Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"),
-    alt: "Kiiltävä punainen tiilikatto pinnoituksen jälkeen – ammattimainen lopputulos",
+    src: getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp"),
+    alt: "Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp"),
-    alt: "Laivastonsiniseksi maalattu puutalo – julkisivumaalaus Pirkanmaalla",
+    src: getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp"),
+    alt: "Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Violetti talo varin vaihdon jalkeen.webp"),
-    alt: "Violetiksi maalattu omakotitalo värinvaihdon jälkeen – ulkomaalaus ammattitaidolla",
+    src: getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
+    alt: "Violetti omakotitalo värinvaihdon jälkeen Tampereella",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"),
-    alt: "Harmaaksi maalattu talon seinä värinvaihdon jälkeen – siisti ja kestävä lopputulos",
+    src: getStorageUrl("harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp"),
+    alt: "Talon värinvaihto punaisesta harmaaksi Pirkanmaalla",
     category: "Talon maalaus",
   },
 ];
@@ -73,9 +73,6 @@ const Gallery = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                width={600}
-                height={450}
-                transformWidth={400}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">

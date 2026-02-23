@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { getStorageUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const sideImage = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston sininen talo maalauksen jalkeen.webp");
+const sideImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const MiksiPintanen = () => {
   return (
@@ -65,12 +65,9 @@ const MiksiPintanen = () => {
           >
             <OptimizedImage
               src={sideImage}
-              alt="Pintanen – ammattitaitoinen maalaus- ja kattopalvelu"
+              alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
               className="w-full h-full object-cover rounded-2xl"
               sizes="(max-width: 1024px) 100vw, 50vw"
-              width={800}
-              height={600}
-              transformWidth={800}
             />
           </motion.div>
         </div>

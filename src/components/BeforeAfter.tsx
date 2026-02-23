@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const kattoEnnen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen liakainen katto ennen maalauspinnoitusta.webp");
-const kattoJalkeen = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp");
+const kattoEnnen = getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp");
+const kattoJalkeen = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp");
 
 const BeforeAfter = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -12,7 +12,6 @@ const BeforeAfter = () => {
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging) return;
-
     const rect = e.currentTarget.getBoundingClientRect();
     const x = "touches" in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
@@ -50,34 +49,24 @@ const BeforeAfter = () => {
             onTouchEnd={() => setIsDragging(false)}
             onTouchMove={handleMove}
           >
-            {/* After Image (Full width, behind) */}
             <OptimizedImage
               src={kattoJalkeen}
-              alt="Jälkeen"
+              alt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
               className="absolute inset-0 w-full h-full object-cover"
-              width={800}
-              height={600}
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
               draggable={false}
             />
-
-            {/* Before Image (Clipped) */}
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <OptimizedImage
                 src={kattoEnnen}
-                alt="Ennen"
+                alt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
                 className="absolute inset-0 w-full h-full object-cover"
-                width={800}
-                height={600}
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
                 draggable={false}
               />
             </div>
 
-            {/* Slider Handle */}
             <div
               className="absolute top-0 bottom-0 w-1 bg-primary-foreground shadow-lg"
               style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
@@ -90,7 +79,6 @@ const BeforeAfter = () => {
               </div>
             </div>
 
-            {/* Labels */}
             <div className="absolute top-4 left-4 px-4 py-2 rounded-lg bg-foreground/80 text-primary-foreground font-semibold text-sm">
               Ennen
             </div>
