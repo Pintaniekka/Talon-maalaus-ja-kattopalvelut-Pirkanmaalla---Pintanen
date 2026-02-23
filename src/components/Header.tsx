@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp"), 400);
+const logoUrl = getStorageUrl("Pintanen-logo.webp");
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,40 +27,19 @@ const Header = () => {
 
   const isHomePage = location.pathname === "/";
   const navItems = [
-    {
-      label: "Etusivu",
-      href: "/",
-    },
+    { label: "Etusivu", href: "/" },
     {
       label: "Kattopalvelut",
       href: "#",
       dropdown: [
-        {
-          label: "Tiilikaton pinnoitus",
-          href: "/kattopalvelut/pinnoitus",
-        },
-        {
-          label: "Tiilikaton puhdistus",
-          href: "/kattopalvelut/puhdistus",
-        },
+        { label: "Tiilikaton pinnoitus", href: "/kattopalvelut/pinnoitus" },
+        { label: "Tiilikaton puhdistus", href: "/kattopalvelut/puhdistus" },
       ],
     },
-    {
-      label: "Talon maalaus",
-      href: "/talon-maalaus",
-    },
-    {
-      label: "Toiminta-alueet",
-      href: "/toiminta-alueet",
-    },
-    {
-      label: "Referenssit",
-      href: "/referenssit",
-    },
-    {
-      label: "Tutustu Pintaseen",
-      href: "/meista",
-    },
+    { label: "Talon maalaus", href: "/talon-maalaus" },
+    { label: "Toiminta-alueet", href: "/toiminta-alueet" },
+    { label: "Referenssit", href: "/referenssit" },
+    { label: "Tutustu Pintaseen", href: "/meista" },
   ];
 
   return (
@@ -73,13 +52,10 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3 shrink-0 -ml-14 md:-ml-18 lg:-ml-22">
             <OptimizedImage
               src={logoUrl}
-              alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
+              alt="Pintanen logo"
               className="h-24 md:h-28 lg:h-32 w-auto shrink-0 object-contain"
               priority={true}
               sizes="250px"
-              width={350}
-              height={120}
-              transformWidth={350}
             />
           </Link>
 

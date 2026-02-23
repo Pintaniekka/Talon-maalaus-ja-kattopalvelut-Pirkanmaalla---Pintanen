@@ -38,10 +38,6 @@ const BeforeAfterSlider = ({
     setIsDragging(false);
   }, []);
 
-  /**
-   * Prevent parent <Link> from navigating when user drags the slider.
-   * The click event fires after mouseup/touchend; if we detected a drag, stop propagation.
-   */
   const handleClick = useCallback((e: React.MouseEvent) => {
     if (didDrag.current) {
       e.preventDefault();
@@ -63,18 +59,13 @@ const BeforeAfterSlider = ({
       onTouchMove={handleMove}
       onClick={handleClick}
     >
-      {/* After image (full, behind) */}
       <OptimizedImage
         src={afterImage}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
-        width={600}
-        height={450}
-        transformWidth={400}
         draggable={false}
       />
 
-      {/* Before image (clipped) */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
@@ -83,14 +74,10 @@ const BeforeAfterSlider = ({
           src={beforeImage}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
-          width={600}
-          height={450}
-          transformWidth={400}
           draggable={false}
         />
       </div>
 
-      {/* Slider handle */}
       <div
         className="absolute top-0 bottom-0 w-0.5 bg-primary-foreground/80"
         style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
@@ -103,7 +90,6 @@ const BeforeAfterSlider = ({
         </div>
       </div>
 
-      {/* Labels */}
       <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-foreground/70 text-primary-foreground font-semibold text-xs">
         Ennen
       </div>

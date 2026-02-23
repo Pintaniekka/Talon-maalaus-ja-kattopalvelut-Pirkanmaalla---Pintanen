@@ -7,8 +7,10 @@ import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
-const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
+import { getStorageUrl } from "@/lib/storage";
+
+const kattoImage = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+
 const KattopalvelutPinnoitus = () => {
   const processSteps = [{
     icon: Droplets,
@@ -121,10 +123,10 @@ const KattopalvelutPinnoitus = () => {
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kulunut katto ennen maalauspinnoitusta.webp")}
-              afterImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen katto maalauspinnoituksen jalkeen.webp")}
-              beforeAlt="Kulunut punainen tiilikatto ennen maalauspinnoitusta Pirkanmaalla"
-              afterAlt="Punainen tiilikatto maalauspinnoituksen jälkeen – suojattu ja kiiltävä pinta"
+              beforeImage={getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
+              afterImage={getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
+              beforeAlt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
+              afterAlt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
             />
           </div>
         </div>

@@ -7,14 +7,14 @@ import TeamContactSection from "@/components/TeamContactSection";
 import SEO from "@/components/SEO";
 import OptimizedImage from "@/components/OptimizedImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
 
-const heroImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Harmaa seina varinvaihdon jalkeen.webp"), 1200);
+const heroImage = getStorageUrl("talon-maalaus-pensseli-header.webp");
 
-const pinnoitusBg = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp");
-const puhdistusBg = getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp");
-const maalausBg = getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Violetti talo varin vaihdon jalkeen.webp");
+const pinnoitusBg = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const puhdistusBg = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const maalausBg = getStorageUrl("talon-maalaus-ylojarvi-header.webp");
 
 const AlueCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -86,7 +86,6 @@ const AlueCity = () => {
         backgroundImage={heroImage}
       />
 
-      {/* Aluekohtainen intro */}
       <section className="section-padding bg-background">
         <div className="section-container max-w-3xl mx-auto">
           {cityData.alueIntro.split('\n\n').map((paragraph, index) => (
@@ -104,7 +103,6 @@ const AlueCity = () => {
         </div>
       </section>
 
-      {/* Palvelut kaupunki-alueella */}
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div
@@ -134,19 +132,14 @@ const AlueCity = () => {
                   to={service.href}
                   className="block rounded-2xl overflow-hidden group relative h-full min-h-[320px]"
                 >
-                  {/* Background image */}
                   <OptimizedImage
                     src={service.bgImage}
                     alt={service.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    width={500}
-                    height={400}
-                    transformWidth={500}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/85 transition-all duration-300" />
 
-                  {/* Content overlay */}
                   <div className="relative z-10 flex flex-col justify-end h-full p-6">
                     <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
                       <service.Icon className="w-5 h-5 text-white" />
@@ -170,7 +163,6 @@ const AlueCity = () => {
         </div>
       </section>
 
-      {/* Miksi valita Pintanen */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div

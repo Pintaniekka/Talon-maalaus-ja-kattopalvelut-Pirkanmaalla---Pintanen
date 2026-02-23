@@ -9,10 +9,10 @@ import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoImage = getOptimizedUrl(getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"), 1200);
+const kattoImage = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
 
 const KattopalvelutPinnoitusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -130,8 +130,8 @@ const KattopalvelutPinnoitusCity = () => {
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kulunut katto ennen maalauspinnoitusta.webp")}
-              afterImage={getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen katto maalauspinnoituksen jalkeen.webp")}
+              beforeImage={getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
+              afterImage={getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
               beforeAlt={`Kulunut tiilikatto ennen maalauspinnoitusta ${cityData.name}`}
               afterAlt={`Tiilikatto maalauspinnoituksen jälkeen ${cityData.name}`}
             />

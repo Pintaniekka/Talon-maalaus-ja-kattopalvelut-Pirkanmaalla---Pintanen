@@ -7,10 +7,10 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import CityServices from "@/components/CityServices";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const puhdistusImage = getOptimizedUrl(getStorageUrl("Muut_referenssit/Puhdistuksen jalkeen.webp"), 1200);
+const puhdistusImage = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 
 const KattopalvelutPuhdistusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -46,7 +46,6 @@ const KattopalvelutPuhdistusCity = () => {
         backgroundImage={puhdistusImage}
       />
 
-      {/* City Intro */}
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
@@ -67,7 +66,6 @@ const KattopalvelutPuhdistusCity = () => {
         </div>
       </section>
 
-      {/* Features */}
       <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -90,7 +88,6 @@ const KattopalvelutPuhdistusCity = () => {
         </div>
       </section>
 
-      {/* Benefits & Pricing */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
@@ -119,7 +116,6 @@ const KattopalvelutPuhdistusCity = () => {
         </div>
       </section>
 
-      {/* Local Section */}
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
