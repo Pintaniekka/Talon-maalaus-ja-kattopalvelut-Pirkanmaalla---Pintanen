@@ -147,8 +147,8 @@ const Referenssit = () => {
       title: 'Tiilikaton pinnoitus – Valkeakoski',
       category: 'pinnoitus',
       images: [
-        { src: getStorageUrl('punainen-tiilikatto-maalaus-ennen-valkeakoski.webp'), label: 'Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella' },
-        { src: getStorageUrl('punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp'), label: 'Huoltomaalattu punainen tiilikatto Valkeakoskella' },
+        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp'), label: 'Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella' },
+        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp'), label: 'Huoltomaalattu punainen tiilikatto Valkeakoskella' },
       ],
     },
     {
@@ -156,8 +156,8 @@ const Referenssit = () => {
       title: 'Tiilikaton pinnoitus – Tampere',
       category: 'pinnoitus',
       images: [
-        { src: getStorageUrl('punainen-tiilikatto-maalaus-ennen-tampere.webp'), label: 'Haalistunut punainen tiilikatto ennen kattomaalausta Tampereella' },
-        { src: getStorageUrl('punainen-tiilikatto-maalaus-jalkeen-tampere.webp'), label: 'Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella' },
+        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-ennen-tampere.webp'), label: 'Haalistunut punainen tiilikatto ennen kattomaalausta Tampereella' },
+        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp'), label: 'Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella' },
       ],
     },
     {
@@ -165,8 +165,8 @@ const Referenssit = () => {
       title: 'Tiilikaton puhdistus – Sastamala',
       category: 'puhdistus',
       images: [
-        { src: getStorageUrl('katto-ennen-mekaaninen-puhdistus-sastamala.webp'), label: 'Sammaloitunut tiilikatto ennen mekaanista puhdistusta Sastamalassa' },
-        { src: getStorageUrl('katto-jalkeen-mekaaninen-puhdistus-sastamala.webp'), label: 'Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa' },
+        { src: getStorageUrl('Muut_referenssit/Katto-ennen-mekaaninen-puhdistus-sastamala.webp'), label: 'Sammaloitunut tiilikatto ennen mekaanista puhdistusta Sastamalassa' },
+        { src: getStorageUrl('Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp'), label: 'Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa' },
       ],
     },
     {
@@ -174,8 +174,8 @@ const Referenssit = () => {
       title: 'Värinvaihto – Tampere',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp'), label: 'Puutalo ennen värinvaihtoa ja maalaustyötä Tampereella' },
-        { src: getStorageUrl('violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp'), label: 'Violetti omakotitalo värinvaihdon jälkeen Tampereella' },
+        { src: getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp'), label: 'Puutalo ennen värinvaihtoa ja maalaustyötä Tampereella' },
+        { src: getStorageUrl('Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp'), label: 'Violetti omakotitalo värinvaihdon jälkeen Tampereella' },
       ],
     },
     {
@@ -183,8 +183,8 @@ const Referenssit = () => {
       title: 'Sinisen talon maalaus – Hämeenkyrö',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('laivaston-sininen-talo-maalaus-ennen-hameenkyro.webp'), label: 'Haalistunut talo ennen maalausta Hämeenkyrössä' },
-        { src: getStorageUrl('laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp'), label: 'Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä' },
+        { src: getStorageUrl('Muut_referenssit/laivaston-sininen-talo-maalaus-ennen-hameenkyro.webp'), label: 'Haalistunut talo ennen maalausta Hämeenkyrössä' },
+        { src: getStorageUrl('Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp'), label: 'Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä' },
       ],
     },
     {
@@ -192,8 +192,8 @@ const Referenssit = () => {
       title: 'Värinvaihto harmaaksi – Pirkanmaa',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('punainen-talon-maalaus-ennen-varinvaihdos-pirkanmaa.webp'), label: 'Punainen talo ennen värinvaihtomaalausta Pirkanmaalla' },
-        { src: getStorageUrl('harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp'), label: 'Talon värinvaihto punaisesta harmaaksi Pirkanmaalla' },
+        { src: getStorageUrl('Muut_referenssit/punainen-talon-maalaus-ennen-varinvaihdos-pirkanmaa.webp'), label: 'Punainen talo ennen värinvaihtomaalausta Pirkanmaalla' },
+        { src: getStorageUrl('Muut_referenssit/harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp'), label: 'Talon värinvaihto punaisesta harmaaksi Pirkanmaalla' },
       ],
     },
     {
@@ -201,8 +201,8 @@ const Referenssit = () => {
       title: 'Vihreän talon maalaus – Hämeenkyrö',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Vihrea-talon-maalaus-ennen-hameenkyro.webp'), label: 'Vihreä puutalo ennen huoltomaalausta Hämeenkyrössä' },
-        { src: getStorageUrl('Virhea-talon-maalaus-jalkeen-hameenkyro.webp'), label: 'Vihreä omakotitalo maalauksen jälkeen Hämeenkyrössä' },
+        { src: getStorageUrl('Muut_referenssit/Vihrea-talon-maalaus-ennen-hameenkyro.webp'), label: 'Vihreä puutalo ennen huoltomaalausta Hämeenkyrössä' },
+        { src: getStorageUrl('Muut_referenssit/Virhea-talon-maalaus-jalkeen-hameenkyro.webp'), label: 'Vihreä omakotitalo maalauksen jälkeen Hämeenkyrössä' },
       ],
     },
     {
@@ -210,8 +210,8 @@ const Referenssit = () => {
       title: 'Keltaisen talon maalaus – Hämeenlinna',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('keltainen-talo-maalaus-ennen-hameenlinna.webp'), label: 'Omakotitalo ennen huoltomaalausta Hämeenlinnassa' },
-        { src: getStorageUrl('keltainen-talo-maalaus-jalkeen-hameenlinna.webp'), label: 'Valmis keltainen puutalo ulkomaalauksen jälkeen Hämeenlinnassa' },
+        { src: getStorageUrl('Muut_referenssit/keltainen-talon-maalaus-ennen-hameenlinna.webp'), label: 'Omakotitalo ennen huoltomaalausta Hämeenlinnassa' },
+        { src: getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-jalkeen-hameenlinna.webp'), label: 'Valmis keltainen puutalo ulkomaalauksen jälkeen Hämeenlinnassa' },
       ],
     },
     {
@@ -219,8 +219,8 @@ const Referenssit = () => {
       title: 'Keltainen seinä – Pirkanmaa',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Keltainen-seina-ennen-maalaus-pirkanmaa.webp'), label: 'Haalistunut keltainen puuseinä ennen ulkomaalausta Pirkanmaalla' },
-        { src: getStorageUrl('keltainen-seina-maalaus-jalkeen-pirkanmaa.webp'), label: 'Keltainen puujulkisivu maalauksen jälkeen Pirkanmaalla' },
+        { src: getStorageUrl('Muut_referenssit/Keltainen-seina-ennen-maalaus-pirkanmaa.webp'), label: 'Haalistunut keltainen puuseinä ennen ulkomaalausta Pirkanmaalla' },
+        { src: getStorageUrl('Muut_referenssit/keltainen-seina-maalaus-jalkeen-pirkanmaa.webp'), label: 'Keltainen puujulkisivu maalauksen jälkeen Pirkanmaalla' },
       ],
     },
     {
@@ -228,19 +228,19 @@ const Referenssit = () => {
       title: 'Parveke ja julkisivu – Ylöjärvi',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('talo-ja-parveke-maalaus-kunnostus-ennen-ylojarvi.webp'), label: 'Talo ja puuparveke ennen kunnostusmaalausta Ylöjärvellä' },
-        { src: getStorageUrl('talo-ja-parveke-maalaus-kunnostus-jalkeen-ylojarvi.webp'), label: 'Kunnostettu puuparveke ja julkisivu Ylöjärvellä' },
+        { src: getStorageUrl('Muut_referenssit/talo-ja-parveke-maalaus-kunnostus-ennen-ylojarvi.webp'), label: 'Talo ja puuparveke ennen kunnostusmaalausta Ylöjärvellä' },
+        { src: getStorageUrl('Muut_referenssit/talo-ja-parveke-maalaus-kunnostus-jalkeen-ylojarvi.webp'), label: 'Kunnostettu puuparveke ja julkisivu Ylöjärvellä' },
       ],
     },
-    { type: 'single', image: getStorageUrl('tiilenpunainen-tiilikatto-nokia.webp'), category: 'pinnoitus', title: 'Tiilenpunainen tiilikaton pinnoitus omakotitalossa Nokialla' },
-    { type: 'single', image: getStorageUrl('tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa' },
-    { type: 'single', image: getStorageUrl('tummanharmaa-tiilikaton-pinnoitus.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikatto pinnoituksen ja suojauksen jälkeen' },
-    { type: 'single', image: getStorageUrl('tiilikatto-maalattu-forssa.webp'), category: 'pinnoitus', title: 'Ammattimaisesti maalattu tiilikatto Forssassa' },
-    { type: 'single', image: getStorageUrl('katto-ennen-jalkeen-maalaus-forssa.webp'), category: 'pinnoitus', title: 'Tiilikaton maalaus ennen ja jälkeen -vertailu Forssassa' },
-    { type: 'single', image: getStorageUrl('tiilikatto-pesu-hameenlinna.webp'), category: 'puhdistus', title: 'Tiilikaton pesu ja huolto Hämeenlinnassa' },
-    { type: 'single', image: getStorageUrl('harjatiiviste-asennus-pirkanmaa.webp'), category: 'puhdistus', title: 'Harjatiivisteen asennus tiilikattoon Pirkanmaalla' },
-    { type: 'single', image: getStorageUrl('suojausprojekti-akaa.webp'), category: 'maalaus', title: 'Terassin suojaus ennen talon maalausta Akaassa' },
-    { type: 'single', image: getStorageUrl('talon-suojaus-akaa.webp'), category: 'maalaus', title: 'Julkisivun suojaustyöt ennen maalausta Akaassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilenpunainen-tiilikatto-nokia.webp'), category: 'pinnoitus', title: 'Tiilenpunainen tiilikaton pinnoitus omakotitalossa Nokialla' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikatto pinnoituksen ja suojauksen jälkeen' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikatto-maalattu-forssa.webp'), category: 'pinnoitus', title: 'Ammattimaisesti maalattu tiilikatto Forssassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/katto-ennen-jalkeen-maalaus-forssa.webp'), category: 'pinnoitus', title: 'Tiilikaton maalaus ennen ja jälkeen -vertailu Forssassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikatto-pesu-hameenlinna.webp'), category: 'puhdistus', title: 'Tiilikaton pesu ja huolto Hämeenlinnassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/harjatiiviste-asennus-pirkanmaa.webp'), category: 'puhdistus', title: 'Harjatiivisteen asennus tiilikattoon Pirkanmaalla' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/suojausprojekti-akaa.webp'), category: 'maalaus', title: 'Terassin suojaus ennen talon maalausta Akaassa' },
+    { type: 'single', image: getStorageUrl('Muut_referenssit/talon-suojaus-akaa.webp'), category: 'maalaus', title: 'Julkisivun suojaustyöt ennen maalausta Akaassa' },
   ];
 
   const filteredProjects = activeCategory === 'all' ? projects : projects.filter((p) => p.category === activeCategory);
@@ -277,7 +277,7 @@ const Referenssit = () => {
   return (
     <div>
       <SEO title="Referenssit – Katon pinnoitus ja talon maalaus" description="Tutustu toteuttamiimme katto- ja maalausprojekteihin Pirkanmaalla. Näe ero ennen maalausta ja maalauksen jälkeen." />
-      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getStorageUrl('tiilikatto-pesu-hameenlinna.webp')} />
+      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getStorageUrl('Muut_referenssit/tiilikatto-pesu-hameenlinna.webp')} />
 
       <section className="section-padding bg-background">
         <div className="section-container">

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { getStorageUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const sideImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
+const sideImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const MiksiPintanen = () => {
   return (

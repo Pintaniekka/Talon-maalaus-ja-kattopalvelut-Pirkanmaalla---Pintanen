@@ -7,7 +7,7 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
-const puhdistusImage = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const puhdistusImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 
 const KattopalvelutPuhdistus = () => {
   const features = [

@@ -12,9 +12,9 @@ import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
 
 const heroImage = getStorageUrl("talon-maalaus-pensseli-header.webp");
 
-const pinnoitusBg = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
-const puhdistusBg = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
-const maalausBg = getStorageUrl("talon-maalaus-ylojarvi-header.webp");
+const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
 const AlueCity = () => {
   const { city } = useParams<{ city: string }>();
