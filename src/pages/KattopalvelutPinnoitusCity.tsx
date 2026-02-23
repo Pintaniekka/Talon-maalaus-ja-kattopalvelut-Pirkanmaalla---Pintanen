@@ -9,10 +9,13 @@ import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const kattoImage = getOptimizedUrl(
+  getStorageUrl("Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kiiltava katto maalaukspinnoituksen jalkeen.webp"),
+  1200,
+);
 
 const KattopalvelutPinnoitusCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -21,11 +24,27 @@ const KattopalvelutPinnoitusCity = () => {
   if (!cityData) return <Navigate to="/kattopalvelut/pinnoitus" replace />;
 
   const processSteps = [
-    { icon: Droplets, title: "1. Pesu painepesurilla", description: "Huolellinen puhdistus painepesurilla takaa puhtaan pinna ja maalin tarttuvuuden." },
-    { icon: Shield, title: "2. Tiilien tarkastus & vaihto", description: "Rikkinäiset tiilet vaihdetaan uusiin, varmistetaan katon tiiviys." },
-    { icon: Paintbrush, title: "3. Torjunta-ainekäsittely", description: "Sammaleentorjunta-aine estää uuden kasvuston muodostumisen." },
+    {
+      icon: Droplets,
+      title: "1. Pesu painepesurilla",
+      description: "Huolellinen puhdistus painepesurilla takaa puhtaan pinna ja maalin tarttuvuuden.",
+    },
+    {
+      icon: Shield,
+      title: "2. Tiilien tarkastus & vaihto",
+      description: "Rikkinäiset tiilet vaihdetaan uusiin, varmistetaan katon tiiviys.",
+    },
+    {
+      icon: Paintbrush,
+      title: "3. Torjunta-ainekäsittely",
+      description: "Sammaleentorjunta-aine estää uuden kasvuston muodostumisen.",
+    },
     { icon: Clock, title: "4. Pohjamaalaus", description: "Laadukas pohjamaalaus varmistaa pintamaalin tarttuvuuden." },
-    { icon: BadgeCheck, title: "5. Pintamaalaus", description: "Toinen kerros kestävää kattopinnoitetta antaa lopullisen suojan." },
+    {
+      icon: BadgeCheck,
+      title: "5. Pintamaalaus",
+      description: "Toinen kerros kestävää kattopinnoitetta antaa lopullisen suojan.",
+    },
   ];
 
   const benefits = [
@@ -40,18 +59,26 @@ const KattopalvelutPinnoitusCity = () => {
     <div>
       <SEO
         title={cityData.pinnoitusMetaTitle || `Tiilikaton pinnoitus ${cityData.name}`}
-        description={cityData.pinnoitusMetaDesc || `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`}
+        description={
+          cityData.pinnoitusMetaDesc ||
+          `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`
+        }
       />
       <ServicePageHero
         title={`Tiilikaton pinnoitus – ${cityData.name}`}
-        subtitle='"Eikö me sovittu, että se kiiltää?"'
+        subtitle="Tiilikaton pinnoitukset edullisesti Pirkanmaalla"
         backgroundImage={kattoImage}
       />
 
       {/* City Intro */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
               Miksi tiilikaton pinnoitus?
             </h2>
@@ -75,9 +102,14 @@ const KattopalvelutPinnoitusCity = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding" style={{ backgroundColor: "hsl(205 70% 88%)" }}>
         <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">5-vaiheinen pinnoitusprosessi</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Jokainen vaihe on tarkasti suunniteltu takaamaan pitkäikäinen ja kaunis lopputulos.
@@ -85,7 +117,14 @@ const KattopalvelutPinnoitusCity = () => {
           </motion.div>
           <div className="grid md:grid-cols-5 gap-6">
             {processSteps.map((step, index) => (
-              <motion.div key={step.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="card-elevated text-center">
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="card-elevated text-center"
+              >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <step.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -104,11 +143,19 @@ const KattopalvelutPinnoitusCity = () => {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi pinnoittaa tiilikatto?</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Tiilikaton pinnoitus on edullisin tapa pidentää katon käyttöikää merkittävästi verrattuna täydelliseen katon uusimiseen.
+                Tiilikaton pinnoitus on edullisin tapa pidentää katon käyttöikää merkittävästi verrattuna täydelliseen
+                katon uusimiseen.
               </p>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
-                  <motion.li key={benefit} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3">
+                  <motion.li
+                    key={benefit}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
                     <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-accent" />
                     </div>
@@ -124,14 +171,23 @@ const KattopalvelutPinnoitusCity = () => {
       {/* Before/After */}
       <section className="section-padding bg-muted">
         <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-8"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Ennen & Jälkeen</h2>
             <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
-              afterImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
+              beforeImage={getStorageUrl(
+                "Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen kulunut katto ennen maalauspinnoitusta.webp",
+              )}
+              afterImage={getStorageUrl(
+                "Samaan_kohtaan_synkronoidut_kuvat_erikseen/Punainen katto maalauspinnoituksen jalkeen.webp",
+              )}
               beforeAlt={`Kulunut tiilikatto ennen maalauspinnoitusta ${cityData.name}`}
               afterAlt={`Tiilikatto maalauspinnoituksen jälkeen ${cityData.name}`}
             />
@@ -142,12 +198,15 @@ const KattopalvelutPinnoitusCity = () => {
       {/* Local Section */}
       <section className="section-padding bg-background">
         <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Palvelu {cityData.name}-alueella
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Palvelu {cityData.name}-alueella</h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.localSection}</p>
           </motion.div>
