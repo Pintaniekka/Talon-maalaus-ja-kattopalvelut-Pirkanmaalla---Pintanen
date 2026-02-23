@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
-import { getStorageUrl, getOptimizedUrl } from "@/lib/storage";
+import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen logo ilman taustaa oikea koko.webp"), 400);
+const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen-logo.webp");
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,10 +67,10 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
     >
-      <div className="px-8 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex items-center justify-between w-full h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0 pl-4 md:pl-0">
+          <Link to="/" className="flex items-center shrink-0 relative z-50">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
