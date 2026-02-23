@@ -86,7 +86,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav
             aria-label="Päänavigaatio"
-            className="hidden lg:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+            className="hidden xl:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
           >
             {navItems.map((item) =>
               item.dropdown ? (
