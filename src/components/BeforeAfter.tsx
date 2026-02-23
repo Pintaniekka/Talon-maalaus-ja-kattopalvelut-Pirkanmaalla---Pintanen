@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const kattoEnnen = getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp");
-const kattoJalkeen = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp");
+const kattoEnnen = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp");
+const kattoJalkeen = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp");
 
 const BeforeAfter = () => {
   const [sliderPosition, setSliderPosition] = useState(50);

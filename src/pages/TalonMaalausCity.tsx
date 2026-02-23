@@ -11,7 +11,7 @@ import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const heroImage = getStorageUrl("talon-maalaus-ylojarvi-header.webp");
+const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
 const TalonMaalausCity = () => {
   const { city } = useParams<{ city: string }>();
@@ -162,8 +162,8 @@ const TalonMaalausCity = () => {
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp")}
-              afterImage={getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp")}
+              beforeImage={getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp")}
+              afterImage={getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp")}
               beforeAlt={`Puutalo ennen värinvaihtoa ${cityData.name}`}
               afterAlt={`Omakotitalo värinvaihdon jälkeen ${cityData.name}`}
             />

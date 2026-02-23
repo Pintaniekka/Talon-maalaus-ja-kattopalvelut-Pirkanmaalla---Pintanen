@@ -5,32 +5,32 @@ import OptimizedImage from "./OptimizedImage";
 
 const images = [
   {
-    src: getStorageUrl("tiilikatto-maalattu-forssa.webp"),
+    src: getStorageUrl("Muut_referenssit/tiilikatto-maalattu-forssa.webp"),
     alt: "Ammattimaisesti maalattu tiilikatto Forssassa",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp"),
+    src: getStorageUrl("Muut_referenssit/tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp"),
     alt: "Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp"),
+    src: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp"),
     alt: "Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp"),
+    src: getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp"),
     alt: "Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
+    src: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
     alt: "Violetti omakotitalo värinvaihdon jälkeen Tampereella",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp"),
+    src: getStorageUrl("Muut_referenssit/harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp"),
     alt: "Talon värinvaihto punaisesta harmaaksi Pirkanmaalla",
     category: "Talon maalaus",
   },

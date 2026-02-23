@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
 
-const heroImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
+const heroImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const Hero = () => {
   return (

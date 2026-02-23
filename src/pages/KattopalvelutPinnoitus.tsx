@@ -9,7 +9,7 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
-const kattoImage = getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
 
 const KattopalvelutPinnoitus = () => {
   const processSteps = [{
@@ -123,8 +123,8 @@ const KattopalvelutPinnoitus = () => {
           </motion.div>
           <div className="max-w-2xl mx-auto">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
-              afterImage={getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
+              beforeImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
+              afterImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
               beforeAlt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
               afterAlt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
             />

@@ -10,7 +10,7 @@ import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const puhdistusImage = getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const puhdistusImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 
 const KattopalvelutPuhdistusCity = () => {
   const { city } = useParams<{ city: string }>();

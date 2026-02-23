@@ -18,8 +18,8 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
     {
       title: "Tiilikaton pinnoitus",
       href: `/kattopalvelut/pinnoitus/${citySlug}`,
-      beforeImage: getStorageUrl("punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
-      afterImage: getStorageUrl("punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
+      beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
+      afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
       description: "Vanha tiilikatto uuteen loistoon. Puhdistamme sammaleen, suojaamme tiilen ja maalaamme pinnan kestäväksi.",
       features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
       warranty: "5v takuu",
@@ -27,8 +27,8 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
     {
       title: "Ulkomaalaus",
       href: `/talon-maalaus/${citySlug}`,
-      beforeImage: getStorageUrl("keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
-      afterImage: getStorageUrl("violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
+      beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
+      afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
       description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
       features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
       warranty: "2v takuu",
@@ -118,7 +118,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage
-              src={getStorageUrl("katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
+              src={getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
               alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
               className="absolute inset-0 w-full h-full object-cover"
               sizes="(max-width: 640px) 90vw, 800px"

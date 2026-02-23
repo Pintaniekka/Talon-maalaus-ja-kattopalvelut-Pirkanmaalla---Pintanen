@@ -7,7 +7,7 @@ import SEO from '@/components/SEO';
 import { allCities } from '@/data/cityData';
 import { getStorageUrl } from '@/lib/storage';
 
-const heroImage = getStorageUrl("keltainen-talo-maalaus-jalkeen-hameenlinna.webp");
+const heroImage = getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-jalkeen-hameenlinna.webp");
 
 const ToimintaAlueet = () => {
   return (
