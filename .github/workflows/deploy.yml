@@ -16,13 +16,15 @@ concurrency:
 
 jobs:
   # VAIHE 1: Synkronointi (Tämä ajetaan heti ja aina)
-  sync-to-repereetta:
+ sync-to-repereetta:
     runs-on: ubuntu-latest
+    # POISTETTU: needs: deploy (Nyt tämä ajetaan aina heti)
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Push to Repereetta
         run: |
           git remote add target https://x-access-token:${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
