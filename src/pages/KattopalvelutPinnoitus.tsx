@@ -6,6 +6,8 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
@@ -139,6 +141,7 @@ const KattopalvelutPinnoitus = () => {
         </div>
       </section>
 
+      <FAQSection items={pinnoitusFAQ} />
       <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
       <ServiceCTA />
