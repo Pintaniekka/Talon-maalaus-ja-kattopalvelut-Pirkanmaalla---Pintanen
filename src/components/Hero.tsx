@@ -10,9 +10,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroSrc}
-          srcSet={heroSrcSet}
-          sizes="100vw"
+           src={heroSrc}
+           sizes="100vw"
           alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
           loading="eager"
