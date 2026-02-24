@@ -15,22 +15,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # VAIHE 1: Synkronointi (Tämä ajetaan heti ja aina)
- sync-to-repereetta:
+  # VAIHE 1: Synkronointi (2 välilyöntiä sisennyksessä!)
+  sync-to-repereetta:
     runs-on: ubuntu-latest
-    # POISTETTU: needs: deploy (Nyt tämä ajetaan aina heti)
     steps:
-      - name: Checkout source code
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Push to Repereetta
         run: |
           git remote add target https://x-access-token:${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
           git push target HEAD:main --force
 
-  # VAIHE 2: Nettisivun rakennus (Tämä voi epäonnistua vaikuttamatta synkronointiin)
+  # VAIHE 2: Nettisivun rakennus (Samalla tasolla kuin sync)
   build:
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +48,7 @@ jobs:
         with:
           path: "./dist"
 
-  # VAIHE 3: Julkaisu (Vain jos build onnistuu)
+  # VAIHE 3: Julkaisu
   deploy:
     environment:
       name: github-pages
