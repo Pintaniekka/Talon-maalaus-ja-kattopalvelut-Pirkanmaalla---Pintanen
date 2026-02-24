@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   # VAIHE 1: Synkronointi (2 välilyöntiä sisennyksessä!)
-  sync-to-repereetta:
+  sync-to-Repereetta:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
