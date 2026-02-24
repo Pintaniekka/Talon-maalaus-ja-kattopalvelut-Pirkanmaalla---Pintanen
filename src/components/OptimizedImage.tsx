@@ -27,14 +27,12 @@ const OptimizedImage = ({
 }: OptimizedImageProps) => {
   return (
     <img
-      src={optimizedSrc}
+      src={src}
       alt={alt}
       className={className}
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : "low"}
-      sizes={sizes}
-      srcSet={srcSet}
       draggable={draggable}
       style={style}
       onError={onError}
