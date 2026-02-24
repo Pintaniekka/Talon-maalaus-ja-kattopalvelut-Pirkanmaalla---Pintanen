@@ -1,25 +1,17 @@
 name: Push Back to Pintaniekka
 on:
   push:
-    branches: [main]
+    branches: [main] # Aktivoituu, kun Lovable synkronoi koodin B-tilille
 jobs:
   push-back:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
           fetch-depth: 0
-      - name: Check for differences and Push
+      - name: Push to Pintaniekka branch
         run: |
-          # Asetetaan yhteys käyttämällä uutta tokenia
-          git remote add target https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen.git
-          git fetch target main
-
-          # TÄMÄ KATKAISEE LOOPIN:
-          if git diff --quiet HEAD target/main; then
-            echo "Koodi on jo identtistä Pintaniekan kanssa. Ei lähetetä mitään, looppi katkaistu."
-          else
-            echo "Muutoksia havaittu Lovablessa. Pusketaan Pintaniekka-tilille."
-            git push target HEAD:refs/heads/paivitys-b-tililta --force
-          fi
+          # Määritellään A-tili kohteeksi
+          git remote add target https://${{ secrets.SYNC_TOKEN }}@github.com/Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen.git
+          # Lähetetään koodi A-tilin uuteen haaraan (branch)
+          git push target HEAD:refs/heads/paivitys-b-tililta --force
