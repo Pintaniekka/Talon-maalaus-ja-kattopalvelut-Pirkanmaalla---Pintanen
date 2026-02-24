@@ -11,26 +11,7 @@ interface OptimizedImageProps {
   height?: number;
 }
 
-const SUPABASE_STORAGE_PREFIX = "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/";
-
-function buildTransformUrl(src: string, width: number): string {
-  if (!src.startsWith(SUPABASE_STORAGE_PREFIX)) return src;
-  const path = src.slice(SUPABASE_STORAGE_PREFIX.length);
-  return `https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/render/image/public/images/${path}?width=${width}&format=webp&quality=80`;
-}
-
-function buildSrcSet(src: string): string | undefined {
-  if (!src.startsWith(SUPABASE_STORAGE_PREFIX)) return undefined;
-  const widths = [400, 800, 1200, 1920];
-  return widths
-    .map((w) => `${buildTransformUrl(src, w)} ${w}w`)
-    .join(", ");
-}
-
-function buildDefaultSrc(src: string): string {
-  if (!src.startsWith(SUPABASE_STORAGE_PREFIX)) return src;
-  return buildTransformUrl(src, 800);
-}
+// No image transformations – use plain public URLs
 
 const OptimizedImage = ({
   src,
