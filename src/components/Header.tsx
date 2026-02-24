@@ -74,7 +74,7 @@ const Header = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
-              className="h-20 md:h-24 lg:h-28 w-auto shrink-0 object-contain"
+              className="h-22 md:h-24 lg:h-28 w-auto shrink-0 object-contain"
               priority={true}
               sizes="200px"
             />
