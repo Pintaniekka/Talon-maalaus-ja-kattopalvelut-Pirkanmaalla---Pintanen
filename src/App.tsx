@@ -15,6 +15,7 @@ import ToimintaAlueet from "./pages/ToimintaAlueet";
 import AlueCity from "./pages/AlueCity";
 import Referenssit from "./pages/Referenssit";
 import Meista from "./pages/Meista";
+import ImageTest from "./pages/ImageTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/alue/:city" element={<AlueCity />} />
             <Route path="/referenssit" element={<Referenssit />} />
             <Route path="/meista" element={<Meista />} />
+            <Route path="/image-test" element={<ImageTest />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
