@@ -35,7 +35,7 @@ const FAQSection = ({ items }: FAQSectionProps) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <section className="section-padding bg-background">
+      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -50,9 +50,9 @@ const FAQSection = ({ items }: FAQSectionProps) => {
                 <AccordionItem
                   key={index}
                   value={`faq-${index}`}
-                  className="border border-border rounded-xl px-6 overflow-hidden bg-card shadow-sm"
+                  className="border border-border rounded-xl px-6 overflow-hidden bg-card shadow-sm border-l-4 border-l-primary"
                 >
-                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline py-5">
+                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]]:text-primary">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5">
