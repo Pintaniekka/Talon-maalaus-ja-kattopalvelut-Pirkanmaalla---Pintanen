@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Check, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
@@ -158,6 +160,7 @@ const Meista = () => {
         </div>
       </section>
 
+      <FAQSection items={generalFAQ} />
       <ServiceContactSection variant="general" />
     </div>
   );

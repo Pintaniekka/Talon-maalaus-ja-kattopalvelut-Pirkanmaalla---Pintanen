@@ -7,6 +7,8 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import CityServices from "@/components/CityServices";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { getMaalausCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
@@ -186,6 +188,7 @@ const TalonMaalausCity = () => {
         </div>
       </section>
 
+      <FAQSection items={getMaalausCityFAQ(cityData.name)} />
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="maalaus" cityName={cityData.name} />
       <KotitalousVahennys />

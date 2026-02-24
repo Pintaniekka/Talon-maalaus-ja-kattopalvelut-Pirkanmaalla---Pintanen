@@ -5,6 +5,8 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { maalausFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
@@ -150,6 +152,7 @@ const TalonMaalaus = () => {
         </div>
       </section>
 
+      <FAQSection items={maalausFAQ} />
       <ServiceContactSection variant="maalaus" />
       <KotitalousVahennys />
       <ServiceCTA />

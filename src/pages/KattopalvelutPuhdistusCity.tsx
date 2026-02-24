@@ -6,6 +6,8 @@ import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import CityServices from "@/components/CityServices";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { getPuhdistusCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
@@ -130,6 +132,7 @@ const KattopalvelutPuhdistusCity = () => {
         </div>
       </section>
 
+      <FAQSection items={getPuhdistusCityFAQ(cityData.name)} />
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="katto" cityName={cityData.name} />
       <KotitalousVahennys />
