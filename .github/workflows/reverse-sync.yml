@@ -12,13 +12,14 @@ jobs:
           fetch-depth: 0
       - name: Check for differences and Push
         run: |
+          # Asetetaan yhteys käyttämällä uutta tokenia
           git remote add target https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen.git
           git fetch target main
 
-          # Tarkistetaan onko B-tilin koodi oikeasti erilaista kuin A-tilin main-haara
+          # TÄMÄ KATKAISEE LOOPIN:
           if git diff --quiet HEAD target/main; then
             echo "Koodi on jo identtistä Pintaniekan kanssa. Ei lähetetä mitään, looppi katkaistu."
           else
-            echo "Muutoksia havaittu (esim. Lovable-muokkaus). Pusketaan Pintaniekka-tilille."
+            echo "Muutoksia havaittu Lovablessa. Pusketaan Pintaniekka-tilille."
             git push target HEAD:refs/heads/paivitys-b-tililta --force
           fi
