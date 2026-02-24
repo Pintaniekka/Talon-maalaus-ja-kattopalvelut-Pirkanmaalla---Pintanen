@@ -5,7 +5,7 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
-const logoUrl = getOptimizedUrl(getStorageUrl("Pintanen-logo.webp");
+const logoUrl = getStorageUrl("Pintanen-logo.webp");
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,9 +77,6 @@ const Header = () => {
               className="h-12 md:h-16 lg:h-20 w-auto shrink-0 object-contain"
               priority={true}
               sizes="200px"
-              width={350}
-              height={120}
-              transformWidth={350}
             />
           </Link>
 
