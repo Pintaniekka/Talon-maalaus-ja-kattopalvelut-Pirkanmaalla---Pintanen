@@ -25,10 +25,6 @@ const OptimizedImage = ({
   width,
   height,
 }: OptimizedImageProps) => {
-  const srcSet = buildSrcSet(src);
-
-  const optimizedSrc = buildDefaultSrc(src);
-
   return (
     <img
       src={optimizedSrc}
