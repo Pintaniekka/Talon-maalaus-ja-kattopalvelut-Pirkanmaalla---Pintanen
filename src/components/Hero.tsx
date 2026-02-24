@@ -2,13 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
 
-const heroImageBase = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
-const RENDER_PREFIX = "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/render/image/public/images/";
-const heroPath = "Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp";
-const heroSrcSet = [400, 800, 1200, 1920]
-  .map((w) => `${RENDER_PREFIX}${heroPath}?width=${w}&format=webp&quality=80 ${w}w`)
-  .join(", ");
-const heroSrc = `${RENDER_PREFIX}${heroPath}?width=1200&format=webp&quality=80`;
+const heroSrc = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const Hero = () => {
   return (
@@ -16,9 +10,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroSrc}
-          srcSet={heroSrcSet}
-          sizes="100vw"
+           src={heroSrc}
+           sizes="100vw"
           alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
           loading="eager"
