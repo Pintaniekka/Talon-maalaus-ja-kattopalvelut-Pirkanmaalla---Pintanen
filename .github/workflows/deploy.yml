@@ -28,7 +28,8 @@ jobs:
       - name: Push to Repereetta
         run: |
           git remote remove target || true
-          git remote add target https://${{ secrets.REPO_B_TOKEN }}@github.com/repereetta/github-data-weaver.git
+          # Huomaa iso R-kirjain: Repereetta
+          git remote add target https://${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
           git push target HEAD:main --force
 
   # VAIHE 2: Nettisivun rakennus (Samalla tasolla kuin sync)
