@@ -16,16 +16,25 @@ concurrency:
 
 jobs:
   # VAIHE 1: Synkronointi (2 välilyöntiä sisennyksessä!)
-  sync-to-Repereetta:
+ sync-to-repereetta:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # TÄMÄ RIVI ON RATKAISEVA:
+          persist-credentials: false 
+
       - name: Push to Repereetta
         run: |
-          git remote add target https://x-access-token:${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
+          # Puhdistetaan vanhat asetukset varmuuden vuoksi
+          git remote remove target || true
+          
+          # Lisätään kohde käyttäen sinun uutta avaintasi
+          git remote add target https://${{ secrets.REPO_B_TOKEN }}@github.com/repereetta/github-data-weaver.git
+          
+          # Työnnetään koodi perille
           git push target HEAD:main --force
 
   # VAIHE 2: Nettisivun rakennus (Samalla tasolla kuin sync)
