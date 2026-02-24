@@ -6,6 +6,8 @@ import PriceCalculator from "@/components/PriceCalculator";
 import Gallery from "@/components/Gallery";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
+import FAQSection from "@/components/FAQSection";
+import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -18,6 +20,7 @@ const Index = () => {
       <MiksiPintanen />
       <PriceCalculator />
       <Gallery />
+      <FAQSection items={generalFAQ} />
       <ServiceContactSection variant="general" />
       <KotitalousVahennys />
     </>

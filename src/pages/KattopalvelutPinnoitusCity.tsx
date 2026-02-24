@@ -8,6 +8,8 @@ import CityServices from "@/components/CityServices";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { getPinnoitusCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
@@ -217,6 +219,7 @@ const KattopalvelutPinnoitusCity = () => {
         </div>
       </section>
 
+      <FAQSection items={getPinnoitusCityFAQ(cityData.name)} />
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="katto" cityName={cityData.name} />
       <KotitalousVahennys />

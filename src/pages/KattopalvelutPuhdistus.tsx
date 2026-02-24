@@ -4,6 +4,8 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import FAQSection from "@/components/FAQSection";
+import { puhdistusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
 
@@ -114,6 +116,7 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
+      <FAQSection items={puhdistusFAQ} />
       <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
       <ServiceCTA />

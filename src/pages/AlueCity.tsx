@@ -4,6 +4,8 @@ import { MapPin, ArrowRight, Users, Award, Clock, ChevronRight } from "lucide-re
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import TeamContactSection from "@/components/TeamContactSection";
+import FAQSection from "@/components/FAQSection";
+import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import OptimizedImage from "@/components/OptimizedImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
@@ -201,6 +203,7 @@ const AlueCity = () => {
         </div>
       </section>
 
+      <FAQSection items={generalFAQ} />
       <TeamContactSection cityName={cityData.name} />
       <ServiceCTA />
     </div>
