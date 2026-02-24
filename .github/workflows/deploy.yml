@@ -18,7 +18,7 @@ jobs:
   # VAIHE 1: Synkronointi
   sync-to-repereetta:
     runs-on: ubuntu-latest
-    # TÄMÄ RIVI: Suoritetaan vain alkuperäisessä repositoriossa
+    # TÄMÄ RIVI: Estää ajon muilla kuin alkuperäisellä tilillä
     if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Checkout source code
@@ -36,7 +36,7 @@ jobs:
   # VAIHE 2: Nettisivun rakennus
   build:
     runs-on: ubuntu-latest
-    # TÄMÄ RIVI: Suoritetaan vain alkuperäisessä repositoriossa
+    # TÄMÄ RIVI: Estää turhan buildin Repereetta-tilillä
     if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Checkout
@@ -61,7 +61,7 @@ jobs:
       name: github-pages
     runs-on: ubuntu-latest
     needs: build
-    # TÄMÄ RIVI: Suoritetaan vain alkuperäisessä repositoriossa
+    # TÄMÄ RIVI: Estää Deploy-virheet Repereetta-tilillä
     if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Deploy to GitHub Pages
