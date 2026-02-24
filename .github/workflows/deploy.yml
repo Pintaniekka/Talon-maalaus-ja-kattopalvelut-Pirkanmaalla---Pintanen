@@ -15,10 +15,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # VAIHE 1: Synkronointi (TÄSSÄ ON RAJOITUS)
+  # VAIHE 1: Synkronointi
   sync-to-repereetta:
     runs-on: ubuntu-latest
-    # Tämä ajo tapahtuu VAIN Pintaniekka-tilillä
     if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Checkout source code
@@ -32,9 +31,11 @@ jobs:
           git remote add target https://${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
           git push target HEAD:main --force
 
-  # VAIHE 2: Nettisivun rakennus (EI RAJOITUSTA)
+  # VAIHE 2: Nettisivun rakennus
   build:
     runs-on: ubuntu-latest
+    # Tämä estää Build-virheet Repereetta-tilillä
+    if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,12 +53,14 @@ jobs:
         with:
           path: "./dist"
 
-  # VAIHE 3: Julkaisu (EI RAJOITUSTA)
+  # VAIHE 3: Julkaisu
   deploy:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
     needs: build
+    # Tämä estää Deploy (404) -virheet Repereetta-tilillä
+    if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
