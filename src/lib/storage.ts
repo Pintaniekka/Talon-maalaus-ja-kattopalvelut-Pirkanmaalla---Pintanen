@@ -10,25 +10,19 @@
  * @module storage
  */
 
-/** Kovakoodattu Supabase-osoite, jota käytetään jos VITE_SUPABASE_URL puuttuu. */
-const FALLBACK_URL = "https://fndkkgfpsgghvewvoysr.supabase.co";
-
-const SUPABASE_URL: string =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_SUPABASE_URL) ||
-  FALLBACK_URL;
+/** Kiinteä Supabase-osoite Pintanen-projektille (fndkkgfpsgghvewvoysr). */
+const FIXED_SUPABASE_URL = "https://fndkkgfpsgghvewvoysr.supabase.co";
 
 /**
- * Palauttaa absoluuttisen URL-osoitteen Supabase Storage -bucketissa olevalle kuvalle.
+ * Palauttaa absoluuttisen URL-osoitteen Lovable Cloudin tallennustilasta (images-bucket).
+ * 
+ * ⚠️  Tämä funktio käyttää AINA kiinteää osoitetta varmistaakseen kuvien näkymisen 
+ *     myös muilla tileillä ilman ympäristömuuttujia.
  *
- * @param path - Polku bucket-kansion sisällä, esim. `"Muut_referenssit/kuva.webp"`
+ * @param path - Polku bucket-kansion sisällä, esim. "Muut_referenssit/kuva.webp"
  * @returns Täydellinen HTTPS-osoite kuvaan
- *
- * @example
- * ```ts
- * const url = getStorageUrl("Muut_referenssit/logo.webp");
- * // => "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Muut_referenssit/logo.webp"
- * ```
  */
 export function getStorageUrl(path: string): string {
-  return `${SUPABASE_URL}/storage/v1/object/public/images/${encodeURI(path)}`;
+  // Varmistetaan, että käytetään images-bucketia ja kiinteää URL-osoitetta
+  return `${FIXED_SUPABASE_URL}/storage/v1/object/public/images/${encodeURI(path)}`;
 }
