@@ -16,6 +16,9 @@ const ScrollToTop = () => {
 };
 
 const Layout = () => {
+  const { pathname } = useLocation();
+  const hideBanner = pathname === '/toiminta-alueet';
+
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
@@ -23,7 +26,7 @@ const Layout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <ToimintaAlueetBanner />
+      {!hideBanner && <ToimintaAlueetBanner />}
       <Footer />
       <MobileBottomBar />
     </div>

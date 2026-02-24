@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
-import ServiceCTA from '@/components/ServiceCTA';
+import ServiceContactSection from '@/components/ServiceContactSection';
 import SEO from '@/components/SEO';
 import { allCities } from '@/data/cityData';
 import { getStorageUrl } from '@/lib/storage';
@@ -66,7 +66,7 @@ const ToimintaAlueet = () => {
         </div>
       </section>
 
-      <ServiceCTA />
+      <ServiceContactSection variant="general" />
     </div>
   );
 };
