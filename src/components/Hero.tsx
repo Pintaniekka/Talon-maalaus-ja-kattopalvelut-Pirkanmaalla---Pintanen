@@ -16,6 +16,8 @@ const Hero = () => {
           loading="eager"
           decoding="sync"
           fetchPriority="high"
+          width={1920}
+          height={1280}
         />
         <div className="absolute inset-0 bg-primary/55" />
       </div>

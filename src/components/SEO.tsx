@@ -11,7 +11,7 @@ interface SEOProps {
 const defaultTitle = 'Tiilikaton pinnoitus ja talon maalaus Pirkanmaa | Pintanen';
 const defaultDescription = 'Tiilikaton pinnoitus, katon puhdistus ja talon maalaus takuutyönä Pirkanmaalla. Yrittäjät mukana jokaisessa työssä. Pyydä maksuton arvio.';
 
-const heroImage = getStorageUrl("laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
+const heroImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
 const SEO = ({ title, description, preloadImage }: SEOProps) => {
   const { pathname } = useLocation();

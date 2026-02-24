@@ -24,7 +24,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4">Palvelut</h4>
+            <h3 className="font-bold mb-4 text-lg">Palvelut</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li><Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">Tiilikaton pinnoitus</Link></li>
               <li><Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">Ulkomaalaus</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4">Yhteystiedot</h4>
+            <h3 className="font-bold mb-4 text-lg">Yhteystiedot</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li><a href="tel:+358409640066" className="hover:text-primary-foreground transition-colors">040 964 0066</a></li>
               <li><a href="mailto:myynti@pintanen.fi" className="hover:text-primary-foreground transition-colors">myynti@pintanen.fi</a></li>

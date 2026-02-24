@@ -7,6 +7,18 @@ interface OptimizedImageProps {
   draggable?: boolean;
   style?: React.CSSProperties;
   onError?: React.ReactEventHandler<HTMLImageElement>;
+  width?: number;
+  height?: number;
+}
+
+const SUPABASE_STORAGE_PREFIX = "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/";
+
+function buildSrcSet(src: string): string | undefined {
+  if (!src.startsWith(SUPABASE_STORAGE_PREFIX)) return undefined;
+  const widths = [400, 800, 1200, 1920];
+  return widths
+    .map((w) => `${src}?width=${w}&format=webp&quality=75 ${w}w`)
+    .join(", ");
 }
 
 const OptimizedImage = ({
@@ -18,7 +30,11 @@ const OptimizedImage = ({
   draggable,
   style,
   onError,
+  width,
+  height,
 }: OptimizedImageProps) => {
+  const srcSet = buildSrcSet(src);
+
   return (
     <img
       src={src}
@@ -28,9 +44,12 @@ const OptimizedImage = ({
       decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : "low"}
       sizes={sizes}
+      srcSet={srcSet}
       draggable={draggable}
       style={style}
       onError={onError}
+      width={width}
+      height={height}
     />
   );
 };
