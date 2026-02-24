@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy and Sync
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,120 +15,46 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # VAIHE 1: Synkronointi (Tämä ajetaan heti ja aina)
+  sync-to-repereetta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to Repereetta
+        run: |
+          git remote add target https://x-access-token:${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
+          git push target HEAD:main --force
+
+  # VAIHE 2: Nettisivun rakennus (Tämä voi epäonnistua vaikuttamatta synkronointiin)
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
-
       - name: Install dependencies
         run: npm install
-
       - name: Build
         run: npm run build
-
-      - name: Copy index.html to 404.html for SPA routing
-        run: cp dist/index.html dist/404.html
-
-      - name: Create SPA route directories
-        run: |
-          # Static routes
-          ROUTES=(
-            "kattopalvelut/pinnoitus"
-            "kattopalvelut/puhdistus"
-            "talon-maalaus"
-            "toiminta-alueet"
-            "referenssit"
-            "meista"
-          )
-
-          # City slugs for dynamic routes
-          CITIES=(
-            "tampere"
-            "sastamala"
-            "hameenkyro"
-            "ylojarvi"
-            "nokia"
-            "forssa"
-            "hameenlinna"
-            "huittinen"
-            "akaa"
-            "ikaalinen"
-            "juupajoki"
-            "kangasala"
-            "kihnio"
-            "lempaala"
-            "mantta-vilppula"
-            "orivesi"
-            "parkano"
-            "pirkkala"
-            "palkane"
-            "ruovesi"
-            "urjala"
-            "valkeakoski"
-            "vesilahti"
-            "virrat"
-          )
-
-          # Helper: copy index.html and set canonical for given route
-          copy_with_canonical() {
-            local route="$1"
-            mkdir -p "dist/$route"
-            cp dist/index.html "dist/$route/index.html"
-            sed -i "s|href=\"https://pintanen.fi\"|href=\"https://pintanen.fi/$route\"|" "dist/$route/index.html"
-          }
-
-          # Create static route directories
-          for route in "${ROUTES[@]}"; do
-            copy_with_canonical "$route"
-          done
-
-          # Create city-specific route directories
-          for city in "${CITIES[@]}"; do
-            copy_with_canonical "alue/$city"
-            copy_with_canonical "kattopalvelut/pinnoitus/$city"
-            copy_with_canonical "kattopalvelut/puhdistus/$city"
-            copy_with_canonical "talon-maalaus/$city"
-          done
-
-          echo "Created route directories for $(echo ${#ROUTES[@]} + ${#CITIES[@]} '*' 4 | bc) pages"
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./dist"
 
+  # VAIHE 3: Julkaisu (Vain jos build onnistuu)
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  # Tämä uusi osio hoitaa synkronoinnin Repereetta-tilille
-  sync-to-repereetta:
-    runs-on: ubuntu-latest
-    needs: deploy # Tämä varmistaa, että synkronointi tapahtuu vasta julkaisun jälkeen
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Push to Repereetta
-        run: |
-          git remote add target https://x-access-token:${{ secrets.REPO_B_TOKEN }}@github.com/Repereetta/github-data-weaver.git
-          git push target HEAD:main --force
