@@ -8,12 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # TÄMÄ ON TÄRKEÄ: estetään botin omien tunnusten käyttö
           persist-credentials: false
           fetch-depth: 0
-      - name: Push to Pintaniekka branch
+      - name: Check for differences and Push
         run: |
-          # Asetetaan git käyttämään sinun tokeniasi
+          # Asetetaan yhteys käyttämällä uutta tokenia
           git remote add target https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen.git
-          # Pakotetaan pusku uuteen haaraan
-          git push target HEAD:refs/heads/paivitys-b-tililta --force
+          git fetch target main
+
+          # TÄMÄ KATKAISEE LOOPIN:
+          if git diff --quiet HEAD target/main; then
+            echo "Koodi on jo identtistä Pintaniekan kanssa. Ei lähetetä mitään, looppi katkaistu."
+          else
+            echo "Muutoksia havaittu Lovablessa. Pusketaan Pintaniekka-tilille."
+            git push target HEAD:refs/heads/paivitys-b-tililta --force
+          fi
