@@ -110,7 +110,7 @@ const Services = () => {
                 <RoofCleanIcon className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-white font-heading">Tarvitseeko kattosi vain puhdistuksen?</h4>
+                <h3 className="font-bold text-white font-heading text-base">Tarvitseeko kattosi vain puhdistuksen?</h3>
                 <p className="text-white/80 text-sm">Mekaaninen puhdistus ja kasvuston torjuntakäsittely pidentävät kattosi ikää.</p>
               </div>
               <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
@@ -157,9 +157,9 @@ const Services = () => {
                         {step.num}
                       </span>
                     </div>
-                    <h4 className="text-sm font-bold text-foreground mb-1.5 font-heading leading-tight">
+                    <p className="text-sm font-bold text-foreground mb-1.5 font-heading leading-tight">
                       {step.title}
-                    </h4>
+                    </p>
                     <p className="text-xs text-muted-foreground leading-relaxed px-1">
                       {step.desc}
                     </p>
@@ -196,7 +196,7 @@ const Services = () => {
                   <span className="text-sm font-bold text-muted-foreground font-heading">{step.num}</span>
                 </div>
                 <div className="pb-8">
-                  <h4 className="text-base font-bold text-foreground font-heading mb-1">{step.title}</h4>
+                  <p className="text-base font-bold text-foreground font-heading mb-1">{step.title}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
               </motion.div>

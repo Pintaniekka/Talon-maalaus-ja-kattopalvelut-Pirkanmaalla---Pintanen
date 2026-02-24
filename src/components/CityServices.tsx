@@ -129,7 +129,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
                 <RoofCleanIcon className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-white font-heading">Tarvitseeko kattosi vain puhdistuksen?</h4>
+                <h3 className="font-bold text-white font-heading text-base">Tarvitseeko kattosi vain puhdistuksen?</h3>
                 <p className="text-white/80 text-sm">Mekaaninen puhdistus ja kasvuston torjuntakäsittely pidentävät kattosi ikää.</p>
               </div>
               <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
