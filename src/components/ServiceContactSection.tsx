@@ -22,8 +22,8 @@ const contactPersons = {
   maalaus: {
     name: 'Eemil Pitkänen',
     role: 'Yrittäjä – Maalauspalvelut',
-    phone: '040 964 0066',
-    phoneHref: 'tel:+358409640066',
+    phone: '040 164 2233',
+    phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
   },
 };
