@@ -68,7 +68,7 @@ const MiksiPintanen = () => {
               srcSet={getImageSrcSet(sideImage)}
               alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
               className="w-full h-full object-cover rounded-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 600px"
             />
           </motion.div>
         </div>
