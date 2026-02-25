@@ -45,9 +45,9 @@ export function getMobileImageUrl(desktopUrl: string, width: 480 | 750): string 
   return `${FIXED_SUPABASE_URL}/storage/v1/object/public/images/${folder}/${encodeURI(`${name}-${width}${ext}`)}`;
 }
 
-/** Hero-kuville: 750w mobiili + 1200w desktop */
+/** Hero-kuville: 750w mobiili + 1125w desktop */
 export function getHeroSrcSet(desktopUrl: string): string {
-  return `${getMobileImageUrl(desktopUrl, 750)} 750w, ${desktopUrl} 1200w`;
+  return `${getMobileImageUrl(desktopUrl, 750)} 750w, ${desktopUrl} 1125w`;
 }
 
 /** Muille kuville: 480w mobiili + 900w desktop */

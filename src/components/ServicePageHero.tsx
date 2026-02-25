@@ -18,7 +18,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, children }: Service
           <img
             src={backgroundImage}
             srcSet={getHeroSrcSet(backgroundImage)}
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="100vw"
             alt={`${title} – Pintanen Oy`}
             className="w-full h-full object-cover"
             loading="eager"

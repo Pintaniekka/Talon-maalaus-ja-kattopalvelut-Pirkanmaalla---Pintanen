@@ -52,7 +52,7 @@ const BeforeAfter = () => {
             <OptimizedImage
               src={kattoJalkeen}
               srcSet={getImageSrcSet(kattoJalkeen)}
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="100vw"
               alt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
@@ -64,7 +64,7 @@ const BeforeAfter = () => {
               <OptimizedImage
                 src={kattoEnnen}
                 srcSet={getImageSrcSet(kattoEnnen)}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="100vw"
                 alt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
