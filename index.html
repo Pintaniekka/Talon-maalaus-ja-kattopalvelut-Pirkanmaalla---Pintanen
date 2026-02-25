@@ -16,7 +16,15 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Supabase Storage preconnect -->
-    <link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" />
+    <link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" crossorigin />
+
+    <!-- Critical inline CSS for hero text paint -->
+    <style>
+      body { margin: 0; }
+      .hero-critical { min-height: 100vh; display: flex; align-items: center; }
+      .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; }
+      .hero-critical p { margin: 0.75rem 0 0; color: rgba(255,255,255,.8); font-size: 1.125rem; }
+    </style>
 
     <!-- Preload Hero Image for LCP -->
     <link rel="preload" as="image" href="https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp" type="image/webp" fetchpriority="high" />

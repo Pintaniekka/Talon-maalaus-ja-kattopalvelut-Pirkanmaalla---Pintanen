@@ -6,7 +6,7 @@ const heroSrc = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-j
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="hero-critical relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
