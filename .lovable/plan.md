@@ -1,3 +1,5 @@
+
+
 ## Lighthouse-suorituskyvyn optimointisuunnitelma (85 -> 95+)
 
 ### Analyysi: Miksi suorituskyky on 85?
@@ -59,10 +61,10 @@ Lighthouse-raportin mukaan suurin ongelma on **LCP (3.5s)**, jossa hero-tekstin 
 | `src/App.tsx`                             | `React.lazy()` alasivuille                                       |
 
 
+**Yksi pieni lisähuomio (React.lazy):** Kun Lovable asentaa `React.lazy()` -toiminnon `App.tsx`-tiedostoon, sen täytyy ehdottomasti kääriä sovelluksen reitit `<Suspense>` -komponenttiin. Esimerkiksi näin: `<Suspense fallback={<div className="min-h-screen" />}>`. Jos tätä "fallbackia" ei ole, React kaatuu yrittäessään ladata alasivua. Tämä on standardikauraa React-koodarille, mutta Lovablelle se kannattaa mainita varmuuden vuoksi.
+
 **Riskit ja varmuus:**
 
 - Fonttien latausmuutos on standardi Google-suositus ja toimii 100% varmasti
 - `React.lazy()` on Reactin sisäänrakennettu ominaisuus, täysin turvallinen
-- Kuvan mitat ovat staattisia attribuutteja, eivät voi rikkoa mitään  
-  
-**Yksi pieni lisähuomio (React.lazy):** Kun Lovable asentaa `React.lazy()` -toiminnon `App.tsx`-tiedostoon, sen täytyy ehdottomasti kääriä sovelluksen reitit `<Suspense>` -komponenttiin. Esimerkiksi näin: `<Suspense fallback={<div className="min-h-screen" />}>`. Jos tätä "fallbackia" ei ole, React kaatuu yrittäessään ladata alasivua. Tämä on standardikauraa React-koodarille, mutta Lovablelle se kannattaa mainita varmuuden vuoksi.
+- Kuvan mitat ovat staattisia attribuutteja, eivät voi rikkoa mitään
