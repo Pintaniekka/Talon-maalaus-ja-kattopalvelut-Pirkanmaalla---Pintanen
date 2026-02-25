@@ -14,6 +14,8 @@ const Footer = () => {
               src={logoUrl}
               alt="Pintanen logo"
               className="h-16 w-auto mb-4 brightness-0 invert object-contain"
+              width={200}
+              height={80}
               sizes="200px"
             />
             <p className="text-primary-foreground/70 text-sm">
