@@ -1,48 +1,67 @@
 
 
-## Hero LCP render delay fix — minimal inline CSS
+## Lighthouse 76 -> tavoite 90+ korjaukset
 
-3 tiedostoa, 3 pientä muutosta. Ei muita tiedostoja kosketa.
+Edellinen muutos pudotti LCP render delayn 2320ms -> 780ms. Nyt jaljella olevat pullonkaulat:
 
-### 1. `index.html` — Supabase preconnect + critical CSS
+### Analyysi
 
-Rivi 18-21: Korvataan nykyinen preconnect ja lisataan inline style:
+| Ongelma | Vaikutus | Prioriteetti |
+|---|---|---|
+| Supabase preconnect "unused" | LCP +320ms | Korkea |
+| JS bundle 209KB yhdessa tiedostossa | FCP, LCP, TBT | Korkea |
+| CSS render-blocking 160ms | FCP, LCP | Keskitaso |
+
+### 1. `index.html` — Supabase preconnect: lisaa MOLEMMAT variantit
+
+Ongelma: Kuvat ladataan `<img>` -tagilla ILMAN `crossorigin`-attribuuttia, joten selain avaa **non-CORS** yhteyden. Mutta preconnect on `crossorigin`, joten se avaa **CORS** yhteyden jota kuvapyynnot eivat kayta. Siksi Lighthouse sanoo "unused".
+
+Ratkaisu: Lisaa kaksi preconnect-tagia:
 
 ```html
-<!-- Supabase Storage preconnect -->
+<link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" />
 <link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" crossorigin />
-
-<!-- Critical inline CSS for hero text paint -->
-<style>
-  body { margin: 0; }
-  .hero-critical { min-height: 100vh; display: flex; align-items: center; }
-  .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; }
-  .hero-critical p { margin: 0.75rem 0 0; color: rgba(255,255,255,.8); font-size: 1.125rem; }
-</style>
-
-<!-- Preload Hero Image for LCP -->
 ```
 
-Huom: ei font-family, ei font-weight, ei position/overflow. Vain minimaaliset tyylit.
+Ensimmainen palvelee non-CORS kuvalatauksia (`<img>`), toinen CORS-pyyntoja (fetch, fontti jne).
 
-### 2. `src/components/Hero.tsx` — Lisaa `hero-critical` class
+### 2. `vite.config.ts` — JS bundle splitting
 
-Rivi 9: Lisataan `hero-critical` section-elementin classNameen:
+Lisataan `build.rollupOptions.output.manualChunks` joka jakaa bundlen:
 
-```tsx
-<section id="hero" className="hero-critical relative min-h-screen flex items-center overflow-hidden">
+```text
+vendor-react    : react, react-dom, react-router-dom
+vendor-motion   : framer-motion
+vendor-ui       : radix-ui, recharts, cmdk, vaul, embla
+index           : sovelluksen oma koodi (pienempi)
 ```
 
-### 3. `src/components/ServicePageHero.tsx` — Lisaa `hero-critical` class
+Tama pienentaa paa-JS-bundlea ~209KB -> ~80-100KB ja loput latautuvat rinnakkain tai vasta tarvittaessa. Vahentaa TBT:ta ja nopeuttaa FCP:ta.
 
-Rivi 15: Lisataan `hero-critical` section-elementin classNameen:
+### 3. `src/components/Hero.tsx` — Poista framer-motion scroll indicator initial render
 
-```tsx
-<section className="hero-critical relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-```
+Hero-komponentissa on `<motion.div>` scroll-indikaattorille joka vaatii framer-motionin latauksen ennen renderointia. Korvataan se tavallisella `<div>` + CSS-animaatiolla, jotta hero ei riipu framer-motionista.
 
-### Ei muita muutoksia
+### Muutettavat tiedostot
 
-- Ei skeleton-HTML:aa
-- Ei komponenttirakenteen muutoksia
-- Ei muita tiedostoja
+| Tiedosto | Muutos |
+|---|---|
+| `index.html` | Lisaa toinen preconnect ilman crossorigin |
+| `vite.config.ts` | Lisaa manualChunks bundle splitting |
+| `src/components/Hero.tsx` | Korvaa motion.div CSS-animaatiolla scroll-indikaattorissa |
+
+### Odotettu vaikutus
+
+| Mittari | Nyt | Tavoite |
+|---|---|---|
+| FCP | 3.6s | ~2.5-3.0s |
+| LCP | 4.5s | ~3.5-4.0s |
+| TBT | 50ms | ~20-30ms |
+| Score | 76 | ~85-92 |
+
+### Riskit
+
+- ManualChunks voi lisata HTTP-pyyntoja, mutta HTTP/2 multiplexing hoitaa taman
+- Scroll-indikaattorin CSS-animaatio nayttaa samalta kuin framer-motion versio
+- Ei muuteta komponenttirakennetta tai reititysta
+
