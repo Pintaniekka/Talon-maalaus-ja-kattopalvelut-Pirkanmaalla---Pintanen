@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
 import { RoofCleanIcon } from "./ServiceIcons";
@@ -119,6 +119,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
           >
             <OptimizedImage
               src={getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
+              srcSet={getImageSrcSet(getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp"))}
               alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
               className="absolute inset-0 w-full h-full object-cover"
               sizes="(max-width: 640px) 90vw, 800px"

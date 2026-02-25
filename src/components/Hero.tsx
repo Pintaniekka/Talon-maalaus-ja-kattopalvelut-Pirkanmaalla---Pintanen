@@ -12,7 +12,7 @@ const Hero = () => {
         <img
            src={heroSrc}
            srcSet={getHeroSrcSet(heroSrc)}
-           sizes="(max-width: 768px) 100vw, 1200px"
+           sizes="100vw"
           alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
           loading="eager"

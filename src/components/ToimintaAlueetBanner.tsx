@@ -52,6 +52,8 @@ const ToimintaAlueetBanner = () => {
           <div className="flex justify-center">
             <img
               src={mapImage}
+              srcSet={getImageSrcSet(mapImage)}
+              sizes="280px"
               alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
               className="w-full max-w-[280px] rounded-2xl object-contain"
               width={280}
