@@ -63,7 +63,7 @@ const BeforeAfterSlider = ({
       <OptimizedImage
         src={afterImage}
         srcSet={getImageSrcSet(afterImage)}
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 768px) 100vw, 600px"
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
@@ -76,7 +76,7 @@ const BeforeAfterSlider = ({
         <OptimizedImage
           src={beforeImage}
           srcSet={getImageSrcSet(beforeImage)}
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, 600px"
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
