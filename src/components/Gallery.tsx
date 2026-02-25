@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
 const images = [
@@ -70,6 +70,7 @@ const Gallery = () => {
             >
               <OptimizedImage
                 src={image.src}
+                srcSet={getImageSrcSet(image.src)}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

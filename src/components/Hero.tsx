@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, Award, MapPin } from "lucide-react";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getHeroSrcSet } from "@/lib/storage";
 
 const heroSrc = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
 
@@ -11,7 +11,8 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
            src={heroSrc}
-           sizes="100vw"
+           srcSet={getHeroSrcSet(heroSrc)}
+           sizes="(max-width: 768px) 100vw, 1200px"
           alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
           loading="eager"

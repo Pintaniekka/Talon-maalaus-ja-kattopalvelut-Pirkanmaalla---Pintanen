@@ -1,6 +1,6 @@
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
 
 const mapImage = getStorageUrl("Toiminta-alue-kartta-pirkanmaa-kantahame.png");
 

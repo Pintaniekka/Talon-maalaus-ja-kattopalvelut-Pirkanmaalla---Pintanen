@@ -4,6 +4,7 @@ interface OptimizedImageProps {
   className?: string;
   priority?: boolean;
   sizes?: string;
+  srcSet?: string;
   draggable?: boolean;
   style?: React.CSSProperties;
   onError?: React.ReactEventHandler<HTMLImageElement>;
@@ -19,6 +20,7 @@ const OptimizedImage = ({
   className,
   priority = false,
   sizes,
+  srcSet,
   draggable,
   style,
   onError,
@@ -28,11 +30,13 @@ const OptimizedImage = ({
   return (
     <img
       src={src}
+      srcSet={srcSet}
       alt={alt}
       className={className}
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : "low"}
+      sizes={sizes}
       draggable={draggable}
       style={style}
       onError={onError}
