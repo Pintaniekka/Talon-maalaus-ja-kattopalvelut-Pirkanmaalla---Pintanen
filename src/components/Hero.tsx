@@ -36,7 +36,7 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-sans">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading">
               Uutta ilmettä kotisi{" "}
               <span className="text-sky-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">katoille ja seinille</span>
             </h1>
