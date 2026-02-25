@@ -9,13 +9,13 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-           src={heroSrc}
-           srcSet={getHeroSrcSet(heroSrc)}
-           sizes="100vw"
+          src={heroSrc}
+          srcSet={getHeroSrcSet(heroSrc)}
+          sizes="100vw"
           alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
           className="w-full h-full object-cover"
-          loading="eager"
-          decoding="sync"
+          loading={undefined}
+          decoding="async"
           fetchPriority="high"
           width={1920}
           height={1280}
@@ -37,7 +37,8 @@ const Hero = () => {
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading">
-              Uutta ilmettä kotisi <span className="text-sky-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">katoille ja seinille</span>
+              Uutta ilmettä kotisi{" "}
+              <span className="text-sky-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">katoille ja seinille</span>
             </h1>
 
             {/* Subheading */}
