@@ -1,66 +1,68 @@
+## Lighthouse-suorituskyvyn optimointisuunnitelma (85 -> 95+)
 
+### Analyysi: Miksi suorituskyky on 85?
 
-# Fix Mobile LCP (6.4s -> target under 2.5s)
+Lighthouse-raportin mukaan suurin ongelma on **LCP (3.5s)**, jossa hero-tekstin "katoille ja seinille" renderöintiviive on **2340 ms**. Tämä johtuu pääasiassa siitä, että **Google Fonts ladataan CSS-tiedoston sisällä `@import`-komennolla**, mikä estää renderöinnin kokonaan kunnes fontti on ladattu. Tämä vaikuttaa sekä FCP:hen (2.3s) että LCP:hen.
 
-The Lighthouse data reveals **three distinct problems**, not just image sizes.
+### Suunnitelma
 
----
+#### 1. Fonttien latauksen optimointi (suurin vaikutus - arviolta -800ms LCP)
 
-## Problem 1: LCP Element Is Text, Not an Image
+**Ongelma:** `src/index.css` rivillä 5 on `@import url('https://fonts.googleapis.com/css2?...')` joka on renderöinnin estävä pyyntö CSS-tiedoston sisällä. Selain ei voi edes aloittaa fontin lataamista ennen kuin CSS on ladattu ja parsittu.
 
-Lighthouse identifies the LCP element as the hero `<span>` ("katoille ja seinille"), with a **2,350ms render delay**. This is because `framer-motion` animates it from `opacity: 0` -- the browser cannot paint the LCP element until the JavaScript animation starts.
+**Ratkaisu:**
 
-**Fix**: Remove the initial `opacity: 0` / `y: 30` animation from the hero content in `Hero.tsx`. Use CSS animation instead (or just show it immediately). The hero is always above-the-fold, so there is no benefit to an entrance animation.
+- Poistetaan `@import`-rivi `src/index.css`-tiedostosta
+- Lisätään `index.html`:n `<head>`-osioon `<link rel="preconnect">` Google Fontsille ja `<link rel="stylesheet">` fonttilinkit `media="print" onload="this.media='all'"` -tekniikalla, jotta fonttien lataus ei estä renderöintiä
+- Lisätään myös inline fallback `<noscript>` -tagi varmuudeksi
 
-**File**: `src/components/Hero.tsx`
-- Change the hero `motion.div` (wrapping h1, badges, CTAs) to a plain `div` with a simple CSS `animate-fade-in` class (already defined in index.css), or remove animation entirely.
+#### 2. Puuttuvat kuvan mitat (CLS ja Lighthouse-varoitukset)
 
----
+**Ongelma:** Footerin logo ja ToimintaAlueetBanner-karttakuva puuttuvat `width`/`height`-attribuutit.
 
-## Problem 2: Images Still 500KB+ (Supabase Transforms Not Reducing Enough)
+**Ratkaisu:**
 
-The images are still huge because:
-- Source images are very large originals
-- `quality=60` is not aggressive enough for these particular images
-- The `1200w` srcset option is being selected on Retina mobile screens (e.g. Moto G at 2x DPR selects 1200w for a ~360px viewport)
+- **Footer.tsx:** Lisätään `width={200} height={80}` footerin logo-kuvalle
+- **ToimintaAlueetBanner.tsx:** Lisätään `width={280} height={350}` karttakuvalle
 
-**Fixes**:
+#### 3. Preconnect-varoituksen korjaus
 
-### a) Lower quality to 40 (`src/lib/storage.ts`)
-Change `quality=60` to `quality=40`. For WebP at these dimensions, 40 is visually indistinguishable from 60 but cuts file size by ~30-40%.
+**Ongelma:** Lighthouse ilmoittaa "Käyttämätön ennakkoyhteys" ja kehottaa tarkistamaan `crossorigin`-määritteen. Supabase Storage -kuvat ladataan ilman CORS:ia, mutta preconnect ilman `crossorigin` ei vastaa fonttipyyntöjä jne.
 
-### b) Add smaller srcset breakpoint (`src/components/OptimizedImage.tsx`)
-Change srcset widths from `[300, 600, 1200]` to `[320, 640, 960, 1200]`. The 960w option gives Retina phones a better middle-ground instead of jumping to 1200w.
+**Ratkaisu:**
 
-### c) Convert BeforeAfter.tsx to use OptimizedImage (`src/components/BeforeAfter.tsx`)
-Currently uses raw `<img>` tags without srcset. Switch to `OptimizedImage` component to get automatic srcset generation.
+- Lisätään `crossorigin` preconnect-tagiin Google Fontsille (uusi)
+- Pidetään Supabase preconnect ilman crossoriginia (kuvat eivät käytä CORS:ia) - tämä on jo oikein
 
-### d) Fix logo size (`src/components/Header.tsx`)
-Logo is served at 600x200 but rendered at 252x84. Change `width` and `transformWidth` to 300.
+#### 4. Käyttämättömän JavaScriptin vähentäminen (laiska lataus)
 
-### e) Fix Services banner image (`src/components/Services.tsx`)
-The "Puhdistus" banner uses inline `backgroundImage` style, bypassing all optimization. Convert to an `<img>` element with `object-cover` positioning inside the link.
+**Ongelma:** 125 KiB käyttämätöntä JS:ää ensimmäisellä latauksella, koska kaikki sivut ladataan kerralla.
 
----
+**Ratkaisu:**
 
-## Problem 3: Preconnect Warning
-
-Lighthouse still shows `crossorigin=""` on the preconnect link. The `index.html` code looks correct (no crossorigin), but the **preload link** for the hero image in `index.html` (line ~12) has `type="image/webp"` which may also need attention. Add a second preconnect without crossorigin as a `dns-prefetch` fallback.
-
-**File**: `index.html`
-- Add `<link rel="dns-prefetch" href="https://fndkkgfpsgghvewvoysr.supabase.co" />` as fallback.
+- Muutetaan `App.tsx`:ssa alasivujen importit käyttämään `React.lazy()` ja `Suspense`-wrapperia
+- Vain etusivu (`Index`) ja `Layout` ladataan heti, muut sivut laiskasti
 
 ---
 
-## Summary of File Changes
+### Tekniset yksityiskohdat
 
-| File | Change |
-|---|---|
-| `src/components/Hero.tsx` | Remove framer-motion animation from hero content (fixes 2350ms render delay) |
-| `src/lib/storage.ts` | quality=60 -> quality=40 |
-| `src/components/OptimizedImage.tsx` | srcset widths: [320, 640, 960, 1200] |
-| `src/components/BeforeAfter.tsx` | Use OptimizedImage instead of raw img tags |
-| `src/components/Header.tsx` | Logo width/transformWidth 600 -> 300 |
-| `src/components/Services.tsx` | Convert banner backgroundImage to OptimizedImage |
-| `index.html` | Add dns-prefetch fallback |
+**Muutettavat tiedostot:**
 
+
+| Tiedosto                                  | Muutos                                                           |
+| ----------------------------------------- | ---------------------------------------------------------------- |
+| `index.html`                              | Google Fonts `<link>` preconnect + ei-renderöintiä-estävä lataus |
+| `src/index.css`                           | Poistetaan `@import url(...)` fonttirivi                         |
+| `src/components/Footer.tsx`               | `width={200} height={80}` logoon                                 |
+| `src/components/ToimintaAlueetBanner.tsx` | `width={280} height={350}` karttaan                              |
+| `src/App.tsx`                             | `React.lazy()` alasivuille                                       |
+
+
+**Riskit ja varmuus:**
+
+- Fonttien latausmuutos on standardi Google-suositus ja toimii 100% varmasti
+- `React.lazy()` on Reactin sisäänrakennettu ominaisuus, täysin turvallinen
+- Kuvan mitat ovat staattisia attribuutteja, eivät voi rikkoa mitään  
+  
+**Yksi pieni lisähuomio (React.lazy):** Kun Lovable asentaa `React.lazy()` -toiminnon `App.tsx`-tiedostoon, sen täytyy ehdottomasti kääriä sovelluksen reitit `<Suspense>` -komponenttiin. Esimerkiksi näin: `<Suspense fallback={<div className="min-h-screen" />}>`. Jos tätä "fallbackia" ei ole, React kaatuu yrittäessään ladata alasivua. Tämä on standardikauraa React-koodarille, mutta Lovablelle se kannattaa mainita varmuuden vuoksi.
