@@ -15,16 +15,22 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Supabase Storage preconnect (non-CORS for <img>, CORS for fetch) -->
+    <!-- Supabase Storage preconnect (non-CORS for <img> tags) -->
     <link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" />
-    <link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" crossorigin />
 
-    <!-- Critical inline CSS for hero text paint -->
+    <!-- Critical inline CSS for above-the-fold paint -->
     <style>
       body { margin: 0; }
-      .hero-critical { min-height: 100vh; display: flex; align-items: center; }
-      .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; }
+      /* Header/nav skeleton */
+      header, nav { display: flex; align-items: center; }
+      /* Hero layout */
+      .hero-critical { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+      .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; font-weight: 800; }
       .hero-critical p { margin: 0.75rem 0 0; color: rgba(255,255,255,.8); font-size: 1.125rem; }
+      /* Hero CTA base */
+      .btn-hero, .btn-hero-outline { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 600; border-radius: 0.75rem; text-decoration: none; }
+      .btn-hero { background: hsl(200 60% 35%); color: #fff; }
+      .btn-hero-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
     </style>
 
     <!-- Preload Hero Image for LCP -->
