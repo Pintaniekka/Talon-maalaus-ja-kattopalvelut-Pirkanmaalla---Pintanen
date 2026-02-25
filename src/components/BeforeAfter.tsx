@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 
 const kattoEnnen = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp");
@@ -51,6 +51,8 @@ const BeforeAfter = () => {
           >
             <OptimizedImage
               src={kattoJalkeen}
+              srcSet={getImageSrcSet(kattoJalkeen)}
+              sizes="(max-width: 768px) 100vw, 50vw"
               alt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
@@ -61,6 +63,8 @@ const BeforeAfter = () => {
             >
               <OptimizedImage
                 src={kattoEnnen}
+                srcSet={getImageSrcSet(kattoEnnen)}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}

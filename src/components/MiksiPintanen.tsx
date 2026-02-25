@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
 const sideImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
@@ -65,9 +65,10 @@ const MiksiPintanen = () => {
           >
             <OptimizedImage
               src={sideImage}
+              srcSet={getImageSrcSet(sideImage)}
               alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
               className="w-full h-full object-cover rounded-2xl"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
         </div>

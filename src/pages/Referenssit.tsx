@@ -5,7 +5,7 @@ import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import SEO from '@/components/SEO';
 import OptimizedImage from '@/components/OptimizedImage';
-import { getStorageUrl } from '@/lib/storage';
+import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
 
 type Category = 'all' | 'pinnoitus' | 'puhdistus' | 'maalaus';
 
@@ -36,6 +36,8 @@ const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
       <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
         <OptimizedImage
           src={img.src}
+          srcSet={getImageSrcSet(img.src)}
+          sizes="(max-width: 768px) 100vw, 33vw"
           alt={img.label}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           style={{
@@ -321,6 +323,8 @@ const Referenssit = () => {
                     ) : (
                       <OptimizedImage
                         src={project.type === 'group' ? project.images[0].src : project.image}
+                        srcSet={getImageSrcSet(project.type === 'group' ? project.images[0].src : project.image)}
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />

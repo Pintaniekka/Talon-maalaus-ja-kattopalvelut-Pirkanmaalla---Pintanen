@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import OptimizedImage from "./OptimizedImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
@@ -100,9 +100,10 @@ const Services = () => {
           >
             <OptimizedImage
               src={getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
+              srcSet={getImageSrcSet(getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp"))}
               alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
               className="absolute inset-0 w-full h-full object-cover"
-              sizes="(max-width: 640px) 90vw, 800px"
+              sizes="(max-width: 768px) 100vw, 800px"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 group-hover:from-black/75 transition-all duration-300" />
             <div className="relative flex items-center gap-4 p-6 md:p-8">
