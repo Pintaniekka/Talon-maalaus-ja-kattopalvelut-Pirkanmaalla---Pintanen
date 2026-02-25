@@ -54,6 +54,8 @@ const ToimintaAlueetBanner = () => {
               src={mapImage}
               alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
               className="w-full max-w-[280px] rounded-2xl object-contain"
+              width={280}
+              height={350}
               loading="lazy"
             />
           </div>
