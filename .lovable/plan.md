@@ -1,67 +1,43 @@
 
 
-## Lighthouse 76 -> tavoite 90+ korjaukset
+## Final Performance Cleanup
 
-Edellinen muutos pudotti LCP render delayn 2320ms -> 780ms. Nyt jaljella olevat pullonkaulat:
+Minimal changes to 2 files only. No design, routing, or logic changes.
 
-### Analyysi
+### 1. `index.html` (lines 22-34) — Replace critical CSS
 
-| Ongelma | Vaikutus | Prioriteetti |
-|---|---|---|
-| Supabase preconnect "unused" | LCP +320ms | Korkea |
-| JS bundle 209KB yhdessa tiedostossa | FCP, LCP, TBT | Korkea |
-| CSS render-blocking 160ms | FCP, LCP | Keskitaso |
-
-### 1. `index.html` — Supabase preconnect: lisaa MOLEMMAT variantit
-
-Ongelma: Kuvat ladataan `<img>` -tagilla ILMAN `crossorigin`-attribuuttia, joten selain avaa **non-CORS** yhteyden. Mutta preconnect on `crossorigin`, joten se avaa **CORS** yhteyden jota kuvapyynnot eivat kayta. Siksi Lighthouse sanoo "unused".
-
-Ratkaisu: Lisaa kaksi preconnect-tagia:
+Replace the current 12-line bloated style block with the minimal 5-line version:
 
 ```html
-<link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" />
-<link rel="preconnect" href="https://fndkkgfpsgghvewvoysr.supabase.co" crossorigin />
+<style>
+  body { margin: 0; }
+  .hero-critical { min-height: 100vh; display: flex; align-items: center; }
+  .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; }
+  .hero-critical p { margin: 0.75rem 0 0; color: rgba(255,255,255,.8); font-size: 1.125rem; }
+</style>
 ```
 
-Ensimmainen palvelee non-CORS kuvalatauksia (`<img>`), toinen CORS-pyyntoja (fetch, fontti jne).
+Removed: `header, nav` rules, `position: relative`, `overflow: hidden`, `font-weight: 800`, all `.btn-hero` / `.btn-hero-outline` classes.
 
-### 2. `vite.config.ts` — JS bundle splitting
+Preconnect is already correct (line 19, single tag, no crossorigin). No change needed there.
 
-Lisataan `build.rollupOptions.output.manualChunks` joka jakaa bundlen:
+### 2. `src/components/BeforeAfterSlider.tsx` (lines 66, 79) — Remove redundant sizes
 
-```text
-vendor-react    : react, react-dom, react-router-dom
-vendor-motion   : framer-motion
-vendor-ui       : radix-ui, recharts, cmdk, vaul, embla
-index           : sovelluksen oma koodi (pienempi)
-```
+Remove `sizes="(max-width: 768px) 100vw, 600px"` from both `OptimizedImage` calls. The default in `OptimizedImage.tsx` already provides the identical value, so behavior is unchanged but the file is cleaner.
 
-Tama pienentaa paa-JS-bundlea ~209KB -> ~80-100KB ja loput latautuvat rinnakkain tai vasta tarvittaessa. Vahentaa TBT:ta ja nopeuttaa FCP:ta.
+### No other files changed
 
-### 3. `src/components/Hero.tsx` — Poista framer-motion scroll indicator initial render
+- `OptimizedImage.tsx` — already correct, no change needed
+- `Hero.tsx` — already has `hero-critical` and `sizes="100vw"`, no change needed
+- `Gallery.tsx` — uses `(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw` which is correct for a 3-column grid layout (not a non-hero fullwidth image)
 
-Hero-komponentissa on `<motion.div>` scroll-indikaattorille joka vaatii framer-motionin latauksen ennen renderointia. Korvataan se tavallisella `<div>` + CSS-animaatiolla, jotta hero ei riipu framer-motionista.
+### Validation
 
-### Muutettavat tiedostot
-
-| Tiedosto | Muutos |
+| Check | Status |
 |---|---|
-| `index.html` | Lisaa toinen preconnect ilman crossorigin |
-| `vite.config.ts` | Lisaa manualChunks bundle splitting |
-| `src/components/Hero.tsx` | Korvaa motion.div CSS-animaatiolla scroll-indikaattorissa |
-
-### Odotettu vaikutus
-
-| Mittari | Nyt | Tavoite |
-|---|---|---|
-| FCP | 3.6s | ~2.5-3.0s |
-| LCP | 4.5s | ~3.5-4.0s |
-| TBT | 50ms | ~20-30ms |
-| Score | 76 | ~85-92 |
-
-### Riskit
-
-- ManualChunks voi lisata HTTP-pyyntoja, mutta HTTP/2 multiplexing hoitaa taman
-- Scroll-indikaattorin CSS-animaatio nayttaa samalta kuin framer-motion versio
-- Ei muuteta komponenttirakennetta tai reititysta
-
+| No `sizes="(max-width: 768px) 100vw, 50vw"` for non-hero images | Confirmed — none exist |
+| Hero images use `sizes="100vw"` | Confirmed |
+| Only one Supabase preconnect (no crossorigin) | Confirmed (line 19) |
+| No CSS async hacks (`media="print"`) | Confirmed (line 10 is Google Fonts only — pre-existing, not introduced by us) |
+| No new CSS class names introduced | Confirmed |
+| Files changed | Exactly 2: `index.html`, `BeforeAfterSlider.tsx` |
