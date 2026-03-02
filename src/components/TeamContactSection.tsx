@@ -13,7 +13,7 @@ const team = [
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
-    image: getStorageUrl('pictures-200/eerik_pitkanen_kattomaalari-200.webp'),
+    image: getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp'),
   },
   {
     name: 'Eemil',
@@ -21,7 +21,7 @@ const team = [
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
-    image: getStorageUrl('pictures-200/eemil_pitkanen_seinamaalari-200.webp'),
+    image: getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp'),
   },
 ];
 
