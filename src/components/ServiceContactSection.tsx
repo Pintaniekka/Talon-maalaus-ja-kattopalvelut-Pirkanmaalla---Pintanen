@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, Send, Check, Loader2, User } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { getStorageUrl } from '@/lib/storage';
 
 type ContactVariant = 'katto' | 'maalaus' | 'general';
 
@@ -18,6 +19,7 @@ const contactPersons = {
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
+    image: getStorageUrl('pictures-200/eerik-200.webp'),
   },
   maalaus: {
     name: 'Eemil Pitkänen',
@@ -25,6 +27,7 @@ const contactPersons = {
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
+    image: getStorageUrl('pictures-200/eemil-200.webp'),
   },
 };
 
@@ -92,13 +95,20 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
             {persons.map((person) => (
               <div key={person.name} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <User className="w-8 h-8 text-primary-foreground/70" />
+                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground/70"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+                      }}
+                    />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-primary-foreground">{person.name}</h3>
                     <p className="text-sm text-primary-foreground/60">{person.role}</p>
-                    <p className="text-xs text-primary-foreground/40 mt-0.5">Henkilökuva tulossa</p>
                   </div>
                 </div>
                 <div className="space-y-2">

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, User } from 'lucide-react';
+import { getStorageUrl } from '@/lib/storage';
 
 interface TeamContactSectionProps {
   cityName?: string;
@@ -12,6 +13,7 @@ const team = [
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
+    image: getStorageUrl('pictures-200/eerik-200.webp'),
   },
   {
     name: 'Eemil',
@@ -19,6 +21,7 @@ const team = [
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
+    image: getStorageUrl('pictures-200/eemil-200.webp'),
   },
 ];
 
@@ -50,11 +53,17 @@ const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
               transition={{ delay: index * 0.1 }}
               className="card-elevated flex flex-col items-center text-center"
             >
-              {/* Placeholder avatar */}
-              <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center mb-4">
-                <User className="w-10 h-10 text-muted-foreground" />
+              <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center mb-4 overflow-hidden">
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+                  }}
+                />
               </div>
-              <p className="text-xs text-muted-foreground mb-2">Henkilökuva tulossa</p>
 
               <h3 className="text-lg font-bold text-foreground">{person.name}</h3>
               <p className="text-sm text-muted-foreground mb-4">{person.role}</p>
