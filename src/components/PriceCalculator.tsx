@@ -139,10 +139,10 @@ const PriceCalculator = () => {
                 onClick={() => setCalculatorType('roof')}
                 className="relative overflow-hidden rounded-2xl text-left group hover:border-primary border-2 border-transparent transition-colors card-elevated"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-700/15 via-red-600/8 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#B71C1C]/15 via-[#B71C1C]/8 to-transparent pointer-events-none" />
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-red-700/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                     <RoofTileIcon className="w-8 h-8 text-red-700" />
+                  <div className="w-16 h-16 rounded-2xl bg-[#B71C1C]/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                     <RoofTileIcon className="w-8 h-8 text-[#B71C1C]" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
                     Tiilikaton pinnoitus
@@ -157,10 +157,10 @@ const PriceCalculator = () => {
                 onClick={() => setCalculatorType('wall')}
                 className="relative overflow-hidden rounded-2xl text-left group hover:border-primary border-2 border-transparent transition-colors card-elevated"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/15 via-yellow-500/8 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ffec4e]/20 via-[#ffec4e]/10 to-transparent pointer-events-none" />
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-yellow-600/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                     <PaintBrushIcon className="w-8 h-8 text-yellow-700" />
+                  <div className="w-16 h-16 rounded-2xl bg-[#ffec4e]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                     <PaintBrushIcon className="w-8 h-8 text-[#D4A017]" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2 font-heading">
                     Ulkomaalaus

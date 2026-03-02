@@ -44,7 +44,7 @@ const Services = () => {
                 onClick={() => navigate(service.href)}
                 onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
                 className={`card-elevated group block transition-colors duration-300 cursor-pointer ${
-                  index === 0 ? 'bg-red-600/5 hover:bg-red-600/10' : 'bg-yellow-500/5 hover:bg-yellow-500/10'
+                  index === 0 ? 'bg-[#B71C1C]/5 hover:bg-[#B71C1C]/10' : 'bg-[#ffec4e]/10 hover:bg-[#ffec4e]/20'
                 }`}
               >
               {/* Before/After Slider with gradient overlay */}
@@ -56,8 +56,8 @@ const Services = () => {
                 <div
                   className={`absolute inset-0 pointer-events-none rounded-xl ${
                     index === 0
-                      ? 'bg-gradient-to-t from-red-600/25 to-transparent'
-                      : 'bg-gradient-to-t from-yellow-500/25 to-transparent'
+                      ? 'bg-gradient-to-t from-[#B71C1C]/25 to-transparent'
+                      : 'bg-gradient-to-t from-[#ffec4e]/30 to-transparent'
                   }`}
                 />
               </div>
