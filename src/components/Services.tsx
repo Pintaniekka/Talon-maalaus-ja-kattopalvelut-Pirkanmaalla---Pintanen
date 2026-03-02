@@ -47,18 +47,11 @@ const Services = () => {
                   index === 0 ? 'bg-[#B71C1C]/5 hover:bg-[#B71C1C]/10' : 'bg-[#ffec4e]/10 hover:bg-[#ffec4e]/20'
                 }`}
               >
-              {/* Before/After Slider with gradient overlay */}
-              <div className="mb-6 relative">
+              {/* Before/After Slider */}
+              <div className="mb-6">
                 <BeforeAfterSlider
                   beforeImage={service.beforeImage}
                   afterImage={service.afterImage}
-                />
-                <div
-                  className={`absolute inset-0 pointer-events-none rounded-xl ${
-                    index === 0
-                      ? 'bg-gradient-to-t from-[#B71C1C]/25 to-transparent'
-                      : 'bg-gradient-to-t from-[#ffec4e]/30 to-transparent'
-                  }`}
                 />
               </div>
 
