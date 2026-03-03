@@ -43,8 +43,8 @@ const Services = () => {
                 tabIndex={0}
                 onClick={() => navigate(service.href)}
                 onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
-                className={`card-elevated group block transition-colors duration-300 cursor-pointer ${
-                  index === 0 ? 'bg-[#B71C1C]/5 hover:bg-[#B71C1C]/10' : 'bg-[#ffec4e]/10 hover:bg-[#ffec4e]/20'
+              className={`card-elevated group block cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl ${
+                  index === 0 ? 'bg-[#F85C70] hover:bg-[#E14E61]' : 'bg-[#FFF6A1] hover:bg-[#F2E88C]'
                 }`}
               >
               {/* Before/After Slider */}
