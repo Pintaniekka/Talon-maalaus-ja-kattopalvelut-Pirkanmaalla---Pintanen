@@ -38,26 +38,7 @@ const ServiceCTA = ({
   );
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default ServiceCTA;
 };
 
 export default ServiceCTA;
