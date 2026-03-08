@@ -19,8 +19,8 @@ const Footer = () => {
               sizes="200px"
             />
             <p className="text-primary-foreground/70 text-sm">
-              <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
-              Toiminta-alue: <Link to="/toiminta-alueet" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Pirkanmaa</Link> ja lähialueet (Forssa)
+              <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Tiilikattojen pinnoitukset</Link> ja <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">ulkomaalaukset</Link> ammattitaidolla. 
+              Toiminta-alue: <Link to="/toiminta-alueet" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Pirkanmaa ja lähialueet</Link> (Hämeenlinna, Forssa)
             </p>
           </div>
 
