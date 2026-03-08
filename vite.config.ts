@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger(), spaRoutes()].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger(), spaRoutes(), asyncCss()].filter(Boolean),
   build: {
     rollupOptions: {
       output: {
