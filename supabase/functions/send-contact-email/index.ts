@@ -13,6 +13,8 @@ interface ContactForm {
   phone: string;
   service: string;
   message: string;
+  priceEstimate?: string;
+  calculatorDetails?: string;
 }
 
 const serviceLabels: Record<string, string> = {
