@@ -1,0 +1,248 @@
+import { motion } from "framer-motion";
+import { Check, ArrowRight, Droplets, Shield, Paintbrush, Clock, BadgeCheck, Ruler, Mountain, Layers, Building2, Wrench as WrenchIcon, ShieldCheck } from "lucide-react";
+import SEO from "@/components/SEO";
+import ServicePageHero from "@/components/ServicePageHero";
+import KotitalousVahennys from "@/components/KotitalousVahennys";
+import ServiceContactSection from "@/components/ServiceContactSection";
+import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
+import FAQSection from "@/components/FAQSection";
+import RoofPriceCalculator from "@/components/RoofPriceCalculator";
+import { getStorageUrl } from "@/lib/storage";
+
+const heroImage = getStorageUrl("Pictures-750/tiilikatto-pesu-hameenlinna-750.webp");
+const heroImage480 = getStorageUrl("Pictures-480/tiilikatto-pesu-hameenlinna-480.webp");
+const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
+
+const priceExamples = [
+  { size: "150 m² omakotitalo", price: "noin 2 700–3 300 €" },
+  { size: "200 m² omakotitalo", price: "noin 3 000–3 800 €" },
+  { size: "250 m² talo", price: "noin 3 500–4 500 €" },
+];
+
+const calculatorIncludes = [
+  "Suunnittelu + suojaustyöt",
+  "Katon pesu",
+  "Kasvustontorjunta-aine",
+  "Rikkinäisten tiilien vaihto",
+  "Pohjamaali",
+  "Pintamaali",
+  "Siivous",
+];
+
+const priceFactors = [
+  { icon: Ruler, title: "Katon koko", description: "Suurempi katto tarkoittaa enemmän materiaalia ja työtunteja, mutta neliöhinta laskee katon kasvaessa." },
+  { icon: Mountain, title: "Jyrkkyys", description: "Jyrkempi katto vaatii enemmän turvavälineitä ja hidastaa työtä, mikä nostaa hintaa." },
+  { icon: Layers, title: "Lappeiden lukumäärä", description: "Monimutkaisempi kattorakenne lisää työvaiheita harjojen, jiirin ja läpivientien kohdalla." },
+  { icon: Building2, title: "Korkeus", description: "Korkeampi rakennus vaatii pidemmät telineet ja lisää turvallisuusjärjestelyjä." },
+  { icon: WrenchIcon, title: "Tiilien kunto", description: "Jos tiiliä on paljon rikki, vaihtotyö lisää urakan kestoa ja materiaalikustannuksia." },
+  { icon: ShieldCheck, title: "Suojauksen tarve", description: "Piha-alueiden, terassien ja istutusten suojaus kuuluu hintaan mutta vaikuttaa työn laajuuteen." },
+];
+
+const faqItems = [
+  { question: "Kuinka paljon tiilikaton pinnoitus maksaa?", answer: "Hinta riippuu katon koosta ja rakenteesta. Laskurilla saat karkean arvion. Tarkka hinta selviää maksuttomassa kartoituksessa." },
+  { question: "Kuinka kauan pinnoitus kestää?", answer: "Työ kestää yleensä 2–4 päivää kohteen koosta riippuen." },
+  { question: "Kuinka pitkään pinnoitus kestää käytössä?", answer: "Pinnoitus suojaa tiiltä ja hidastaa rapautumista. Todellinen kesto riippuu sääolosuhteista ja katon kunnosta." },
+  { question: "Voiko pinnoituksen tehdä jos tiiliä on rikki?", answer: "Yksittäiset rikkinäiset tiilet vaihdetaan. Laajat rakenteelliset vauriot edellyttävät muuta ratkaisua." },
+  { question: "Pitääkö olla kotona työn aikana?", answer: "Ei tarvitse, kunhan sähkö ja vesipiste ovat käytettävissä." },
+  { question: "Saako työstä kotitalousvähennyksen?", answer: "Kyllä, työn osuudesta voi saada vähennyksen verotuksessa." },
+];
+
+const HinnatTiilikalonPinnoitus = () => {
+  return (
+    <>
+      <SEO
+        title="Tiilikaton pinnoitus hinta – Laske arvio heti"
+        description="Paljonko tiilikaton pinnoitus maksaa? Laske arvio hintalaskurilla ja katso hintaesimerkit. Toimimme Pirkanmaalla ja Kanta-Hämeessä."
+        preloadImage={heroImage}
+      />
+
+      {/* Hero */}
+      <ServicePageHero
+        title="Tiilikaton pinnoituksen hinta – laske arvio heti"
+        subtitle="Hintalaskuri ja hintaesimerkit Pirkanmaalla"
+        backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
+      />
+
+      {/* Intro */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-3xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-lg text-muted-foreground leading-relaxed text-center"
+          >
+            Tiilikaton pinnoituksen hinta vaihtelee katon koosta, jyrkkyydestä ja tiilien kunnosta riippuen.
+            Voit saada suuntaa antavan arvion helposti käyttämällä hintalaskuria. Tarkemman ja varmemman
+            urakkahinnan saat kuitenkin maksuttoman kuntotarkastuksen yhteydessä.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Calculator */}
+      <section className="section-padding bg-secondary">
+        <div className="section-container max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 font-heading text-center">
+              Laske tiilikaton pinnoituksen hinta
+            </h2>
+            <RoofPriceCalculator />
+
+            {/* What the estimate includes */}
+            <div className="mt-10 bg-card rounded-2xl p-6 md:p-8 border border-border">
+              <h3 className="text-lg font-bold text-foreground mb-4">Mitä laskurin arvio sisältää:</h3>
+              <ul className="grid sm:grid-cols-2 gap-3">
+                {calculatorIncludes.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-accent" />
+                    </div>
+                    <span className="text-foreground text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Price examples */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 font-heading text-center">
+              Hintaesimerkit
+            </h2>
+            <div className="bg-card rounded-2xl border border-border overflow-hidden">
+              <div className="grid grid-cols-2 bg-muted px-6 py-3 border-b border-border">
+                <span className="font-semibold text-foreground text-sm">Katon koko</span>
+                <span className="font-semibold text-foreground text-sm text-right">Tyypillinen hinta</span>
+              </div>
+              {priceExamples.map((ex, i) => (
+                <div
+                  key={ex.size}
+                  className={`grid grid-cols-2 px-6 py-4 ${i < priceExamples.length - 1 ? "border-b border-border" : ""}`}
+                >
+                  <span className="text-muted-foreground">{ex.size}</span>
+                  <span className="text-foreground font-semibold text-right">{ex.price}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Kotitalousvähennys */}
+      <section className="section-padding bg-accent/5">
+        <div className="section-container max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading text-center">
+              Kotitalousvähennys tiilikaton pinnoituksesta
+            </h2>
+          </motion.div>
+        </div>
+        <KotitalousVahennys />
+      </section>
+
+      {/* Price factors */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">
+              Mistä tiilikaton pinnoituksen hinta muodostuu?
+            </h2>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {priceFactors.map((factor, index) => (
+              <motion.div
+                key={factor.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="card-elevated"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <factor.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-bold text-foreground mb-2">{factor.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{factor.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pinnoitus vs kattoremontti */}
+      <section className="section-padding bg-secondary">
+        <div className="section-container max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading text-center">
+              Pinnoitus vai kattoremontti?
+            </h2>
+            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed mb-10">
+              <p>
+                Tiilikaton pinnoitus on monesti huomattavan edullisempi vaihtoehto kuin kattoremontti,
+                jos katosta löytyy kunnollinen aluskate ja rakenteet ovat kunnossa. Pinnoitus ei korjaa
+                rakenteellisia ongelmia, mutta se suojaa tiiliä, hidastaa kuluvaa prosessia ja voi pidentää
+                katon käyttöikää useilla vuosilla. Pienet aluskatteen korjaukset on mahdollista tehdä
+                pinnoituksen yhteydessä.
+              </p>
+              <p>
+                Kun katto on muuten hyvässä kunnossa, pinnoitus on hyvä tapa kunnostaa katon toimivuus
+                ja ulkonäkö ilman suurta remonttia, ja se on taloudellisesti kannattava ratkaisu.
+              </p>
+            </div>
+
+            {/* Comparison cards */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-card rounded-2xl p-6 border border-accent/30">
+                <h3 className="text-lg font-bold text-foreground mb-2">Tiilikaton pinnoitus</h3>
+                <p className="text-3xl font-bold text-accent mb-1">2 700–6 000 €</p>
+                <p className="text-sm text-muted-foreground">Suojaa ja uudistaa katon edullisesti</p>
+              </div>
+              <div className="bg-card rounded-2xl p-6 border border-border">
+                <h3 className="text-lg font-bold text-foreground mb-2">Kattoremontti</h3>
+                <p className="text-3xl font-bold text-foreground/60 mb-1">15 000–30 000 €</p>
+                <p className="text-sm text-muted-foreground">Koko katon uusiminen rakenteista lähtien</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQSection items={faqItems} />
+
+      {/* Contact - only Eerik */}
+      <ServiceContactSection variant="katto" />
+
+      {/* Toiminta-alueet */}
+      <ToimintaAlueetBanner />
+    </>
+  );
+};
+
+export default HinnatTiilikalonPinnoitus;
