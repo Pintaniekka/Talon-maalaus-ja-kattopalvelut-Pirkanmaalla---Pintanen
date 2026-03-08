@@ -10,7 +10,7 @@ interface ServicePageHeroProps {
   children?: ReactNode;
 }
 
-const ServicePageHero = ({ title, subtitle, backgroundImage, children }: ServicePageHeroProps) => {
+const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, children }: ServicePageHeroProps) => {
   return (
     <section className="hero-critical relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
