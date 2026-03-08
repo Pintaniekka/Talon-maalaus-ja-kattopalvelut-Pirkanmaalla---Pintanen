@@ -79,6 +79,7 @@ const Hinnat = () => {
         title="Laske tiilikaton pinnoituksen tai talon maalauksen hinta heti"
         subtitle="Saat nopeasti suuntaa antavan hinnan urakallesi Pirkanmaalla. Meillä Pintasella hinnoittelu on läpinäkyvää – ei piilokuluja ja varmistamme tarkan urakkahinnan maksuttoman arviokäynnin aikana."
         backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       />
 
       {/* Hintalaskuri */}
