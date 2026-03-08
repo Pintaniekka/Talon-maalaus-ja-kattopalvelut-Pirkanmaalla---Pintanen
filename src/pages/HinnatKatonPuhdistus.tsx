@@ -6,7 +6,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
-import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
+
 import { getStorageUrl } from "@/lib/storage";
 
 const heroImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
