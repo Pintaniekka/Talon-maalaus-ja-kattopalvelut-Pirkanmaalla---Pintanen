@@ -225,9 +225,6 @@ const HinnatTiilikalonPinnoitus = () => {
 
       {/* Contact - only Eerik */}
       <ServiceContactSection variant="katto" />
-
-      {/* Toiminta-alueet */}
-      <ToimintaAlueetBanner />
     </>
   );
 };
