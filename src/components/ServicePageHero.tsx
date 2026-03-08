@@ -6,10 +6,11 @@ interface ServicePageHeroProps {
   title: string;
   subtitle: string | ReactNode;
   backgroundImage?: string;
+  backgroundSrcSet?: string;
   children?: ReactNode;
 }
 
-const ServicePageHero = ({ title, subtitle, backgroundImage, children }: ServicePageHeroProps) => {
+const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, children }: ServicePageHeroProps) => {
   return (
     <section className="hero-critical relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
@@ -17,7 +18,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, children }: Service
         <div className="absolute inset-0">
           <img
             src={backgroundImage}
-            srcSet={getHeroSrcSet(backgroundImage)}
+            srcSet={backgroundSrcSet || getHeroSrcSet(backgroundImage)}
             sizes="100vw"
             alt={`${title} – Pintanen Oy`}
             className="w-full h-full object-cover"

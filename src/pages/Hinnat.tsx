@@ -8,7 +8,9 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import { getStorageUrl } from "@/lib/storage";
 
-const heroImage = getStorageUrl("pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
+const heroImage = getStorageUrl("Pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
+const heroImage480 = getStorageUrl("Pictures-480/Moderni-maalattu-musta-talo-pirkanmaa-480.webp");
+const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
 
 const serviceCards = [
   {
@@ -77,6 +79,7 @@ const Hinnat = () => {
         title="Laske tiilikaton pinnoituksen tai talon maalauksen hinta heti"
         subtitle="Saat nopeasti suuntaa antavan hinnan urakallesi Pirkanmaalla. Meillä Pintasella hinnoittelu on läpinäkyvää – ei piilokuluja ja varmistamme tarkan urakkahinnan maksuttoman arviokäynnin aikana."
         backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       />
 
       {/* Hintalaskuri */}
