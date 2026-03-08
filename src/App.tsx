@@ -43,6 +43,7 @@ const App = () => (
               <Route path="/toiminta-alueet" element={<ToimintaAlueet />} />
               <Route path="/alue/:city" element={<AlueCity />} />
               <Route path="/referenssit" element={<Referenssit />} />
+              <Route path="/hinnat" element={<Hinnat />} />
               <Route path="/meista" element={<Meista />} />
               <Route path="/image-test" element={<ImageTest />} />
             </Route>
