@@ -58,6 +58,10 @@ const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
                   src={person.image}
                   alt={person.name}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={96}
+                  height={96}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
