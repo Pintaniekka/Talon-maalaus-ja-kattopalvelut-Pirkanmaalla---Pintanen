@@ -9,6 +9,8 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import { getStorageUrl } from "@/lib/storage";
 
 const heroImage = getStorageUrl("Pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
+const heroImage480 = getStorageUrl("Pictures-480/Moderni-maalattu-musta-talo-pirkanmaa-480.webp");
+const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
 
 const serviceCards = [
   {
