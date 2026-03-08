@@ -27,6 +27,7 @@ const ToimintaAlueet = () => {
             viewport={{ once: true }}
             className="text-base text-muted-foreground mb-12 space-y-4"
           >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">Missä toimimme?</h2>
             <p>
               Meidän toiminta-alueemme on Pirkanmaa ja sen lähialueet. Pintanen Oy suorittaa tiilikattojen pinnoitukset, katon puhdistukset ja talojen ulkomaalaukset pääasiassa Pirkanmaan alueella. Suurin osa asiakkaistamme on Tampereella ja sen ympäristökunnissa, mutta me palvelemme myös muualla Pirkanmaalla ja valituilla lähialueilla.
             </p>
