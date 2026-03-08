@@ -50,11 +50,11 @@ const TalonMaalaus = () => {
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center">Miksi maalata talo?</h2>
-            <p>Talo kannattaa maalata noin 10 vuoden välein tai kun alat huomaamaan seinässä epäkohtia kuten hilseilevää maalia tai homepilkkuja.</p>
-            <p>Moni ajattelee maalauksen olevan vain esteettinen toimenpide. Todellisuudessa maalipinta toimii ennen kaikkea puuverhouksen suojana säältä ja kosteudelta.</p>
-            <p>Yleinen ajattelutapa maalauksen huoltovälistä on usein huolimaton. Toimiin ryhdytään vasta kun maali on jo alkanut hilseilemään seinällä, mutta siinä vaiheessa huoltovälin rajoja on laiminlyöty. Tällöin työ ei ole enää pelkkä huoltomaalaus, vaan vaatii huomattavasti enemmän pohjatöitä ja mahdollisia puukorjauksia, mikä kasvattaa työn laajuutta ja kustannuksia merkittävästi.</p>
-            <p>Jos talon myynti on käynyt mielessäsi, julkisivun maalaus voi olla yllättävän tehokas tapa lisätä sen vetovoimaa. Raikas ja huoliteltu ulkopinta antaa koko rakennuksesta uudenkarhean ensivaikutelman.</p>
-            <p>Meillä Pintasilla huoltomaalaus tehdään suunnitelmallisesti ja oikea-aikaisesti, jotta vältytään turhilta lisäkustannuksilta ja rakenteiden vaurioilta. Arvioimme aina kohteen kunnon huolellisesti ja toteutamme työn niin, että talosi pysyy suojattuna ja edustavana vuosiksi eteenpäin. Kun maalaus tehdään ajoissa ja ammattitaidolla, lopputulos näkyy sekä rakenteiden kestävyydessä että kiinteistön arvossa.</p>
+            <p>Talo kannattaa maalata noin <strong>kymmenen vuoden</strong> välein tai kun huomaat seinässä vikoja, kuten hilseilevää maalia tai homepilkkuja.</p>
+            <p>Monet ajattelevat, että maalauksen tarkoitus on vain tehdä talosta esteettisempi. Todellisuudessa maalipinta <strong>suojelee</strong> puuverhousta säältä ja kosteudelta.</p>
+            <p>Yleensä ihmiset ajattelevat maalauksen huoltovälistä huolimattomasti. Toimiin ryhdytään vasta kun maali on jo alkanut <strong>hilseilemään</strong>, mutta silloin huoltovälin rajoja on jo ylitetty. Tällöin työ ei ole enää vain huoltomaalaus, vaan vaatii paljon enemmän <strong>pohjatöitä</strong> ja mahdollisia <strong>puukorjauksia</strong>, mikä kasvattaa työn laajuutta ja kustannuksia.</p>
+            <p>Jos olet ajatellut <strong>myydä</strong> talosi, julkisivun maalaus voi olla yllättävän tehokas tapa tehdä siitä houkuttelevampi. Raikas ja huoliteltu ulkopinta antaa koko rakennukselle uudenkarhean ensivaikutelman.</p>
+            <p><strong>Meillä Pintasilla huoltomaalaus tehdään suunnitelmallisesti ja oikea-aikaisesti</strong>, jotta vältytään turhilta kustannuksilta ja rakenteiden vaurioilta. Arvioimme aina kohteen kunnon huolellisesti ja toteutamme työn niin, että talosi pysyy suojattuna ja edustavana vuosiksi eteenpäin. Kun maalaus tehdään ajoissa ja ammattitaidolla, <strong>lopputulos näkyy sekä rakenteiden kestävyydessä että kiinteistön arvossa.</strong></p>
           </motion.div>
         </div>
       </section>
