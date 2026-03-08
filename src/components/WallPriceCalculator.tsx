@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Loader2, User, Phone, Mail } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from '@/hooks/use-toast';
 
 type WallStories = '1' | '1.5' | '2' | null;
 type WallPeeling = 'none' | '1-2' | '3+' | null;
@@ -30,6 +32,11 @@ const WallPriceCalculator = () => {
   const [squareMeters, setSquareMeters] = useState<number>(150);
   const [wallStories, setWallStories] = useState<WallStories>(null);
   const [wallPeeling, setWallPeeling] = useState<WallPeeling>(null);
+  const [contactName, setContactName] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPrice, setShowPrice] = useState(false);
 
   const calculatePrice = () => {
     if (!wallStories || !wallPeeling) return null;
@@ -41,6 +48,39 @@ const WallPriceCalculator = () => {
   };
 
   const price = calculatePrice();
+  const readyForContact = wallStories && wallPeeling;
+
+  const handleSubmitContact = async () => {
+    if (!contactName.trim() || (!contactPhone.trim() && !contactEmail.trim())) {
+      toast({ title: 'Täytä yhteystiedot', description: 'Nimi ja puhelin tai sähköposti vaaditaan.', variant: 'destructive' });
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const storyLabels: Record<string, string> = { '1': '1 kerros', '1.5': '1,5 kerrosta', '2': '2 kerrosta' };
+      const peelingLabels: Record<string, string> = { 'none': 'Ei hilseilyä', '1-2': '1–2 seinällä', '3+': 'Yli 3 seinällä' };
+
+      await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: contactName,
+          email: contactEmail || '',
+          phone: contactPhone || '',
+          service: 'ulkomaalaus',
+          message: '',
+          priceEstimate: price ? `${price.min.toLocaleString('fi-FI')} – ${price.max.toLocaleString('fi-FI')} €` : '',
+          calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelingLabels[wallPeeling!] || ''}`,
+        },
+      });
+
+      setShowPrice(true);
+      toast({ title: 'Kiitos!', description: 'Yhteystietosi on vastaanotettu.' });
+    } catch {
+      toast({ title: 'Virhe', description: 'Yritä uudelleen tai soita meille.', variant: 'destructive' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border">
@@ -142,8 +182,68 @@ const WallPriceCalculator = () => {
         </motion.div>
       )}
 
+      {/* Contact Info Step */}
+      {readyForContact && wallPeeling && !showPrice && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8 p-6 rounded-2xl bg-muted/50 border border-border"
+        >
+          <label className="block text-foreground font-semibold mb-1 text-lg">
+            4. Yhteystiedot
+          </label>
+          <p className="text-sm text-muted-foreground mb-4">
+            Täytä yhteystietosi nähdäksesi hinta-arvion
+          </p>
+          <div className="space-y-3">
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
+                placeholder="Nimi *"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              />
+            </div>
+            <div className="relative">
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="tel"
+                value={contactPhone}
+                onChange={(e) => setContactPhone(e.target.value)}
+                placeholder="Puhelin"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              />
+            </div>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="email"
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
+                placeholder="Sähköposti"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">* Nimi ja puhelin tai sähköposti vaaditaan</p>
+            <button
+              onClick={handleSubmitContact}
+              disabled={isLoading}
+              className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all disabled:opacity-70"
+            >
+              {isLoading ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> Lähetetään...</>
+              ) : (
+                <><ArrowRight className="w-5 h-5" /> Näytä hinta-arvio</>
+              )}
+            </button>
+          </div>
+        </motion.div>
+      )}
+
       {/* Price Result */}
-      {price && (
+      {price && showPrice && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
