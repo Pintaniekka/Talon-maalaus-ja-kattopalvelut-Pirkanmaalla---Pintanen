@@ -17,6 +17,7 @@ const TalonMaalausCity = lazy(() => import("./pages/TalonMaalausCity"));
 const ToimintaAlueet = lazy(() => import("./pages/ToimintaAlueet"));
 const AlueCity = lazy(() => import("./pages/AlueCity"));
 const Referenssit = lazy(() => import("./pages/Referenssit"));
+const Hinnat = lazy(() => import("./pages/Hinnat"));
 const Meista = lazy(() => import("./pages/Meista"));
 const ImageTest = lazy(() => import("./pages/ImageTest"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/toiminta-alueet" element={<ToimintaAlueet />} />
               <Route path="/alue/:city" element={<AlueCity />} />
               <Route path="/referenssit" element={<Referenssit />} />
+              <Route path="/hinnat" element={<Hinnat />} />
               <Route path="/meista" element={<Meista />} />
               <Route path="/image-test" element={<ImageTest />} />
             </Route>
