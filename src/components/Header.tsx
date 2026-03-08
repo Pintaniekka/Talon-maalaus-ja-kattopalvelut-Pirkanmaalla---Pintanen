@@ -54,6 +54,11 @@ const Header = () => {
     {
       label: "Hinnat",
       href: "/hinnat",
+      dropdown: [
+        { label: "Tiilikaton pinnoitus hinta", href: "/hinnat/tiilikaton-pinnoitus" },
+        { label: "Katon puhdistus hinta", href: "/hinnat/katon-puhdistus" },
+        { label: "Talon maalaus hinta", href: "/hinnat/talon-maalaus" },
+      ],
     },
     {
       label: "Referenssit",
