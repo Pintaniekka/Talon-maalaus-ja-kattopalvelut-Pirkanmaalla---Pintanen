@@ -142,20 +142,6 @@ const HinnatTiilikalonPinnoitus = () => {
       </section>
 
       {/* Kotitalousvähennys */}
-      <div className="[&_h2]:hidden">
-        <div className="section-padding bg-accent/5 pb-0">
-          <div className="section-container max-w-4xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="!block text-3xl md:text-4xl font-bold text-foreground mb-0 font-heading text-center"
-            >
-              Kotitalousvähennys tiilikaton pinnoituksesta
-            </motion.h2>
-          </div>
-        </div>
-      </div>
       <KotitalousVahennys />
 
       {/* Price factors */}
