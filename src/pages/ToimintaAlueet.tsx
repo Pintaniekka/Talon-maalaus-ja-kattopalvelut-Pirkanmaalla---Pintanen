@@ -21,16 +21,25 @@ const ToimintaAlueet = () => {
 
       <section className="section-padding bg-background">
         <div className="section-container max-w-4xl">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-lg text-muted-foreground mb-12 text-center"
+            className="text-base text-muted-foreground mb-12 space-y-4"
           >
-            Toimimme pääasiassa noin tunnin ajomatkan säteellä Tampereelta. 
-            Palvelemme koko Pirkanmaan alueella sekä valituilla lähialueilla 
-            Pirkanmaan ulkopuolella.
-          </motion.p>
+            <p>
+              Meidän toiminta-alueemme on Pirkanmaa ja sen lähialueet. Pintanen Oy suorittaa tiilikattojen pinnoitukset, katon puhdistukset ja talojen ulkomaalaukset pääasiassa Pirkanmaan alueella. Suurin osa asiakkaistamme on Tampereella ja sen ympäristökunnissa, mutta me palvelemme myös muualla Pirkanmaalla ja valituilla lähialueilla.
+            </p>
+            <p>
+              Me toimimme yleensä noin tunnin ajomatkan säteellä Tampereelta. Tämä mahdollistaa sujuvan työskentelyn ja kohtuulliset matkakulut asiakkaillemme. Me teemme vuosittain projekteja useissa Pirkanmaan kunnissa, ja kohteita löytyy sekä kaupunkialueilta että maaseudulta.
+            </p>
+            <p>
+              Tyypillisiä työalueitamme ovat esimerkiksi Tampere, Nokia, Ylöjärvi, Kangasala, Pirkkala ja Lempäälä. Me toteutamme kattotöitä ja ulkomaalauksia myös muualla Pirkanmaalla sekä lähialueilla, kuten Hämeenlinnassa ja Forssassa.
+            </p>
+            <p>
+              Jos et ole varma, kuuluuko paikkakuntasi toiminta-alueeseemme, kannattaa silti ottaa yhteyttä. Me kerromme nopeasti, onnistuuko kohteesi toteutus, ja voimme tarvittaessa sopia maksuttoman arviokäynnin.
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
