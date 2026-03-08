@@ -12,28 +12,30 @@ interface ServicePageHeroProps {
 
 const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, children }: ServicePageHeroProps) => {
   return (
-    <section className="hero-critical relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[hsl(215,30%,10%)]">
-      {/* Background */}
+    <section className="hero-critical relative min-h-[70vh] flex items-center justify-center overflow-hidden isolate" style={{ backgroundColor: 'hsl(215,30%,10%)' }}>
+      {/* Background image – separate layer, no blend/filter/opacity */}
       {backgroundImage ? (
-        <div className="absolute inset-0">
-          <img
-            src={backgroundImage}
-            srcSet={backgroundSrcSet || getHeroSrcSet(backgroundImage)}
-            sizes="100vw"
-            alt={`${title} – Pintanen Oy`}
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/65" />
-        </div>
+        <img
+          src={backgroundImage}
+          srcSet={backgroundSrcSet || getHeroSrcSet(backgroundImage)}
+          sizes="100vw"
+          alt={`${title} – Pintanen Oy`}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="sync"
+          fetchPriority="high"
+        />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
       )}
 
+      {/* Overlay – own layer on top of image, no blend-mode */}
+      {backgroundImage && (
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(18,28,40,0.55)' }} />
+      )}
+
       {/* Content */}
-      <div className="relative z-10 section-container text-center text-primary-foreground pt-24 pb-16">
+      <div className="relative z-[2] section-container text-center text-primary-foreground pt-24 pb-16">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
