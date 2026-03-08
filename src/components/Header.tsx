@@ -94,23 +94,41 @@ const Header = () => {
             aria-label="Päänavigaatio"
             className="hidden xl:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
           >
-            {navItems.map((item) =>
-              item.dropdown ? (
+            {navItems.map((item) => {
+              if (!item.dropdown) {
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              const isOpen = item.label === "Kattopalvelut" ? isKattoDropdownOpen : isHinnatDropdownOpen;
+              const setOpen = item.label === "Kattopalvelut" ? setIsKattoDropdownOpen : setIsHinnatDropdownOpen;
+
+              return (
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setIsKattoDropdownOpen(true)}
-                  onMouseLeave={() => setIsKattoDropdownOpen(false)}
+                  onMouseEnter={() => setOpen(true)}
+                  onMouseLeave={() => setOpen(false)}
                 >
-                  <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
+                  <Link
+                    to={item.href}
+                    className={`flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
+                  >
                     {item.label}
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${isKattoDropdownOpen ? "rotate-180" : ""}`}
+                      className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                     />
-                  </button>
+                  </Link>
 
                   <AnimatePresence>
-                    {isKattoDropdownOpen && (
+                    {isOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -131,16 +149,8 @@ const Header = () => {
                     )}
                   </AnimatePresence>
                 </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
-                >
-                  {item.label}
-                </Link>
-              ),
-            )}
+              );
+            })}
           </nav>
 
           {/* CTA Button */}
