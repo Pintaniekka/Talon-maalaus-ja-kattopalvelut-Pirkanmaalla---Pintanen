@@ -36,7 +36,7 @@ serve(async (req: Request) => {
     }
 
     const resend = new Resend(apiKey);
-    const { name, email, phone, service, message }: ContactForm = await req.json();
+    const { name, email, phone, service, message, priceEstimate, calculatorDetails }: ContactForm = await req.json();
 
     // Validate
     if (!name || name.trim().length === 0) {
