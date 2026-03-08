@@ -67,6 +67,9 @@ serve(async (req: Request) => {
           <tr><td style="padding:8px;font-weight:bold;">Puhelin</td><td style="padding:8px;">${phone || "–"}</td></tr>
           <tr><td style="padding:8px;font-weight:bold;">Palvelu</td><td style="padding:8px;">${serviceLabel}</td></tr>
         </table>
+        ${priceEstimate ? `<tr><td style="padding:8px;font-weight:bold;">Hinta-arvio</td><td style="padding:8px;">${priceEstimate}</td></tr>` : ""}
+        ${calculatorDetails ? `<tr><td style="padding:8px;font-weight:bold;">Lisätiedot</td><td style="padding:8px;">${calculatorDetails}</td></tr>` : ""}
+        </table>
         ${message ? `<h3>Viesti</h3><p>${message.replace(/\n/g, "<br>")}</p>` : ""}
       `,
     });
