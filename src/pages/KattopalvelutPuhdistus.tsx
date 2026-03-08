@@ -117,6 +117,14 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
+      <section className="py-8 bg-background">
+        <div className="section-container text-center">
+          <Link to="/hinnat/katon-puhdistus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+            Katso katon puhdistuksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
       <FAQSection items={puhdistusFAQ} />
       <ServiceContactSection variant="katto" />
       <KotitalousVahennys />

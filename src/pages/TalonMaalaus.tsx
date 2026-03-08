@@ -153,6 +153,14 @@ const TalonMaalaus = () => {
         </div>
       </section>
 
+      <section className="py-8 bg-background">
+        <div className="section-container text-center">
+          <Link to="/hinnat/talon-maalaus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+            Katso talon maalauksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
       <FAQSection items={maalausFAQ} />
       <ServiceContactSection variant="maalaus" />
       <KotitalousVahennys />
