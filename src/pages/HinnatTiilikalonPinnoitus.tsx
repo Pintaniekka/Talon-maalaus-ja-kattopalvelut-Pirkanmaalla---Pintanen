@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
-import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
+
 import FAQSection from "@/components/FAQSection";
 import RoofPriceCalculator from "@/components/RoofPriceCalculator";
 import { getStorageUrl } from "@/lib/storage";
