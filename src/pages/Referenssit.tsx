@@ -287,7 +287,7 @@ const Referenssit = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="flex flex-wrap justify-center gap-3 mb-8"
           >
             {categories.map((cat) => (
               <button
@@ -300,6 +300,24 @@ const Referenssit = () => {
                 {cat.label}
               </button>
             ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-12 space-y-4"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heading">Referenssejä kattotöistä ja ulkomaalauksista</h2>
+            <p className="text-muted-foreground text-base">
+              Käy kurkkaamassa töitämme <strong>Pirkanmaan</strong> alueella. Olemme tehneet tiilikattojen pinnoituksia, katon puhdistuksia ja talojen ulkomaalauksia monissa paikoissa Pirkanmaalla ja lähikunnissa.
+            </p>
+            <p className="text-muted-foreground text-base">
+              Kuvista näet, että hyviä tuloksia saadaan, kun työ tehdään huolellisesti ja ammattitaidolla. Jokainen projekti on erilainen, mutta tavoitteemme on aina sama – <strong>hyvä lopputulos ja siisti työnjälki.</strong>
+            </p>
+            <p className="text-muted-foreground text-base">
+              Teemme töitä noin tunnin ajomatkan säteellä Tampereelta.
+            </p>
           </motion.div>
 
           <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
