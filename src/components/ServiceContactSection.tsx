@@ -100,6 +100,10 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
                       src={person.image}
                       alt={person.name}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={64}
+                      height={64}
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground/70"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';

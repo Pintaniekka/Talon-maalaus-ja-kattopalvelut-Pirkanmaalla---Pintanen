@@ -59,6 +59,7 @@ const ToimintaAlueetBanner = () => {
               width={280}
               height={350}
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
