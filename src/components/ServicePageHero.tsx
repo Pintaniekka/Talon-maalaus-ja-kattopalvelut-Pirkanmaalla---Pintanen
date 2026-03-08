@@ -6,6 +6,7 @@ interface ServicePageHeroProps {
   title: string;
   subtitle: string | ReactNode;
   backgroundImage?: string;
+  backgroundSrcSet?: string;
   children?: ReactNode;
 }
 
