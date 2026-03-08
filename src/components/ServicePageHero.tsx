@@ -26,7 +26,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, c
             decoding="sync"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary-dark/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/65" />
         </div>
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark" />
