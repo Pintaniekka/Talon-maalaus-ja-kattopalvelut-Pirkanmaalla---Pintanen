@@ -8,7 +8,7 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import { getStorageUrl } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
+const heroImage = getStorageUrl("pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
 
 const serviceCards = [
   {
