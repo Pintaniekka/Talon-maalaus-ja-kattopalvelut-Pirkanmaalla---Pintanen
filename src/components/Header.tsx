@@ -183,20 +183,44 @@ const Header = () => {
             className="lg:hidden bg-card border-t border-border"
           >
             <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
-              {navItems.map((item) =>
-                item.dropdown ? (
-                  <div key={item.label}>
-                    <button
-                      onClick={() => setIsKattoDropdownOpen(!isKattoDropdownOpen)}
-                      className="w-full flex items-center justify-between py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+              {navItems.map((item) => {
+                if (!item.dropdown) {
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
                     >
                       {item.label}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${isKattoDropdownOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
+                    </Link>
+                  );
+                }
+
+                const isOpen = item.label === "Kattopalvelut" ? isKattoDropdownOpen : isHinnatDropdownOpen;
+                const toggle = item.label === "Kattopalvelut"
+                  ? () => setIsKattoDropdownOpen(!isKattoDropdownOpen)
+                  : () => setIsHinnatDropdownOpen(!isHinnatDropdownOpen);
+
+                return (
+                  <div key={item.label}>
+                    <div className="flex items-center">
+                      <Link
+                        to={item.href}
+                        className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={toggle}
+                        className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                    </div>
                     <AnimatePresence>
-                      {isKattoDropdownOpen && (
+                      {isOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -216,7 +240,8 @@ const Header = () => {
                       )}
                     </AnimatePresence>
                   </div>
-                ) : (
+                );
+              })}
                   <Link
                     key={item.href}
                     to={item.href}
