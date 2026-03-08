@@ -24,6 +24,7 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsKattoDropdownOpen(false);
+    setIsHinnatDropdownOpen(false);
   }, [location.pathname]);
 
   const isHomePage = location.pathname === "/";
