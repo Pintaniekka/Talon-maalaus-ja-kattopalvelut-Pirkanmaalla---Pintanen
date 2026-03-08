@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Droplets, Shield, Sparkles, Clock } from "lucide-react";
+import { Check, Droplets, Shield, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
@@ -113,6 +114,14 @@ const KattopalvelutPuhdistus = () => {
               <p><strong className="text-foreground">Myyntiä varten?</strong> Puhdas katto nostaa kiinteistön ensivaikutelmaa ja voi lisätä myyntiarvoa.</p>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-8 bg-background">
+        <div className="section-container text-center">
+          <Link to="/hinnat/katon-puhdistus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+            Katso katon puhdistuksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 

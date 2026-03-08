@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
@@ -34,6 +35,16 @@ const faqItems = [
   { question: "Saako työstä kotitalousvähennyksen?", answer: "Kyllä, työn osuudesta voi saada vähennyksen." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 const HinnatKatonPuhdistus = () => {
   return (
     <div>
@@ -42,6 +53,9 @@ const HinnatKatonPuhdistus = () => {
         description="Paljonko katon puhdistus maksaa? Katso hintaesimerkit, mitä puhdistus sisältää ja milloin pelkkä pesu riittää. Toimimme Pirkanmaalla ja Kanta-Hämeessä."
         preloadImage={heroImage}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
 
       <ServicePageHero
         title="Katon puhdistus hinta – mitä pesu maksaa?"

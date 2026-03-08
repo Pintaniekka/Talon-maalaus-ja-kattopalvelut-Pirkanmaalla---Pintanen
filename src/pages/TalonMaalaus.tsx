@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Paintbrush, Shield, Clock, BadgeCheck, Home, Sun } from "lucide-react";
+import { Check, Paintbrush, Shield, Clock, BadgeCheck, Home, Sun, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
@@ -149,6 +150,14 @@ const TalonMaalaus = () => {
               afterAlt="Violetti omakotitalo värinvaihdon jälkeen Tampereella"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="py-8 bg-background">
+        <div className="section-container text-center">
+          <Link to="/hinnat/talon-maalaus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+            Katso talon maalauksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 

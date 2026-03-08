@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Droplets, Shield, Paintbrush, Clock, BadgeCheck, Ruler, Mountain, Layers, Building2, Wrench as WrenchIcon, ShieldCheck } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
@@ -47,6 +48,16 @@ const faqItems = [
   { question: "Saako työstä kotitalousvähennyksen?", answer: "Kyllä, työn osuudesta voi saada vähennyksen verotuksessa." },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 const HinnatTiilikalonPinnoitus = () => {
   return (
     <>
@@ -55,6 +66,9 @@ const HinnatTiilikalonPinnoitus = () => {
         description="Paljonko tiilikaton pinnoitus maksaa? Laske arvio hintalaskurilla ja katso hintaesimerkit. Toimimme Pirkanmaalla ja Kanta-Hämeessä."
         preloadImage={heroImage}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
 
       {/* Hero */}
       <ServicePageHero

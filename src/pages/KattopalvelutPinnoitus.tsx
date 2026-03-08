@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Droplets, Paintbrush, Shield, Clock, BadgeCheck } from "lucide-react";
+import { Check, Droplets, Paintbrush, Shield, Clock, BadgeCheck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceCTA from "@/components/ServiceCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
@@ -138,6 +139,14 @@ const KattopalvelutPinnoitus = () => {
       <section id="hintalaskuri" className="section-padding bg-secondary">
         <div className="section-container">
           <PriceCalculator />
+        </div>
+      </section>
+
+      <section className="py-8 bg-background">
+        <div className="section-container text-center">
+          <Link to="/hinnat/tiilikaton-pinnoitus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+            Katso tiilikaton pinnoituksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
