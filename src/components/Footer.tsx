@@ -31,7 +31,7 @@ const Footer = () => {
               <li><Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">Tiilikaton pinnoitus</Link></li>
               <li><Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">Ulkomaalaus</Link></li>
               <li><Link to="/kattopalvelut/puhdistus" className="hover:text-primary-foreground transition-colors">Katon puhdistus</Link></li>
-              <li><Link to="/#hintalaskuri" className="hover:text-primary-foreground transition-colors">Hintalaskuri</Link></li>
+              <li><Link to="/hinnat" className="hover:text-primary-foreground transition-colors">Hinnat</Link></li>
             </ul>
           </div>
 
