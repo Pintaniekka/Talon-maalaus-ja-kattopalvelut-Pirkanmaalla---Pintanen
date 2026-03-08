@@ -50,8 +50,8 @@ const Header = () => {
       href: "/talon-maalaus",
     },
     {
-      label: "Toiminta-alueet",
-      href: "/toiminta-alueet",
+      label: "Hinnat",
+      href: "/hinnat",
     },
     {
       label: "Referenssit",
