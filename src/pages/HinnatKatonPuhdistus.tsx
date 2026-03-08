@@ -137,7 +137,6 @@ const HinnatKatonPuhdistus = () => {
 
       <KotitalousVahennys />
       <FAQSection items={faqItems} />
-      <ToimintaAlueetBanner />
       <ServiceContactSection variant="katto" />
     </div>
   );
