@@ -76,11 +76,20 @@ const Hinnat = () => {
 
       {/* 1. Hero */}
       <ServicePageHero
-        title="Laske tiilikaton pinnoituksen tai talon maalauksen hinta heti"
-        subtitle="Saat nopeasti suuntaa antavan hinnan urakallesi Pirkanmaalla. Meillä Pintasella hinnoittelu on läpinäkyvää – ei piilokuluja ja varmistamme tarkan urakkahinnan maksuttoman arviokäynnin aikana."
+        title="Hinnat"
+        subtitle="Laske tiilikaton pinnoituksen tai talon maalauksen hinta heti"
         backgroundImage={heroImage}
         backgroundSrcSet={heroSrcSet}
       />
+
+      {/* Intro-teksti ennen laskuria */}
+      <section className="section-padding pb-0 bg-background">
+        <div className="section-container max-w-3xl mx-auto text-center">
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Saat nopeasti suuntaa antavan hinnan urakallesi Pirkanmaalla. Meillä Pintasella hinnoittelu on läpinäkyvää – ei piilokuluja ja varmistamme tarkan urakkahinnan maksuttoman arviokäynnin aikana.
+          </p>
+        </div>
+      </section>
 
       {/* Hintalaskuri */}
       <PriceCalculator />
