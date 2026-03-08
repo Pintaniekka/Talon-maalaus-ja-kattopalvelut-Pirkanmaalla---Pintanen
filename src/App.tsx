@@ -20,6 +20,7 @@ const Referenssit = lazy(() => import("./pages/Referenssit"));
 const Hinnat = lazy(() => import("./pages/Hinnat"));
 const HinnatTiilikalonPinnoitus = lazy(() => import("./pages/HinnatTiilikalonPinnoitus"));
 const HinnatKatonPuhdistus = lazy(() => import("./pages/HinnatKatonPuhdistus"));
+const HinnatTalonMaalaus = lazy(() => import("./pages/HinnatTalonMaalaus"));
 const Meista = lazy(() => import("./pages/Meista"));
 const ImageTest = lazy(() => import("./pages/ImageTest"));
 const NotFound = lazy(() => import("./pages/NotFound"));
