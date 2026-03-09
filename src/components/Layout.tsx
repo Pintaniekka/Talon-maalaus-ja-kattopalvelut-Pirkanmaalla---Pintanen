@@ -3,7 +3,7 @@ import { useLocation, Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import MobileBottomBar from './MobileBottomBar';
-import ToimintaAlueetBanner from './ToimintaAlueetBanner';
+
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
