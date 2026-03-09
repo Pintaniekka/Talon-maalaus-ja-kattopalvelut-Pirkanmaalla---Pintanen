@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import Services from "@/components/Services";
 import MiksiPintanen from "@/components/MiksiPintanen";
 import PriceCalculator from "@/components/PriceCalculator";
