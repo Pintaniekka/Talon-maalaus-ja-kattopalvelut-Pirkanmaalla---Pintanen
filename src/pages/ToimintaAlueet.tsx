@@ -49,7 +49,7 @@ const ToimintaAlueet = () => {
             transition={{ delay: 0.1 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-accent">
               <MapPin className="w-6 h-6 text-primary" />
               Palvelualueet
             </h2>
