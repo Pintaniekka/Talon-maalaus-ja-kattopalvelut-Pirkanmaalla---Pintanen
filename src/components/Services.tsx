@@ -16,7 +16,7 @@ const services = [
     features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
     warranty: "5v takuu",
     icon: RoofTileIcon,
-    colorClass: "bg-[#B71C1C]/5 hover:bg-[#B71C1C]/10",
+    colorClass: "bg-accent text-white",
   },
   {
     title: "Ulkomaalaus",
@@ -27,7 +27,7 @@ const services = [
     features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
     warranty: "2v takuu",
     icon: PaintBrushIcon,
-    colorClass: "bg-[#ffec4e]/10 hover:bg-[#ffec4e]/20",
+    colorClass: "bg-accent text-white",
   },
 ];
 
