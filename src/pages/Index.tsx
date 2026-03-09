@@ -17,6 +17,7 @@ const Index = () => {
       <SEO />
       <Hero />
       <Features />
+      <TestimonialsMarquee />
       <Services />
       <MiksiPintanen />
       <PriceCalculator />
