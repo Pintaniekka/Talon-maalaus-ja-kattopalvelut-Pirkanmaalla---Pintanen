@@ -16,6 +16,21 @@ const pirkanmaaCities = [
   { name: "Valkeakoski", slug: "valkeakoski" },
 ];
 
+const pirkanmaaExtra = [
+  { name: "Akaa", slug: "akaa" },
+  { name: "Ikaalinen", slug: "ikaalinen" },
+  { name: "Juupajoki", slug: "juupajoki" },
+  { name: "Kihniö", slug: "kihnio" },
+  { name: "Mänttä-Vilppula", slug: "mantta-vilppula" },
+  { name: "Orivesi", slug: "orivesi" },
+  { name: "Parkano", slug: "parkano" },
+  { name: "Pälkäne", slug: "palkane" },
+  { name: "Ruovesi", slug: "ruovesi" },
+  { name: "Urjala", slug: "urjala" },
+  { name: "Vesilahti", slug: "vesilahti" },
+  { name: "Virrat", slug: "virrat" },
+];
+
 const kantaHameCities = [
   { name: "Forssa", slug: "forssa" },
   { name: "Hämeenlinna", slug: "hameenlinna" },
@@ -32,10 +47,10 @@ const Footer = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen logo"
-              className="h-16 w-auto mb-4 brightness-0 invert object-contain"
-              width={200}
-              height={80}
-              sizes="200px"
+              className="h-24 w-auto mb-4 brightness-0 invert object-contain"
+              width={280}
+              height={112}
+              sizes="280px"
             />
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
@@ -82,7 +97,7 @@ const Footer = () => {
           {/* Column 3: Pirkanmaa */}
           <div>
             <h3 className="font-bold mb-4 text-lg">Pirkanmaa</h3>
-            <ul className="space-y-2 text-sm text-primary-foreground/70">
+            <ul className="space-y-2 text-sm text-primary-foreground/70 mb-3">
               {pirkanmaaCities.map((city) => (
                 <li key={city.slug}>
                   <Link to={`/alue/${city.slug}`} className="hover:text-primary-foreground transition-colors">
@@ -91,11 +106,21 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+            <p className="text-xs text-primary-foreground/50 leading-relaxed">
+              {pirkanmaaExtra.map((city, i) => (
+                <span key={city.slug}>
+                  <Link to={`/alue/${city.slug}`} className="hover:text-primary-foreground/70 transition-colors">
+                    {city.name}
+                  </Link>
+                  {i < pirkanmaaExtra.length - 1 && ", "}
+                </span>
+              ))}
+            </p>
           </div>
 
           {/* Column 4: Kanta-Häme & Lähialueet */}
           <div>
-            <h3 className="font-bold mb-4 text-lg">Kanta-Häme & Lähialueet</h3>
+            <h3 className="font-bold mb-4 text-lg">Kanta-Häme & lähialueet</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               {kantaHameCities.map((city) => (
                 <li key={city.slug}>
