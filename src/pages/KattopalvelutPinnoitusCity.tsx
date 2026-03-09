@@ -109,7 +109,7 @@ const KattopalvelutPinnoitusCity = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">5-vaiheinen pinnoitusprosessi</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">5-vaiheinen pinnoitusprosessi</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Jokainen vaihe on tarkasti suunniteltu takaamaan pitkäikäinen ja kaunis lopputulos.
             </p>
