@@ -46,7 +46,6 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
         },
-        "service-card": "hsl(var(--service-card))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

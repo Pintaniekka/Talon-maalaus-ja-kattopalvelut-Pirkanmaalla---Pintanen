@@ -53,8 +53,6 @@
     --accent: 202 100% 61%;
     --accent-foreground: 0 0% 100%;
     --accent-light: 207 100% 94%;
-    /* Service card blue #96dafb */
-    --service-card: 202 94% 79%;
 
     /* FAQ warm beige #f2e8d8 */
     --faq-bg: 30 52% 90%;
@@ -166,10 +164,6 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     @apply font-bold tracking-tight;
-  }
-
-  h2 {
-    color: hsl(var(--heading-navy));
   }
 }
 
