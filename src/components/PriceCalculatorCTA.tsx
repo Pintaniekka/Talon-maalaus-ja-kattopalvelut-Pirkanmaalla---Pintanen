@@ -15,7 +15,7 @@ const PriceCalculatorCTA = () => {
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <Calculator className="w-8 h-8 text-primary" />
           </div>
-          <h2 className="heading-style text-3xl md:text-4xl text-sky-600 mb-4">
+          <h2 className="heading-style text-3xl md:text-4xl text-sky-300 mb-4">
             Tiedätkö, mitä remonttisi maksaa?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
