@@ -42,7 +42,7 @@ const KattopalvelutPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
               Tiilikaton mekaaninen puhdistus ja käsittely
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground">
