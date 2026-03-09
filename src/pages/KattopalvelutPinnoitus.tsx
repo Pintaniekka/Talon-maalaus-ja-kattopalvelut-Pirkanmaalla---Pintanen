@@ -99,7 +99,7 @@ const KattopalvelutPinnoitus = () => {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi pinnoittaa tiilikatto?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi pinnoittaa tiilikatto?</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Tiilikaton pinnoitus on edullisin tapa pidentää katon käyttöikää merkittävästi verrattuna täydelliseen
                 katon uusimiseen.
