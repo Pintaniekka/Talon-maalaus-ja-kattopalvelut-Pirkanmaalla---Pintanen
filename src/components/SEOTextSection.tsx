@@ -28,7 +28,7 @@ const SEOTextSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="heading-style text-3xl md:text-4xl text-primary mb-6">
+          <h2 className="heading-style text-3xl md:text-4xl text-sky-600 mb-6">
             Luotettava maalausliike ja kattoasiantuntija Pirkanmaalla
           </h2>
           <div className="space-y-5 text-foreground/80 leading-relaxed text-base">
