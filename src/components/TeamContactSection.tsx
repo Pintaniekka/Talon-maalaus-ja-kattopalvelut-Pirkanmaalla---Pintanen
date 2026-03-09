@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, User } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import { getStorageUrl } from '@/lib/storage';
+import WhatsAppIcon from './WhatsAppIcon';
 
 interface TeamContactSectionProps {
   cityName?: string;
@@ -14,6 +15,7 @@ const team = [
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp'),
+    whatsapp: 'https://wa.me/358409640066',
   },
   {
     name: 'Eemil',
@@ -22,6 +24,7 @@ const team = [
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp'),
+    whatsapp: 'https://wa.me/358401642233',
   },
 ];
 
@@ -86,6 +89,16 @@ const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
                 >
                   <Mail className="w-4 h-4" />
                   {person.email}
+                </a>
+                <a
+                  href={person.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 mt-4 px-6 py-2 rounded-full font-medium text-white transition-colors hover:opacity-90 text-sm"
+                  style={{ backgroundColor: '#5ddb79' }}
+                >
+                  <WhatsAppIcon className="w-5 h-5" color="white" />
+                  WhatsApp
                 </a>
               </div>
             </motion.div>
