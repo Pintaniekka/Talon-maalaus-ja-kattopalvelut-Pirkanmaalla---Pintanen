@@ -30,7 +30,7 @@ const Hero = () => {
             {/* Main Heading */}
             <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg">
               Tiilikaton pinnoitus ja talon maalaus{" "}
-              <span className="text-sky-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
+              <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
             </h1>
 
             {/* Subheading */}

@@ -289,7 +289,7 @@ const Referenssit = () => {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center mb-12 space-y-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heading">Referenssejä kattotöistä ja ulkomaalauksista</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent font-heading">Referenssejä kattotöistä ja ulkomaalauksista</h2>
             <p className="text-muted-foreground text-base">
               Käy kurkkaamassa töitämme <strong>Pirkanmaan</strong> alueella. Olemme tehneet tiilikattojen pinnoituksia, katon puhdistuksia ja talojen ulkomaalauksia monissa paikoissa Pirkanmaalla ja lähikunnissa.
             </p>

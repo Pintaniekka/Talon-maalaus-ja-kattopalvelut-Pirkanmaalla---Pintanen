@@ -112,7 +112,7 @@ const Hinnat = () => {
       <section className="section-padding bg-background">
         <div className="section-container max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading text-center">
               Mitä maalaustyöt maksavat Pirkanmaalla?
             </h2>
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
@@ -148,7 +148,7 @@ const Hinnat = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold text-foreground mb-8 font-heading text-center"
+            className="text-2xl md:text-3xl font-bold text-accent mb-8 font-heading text-center"
           >
             Katso palvelukohtaiset hinnat
           </motion.h2>
@@ -202,7 +202,7 @@ const Hinnat = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold text-foreground mb-10 font-heading text-center"
+            className="text-2xl md:text-3xl font-bold text-accent mb-10 font-heading text-center"
           >
             Mitä Pintasen hinta aina sisältää?
           </motion.h2>

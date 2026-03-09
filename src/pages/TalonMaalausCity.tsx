@@ -60,7 +60,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-2 text-center">
               Miksi maalata talo?
             </h2>
             <p>{cityData.maalausIntro}</p>
@@ -78,7 +78,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Maalauspalvelumme</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Maalauspalvelumme</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Tarjoamme kattavat ulkomaalauspalvelut kaikenlaisiin taloihin.
             </p>
@@ -98,7 +98,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Työprosessimme</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Työprosessimme</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Huolellinen työ takaa kestävän lopputuloksen.</p>
           </motion.div>
           <div className="grid md:grid-cols-5 gap-6">
@@ -120,7 +120,7 @@ const TalonMaalausCity = () => {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi valita Pintanen?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita Pintanen?</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Olemme erikoistuneet ulkomaalaukseen ja tiedämme, mitä laadukas työ vaatii.
               </p>
@@ -159,7 +159,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding bg-muted">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Ennen & Jälkeen</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">Ennen & Jälkeen</h2>
             <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
           </motion.div>
           <div className="max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ const TalonMaalausCity = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent">
                 Palvelu {cityData.name}-alueella
               </h2>
             </div>

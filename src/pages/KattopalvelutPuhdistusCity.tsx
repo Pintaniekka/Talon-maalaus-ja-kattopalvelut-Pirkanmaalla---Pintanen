@@ -51,7 +51,7 @@ const KattopalvelutPuhdistusCity = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
               Tiilikaton mekaaninen puhdistus ja käsittely
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground">
@@ -71,7 +71,7 @@ const KattopalvelutPuhdistusCity = () => {
       <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mitä puhdistus sisältää?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Mitä puhdistus sisältää?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Kattavat puhdistuspalvelut yhdellä hinnalla – ei piilokustannuksia.
             </p>
@@ -93,7 +93,7 @@ const KattopalvelutPuhdistusCity = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Puhdistuksen hyödyt</h2>
+            <h2 className="text-3xl font-bold text-accent mb-6 text-center">Puhdistuksen hyödyt</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {benefits.map((benefit, index) => (
                 <motion.div key={benefit} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3 bg-card p-4 rounded-xl">
@@ -107,7 +107,7 @@ const KattopalvelutPuhdistusCity = () => {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
             <div className="bg-card rounded-2xl p-8 text-center shadow-lg">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Hinnoittelu</h2>
+              <h2 className="text-2xl font-bold text-accent mb-4">Hinnoittelu</h2>
               <p className="text-muted-foreground mb-6">
                 Tiilikaton mekaanisen puhdistuksen ja käsittelyn hinta riippuu katon koosta ja sammaleen määrästä.
               </p>
@@ -123,7 +123,7 @@ const KattopalvelutPuhdistusCity = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent">
                 Palvelu {cityData.name}-alueella
               </h2>
             </div>

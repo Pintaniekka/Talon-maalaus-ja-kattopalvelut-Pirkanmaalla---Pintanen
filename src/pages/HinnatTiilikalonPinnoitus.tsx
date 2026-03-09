@@ -102,7 +102,7 @@ const HinnatTiilikalonPinnoitus = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 font-heading text-center">
               Laske tiilikaton pinnoituksen hinta
             </h2>
             <RoofPriceCalculator />
@@ -133,7 +133,7 @@ const HinnatTiilikalonPinnoitus = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 font-heading text-center">
               Hintaesimerkit
             </h2>
             <div className="bg-card rounded-2xl border border-border overflow-hidden">
@@ -167,7 +167,7 @@ const HinnatTiilikalonPinnoitus = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               Mistä tiilikaton pinnoituksen hinta muodostuu?
             </h2>
           </motion.div>
@@ -200,7 +200,7 @@ const HinnatTiilikalonPinnoitus = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading text-center">
               Pinnoitus vai kattoremontti?
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed mb-10">
