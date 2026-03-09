@@ -122,7 +122,7 @@ const HinnatKatonPuhdistus = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center font-heading">Milloin pelkkä puhdistus riittää?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center font-heading">Milloin pelkkä puhdistus riittää?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>Katon puhdistaminen on usein tarpeeksi, kun katossa ei ole laajaa rapautumista tai muita ongelmia, joilla on vaikutusta rakenteisiin. Jos katon pinta on likainen ja siinä on paljon sammalta, mutta itse tiilet ovat edelleen hyvässä kunnossa, niin huolellinen puhdistaminen on usein hyvä valinta ja se on myös taloudellisesti kannattava.</p>
               <p>Tämä menetelmä sopii erityisesti tilanteisiin, joissa katon yleiskunto on vielä hyvä, mutta halutaan poistaa lika, sammal ja kosteus ennen kuin ne pääsevät aiheuttamaan suurempaa vahinkoa.</p>
