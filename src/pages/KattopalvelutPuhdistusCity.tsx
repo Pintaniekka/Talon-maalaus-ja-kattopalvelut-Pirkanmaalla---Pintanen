@@ -107,7 +107,7 @@ const KattopalvelutPuhdistusCity = () => {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
             <div className="bg-card rounded-2xl p-8 text-center shadow-lg">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Hinnoittelu</h2>
+              <h2 className="text-2xl font-bold text-accent mb-4">Hinnoittelu</h2>
               <p className="text-muted-foreground mb-6">
                 Tiilikaton mekaanisen puhdistuksen ja käsittelyn hinta riippuu katon koosta ja sammaleen määrästä.
               </p>
