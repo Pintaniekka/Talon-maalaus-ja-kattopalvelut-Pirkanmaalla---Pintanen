@@ -74,11 +74,27 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-[fadeIn_0.6s_1s_both]">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-[fadeIn_0.6s_1s_both] z-10">
         <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
           <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-[scrollBounce_1.5s_infinite]" />
         </div>
       </div>
+
+      {/* Paint drip effect – CSS mask technique */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[120px] z-[5] pointer-events-none"
+        style={{
+          backgroundColor: '#96dafb',
+          WebkitMaskImage: `url("https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/maali_valuu.svg")`,
+          maskImage: `url("https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/maali_valuu.svg")`,
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'bottom',
+          maskPosition: 'bottom',
+          WebkitMaskSize: '100% auto',
+          maskSize: '100% auto',
+        }}
+      />
     </section>
   );
 };
