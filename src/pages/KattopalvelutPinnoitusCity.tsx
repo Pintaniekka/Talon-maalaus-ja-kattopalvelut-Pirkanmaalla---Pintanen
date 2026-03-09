@@ -176,7 +176,7 @@ const KattopalvelutPinnoitusCity = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Ennen & Jälkeen</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">Ennen & Jälkeen</h2>
             <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
           </motion.div>
           <div className="max-w-2xl mx-auto">

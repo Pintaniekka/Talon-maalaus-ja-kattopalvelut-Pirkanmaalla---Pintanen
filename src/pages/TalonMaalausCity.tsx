@@ -98,7 +98,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Työprosessimme</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Työprosessimme</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Huolellinen työ takaa kestävän lopputuloksen.</p>
           </motion.div>
           <div className="grid md:grid-cols-5 gap-6">
