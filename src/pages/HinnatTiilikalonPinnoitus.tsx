@@ -200,7 +200,7 @@ const HinnatTiilikalonPinnoitus = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading text-center">
               Pinnoitus vai kattoremontti?
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed mb-10">
