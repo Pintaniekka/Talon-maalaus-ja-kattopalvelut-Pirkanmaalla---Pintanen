@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ShieldCheck, Wrench, FileText, Clock } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, Wrench, FileText, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
-import { getStorageUrl } from "@/lib/storage";
+import OptimizedImage from "@/components/OptimizedImage";
+import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 
 const heroImage = getStorageUrl("Pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
 const heroImage480 = getStorageUrl("Pictures-480/Moderni-maalattu-musta-talo-pirkanmaa-480.webp");
 const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
+
+const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
 const serviceCards = [
   {
@@ -19,9 +25,9 @@ const serviceCards = [
       "Katso tarkat hintaesimerkit erikokoisille kohteille, hintavertailu ja lue, mistä pinnoituksen hinta koostuu.",
     cta: "Katso pinnoituksen hintaesimerkit",
     href: "/hinnat/tiilikaton-pinnoitus",
-    color: "from-[#B71C1C]/15 via-[#B71C1C]/8 to-transparent",
-    iconBg: "bg-[#B71C1C]/15",
-    iconColor: "text-[#B71C1C]",
+    warranty: "5v takuu",
+    bgImage: pinnoitusBg,
+    Icon: RoofTileIcon,
   },
   {
     title: "Katon puhdistus",
@@ -29,9 +35,9 @@ const serviceCards = [
       "Säännöllinen puhdistus ja suojakäsittely säästää kattoa. Katso edulliset alkaen-hintamme.",
     cta: "Katso puhdistuksen hinnasto",
     href: "/hinnat/katon-puhdistus",
-    color: "from-primary/15 via-primary/8 to-transparent",
-    iconBg: "bg-primary/15",
-    iconColor: "text-primary",
+    warranty: "Ilmainen tarkastus",
+    bgImage: puhdistusBg,
+    Icon: RoofCleanIcon,
   },
   {
     title: "Talon maalaus",
@@ -39,9 +45,9 @@ const serviceCards = [
       "Tutustu ulkomaalauksen neliöhintoihin, pohjatöiden vaikutuksiin ja katso esimerkkilaskelmat puutaloille.",
     cta: "Katso maalauksen hintaesimerkit",
     href: "/hinnat/talon-maalaus",
-    color: "from-[#ffec4e]/20 via-[#ffec4e]/10 to-transparent",
-    iconBg: "bg-[#ffec4e]/20",
-    iconColor: "text-[#D4A017]",
+    warranty: "2v takuu",
+    bgImage: maalausBg,
+    Icon: PaintBrushIcon,
   },
 ];
 
@@ -178,22 +184,32 @@ const Hinnat = () => {
               >
                 <Link
                   to={card.href}
-                  className="group block h-full rounded-2xl border-2 border-border hover:border-primary/50 bg-card overflow-hidden transition-all hover:shadow-lg relative"
+                  className="block rounded-2xl overflow-hidden group relative h-full min-h-[320px]"
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${card.color} pointer-events-none`}
+                  <OptimizedImage
+                    src={card.bgImage}
+                    srcSet={getImageSrcSet(card.bgImage)}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="relative p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 font-heading">
-                      {card.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                      {card.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                      {card.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/85 transition-all duration-300" />
+
+                  <div className="relative z-10 flex flex-col justify-end h-full p-6">
+                    <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
+                      <card.Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2 font-heading">{card.title}</h3>
+                    <p className="text-sm text-white/80 mb-4">{card.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
+                        {card.warranty}
+                      </span>
+                      <span className="flex items-center gap-1 text-white font-medium text-sm group-hover:gap-2 transition-all">
+                        Lue lisää
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
