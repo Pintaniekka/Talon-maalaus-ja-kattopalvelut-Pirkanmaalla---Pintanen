@@ -16,7 +16,7 @@ const services = [
     features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
     warranty: "5v takuu",
     icon: RoofTileIcon,
-    colorClass: "bg-accent text-white",
+    colorClass: "bg-accent-light text-foreground",
   },
   {
     title: "Ulkomaalaus",
@@ -27,7 +27,7 @@ const services = [
     features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
     warranty: "2v takuu",
     icon: PaintBrushIcon,
-    colorClass: "bg-accent text-white",
+    colorClass: "bg-accent-light text-foreground",
   },
 ];
 
@@ -63,16 +63,16 @@ const Services = () => {
 
                   {/* Content */}
                   <div className="flex items-center gap-2 mb-3">
-                    <IconComponent className="w-6 h-6 text-white flex-shrink-0" />
-                    <h3 className="text-xl font-bold text-white font-heading">{service.title}</h3>
+                    <IconComponent className="w-6 h-6 text-accent flex-shrink-0" />
+                    <h3 className="text-xl font-bold text-foreground font-heading">{service.title}</h3>
                   </div>
-                  <p className="text-white/80 mb-6">{service.description}</p>
+                  <p className="text-muted-foreground mb-6">{service.description}</p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map(feature => (
-                      <li key={feature} className="flex items-center gap-2 text-white">
-                        <Check className="w-4 h-4 text-white" />
+                      <li key={feature} className="flex items-center gap-2 text-foreground">
+                        <Check className="w-4 h-4 text-accent" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -80,8 +80,8 @@ const Services = () => {
 
                   {/* Warranty Badge */}
                   <div className="flex items-center justify-between">
-                    <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">{service.warranty}</span>
-                    <span className="flex items-center gap-1 text-white font-medium text-sm group-hover:gap-2 transition-all">
+                    <span className="bg-accent/15 text-accent text-xs font-semibold px-3 py-1 rounded-full">{service.warranty}</span>
+                    <span className="flex items-center gap-1 text-accent font-medium text-sm group-hover:gap-2 transition-all">
                       Lue lisää
                       <ArrowRight className="w-4 h-4" />
                     </span>

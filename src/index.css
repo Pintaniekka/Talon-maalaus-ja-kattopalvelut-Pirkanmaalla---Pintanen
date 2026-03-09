@@ -52,7 +52,7 @@
     /* Accent - Brand blue #38b6ff */
     --accent: 202 100% 61%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 207 100% 94%;
+    --accent-light: 205 100% 94%; /* #dff3ff */
 
     /* FAQ warm beige #f2e8d8 */
     --faq-bg: 30 52% 90%;

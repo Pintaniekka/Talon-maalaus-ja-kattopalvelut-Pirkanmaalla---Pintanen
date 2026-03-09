@@ -90,7 +90,7 @@ const HinnatTalonMaalaus = () => {
       </section>
 
       {/* Calculator */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding bg-accent-light">
         <div className="section-container max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
