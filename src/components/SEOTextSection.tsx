@@ -94,7 +94,7 @@ const SEOTextSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="heading-style text-2xl md:text-3xl text-sky-300 mb-6">
+          <h3 className="heading-style text-2xl md:text-3xl text-accent mb-6">
             Miksi valita Pintanen huoltamaan kotisi?
           </h3>
           <div className="space-y-5 text-foreground/80 leading-relaxed text-base">
