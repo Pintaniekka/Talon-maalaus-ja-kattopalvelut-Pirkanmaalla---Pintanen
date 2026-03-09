@@ -54,16 +54,32 @@ export const maalausFAQ: FAQItem[] = [
 
 export const generalFAQ: FAQItem[] = [
   {
-    question: 'Millä alueilla Pintanen Oy toimii?',
-    answer: 'Toimimme laajasti Pirkanmaan ja Kanta-Hämeen talousalueilla. Palvelemme asiakkaitamme muun muassa Tampereella, Sastamalassa, Hämeenkyrössä, Ylöjärvellä, Nokialla sekä Forssassa ja Hämeenlinnassa.',
+    question: 'Sisältääkö tarjous kaiken kattavasti, vai tulemme kohtaamaan piilokuluja?',
+    answer: 'Meidän tarjouksemme on aina avaimet käteen -paketti, joka sisältää kaiken tarpeellisen: työn, tarvikkeet, laadukkaat maalit, tarvittavat telineet ja nostimet, matkakulut sekä huolellisen loppusiivouksen. Ylimääräisiä kuluja ei siis tule.',
   },
   {
-    question: 'Saanko työstänne kotitalousvähennyksen?',
-    answer: 'Kyllä. Erittelemme urakan laskulla selkeästi työn osuuden, josta voit hakea kotitalousvähennystä henkilökohtaisessa verotuksessasi.',
+    question: 'Kuinka kauan kestää tiilikaton pinnoitus tai talon maalaus?',
+    answer: 'Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus vie tyypillisesti 2–3 päivää, riippuen sääolosuhteista. Talon ulkomaalaus puolestaan kestää noin 3–7 päivää, kohteen ja pohjatöiden määrästä riippuen. Työmme suunnitellaan siten, ettei se häiritse normaalia asumista.',
   },
   {
-    question: 'Annetaanko työlle takuu?',
-    answer: 'Kyllä, tarjoamme asiantuntevalle "avaimet käteen" -palvelullemme aina kirjallisen takuun ja teemme huolellisen nollavirhe-luovutuksen.',
+    question: 'Mitä tehdään, jos sovittuna työpäivänä sataa?',
+    answer: 'Seuraamme aina säätiedotuksia tarkasti etukäteen. Emme suorita maalaus- tai pinnoitustöitä sateisena säällä, koska pintojen on oltava kuivat työn onnistumisen ja kestävyyden takia. Jos sää yllättää, sovitaan uusi työpäivä joustavasti ilman lisäkuluja.',
+  },
+  {
+    question: 'Tuotteko te telineet ja nostimet mukananne?',
+    answer: 'Kyllä, tuomme kaikki tarvittavat rakennustelineet, henkilönostimet ja turvavaljaat työmaalle. Et tarvitse huolehtia kaluston vuokraamisesta tai pystyttämisestä.',
+  },
+  {
+    question: 'Paljonko tiilikaton pinnoitus tai ulkomaalaus maksaa?',
+    answer: 'Hinnan määräytymiseen vaikuttavat kohteen koko, kunto sekä tarvittavat pohjatyöt. Tarkan hinta-arvion omalle kohteellesi saat helposti ja nopeasti laskurillamme. Katso tarkemmat hinnat ja laske hinta-arvio hinnat-sivulta.',
+  },
+  {
+    question: 'Tarvitseeko minun suojata pihaani tai siirtää tavaroita?',
+    answer: 'Suojaamme itse talon ympäristön, terassit ja istutukset huolellisesti ennen työn aloittamista. Pyydämme vain, että siirrät kevyen irtaimiston, kuten pihakalusteet ja ruukut, hieman kauemmas talosta ennen työmme aloittamista.',
+  },
+  {
+    question: 'Saanko teidän työstänne kotitalousvähennyksen?',
+    answer: 'Kyllä saa! Voit hyödyntää 35 % vähennyksen työn osuudesta henkilökohtaisessa verotuksessasi. Erittelemme työn ja materiaalien osuuden selkeästi laskussa, jotta vähennyksen hakeminen on helppoa ja nopeaa.',
   },
 ];
 
@@ -85,7 +101,7 @@ export const getMaalausCityFAQ = (cityName: string): FAQItem[] => [
 export const getPinnoitusCityFAQ = (cityName: string): FAQItem[] => [
   {
     question: 'Riittääkö tiilikaton pesu vai pitääkö katto myös pinnoittaa?',
-    answer: 'Pelkkä korkeapainepesu puhdistaa kyllä katon, mutta se avaa samalla tiilen huokoset ja heikentää alkuperäistä suojaa. Siksi suosittelemme aina pesun jälkeistä oikeaa pinnoitusta. Uusi tehdasvärjätty pinnoite tukkii tiilen huokoset, jolloin vesi ei pääse jäätymään tiilen sisälle (pakkasrapautuminen).',
+    answer: 'Pelkkä korkeapainepesu puhdistaa kyllä katon, mutta se avaa samalla tiilen huokoset ja heikentää alkuperäistä suojaa. Siksi suosittelemme aina pesun jälkeistä oikeaa pinnoitusta. Uusi tehdasvärjätty pinnoite tukkii tiilen huokoset, jolloon vesi ei pääse jäätymään tiilen sisälle (pakkasrapautuminen).',
   },
   {
     question: 'Miten tiilikaton huolto ja pinnoittaminen käytännössä etenee?',
