@@ -184,22 +184,32 @@ const Hinnat = () => {
               >
                 <Link
                   to={card.href}
-                  className="group block h-full rounded-2xl border-2 border-border hover:border-primary/50 bg-card overflow-hidden transition-all hover:shadow-lg relative"
+                  className="block rounded-2xl overflow-hidden group relative h-full min-h-[320px]"
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${card.color} pointer-events-none`}
+                  <OptimizedImage
+                    src={card.bgImage}
+                    srcSet={getImageSrcSet(card.bgImage)}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="relative p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 font-heading">
-                      {card.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                      {card.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                      {card.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/85 transition-all duration-300" />
+
+                  <div className="relative z-10 flex flex-col justify-end h-full p-6">
+                    <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
+                      <card.Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2 font-heading">{card.title}</h3>
+                    <p className="text-sm text-white/80 mb-4">{card.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
+                        {card.warranty}
+                      </span>
+                      <span className="flex items-center gap-1 text-white font-medium text-sm group-hover:gap-2 transition-all">
+                        Lue lisää
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
