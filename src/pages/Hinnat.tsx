@@ -148,7 +148,7 @@ const Hinnat = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold text-foreground mb-8 font-heading text-center"
+            className="text-2xl md:text-3xl font-bold text-accent mb-8 font-heading text-center"
           >
             Katso palvelukohtaiset hinnat
           </motion.h2>
