@@ -25,7 +25,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 section-container py-32">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-6">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading">
@@ -34,12 +34,12 @@ const Hero = () => {
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl font-sans">
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-sans">
               Perheyritys, jossa yrittäjät tekevät työn itse – tiilikaton pinnoitukset ja talon maalaukset Pirkanmaalla.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="/hinnat" className="btn-hero shadow-lg">
                 Laske hinta
                 <ArrowRight className="w-5 h-5" />
@@ -49,8 +49,8 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap gap-4 pt-8 border-t border-white/10">
+            {/* Trust Indicators - Stacked */}
+            <div className="flex flex-col items-center gap-3 pt-8 border-t border-white/10">
               <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-black/25">
                 <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 <span className="text-white font-bold">4,9 / 5</span>

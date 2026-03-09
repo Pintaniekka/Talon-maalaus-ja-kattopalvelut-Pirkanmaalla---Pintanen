@@ -35,6 +35,7 @@ const Header = () => {
       ],
     },
     { label: "Hinnat & Laskuri", href: "/hinnat" },
+    { label: "Referenssit", href: "/referenssit" },
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
