@@ -49,8 +49,8 @@
     --muted: 210 20% 94%;
     --muted-foreground: 215 15% 45%;
 
-    /* Accent - Steel blue (darkened for WCAG AA contrast with white) */
-    --accent: 200 60% 35%;
+    /* Accent - Brand blue #38b6ff */
+    --accent: 202 100% 61%;
     --accent-foreground: 0 0% 100%;
 
     /* Destructive */
