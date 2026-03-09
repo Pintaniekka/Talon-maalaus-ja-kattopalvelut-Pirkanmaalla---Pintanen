@@ -42,7 +42,7 @@ const FAQSection = ({ items }: FAQSectionProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="heading-style text-3xl md:text-4xl text-sky-300 mb-8 text-center">
+            <h2 className="heading-style text-3xl md:text-4xl text-accent mb-8 text-center">
               Usein kysytyt kysymykset
             </h2>
             <Accordion type="single" collapsible className="space-y-3">
