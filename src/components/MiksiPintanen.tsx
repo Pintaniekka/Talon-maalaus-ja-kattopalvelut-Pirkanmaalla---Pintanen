@@ -6,7 +6,7 @@ const sideImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus
 
 const MiksiPintanen = () => {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+    <section className="section-padding bg-accent-light">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Text */}

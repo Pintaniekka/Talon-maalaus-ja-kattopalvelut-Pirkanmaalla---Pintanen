@@ -58,7 +58,7 @@ const Meista = () => {
         </div>
       </section>
 
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>

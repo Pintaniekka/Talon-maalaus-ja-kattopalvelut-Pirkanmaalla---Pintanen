@@ -52,6 +52,7 @@
     /* Accent - Brand blue #38b6ff */
     --accent: 202 100% 61%;
     --accent-foreground: 0 0% 100%;
+    --accent-light: 207 100% 94%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
