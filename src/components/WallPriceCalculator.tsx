@@ -223,7 +223,7 @@ const WallPriceCalculator = () => {
 
         {/* Price Result */}
         {showPrice && price && (
-          <motion.div key="price" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 rounded-2xl bg-primary text-primary-foreground text-center">
+          <motion.div key="price" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 rounded-2xl bg-service-card text-white text-center">
             <div className="text-sm mb-2">Arvioitu hinta</div>
             <div className="text-4xl font-bold mb-2">
               {price.min.toLocaleString("fi-FI")} – {price.max.toLocaleString("fi-FI")} €

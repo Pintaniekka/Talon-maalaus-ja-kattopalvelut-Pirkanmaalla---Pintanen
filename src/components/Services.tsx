@@ -27,7 +27,7 @@ const services = [
     features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
     warranty: "2v takuu",
     icon: PaintBrushIcon,
-    colorClass: "bg-accent text-white",
+    colorClass: "bg-service-card text-white",
   },
 ];
 
