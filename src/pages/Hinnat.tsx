@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ShieldCheck, Wrench, FileText, Clock } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, Wrench, FileText, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
-import { getStorageUrl } from "@/lib/storage";
+import OptimizedImage from "@/components/OptimizedImage";
+import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
+import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
 
 const heroImage = getStorageUrl("Pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
 const heroImage480 = getStorageUrl("Pictures-480/Moderni-maalattu-musta-talo-pirkanmaa-480.webp");
 const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
+
+const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
 const serviceCards = [
   {
@@ -19,9 +25,9 @@ const serviceCards = [
       "Katso tarkat hintaesimerkit erikokoisille kohteille, hintavertailu ja lue, mistä pinnoituksen hinta koostuu.",
     cta: "Katso pinnoituksen hintaesimerkit",
     href: "/hinnat/tiilikaton-pinnoitus",
-    color: "from-[#B71C1C]/15 via-[#B71C1C]/8 to-transparent",
-    iconBg: "bg-[#B71C1C]/15",
-    iconColor: "text-[#B71C1C]",
+    warranty: "5v takuu",
+    bgImage: pinnoitusBg,
+    Icon: RoofTileIcon,
   },
   {
     title: "Katon puhdistus",
@@ -29,9 +35,9 @@ const serviceCards = [
       "Säännöllinen puhdistus ja suojakäsittely säästää kattoa. Katso edulliset alkaen-hintamme.",
     cta: "Katso puhdistuksen hinnasto",
     href: "/hinnat/katon-puhdistus",
-    color: "from-primary/15 via-primary/8 to-transparent",
-    iconBg: "bg-primary/15",
-    iconColor: "text-primary",
+    warranty: "Ilmainen tarkastus",
+    bgImage: puhdistusBg,
+    Icon: RoofCleanIcon,
   },
   {
     title: "Talon maalaus",
@@ -39,9 +45,9 @@ const serviceCards = [
       "Tutustu ulkomaalauksen neliöhintoihin, pohjatöiden vaikutuksiin ja katso esimerkkilaskelmat puutaloille.",
     cta: "Katso maalauksen hintaesimerkit",
     href: "/hinnat/talon-maalaus",
-    color: "from-[#ffec4e]/20 via-[#ffec4e]/10 to-transparent",
-    iconBg: "bg-[#ffec4e]/20",
-    iconColor: "text-[#D4A017]",
+    warranty: "2v takuu",
+    bgImage: maalausBg,
+    Icon: PaintBrushIcon,
   },
 ];
 
