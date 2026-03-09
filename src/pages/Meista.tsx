@@ -74,7 +74,7 @@ const Meista = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi valita meidät?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita meidät?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>Pintanen perustettiin, jotta asiakkaat saavat laadukasta työtä ilman turhia lisäkuluja ja ammattilaiset voivat keskittyä siihen, minkä osaavat parhaiten.</p>
               <p>Päätimme hypätä kilpailuun eri taktiikalla: Huomasimme, kuinka raskaat kulurakenteet ja byrokratia nostavat isojen maalausyritysten hintoja – ilman, että se välttämättä näkyy itse työn jäljessä. Me karsimme kaiken turhan. Teemme jokaisen askeleen kustannustehokkaasti ja itse, jolloin voimme tarjota asiakkaillemme parasta laatua edulliseen hintaan. Kun maksat Pintasen palvelusta, maksat ammattitaidosta ja laadukkaista materiaaleista, et ison organisaation hallintokuluista.</p>
