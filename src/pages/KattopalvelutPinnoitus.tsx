@@ -136,11 +136,7 @@ const KattopalvelutPinnoitus = () => {
       </section>
 
       {/* Price Calculator */}
-      <section id="hintalaskuri" className="section-padding bg-secondary">
-        <div className="section-container">
-          <PriceCalculator />
-        </div>
-      </section>
+      <PriceCalculator />
 
       <section className="py-8 bg-background">
         <div className="section-container text-center">
