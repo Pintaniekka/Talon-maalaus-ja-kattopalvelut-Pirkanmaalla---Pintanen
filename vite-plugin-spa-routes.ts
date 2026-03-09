@@ -27,6 +27,10 @@ function getAllRoutes(): string[] {
     "/talon-maalaus",
     "/toiminta-alueet",
     "/referenssit",
+    "/hinnat",
+    "/hinnat/tiilikaton-pinnoitus",
+    "/hinnat/katon-puhdistus",
+    "/hinnat/talon-maalaus",
     "/image-test",
   ];
 

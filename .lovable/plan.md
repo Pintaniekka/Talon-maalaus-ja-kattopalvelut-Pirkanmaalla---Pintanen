@@ -1,25 +1,43 @@
 
 
-## Ongelma
+## Final Performance Cleanup
 
-`/hinnat`, `/hinnat/tiilikaton-pinnoitus`, `/hinnat/katon-puhdistus` ja `/hinnat/talon-maalaus` -reitit puuttuvat `vite-plugin-spa-routes.ts`-tiedoston `getAllRoutes()`-funktiosta. GitHub Pages ei löydä näille reiteille fyysistä `index.html`-tiedostoa, joten se palauttaa 404.
+Minimal changes to 2 files only. No design, routing, or logic changes.
 
-React Router osaa käsitellä nämä reitit client-sidella (näkyvät Lovable-previewssä), mutta suoralla URL-käynnillä GitHub Pages ei tiedä ohjata pyyntöä `index.html`:ään.
+### 1. `index.html` (lines 22-34) — Replace critical CSS
 
-## Korjaus
+Replace the current 12-line bloated style block with the minimal 5-line version:
 
-Lisätään `vite-plugin-spa-routes.ts` → `getAllRoutes()`-funktioon neljä puuttuvaa reittiä:
-
+```html
+<style>
+  body { margin: 0; }
+  .hero-critical { min-height: 100vh; display: flex; align-items: center; }
+  .hero-critical h1 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.1; }
+  .hero-critical p { margin: 0.75rem 0 0; color: rgba(255,255,255,.8); font-size: 1.125rem; }
+</style>
 ```
-"/hinnat",
-"/hinnat/tiilikaton-pinnoitus",
-"/hinnat/katon-puhdistus",
-"/hinnat/talon-maalaus",
-```
 
-Nämä lisätään staattisten reittien listaan (esim. `/referenssit`-rivin jälkeen). Muutoksia tarvitaan vain yhteen tiedostoon.
+Removed: `header, nav` rules, `position: relative`, `overflow: hidden`, `font-weight: 800`, all `.btn-hero` / `.btn-hero-outline` classes.
 
-## Build-virhe (erillinen)
+Preconnect is already correct (line 19, single tag, no crossorigin). No change needed there.
 
-Edge function `send-contact-email` viittaa `npm:resend@2.0.0` -pakettiin, joka puuttuu Deno-ympäristöstä. Tämä korjataan lisäämällä `deno.json` edge functionin hakemistoon tai päivittämällä import.
+### 2. `src/components/BeforeAfterSlider.tsx` (lines 66, 79) — Remove redundant sizes
 
+Remove `sizes="(max-width: 768px) 100vw, 600px"` from both `OptimizedImage` calls. The default in `OptimizedImage.tsx` already provides the identical value, so behavior is unchanged but the file is cleaner.
+
+### No other files changed
+
+- `OptimizedImage.tsx` — already correct, no change needed
+- `Hero.tsx` — already has `hero-critical` and `sizes="100vw"`, no change needed
+- `Gallery.tsx` — uses `(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw` which is correct for a 3-column grid layout (not a non-hero fullwidth image)
+
+### Validation
+
+| Check | Status |
+|---|---|
+| No `sizes="(max-width: 768px) 100vw, 50vw"` for non-hero images | Confirmed — none exist |
+| Hero images use `sizes="100vw"` | Confirmed |
+| Only one Supabase preconnect (no crossorigin) | Confirmed (line 19) |
+| No CSS async hacks (`media="print"`) | Confirmed (line 10 is Google Fonts only — pre-existing, not introduced by us) |
+| No new CSS class names introduced | Confirmed |
+| Files changed | Exactly 2: `index.html`, `BeforeAfterSlider.tsx` |
