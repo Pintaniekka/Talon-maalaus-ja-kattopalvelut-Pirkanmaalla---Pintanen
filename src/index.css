@@ -167,6 +167,10 @@
     font-family: 'Montserrat', sans-serif;
     @apply font-bold tracking-tight;
   }
+
+  h2 {
+    color: hsl(var(--heading-navy));
+  }
 }
 
 @layer components {
