@@ -16,7 +16,7 @@ const services = [
     features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
     warranty: "5v takuu",
     icon: RoofTileIcon,
-    colorClass: "bg-accent text-white",
+    colorClass: "bg-service-card text-white",
   },
   {
     title: "Ulkomaalaus",
