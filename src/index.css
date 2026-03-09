@@ -54,6 +54,12 @@
     --accent-foreground: 0 0% 100%;
     --accent-light: 207 100% 94%;
 
+    /* FAQ warm beige #f2e8d8 */
+    --faq-bg: 30 52% 90%;
+    --faq-hover: 35 33% 95%;
+    /* Navy #020c45 */
+    --heading-navy: 230 95% 14%;
+
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;

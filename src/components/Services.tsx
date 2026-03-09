@@ -80,8 +80,8 @@ const Services = () => {
 
                   {/* Warranty Badge */}
                   <div className="flex items-center justify-between">
-                    <span className="feature-badge">{service.warranty}</span>
-                    <span className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
+                    <span className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">{service.warranty}</span>
+                    <span className="flex items-center gap-1 text-white font-medium text-sm group-hover:gap-2 transition-all">
                       Lue lisää
                       <ArrowRight className="w-4 h-4" />
                     </span>
