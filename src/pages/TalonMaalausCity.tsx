@@ -120,7 +120,7 @@ const TalonMaalausCity = () => {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi valita Pintanen?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita Pintanen?</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Olemme erikoistuneet ulkomaalaukseen ja tiedämme, mitä laadukas työ vaatii.
               </p>
