@@ -57,28 +57,33 @@ const TestimonialsMarquee = () => {
   const [paused, setPaused] = useState(false);
   const items = [...testimonials, ...testimonials];
 
+  const pausedRef = useRef(false);
+  const offsetRef = useRef(0);
+
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
+
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     let animationId: number;
-    let offset = 0;
     const speed = 0.4;
-
     const halfWidth = track.scrollWidth / 2;
 
     const animate = () => {
-      if (!paused) {
-        offset -= speed;
-        if (Math.abs(offset) >= halfWidth) offset = 0;
-        track.style.transform = `translate3d(${offset}px, 0, 0)`;
+      if (!pausedRef.current) {
+        offsetRef.current -= speed;
+        if (Math.abs(offsetRef.current) >= halfWidth) offsetRef.current = 0;
+        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
       }
       animationId = requestAnimationFrame(animate);
     };
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [paused]);
+  }, []);
 
   return (
     <section
