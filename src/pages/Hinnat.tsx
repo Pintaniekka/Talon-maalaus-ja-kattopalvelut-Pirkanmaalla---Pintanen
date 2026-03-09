@@ -52,17 +52,17 @@ const serviceCards = [
 
 const valueProps = [
   {
-    icon: ShieldCheck,
+    icon: Wrench,
     title: "Avaimet käteen -palvelu",
     description: "Hinta sisältää aina kaikki tarvittavat materiaalit ja tarvikkeet",
   },
   {
-    icon: Wrench,
+    icon: FileText,
     title: "Kirjallinen takuu",
     description: "Annamme työllemme selkeän takuun (esim. 5 vuotta pinnoituksille).",
   },
   {
-    icon: FileText,
+    icon: ShieldCheck,
     title: "Ei piilokuluja",
     description: "Tarjous sisältää kaiken, jotta urakan saa suoritettua alusta loppuun.",
   },
