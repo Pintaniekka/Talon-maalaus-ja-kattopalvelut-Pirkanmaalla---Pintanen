@@ -323,7 +323,7 @@ const PriceCalculator = () => {
                 )}
 
                 {/* CONTACT (shared) */}
-                {currentStepName === 'contact' && !showPrice && <ContactStep />}
+                {currentStepName === 'contact' && !showPrice && contactStepJSX}
 
                 {/* PRICE RESULT */}
                 {showPrice && currentPrice && (

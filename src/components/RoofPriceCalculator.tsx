@@ -173,7 +173,7 @@ const RoofPriceCalculator = () => {
           </motion.div>
         )}
 
-        {/* Step 3: Contact */}
+        {/* Step 3: Contact – inline JSX, not a nested component */}
         {currentStep === "contact" && !showPrice && (
           <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
             <label className="block text-foreground font-semibold mb-1 text-lg">Yhteystiedot</label>
