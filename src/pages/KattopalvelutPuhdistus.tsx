@@ -112,7 +112,7 @@ const KattopalvelutPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Milloin kannattaa puhdistuttaa katto?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Milloin kannattaa puhdistuttaa katto?</h2>
             <div className="text-lg text-muted-foreground space-y-4">
               <p><strong className="text-foreground">Sammalta tai muuta kasvustoa katolla?</strong> Jo pienikin määrä sammalta kannattaa poistaa ennen kuin se aiheuttaa vahinkoa koko katolla.</p>
               <p><strong className="text-foreground">Aikaa edellisestä puhdistuksessta?</strong> Säännöllinen puhdistus pitää katon hyvässä kunnossa ja estää kalliimmat korjaukset tulevaisuudessa.</p>
