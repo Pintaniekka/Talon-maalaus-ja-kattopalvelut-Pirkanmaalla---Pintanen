@@ -135,7 +135,7 @@ const HinnatKatonPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center font-heading">Milloin suosittelemme pinnoitusta?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center font-heading">Milloin suosittelemme pinnoitusta?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>Pelkkä puhdistus ei aina riitä. Jos tiilikaton pintakerros on kulunut, vesi imeytyy tiileen tai katolla on useita rikkoutuneita tiiliä, pinnoitus voi olla parempi valinta. Pinnoitus suojaa kattotiiliä tehokkaammin ja pidentää katon käyttöikää, jos rakenteet ovat kunnossa.</p>
               <p>Katon kunto vaatii joskus laajempaa huolenpitoa. Tutustu myös tiilikaton pinnoituksen hintoihin.</p>
