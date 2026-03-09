@@ -60,7 +60,7 @@ const TalonMaalausCity = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-2 text-center">
               Miksi maalata talo?
             </h2>
             <p>{cityData.maalausIntro}</p>
