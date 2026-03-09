@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="space-y-6">
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading">
+            <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg">
               Tiilikaton pinnoitus ja talon maalaus{" "}
               <span className="text-sky-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
             </h1>
@@ -49,24 +49,24 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Trust Indicators - Stacked */}
-            <div className="flex flex-col items-center gap-3 pt-8 border-t border-white/10">
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-black/25">
-                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+            {/* Trust Indicators - Compact row */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-white/10">
+              <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
+                <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                 <span className="text-white font-bold">4,9 / 5</span>
-                <span className="text-white/70 text-sm">Google-arvosteluista</span>
+                <span className="text-white/70 hidden sm:inline">Google</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-black/25">
-                <Check className="w-5 h-5 text-accent" />
-                <span className="text-white text-sm">200+ toteutettua projektia</span>
+              <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
+                <Check className="w-4 h-4 text-accent" />
+                <span className="text-white">200+ projektia</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-black/25">
-                <Check className="w-5 h-5 text-accent" />
-                <span className="text-white text-sm">5+ vuotta kokemusta</span>
+              <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
+                <Check className="w-4 h-4 text-accent" />
+                <span className="text-white">5+ vuotta</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-black/25">
-                <Check className="w-5 h-5 text-accent" />
-                <span className="text-white text-sm">Maksuton arviokäynti</span>
+              <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
+                <Check className="w-4 h-4 text-accent" />
+                <span className="text-white">Maksuton arvio</span>
               </div>
             </div>
           </div>
