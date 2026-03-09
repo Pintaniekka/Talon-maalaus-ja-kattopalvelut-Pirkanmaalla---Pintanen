@@ -178,7 +178,7 @@ const Hinnat = () => {
               >
                 <Link
                   to={card.href}
-                  className="group block h-full rounded-2xl border-2 border-border hover:border-primary/50 bg-card overflow-hidden transition-all hover:shadow-lg"
+                  className="group block h-full rounded-2xl border-2 border-border hover:border-primary/50 bg-card overflow-hidden transition-all hover:shadow-lg relative"
                 >
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${card.color} pointer-events-none`}

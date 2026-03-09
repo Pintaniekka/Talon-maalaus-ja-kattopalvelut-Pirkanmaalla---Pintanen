@@ -12,7 +12,7 @@ interface ServicePageHeroProps {
 
 const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, children }: ServicePageHeroProps) => {
   return (
-    <section className="hero-critical relative min-h-[70vh] flex items-center justify-center overflow-hidden isolate" style={{ backgroundColor: 'hsl(215,30%,10%)' }}>
+    <section className="hero-critical relative min-h-[60svh] min-h-[60vh] flex items-center justify-center overflow-hidden isolate" style={{ backgroundColor: 'hsl(215,30%,10%)' }}>
       {/* Background image – separate layer, no blend/filter/opacity */}
       {backgroundImage ? (
         <img

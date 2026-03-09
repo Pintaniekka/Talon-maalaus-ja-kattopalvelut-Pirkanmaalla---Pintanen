@@ -154,8 +154,8 @@ const PriceCalculator = () => {
 
   const progress = calculatorType ? ((currentStepIdx + 1) / currentSteps.length) * 100 : 0;
 
-  // Contact form (shared)
-  const ContactStep = () => (
+  // Contact form JSX (inline to avoid remount on every keystroke)
+  const contactStepJSX = (
     <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
       <label className="block text-foreground font-semibold mb-1 text-lg">Yhteystiedot</label>
       <p className="text-sm text-muted-foreground mb-4">Täytä yhteystietosi nähdäksesi hinta-arvion</p>
@@ -323,7 +323,7 @@ const PriceCalculator = () => {
                 )}
 
                 {/* CONTACT (shared) */}
-                {currentStepName === 'contact' && !showPrice && <ContactStep />}
+                {currentStepName === 'contact' && !showPrice && contactStepJSX}
 
                 {/* PRICE RESULT */}
                 {showPrice && currentPrice && (

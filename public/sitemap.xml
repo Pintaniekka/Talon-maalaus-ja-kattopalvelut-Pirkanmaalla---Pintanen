@@ -35,6 +35,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://pintanen.fi/hinnat/tiilikaton-pinnoitus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pintanen.fi/hinnat/katon-puhdistus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pintanen.fi/hinnat/talon-maalaus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Aluesivut (alkuperäiset) -->
   <url><loc>https://pintanen.fi/alue/tampere</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pintanen.fi/alue/sastamala</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
