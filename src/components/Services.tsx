@@ -12,7 +12,7 @@ const services = [
     href: "/kattopalvelut/pinnoitus",
     beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
     afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
-    description: "Vanha tiilikatto uuteen uskoon. Katto pestään sammaleesta, tiilten päälle levitetään torjunta-aine ja 2-kerroksinen maalipinta suojaa tiilet.",
+    description: "Vanha tiilikatto uuteen uskoon. Katto pestään ja päälle tulee 2-kerroksinen pinnoite.",
     features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
     warranty: "5v takuu",
     icon: RoofTileIcon,
