@@ -4,11 +4,30 @@ import OptimizedImage from './OptimizedImage';
 
 const logoUrl = getStorageUrl("Pintanen-logo.webp");
 
+const pirkanmaaCities = [
+  { name: "Tampere", slug: "tampere" },
+  { name: "Nokia", slug: "nokia" },
+  { name: "Ylöjärvi", slug: "ylojarvi" },
+  { name: "Sastamala", slug: "sastamala" },
+  { name: "Hämeenkyrö", slug: "hameenkyro" },
+  { name: "Kangasala", slug: "kangasala" },
+  { name: "Lempäälä", slug: "lempaala" },
+  { name: "Pirkkala", slug: "pirkkala" },
+  { name: "Valkeakoski", slug: "valkeakoski" },
+];
+
+const kantaHameCities = [
+  { name: "Forssa", slug: "forssa" },
+  { name: "Hämeenlinna", slug: "hameenlinna" },
+  { name: "Huittinen", slug: "huittinen" },
+];
+
 const Footer = () => {
-  return <footer className="bg-primary text-primary-foreground py-12">
+  return (
+    <footer className="bg-primary text-primary-foreground py-12">
       <div className="section-container">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Logo & Info */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Column 1: Logo & Contact */}
           <div>
             <OptimizedImage
               src={logoUrl}
@@ -18,30 +37,73 @@ const Footer = () => {
               height={80}
               sizes="200px"
             />
-            <p className="text-primary-foreground/70 text-sm">
-              <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Tiilikattojen pinnoitukset</Link> ja <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors underline underline-offset-2">ulkomaalaukset</Link> ammattitaidolla. 
-              Toiminta-alue: <Link to="/toiminta-alueet" className="hover:text-primary-foreground transition-colors underline underline-offset-2">Pirkanmaa ja lähialueet</Link> (Hämeenlinna, Forssa)
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold mb-4 text-lg">Palvelut</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">Tiilikaton pinnoitus</Link></li>
-              <li><Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">Ulkomaalaus</Link></li>
-              <li><Link to="/kattopalvelut/puhdistus" className="hover:text-primary-foreground transition-colors">Katon puhdistus</Link></li>
-              <li><Link to="/hinnat" className="hover:text-primary-foreground transition-colors">Hinnat</Link></li>
+              <li>
+                <a href="mailto:myynti@pintanen.fi" className="hover:text-primary-foreground transition-colors">
+                  myynti@pintanen.fi
+                </a>
+              </li>
+              <li>
+                <a href="tel:+358409640066" className="hover:text-primary-foreground transition-colors">
+                  040 964 0066
+                </a>
+              </li>
+              <li>Y-tunnus: 3525786-9</li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Column 2: Palvelumme */}
           <div>
-            <h3 className="font-bold mb-4 text-lg">Yhteystiedot</h3>
+            <h3 className="font-bold mb-4 text-lg">Palvelumme</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
-              <li><a href="tel:+358409640066" className="hover:text-primary-foreground transition-colors">040 964 0066</a></li>
-              <li><a href="mailto:myynti@pintanen.fi" className="hover:text-primary-foreground transition-colors">myynti@pintanen.fi</a></li>
-              <li>Y-tunnus: 3525786-9</li>
+              <li>
+                <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">
+                  Tiilikaton pinnoitus
+                </Link>
+              </li>
+              <li>
+                <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">
+                  Ulkomaalaus
+                </Link>
+              </li>
+              <li>
+                <Link to="/kattopalvelut/puhdistus" className="hover:text-primary-foreground transition-colors">
+                  Katon puhdistus
+                </Link>
+              </li>
+              <li>
+                <Link to="/hinnat" className="hover:text-primary-foreground transition-colors">
+                  Hintalaskuri
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Pirkanmaa */}
+          <div>
+            <h3 className="font-bold mb-4 text-lg">Pirkanmaa</h3>
+            <ul className="space-y-2 text-sm text-primary-foreground/70">
+              {pirkanmaaCities.map((city) => (
+                <li key={city.slug}>
+                  <Link to={`/alue/${city.slug}`} className="hover:text-primary-foreground transition-colors">
+                    {city.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Kanta-Häme & Lähialueet */}
+          <div>
+            <h3 className="font-bold mb-4 text-lg">Kanta-Häme & Lähialueet</h3>
+            <ul className="space-y-2 text-sm text-primary-foreground/70">
+              {kantaHameCities.map((city) => (
+                <li key={city.slug}>
+                  <Link to={`/alue/${city.slug}`} className="hover:text-primary-foreground transition-colors">
+                    {city.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -50,6 +112,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Pintanen Oy. Kaikki oikeudet pidätetään.</p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
 export default Footer;
