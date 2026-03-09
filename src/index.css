@@ -206,7 +206,7 @@
   }
 
   .heading-style {
-    @apply font-heading font-extrabold uppercase italic;
+    @apply font-heading font-extrabold;
   }
 
 @layer utilities {
