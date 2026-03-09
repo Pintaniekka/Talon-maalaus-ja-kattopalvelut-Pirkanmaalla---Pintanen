@@ -35,27 +35,30 @@ const FAQSection = ({ items }: FAQSectionProps) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <section className="section-padding bg-accent-light">
-        <div className="section-container max-w-3xl mx-auto">
+      <section className="py-20 md:py-24" style={{ backgroundColor: 'hsl(var(--faq-bg))' }}>
+        <div className="section-container max-w-[900px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="heading-style text-3xl md:text-4xl text-accent mb-8 text-center">
+            <h2 className="heading-style text-3xl md:text-4xl mb-10 text-center tracking-wide" style={{ color: 'hsl(var(--heading-navy))' }}>
               Usein kysytyt kysymykset
             </h2>
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-3.5">
               {items.map((item, index) => (
                 <AccordionItem
                   key={index}
                   value={`faq-${index}`}
-                  className="border border-border rounded-xl px-6 overflow-hidden bg-card shadow-sm border-l-4 border-l-primary"
+                  className="border border-gray-200 rounded-[10px] px-6 overflow-hidden bg-white shadow-none transition-colors duration-200 hover:bg-[hsl(var(--faq-hover))]"
                 >
-                  <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]]:text-primary">
+                  <AccordionTrigger
+                    className="text-left text-lg font-semibold hover:no-underline py-5"
+                    style={{ color: 'hsl(var(--heading-navy))' }}
+                  >
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-foreground/80 text-base leading-relaxed pb-5">
+                  <AccordionContent className="text-base leading-relaxed pb-5 pt-3 text-[#333]">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
