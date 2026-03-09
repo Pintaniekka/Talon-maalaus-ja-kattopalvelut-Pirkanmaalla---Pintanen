@@ -102,7 +102,7 @@ const HinnatTiilikalonPinnoitus = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 font-heading text-center">
               Laske tiilikaton pinnoituksen hinta
             </h2>
             <RoofPriceCalculator />
