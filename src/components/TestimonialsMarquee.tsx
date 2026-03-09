@@ -91,7 +91,7 @@ const TestimonialsMarquee = () => {
       aria-label="Asiakasarvostelut"
     >
       <div className="section-container mb-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground">
+        <h2 className="heading-style text-2xl md:text-3xl text-primary">
           Mitä asiakkaat sanovat meistä?
         </h2>
       </div>

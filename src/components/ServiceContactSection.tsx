@@ -78,7 +78,7 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
           viewport={{ once: true }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4 font-heading">{title}</h2>
+          <h2 className="heading-style text-3xl md:text-4xl text-primary-foreground mb-4">{title}</h2>
           <p className="text-primary-foreground/70 text-lg">
             Pyydä ilmainen arviokäynti tai tarjouspyyntö. Vastaamme vuorokauden sisään!
           </p>

@@ -39,7 +39,7 @@ const Services = () => {
       <div className="section-container">
         {/* Section Header */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Palvelumme</h2>
+          <h2 className="heading-style text-3xl md:text-4xl text-primary mb-4">Palvelumme</h2>
           <p className="text-muted-foreground text-lg">Ammattitaitoinen maalari sopuhintaan. Yli 200 tyytyväistä asiakasta.</p>
         </motion.div>
 

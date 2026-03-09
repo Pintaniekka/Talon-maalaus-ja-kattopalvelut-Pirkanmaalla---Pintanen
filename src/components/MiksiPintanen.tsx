@@ -15,7 +15,7 @@ const MiksiPintanen = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading leading-tight">
+            <h2 className="heading-style text-3xl md:text-4xl text-primary mb-6 leading-tight">
               Miksi kannattaa tilata katon huolto tai maalaus Pintaselta?
             </h2>
 

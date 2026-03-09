@@ -5,9 +5,9 @@ const ProcessTimeline = () => {
     <section className="section-padding bg-background">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground font-heading mb-3">
+          <h2 className="heading-style text-3xl md:text-4xl text-primary mb-3">
             Näin projekti etenee
-          </h3>
+          </h2>
           <p className="text-muted-foreground text-lg">
             Avaimet käteen -palvelu alusta loppuun
           </p>

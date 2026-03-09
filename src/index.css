@@ -203,7 +203,11 @@
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
     @apply bg-primary/10 text-primary;
   }
-}
+  }
+
+  .heading-style {
+    @apply font-heading font-extrabold uppercase italic;
+  }
 
 @layer utilities {
   .animate-fade-in {
