@@ -78,7 +78,7 @@ const KattopalvelutPinnoitusCity = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
               Miksi tiilikaton pinnoitus?
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground">
@@ -101,7 +101,7 @@ const KattopalvelutPinnoitusCity = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding" style={{ backgroundColor: "hsl(205 70% 88%)" }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -109,7 +109,7 @@ const KattopalvelutPinnoitusCity = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">5-vaiheinen pinnoitusprosessi</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">5-vaiheinen pinnoitusprosessi</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Jokainen vaihe on tarkasti suunniteltu takaamaan pitkäikäinen ja kaunis lopputulos.
             </p>
@@ -140,7 +140,7 @@ const KattopalvelutPinnoitusCity = () => {
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi pinnoittaa tiilikatto?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi pinnoittaa tiilikatto?</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Tiilikaton pinnoitus on edullisin tapa pidentää katon käyttöikää merkittävästi verrattuna täydelliseen
                 katon uusimiseen.
@@ -176,7 +176,7 @@ const KattopalvelutPinnoitusCity = () => {
             viewport={{ once: true }}
             className="text-center max-w-2xl mx-auto mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Ennen & Jälkeen</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">Ennen & Jälkeen</h2>
             <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
           </motion.div>
           <div className="max-w-2xl mx-auto">
@@ -205,7 +205,7 @@ const KattopalvelutPinnoitusCity = () => {
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Palvelu {cityData.name}-alueella</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent">Palvelu {cityData.name}-alueella</h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.localSection}</p>
           </motion.div>

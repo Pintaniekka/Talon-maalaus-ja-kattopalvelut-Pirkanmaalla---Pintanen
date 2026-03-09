@@ -3,7 +3,7 @@ import { useLocation, Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import MobileBottomBar from './MobileBottomBar';
-import ToimintaAlueetBanner from './ToimintaAlueetBanner';
+
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -16,9 +16,6 @@ const ScrollToTop = () => {
 };
 
 const Layout = () => {
-  const { pathname } = useLocation();
-  const hideBanner = pathname === '/toiminta-alueet';
-
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
@@ -26,7 +23,6 @@ const Layout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      {!hideBanner && <ToimintaAlueetBanner />}
       <Footer />
       <MobileBottomBar />
     </div>

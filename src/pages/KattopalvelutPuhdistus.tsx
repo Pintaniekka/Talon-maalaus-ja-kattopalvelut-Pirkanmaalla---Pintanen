@@ -42,7 +42,7 @@ const KattopalvelutPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
               Tiilikaton mekaaninen puhdistus ja käsittely
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground">
@@ -56,10 +56,10 @@ const KattopalvelutPuhdistus = () => {
       </section>
 
       {/* Features */}
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mitä puhdistus sisältää?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Mitä puhdistus sisältää?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Kattavat puhdistuspalvelut yhdellä hinnalla – ei piilokustannuksia.</p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,7 +80,7 @@ const KattopalvelutPuhdistus = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Puhdistuksen hyödyt</h2>
+            <h2 className="text-3xl font-bold text-accent mb-6 text-center">Puhdistuksen hyödyt</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {benefits.map((benefit, index) => (
                 <motion.div key={benefit} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3 bg-card p-4 rounded-xl">
@@ -94,7 +94,7 @@ const KattopalvelutPuhdistus = () => {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
             <div className="bg-card rounded-2xl p-8 text-center shadow-lg">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Hinnoittelu</h2>
+              <h2 className="text-2xl font-bold text-accent mb-4">Hinnoittelu</h2>
               <p className="text-muted-foreground mb-6">Tiilikaton mekaanisen puhdistuksen ja käsittelyn hinta riippuu katon koosta ja sammaleen määrästä.</p>
               <div className="text-4xl font-bold text-primary mb-2">alkaen 800 €</div>
               <p className="text-accent font-medium">Pyydä tarjous, niin kerromme tarkan hinnan!</p>
@@ -112,7 +112,7 @@ const KattopalvelutPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Milloin kannattaa puhdistuttaa katto?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Milloin kannattaa puhdistuttaa katto?</h2>
             <div className="text-lg text-muted-foreground space-y-4">
               <p><strong className="text-foreground">Sammalta tai muuta kasvustoa katolla?</strong> Jo pienikin määrä sammalta kannattaa poistaa ennen kuin se aiheuttaa vahinkoa koko katolla.</p>
               <p><strong className="text-foreground">Aikaa edellisestä puhdistuksessta?</strong> Säännöllinen puhdistus pitää katon hyvässä kunnossa ja estää kalliimmat korjaukset tulevaisuudessa.</p>

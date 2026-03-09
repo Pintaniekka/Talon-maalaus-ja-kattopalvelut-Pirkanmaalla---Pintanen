@@ -77,10 +77,10 @@ const HinnatKatonPuhdistus = () => {
       </section>
 
       {/* Hintaesimerkit */}
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center font-heading">Hintaesimerkit</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 text-center font-heading">Hintaesimerkit</h2>
             <div className="bg-card rounded-2xl overflow-hidden shadow-lg">
               <div className="grid grid-cols-2 bg-primary text-primary-foreground font-semibold">
                 <div className="p-4">Kohde</div>
@@ -102,7 +102,7 @@ const HinnatKatonPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center font-heading">Mitä puhdistus sisältää?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 text-center font-heading">Mitä puhdistus sisältää?</h2>
             <p className="text-lg text-muted-foreground mb-8 text-center">Katon puhdistus on tärkeää tehdä huolellisesti ja turvallisesti. Työn määrä vaihtelee katon kunnon ja likaisuuden mukaan. Yleensä katon puhdistukseen sisältyy:</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {includes.map((item, index) => (
@@ -122,7 +122,7 @@ const HinnatKatonPuhdistus = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center font-heading">Milloin pelkkä puhdistus riittää?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center font-heading">Milloin pelkkä puhdistus riittää?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>Katon puhdistaminen on usein tarpeeksi, kun katossa ei ole laajaa rapautumista tai muita ongelmia, joilla on vaikutusta rakenteisiin. Jos katon pinta on likainen ja siinä on paljon sammalta, mutta itse tiilet ovat edelleen hyvässä kunnossa, niin huolellinen puhdistaminen on usein hyvä valinta ja se on myös taloudellisesti kannattava.</p>
               <p>Tämä menetelmä sopii erityisesti tilanteisiin, joissa katon yleiskunto on vielä hyvä, mutta halutaan poistaa lika, sammal ja kosteus ennen kuin ne pääsevät aiheuttamaan suurempaa vahinkoa.</p>
@@ -135,7 +135,7 @@ const HinnatKatonPuhdistus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center font-heading">Milloin suosittelemme pinnoitusta?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center font-heading">Milloin suosittelemme pinnoitusta?</h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>Pelkkä puhdistus ei aina riitä. Jos tiilikaton pintakerros on kulunut, vesi imeytyy tiileen tai katolla on useita rikkoutuneita tiiliä, pinnoitus voi olla parempi valinta. Pinnoitus suojaa kattotiiliä tehokkaammin ja pidentää katon käyttöikää, jos rakenteet ovat kunnossa.</p>
               <p>Katon kunto vaatii joskus laajempaa huolenpitoa. Tutustu myös tiilikaton pinnoituksen hintoihin.</p>

@@ -6,7 +6,7 @@ const sideImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus
 
 const MiksiPintanen = () => {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+    <section className="section-padding bg-accent-light">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Text */}
@@ -15,7 +15,7 @@ const MiksiPintanen = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 font-heading leading-tight">
+            <h2 className="heading-style text-3xl md:text-4xl text-accent mb-6 leading-tight">
               Miksi kannattaa tilata katon huolto tai maalaus Pintaselta?
             </h2>
 

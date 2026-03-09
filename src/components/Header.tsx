@@ -1,73 +1,43 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const logoUrl = getStorageUrl("Pintanen-logo.webp");
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isKattoDropdownOpen, setIsKattoDropdownOpen] = useState(false);
-  const [isHinnatDropdownOpen, setIsHinnatDropdownOpen] = useState(false);
+  const [isPalvelutOpen, setIsPalvelutOpen] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsKattoDropdownOpen(false);
-    setIsHinnatDropdownOpen(false);
+    setIsPalvelutOpen(false);
   }, [location.pathname]);
 
-  const isHomePage = location.pathname === "/";
   const navItems = [
     {
-      label: "Etusivu",
-      href: "/",
-    },
-    {
-      label: "Kattopalvelut",
+      label: "Palvelut",
       href: "#",
       dropdown: [
-        {
-          label: "Tiilikaton pinnoitus",
-          href: "/kattopalvelut/pinnoitus",
-        },
-        {
-          label: "Tiilikaton puhdistus",
-          href: "/kattopalvelut/puhdistus",
-        },
+        { label: "Tiilikaton pinnoitus", href: "/kattopalvelut/pinnoitus" },
+        { label: "Katon puhdistus", href: "/kattopalvelut/puhdistus" },
+        { label: "Ulkomaalaus", href: "/talon-maalaus" },
       ],
     },
-    {
-      label: "Talon maalaus",
-      href: "/talon-maalaus",
-    },
-    {
-      label: "Hinnat",
-      href: "/hinnat",
-      dropdown: [
-        { label: "Tiilikaton pinnoitus hinta", href: "/hinnat/tiilikaton-pinnoitus" },
-        { label: "Katon puhdistus hinta", href: "/hinnat/katon-puhdistus" },
-        { label: "Talon maalaus hinta", href: "/hinnat/talon-maalaus" },
-      ],
-    },
-    {
-      label: "Referenssit",
-      href: "/referenssit",
-    },
-    {
-      label: "Tutustu Pintaseen",
-      href: "/meista",
-    },
+    { label: "Hinnat & Laskuri", href: "/hinnat" },
+    { label: "Referenssit", href: "/referenssit" },
+    { label: "Tutustu meihin", href: "/meista" },
   ];
 
   return (
@@ -75,8 +45,41 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
     >
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="flex items-center justify-between w-full h-20">
-          {/* Logo */}
+        {/* Mobile: 3-column layout */}
+        <div className="flex xl:hidden items-center justify-between w-full h-20">
+          <a
+            href="https://wa.me/358409640066"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="p-2"
+          >
+            <WhatsAppIcon className="w-7 h-7" />
+          </a>
+
+          <Link to="/" className="flex items-center shrink-0">
+            <OptimizedImage
+              src={logoUrl}
+              alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
+              className="h-20 md:h-24 w-auto shrink-0 object-contain"
+              priority={true}
+              sizes="200px"
+              width={200}
+              height={80}
+            />
+          </Link>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 rounded-lg text-primary-foreground"
+            aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Desktop layout */}
+        <div className="hidden xl:flex items-center justify-between w-full h-20">
           <Link to="/" className="flex items-center shrink-0 relative z-50">
             <OptimizedImage
               src={logoUrl}
@@ -89,11 +92,7 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav
-            aria-label="Päänavigaatio"
-            className="hidden xl:flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
-          >
+          <nav aria-label="Päänavigaatio" className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4">
             {navItems.map((item) => {
               if (!item.dropdown) {
                 return (
@@ -107,28 +106,20 @@ const Header = () => {
                 );
               }
 
-              const isOpen = item.label === "Kattopalvelut" ? isKattoDropdownOpen : isHinnatDropdownOpen;
-              const setOpen = item.label === "Kattopalvelut" ? setIsKattoDropdownOpen : setIsHinnatDropdownOpen;
-
               return (
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setOpen(true)}
-                  onMouseLeave={() => setOpen(false)}
+                  onMouseEnter={() => setIsPalvelutOpen(true)}
+                  onMouseLeave={() => setIsPalvelutOpen(false)}
                 >
-                  <Link
-                    to={item.href}
-                    className={`flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
-                  >
+                  <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
                     {item.label}
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                    />
-                  </Link>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
+                  </button>
 
                   <AnimatePresence>
-                    {isOpen && (
+                    {isPalvelutOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -153,23 +144,23 @@ const Header = () => {
             })}
           </nav>
 
-          {/* CTA Button */}
-          <a
-            className="hidden lg:flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 rounded-xl font-semibold transition-all duration-300 text-sm lg:text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-            href="tel:+358409640066"
-          >
-            <Phone className="w-4 h-4" />
-            Soita ja kysy!
-          </a>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-primary-foreground"
-            aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://wa.me/358409640066"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="p-2 hover:scale-110 transition-transform"
+            >
+              <WhatsAppIcon className="w-7 h-7" />
+            </a>
+            <a
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              href="#yhteystiedot"
+            >
+              Pyydä tarjous
+            </a>
+          </div>
         </div>
       </div>
 
@@ -180,7 +171,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-t border-border"
+            className="xl:hidden bg-card border-t border-border"
           >
             <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
               {navItems.map((item) => {
@@ -196,31 +187,21 @@ const Header = () => {
                   );
                 }
 
-                const isOpen = item.label === "Kattopalvelut" ? isKattoDropdownOpen : isHinnatDropdownOpen;
-                const toggle = item.label === "Kattopalvelut"
-                  ? () => setIsKattoDropdownOpen(!isKattoDropdownOpen)
-                  : () => setIsHinnatDropdownOpen(!isHinnatDropdownOpen);
-
                 return (
                   <div key={item.label}>
                     <div className="flex items-center">
-                      <Link
-                        to={item.href}
-                        className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
-                      >
+                      <span className="flex-1 py-3 px-4 text-foreground font-medium">
                         {item.label}
-                      </Link>
+                      </span>
                       <button
-                        onClick={toggle}
+                        onClick={() => setIsPalvelutOpen(!isPalvelutOpen)}
                         className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
                       >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
                       </button>
                     </div>
                     <AnimatePresence>
-                      {isOpen && (
+                      {isPalvelutOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -243,11 +224,10 @@ const Header = () => {
                 );
               })}
               <a
-                href="tel:+358409640066"
+                href="#yhteystiedot"
                 className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-primary text-primary-foreground rounded-xl font-semibold"
               >
-                <Phone className="w-4 h-4" />
-                Soita meille
+                Pyydä tarjous
               </a>
             </nav>
           </motion.div>

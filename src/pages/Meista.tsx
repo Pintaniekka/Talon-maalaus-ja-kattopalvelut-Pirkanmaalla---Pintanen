@@ -47,7 +47,7 @@ const Meista = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Mikä ihmeen Pintanen?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Mikä ihmeen Pintanen?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>Pintanen on uudehko Oulusta kotoisin oleva perheyritys, jonka tekeminen nojaa vahvaan ja monipuoliseen kokemukseen. Vaikka yritys on nuori, olemme itse olleet alalla jo pitkään ja tiedämme, mikä toimii ja mikä ei. Tiedämme, mitä kestävä, siisti ja huolellisesti tehty pinta vaatii.</p>
               <p>Me olemme veljekset Eemil ja Eerik. Vuosien varrella meille molemmille on kertynyt oma vahva osaamisalueemme: Eemilin käsissä seinäpinnat saavat laadukkaan ja viimeistellyn ilmeen, kun taas Eerik on erikoistunut kattoihin – sinne, minne harvempi katsoo, mutta mikä on itseasiassa talon tärkein elementti.</p>
@@ -58,10 +58,10 @@ const Meista = () => {
         </div>
       </section>
 
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>
             <p className="text-lg text-muted-foreground mb-6">Meillä molemmilla on takanamme viiden vuoden tiivis kokemus alalta, mutta olemme erikoistuneet omiin vahvuuksiimme:</p>
             <ul className="space-y-4 text-muted-foreground text-lg list-disc list-inside">
               <li><strong className="text-foreground">Eerik</strong> on elementissään korkeuksissa. Hänen heiniään ovat tiilikattojen pinnoitukset ja huollot, joilla jatketaan kodin tärkeimmän suojan ikää vuosikymmenillä.</li>
@@ -74,7 +74,7 @@ const Meista = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Miksi valita meidät?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita meidät?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>Pintanen perustettiin, jotta asiakkaat saavat laadukasta työtä ilman turhia lisäkuluja ja ammattilaiset voivat keskittyä siihen, minkä osaavat parhaiten.</p>
               <p>Päätimme hypätä kilpailuun eri taktiikalla: Huomasimme, kuinka raskaat kulurakenteet ja byrokratia nostavat isojen maalausyritysten hintoja – ilman, että se välttämättä näkyy itse työn jäljessä. Me karsimme kaiken turhan. Teemme jokaisen askeleen kustannustehokkaasti ja itse, jolloin voimme tarjota asiakkaillemme parasta laatua edulliseen hintaan. Kun maksat Pintasen palvelusta, maksat ammattitaidosta ja laadukkaista materiaaleista, et ison organisaation hallintokuluista.</p>
@@ -86,7 +86,7 @@ const Meista = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Leikkimökeistä taloyhtiöihin</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Leikkimökeistä taloyhtiöihin</h2>
             <p className="text-lg text-muted-foreground mb-6">Meille mikään kohde ei ole liian pieni tai liian suuri. Olemme nähneet ja hoitaneet kaikkea mahdollista:</p>
             <ul className="space-y-2 text-muted-foreground text-lg list-disc list-inside mb-6">
               <li>Pienet piharakennukset ja leikkimökit</li>
@@ -114,7 +114,7 @@ const Meista = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Arvomme</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Arvomme</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Nämä periaatteet ohjaavat kaikkea tekemistämme.</p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -135,7 +135,7 @@ const Meista = () => {
         <div className="section-container">
           <div className="max-w-3xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Miksi valita Pintanen?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Miksi valita Pintanen?</h2>
             </motion.div>
             <div className="space-y-4">
               {[

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Send, Check, Loader2, User } from 'lucide-react';
+import { Phone, Mail, Send, Check, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
 import { getStorageUrl } from '@/lib/storage';
+import WhatsAppIcon from './WhatsAppIcon';
 
 type ContactVariant = 'katto' | 'maalaus' | 'general';
 
@@ -20,6 +21,7 @@ const contactPersons = {
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp'),
+    whatsapp: 'https://wa.me/358409640066',
   },
   maalaus: {
     name: 'Eemil Pitkänen',
@@ -28,6 +30,7 @@ const contactPersons = {
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp'),
+    whatsapp: 'https://wa.me/358401642233',
   },
 };
 
@@ -65,8 +68,9 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
 
   const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Ota yhteyttä';
 
+  // On homepage (general), show only Eerik. On service pages, show relevant person.
   const persons = variant === 'general'
-    ? [contactPersons.katto, contactPersons.maalaus]
+    ? [contactPersons.katto]
     : [contactPersons[variant]];
 
   return (
@@ -78,7 +82,7 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
           viewport={{ once: true }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4 font-heading">{title}</h2>
+          <h2 className="heading-style text-3xl md:text-4xl text-primary-foreground mb-4">{title}</h2>
           <p className="text-primary-foreground/70 text-lg">
             Pyydä ilmainen arviokäynti tai tarjouspyyntö. Vastaamme vuorokauden sisään!
           </p>
@@ -129,6 +133,16 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
                   >
                     <Mail className="w-4 h-4" />
                     {person.email}
+                  </a>
+                  <a
+                    href={person.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 mt-4 px-6 py-2 rounded-full font-medium text-white transition-colors hover:opacity-90 text-sm"
+                    style={{ backgroundColor: '#5ddb79' }}
+                  >
+                    <WhatsAppIcon className="w-5 h-5" color="white" />
+                    WhatsApp
                   </a>
                 </div>
               </div>

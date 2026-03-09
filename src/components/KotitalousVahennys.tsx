@@ -3,7 +3,7 @@ import { Calculator, Euro } from "lucide-react";
 
 const KotitalousVahennys = () => {
   return (
-    <section className="section-padding bg-accent/5">
+    <section className="section-padding bg-accent-light">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -15,7 +15,7 @@ const KotitalousVahennys = () => {
             <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Euro className="w-8 h-8 text-accent" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="heading-style text-3xl md:text-4xl text-accent mb-4">
               Hyödynnä kotitalousvähennys
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
