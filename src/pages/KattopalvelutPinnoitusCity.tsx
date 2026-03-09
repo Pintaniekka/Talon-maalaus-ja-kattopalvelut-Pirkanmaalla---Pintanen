@@ -101,7 +101,7 @@ const KattopalvelutPinnoitusCity = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding" style={{ backgroundColor: "hsl(205 70% 88%)" }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

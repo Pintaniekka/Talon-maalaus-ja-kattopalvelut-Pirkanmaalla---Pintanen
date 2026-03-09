@@ -17,7 +17,7 @@ const cities = [
 
 const ToimintaAlueetBanner = () => {
   return (
-    <section className="py-10 md:py-14" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+    <section className="py-10 md:py-14 bg-accent-light">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-6 items-center max-w-4xl mx-auto">
           {/* Text + list */}

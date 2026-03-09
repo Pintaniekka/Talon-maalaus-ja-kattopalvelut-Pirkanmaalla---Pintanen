@@ -35,7 +35,7 @@ const FAQSection = ({ items }: FAQSectionProps) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
+      <section className="section-padding bg-accent-light">
         <div className="section-container max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
