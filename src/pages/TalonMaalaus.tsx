@@ -50,7 +50,7 @@ const TalonMaalaus = () => {
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center">Miksi maalata talo?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-2 text-center">Miksi maalata talo?</h2>
             <p>Talo kannattaa maalata noin <strong>kymmenen vuoden</strong> välein tai kun huomaat seinässä vikoja, kuten hilseilevää maalia tai homepilkkuja.</p>
             <p>Monet ajattelevat, että maalauksen tarkoitus on vain tehdä talosta esteettisempi. Todellisuudessa maalipinta <strong>suojelee</strong> puuverhousta säältä ja kosteudelta.</p>
             <p>Yleensä ihmiset ajattelevat maalauksen huoltovälistä huolimattomasti. Toimiin ryhdytään vasta kun maali on jo alkanut <strong>hilseilemään</strong>, mutta silloin huoltovälin rajoja on jo ylitetty. Tällöin työ ei ole enää vain huoltomaalaus, vaan vaatii paljon enemmän <strong>pohjatöitä</strong> ja mahdollisia <strong>puukorjauksia</strong>, mikä kasvattaa työn laajuutta ja kustannuksia.</p>
