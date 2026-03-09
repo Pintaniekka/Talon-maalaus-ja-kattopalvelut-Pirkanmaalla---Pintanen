@@ -86,7 +86,7 @@ const Meista = () => {
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Leikkimökeistä taloyhtiöihin</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Leikkimökeistä taloyhtiöihin</h2>
             <p className="text-lg text-muted-foreground mb-6">Meille mikään kohde ei ole liian pieni tai liian suuri. Olemme nähneet ja hoitaneet kaikkea mahdollista:</p>
             <ul className="space-y-2 text-muted-foreground text-lg list-disc list-inside mb-6">
               <li>Pienet piharakennukset ja leikkimökit</li>
