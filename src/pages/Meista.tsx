@@ -61,7 +61,7 @@ const Meista = () => {
       <section className="section-padding" style={{ backgroundColor: 'hsl(205 70% 88%)' }}>
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>
             <p className="text-lg text-muted-foreground mb-6">Meillä molemmilla on takanamme viiden vuoden tiivis kokemus alalta, mutta olemme erikoistuneet omiin vahvuuksiimme:</p>
             <ul className="space-y-4 text-muted-foreground text-lg list-disc list-inside">
               <li><strong className="text-foreground">Eerik</strong> on elementissään korkeuksissa. Hänen heiniään ovat tiilikattojen pinnoitukset ja huollot, joilla jatketaan kodin tärkeimmän suojan ikää vuosikymmenillä.</li>
