@@ -205,7 +205,7 @@ const KattopalvelutPinnoitusCity = () => {
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Palvelu {cityData.name}-alueella</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent">Palvelu {cityData.name}-alueella</h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.localSection}</p>
           </motion.div>
