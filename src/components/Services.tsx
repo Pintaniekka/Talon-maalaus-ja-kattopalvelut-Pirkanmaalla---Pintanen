@@ -63,16 +63,16 @@ const Services = () => {
 
                   {/* Content */}
                   <div className="flex items-center gap-2 mb-3">
-                    <IconComponent className="w-6 h-6 text-primary flex-shrink-0" />
-                    <h3 className="text-xl font-bold text-foreground font-heading">{service.title}</h3>
+                    <IconComponent className="w-6 h-6 text-white flex-shrink-0" />
+                    <h3 className="text-xl font-bold text-white font-heading">{service.title}</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <p className="text-white/80 mb-6">{service.description}</p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map(feature => (
-                      <li key={feature} className="flex items-center gap-2 text-foreground">
-                        <Check className="w-4 h-4 text-accent" />
+                      <li key={feature} className="flex items-center gap-2 text-white">
+                        <Check className="w-4 h-4 text-white" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
