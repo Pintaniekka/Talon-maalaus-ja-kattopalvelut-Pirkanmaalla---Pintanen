@@ -3,6 +3,7 @@ import { useLocation, Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import MobileBottomBar from './MobileBottomBar';
+import DesktopQuoteDrawer from './DesktopQuoteDrawer';
 
 
 const ScrollToTop = () => {
@@ -25,6 +26,7 @@ const Layout = () => {
       </main>
       <Footer />
       <MobileBottomBar />
+      <DesktopQuoteDrawer />
     </div>
   );
 };
