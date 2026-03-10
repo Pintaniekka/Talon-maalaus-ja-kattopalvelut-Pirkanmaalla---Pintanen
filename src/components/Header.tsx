@@ -11,7 +11,7 @@ const logoUrl = getStorageUrl("Pintanen-logo.webp");
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPalvelutOpen, setIsPalvelutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
