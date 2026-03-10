@@ -22,7 +22,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsPalvelutOpen(false);
+    setOpenDropdown(null);
   }, [location.pathname]);
 
   const navItems = [
