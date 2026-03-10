@@ -118,16 +118,21 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setIsPalvelutOpen(true)}
-                  onMouseLeave={() => setIsPalvelutOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
-                    {item.label}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
-                  </button>
+                  <div className="flex items-center gap-1">
+                    <Link
+                      to={item.href}
+                      className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
+                    >
+                      {item.label}
+                    </Link>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`} />
+                  </div>
 
                   <AnimatePresence>
-                    {isPalvelutOpen && (
+                    {openDropdown === item.label && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
