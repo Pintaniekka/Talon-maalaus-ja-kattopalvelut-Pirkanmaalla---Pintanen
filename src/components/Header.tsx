@@ -35,7 +35,15 @@ const Header = () => {
         { label: "Ulkomaalaus", href: "/talon-maalaus" },
       ],
     },
-    { label: "Hinnat & Laskuri", href: "/hinnat" },
+    {
+      label: "Hinnat & Laskuri",
+      href: "/hinnat",
+      dropdown: [
+        { label: "Tiilikaton pinnoitus", href: "/hinnat/tiilikaton-pinnoitus" },
+        { label: "Katon puhdistus", href: "/hinnat/katon-puhdistus" },
+        { label: "Talon maalaus", href: "/hinnat/talon-maalaus" },
+      ],
+    },
     { label: "Referenssit", href: "/referenssit" },
     { label: "Tutustu meihin", href: "/meista" },
   ];
