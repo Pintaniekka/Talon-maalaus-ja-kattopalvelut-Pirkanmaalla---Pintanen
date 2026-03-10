@@ -203,18 +203,21 @@ const Header = () => {
                 return (
                   <div key={item.label}>
                     <div className="flex items-center">
-                      <span className="flex-1 py-3 px-4 text-foreground font-medium">
+                      <Link
+                        to={item.href}
+                        className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+                      >
                         {item.label}
-                      </span>
+                      </Link>
                       <button
-                        onClick={() => setIsPalvelutOpen(!isPalvelutOpen)}
+                        onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                         className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
                       >
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`} />
                       </button>
                     </div>
                     <AnimatePresence>
-                      {isPalvelutOpen && (
+                      {openDropdown === item.label && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
