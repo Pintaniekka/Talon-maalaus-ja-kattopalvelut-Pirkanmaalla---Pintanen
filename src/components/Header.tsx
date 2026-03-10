@@ -11,7 +11,7 @@ const logoUrl = getStorageUrl("Pintanen-logo.webp");
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPalvelutOpen, setIsPalvelutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsPalvelutOpen(false);
+    setOpenDropdown(null);
   }, [location.pathname]);
 
   const navItems = [
@@ -35,7 +35,15 @@ const Header = () => {
         { label: "Ulkomaalaus", href: "/talon-maalaus" },
       ],
     },
-    { label: "Hinnat & Laskuri", href: "/hinnat" },
+    {
+      label: "Hinnat & Laskuri",
+      href: "/hinnat",
+      dropdown: [
+        { label: "Tiilikaton pinnoitus", href: "/hinnat/tiilikaton-pinnoitus" },
+        { label: "Katon puhdistus", href: "/hinnat/katon-puhdistus" },
+        { label: "Talon maalaus", href: "/hinnat/talon-maalaus" },
+      ],
+    },
     { label: "Referenssit", href: "/referenssit" },
     { label: "Tutustu meihin", href: "/meista" },
   ];
@@ -110,16 +118,21 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setIsPalvelutOpen(true)}
-                  onMouseLeave={() => setIsPalvelutOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className="flex items-center gap-1 font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80">
-                    {item.label}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
-                  </button>
+                  <div className="flex items-center gap-1">
+                    <Link
+                      to={item.href}
+                      className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
+                    >
+                      {item.label}
+                    </Link>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`} />
+                  </div>
 
                   <AnimatePresence>
-                    {isPalvelutOpen && (
+                    {openDropdown === item.label && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -190,18 +203,21 @@ const Header = () => {
                 return (
                   <div key={item.label}>
                     <div className="flex items-center">
-                      <span className="flex-1 py-3 px-4 text-foreground font-medium">
+                      <Link
+                        to={item.href}
+                        className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+                      >
                         {item.label}
-                      </span>
+                      </Link>
                       <button
-                        onClick={() => setIsPalvelutOpen(!isPalvelutOpen)}
+                        onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                         className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
                       >
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPalvelutOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`} />
                       </button>
                     </div>
                     <AnimatePresence>
-                      {isPalvelutOpen && (
+                      {openDropdown === item.label && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
