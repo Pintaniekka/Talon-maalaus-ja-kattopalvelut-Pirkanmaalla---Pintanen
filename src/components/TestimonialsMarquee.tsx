@@ -87,7 +87,7 @@ const TestimonialsMarquee = () => {
 
   return (
     <section
-      className="section-padding overflow-hidden bg-background"
+      className="section-padding pt-28 md:pt-16 overflow-hidden bg-background"
       aria-label="Asiakasarvostelut"
     >
       <div className="section-container mb-8 text-center">
