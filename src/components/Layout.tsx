@@ -26,6 +26,7 @@ const Layout = () => {
       </main>
       <Footer />
       <MobileBottomBar />
+      <DesktopQuoteDrawer />
     </div>
   );
 };
