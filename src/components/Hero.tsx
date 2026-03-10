@@ -86,7 +86,7 @@ const Hero = () => {
 
       {/* Paint drip – positioned at top-full so it starts exactly at hero bottom edge */}
       <div
-        className="absolute top-full left-0 w-full h-[120px] z-10 pointer-events-none -mt-[1px]"
+        className="absolute left-0 top-full mt-[1px] w-full h-[110px] block md:hidden pointer-events-none z-20"
         style={{
           backgroundColor: '#96dafb',
           WebkitMaskImage: `url("${svgUrl}")`,
