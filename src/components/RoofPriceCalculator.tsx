@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { submitContactForm } from "@/lib/contactForm";
 
 type RoofSlope = "5-19" | "20-30" | "31+" | null;
 
@@ -62,16 +62,14 @@ const RoofPriceCalculator = () => {
     setIsLoading(true);
     try {
       const slopeLabels: Record<string, string> = { "5-19": "5-19° (Loiva)", "20-30": "20-30° (Normaali)", "31+": "31°+ (Jyrkkä)" };
-      await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: contactName,
-          email: contactEmail || "",
-          phone: contactPhone || "",
-          service: "tiilikatto",
-          message: "",
-          priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
-          calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
-        },
+      await submitContactForm({
+        name: contactName,
+        email: contactEmail || "",
+        phone: contactPhone || "",
+        service: "tiilikatto",
+        message: "",
+        priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
+        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });

@@ -24,6 +24,19 @@ const serviceLabels: Record<string, string> = {
   muu: "Muu",
 };
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+const normalize = (value: unknown, maxLength: number) =>
+  typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -36,16 +49,30 @@ serve(async (req: Request) => {
     }
 
     const resend = new Resend(apiKey);
-    const { name, email, phone, service, message, priceEstimate, calculatorDetails }: ContactForm = await req.json();
+    const body: Partial<ContactForm> = await req.json();
+    const name = normalize(body.name, 100);
+    const email = normalize(body.email, 255);
+    const phone = normalize(body.phone, 50);
+    const service = normalize(body.service, 100);
+    const message = normalize(body.message, 2000);
+    const priceEstimate = normalize(body.priceEstimate, 100);
+    const calculatorDetails = normalize(body.calculatorDetails, 1000);
 
-    // Validate
-    if (!name || name.trim().length === 0) {
+    if (!name) {
       return new Response(JSON.stringify({ error: "Nimi on pakollinen" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    if (email && email.trim().length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+    if (!email && !phone) {
+      return new Response(JSON.stringify({ error: "Anna puhelinnumero tai sähköposti" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    if (email && !emailRegex.test(email)) {
       return new Response(JSON.stringify({ error: "Virheellinen sähköposti" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -53,8 +80,7 @@ serve(async (req: Request) => {
     }
 
     const serviceLabel = serviceLabels[service] || service || "Ei valittu";
-
-    const isCalculatorLead = !!priceEstimate || !!calculatorDetails;
+    const isCalculatorLead = Boolean(priceEstimate || calculatorDetails);
     const subject = isCalculatorLead
       ? `Hintalaskuri: ${name} – ${serviceLabel}`
       : `Tarjouspyyntö: ${name} – ${serviceLabel}`;
@@ -65,23 +91,31 @@ serve(async (req: Request) => {
     const emailResponse = await resend.emails.send({
       from: "Pintanen.fi <noreply@pintanen.fi>",
       to: ["myynti@pintanen.fi"],
-      replyTo: email || undefined,
+      reply_to: email || undefined,
       subject,
       html: `
-        <h2>${heading}</h2>
+        <h2>${escapeHtml(heading)}</h2>
         <table style="border-collapse:collapse;width:100%;max-width:500px;">
-          <tr><td style="padding:8px;font-weight:bold;">Nimi</td><td style="padding:8px;">${name}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Sähköposti</td><td style="padding:8px;">${email ? `<a href="mailto:${email}">${email}</a>` : "–"}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Puhelin</td><td style="padding:8px;">${phone || "–"}</td></tr>
-          <tr><td style="padding:8px;font-weight:bold;">Palvelu</td><td style="padding:8px;">${serviceLabel}</td></tr>
-          ${priceEstimate ? `<tr><td style="padding:8px;font-weight:bold;">Hinta-arvio</td><td style="padding:8px;">${priceEstimate}</td></tr>` : ""}
-          ${calculatorDetails ? `<tr><td style="padding:8px;font-weight:bold;">Laskurin tiedot</td><td style="padding:8px;">${calculatorDetails}</td></tr>` : ""}
+          <tr><td style="padding:8px;font-weight:bold;">Nimi</td><td style="padding:8px;">${escapeHtml(name)}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;">Sähköposti</td><td style="padding:8px;">${email ? `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>` : "–"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;">Puhelin</td><td style="padding:8px;">${phone ? escapeHtml(phone) : "–"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;">Palvelu</td><td style="padding:8px;">${escapeHtml(serviceLabel)}</td></tr>
+          ${priceEstimate ? `<tr><td style="padding:8px;font-weight:bold;">Hinta-arvio</td><td style="padding:8px;">${escapeHtml(priceEstimate)}</td></tr>` : ""}
+          ${calculatorDetails ? `<tr><td style="padding:8px;font-weight:bold;">Laskurin tiedot</td><td style="padding:8px;">${escapeHtml(calculatorDetails)}</td></tr>` : ""}
         </table>
-        ${message ? `<h3>Viesti</h3><p>${message.replace(/\n/g, "<br>")}</p>` : ""}
+        ${message ? `<h3>Viesti</h3><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>` : ""}
       `,
     });
 
-    console.log("Email sent:", emailResponse);
+    if (emailResponse.error) {
+      console.error("Resend returned an error:", emailResponse.error);
+      return new Response(JSON.stringify({ error: "Sähköpostin lähetys epäonnistui" }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    console.log("Email sent:", emailResponse.data?.id ?? "unknown");
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

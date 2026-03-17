@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Check, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { submitContactForm } from '@/lib/contactForm';
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -22,15 +22,7 @@ const Contact = () => {
 
     setIsLoading(true);
     try {
-      if (!supabase) {
-        throw new Error('Yhteys palvelimeen ei ole käytettävissä');
-      }
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formState,
-      });
-
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      await submitContactForm(formState);
 
       setIsSubmitted(true);
       setFormState({ name: '', email: '', phone: '', service: '', message: '' });

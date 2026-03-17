@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail } from 'lucide-react';
 import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { submitContactForm } from '@/lib/contactForm';
 
 type CalculatorType = 'roof' | 'wall' | null;
 type RoofSlope = '5-19' | '20-30' | '31+' | null;
@@ -140,9 +140,7 @@ const PriceCalculator = () => {
         details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}`;
         estimate = wallPrice ? `${wallPrice.min.toLocaleString('fi-FI')} – ${wallPrice.max.toLocaleString('fi-FI')} €` : '';
       }
-      await supabase.functions.invoke('send-contact-email', {
-        body: { name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details },
-      });
+      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details });
       setShowPrice(true);
       toast({ title: 'Kiitos!', description: 'Yhteystietosi on vastaanotettu.' });
     } catch {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { submitContactForm } from "@/lib/contactForm";
 
 type WallStories = "1" | "1.5" | "2" | null;
 type WallPeeling = "none" | "1-2" | "3+" | null;
@@ -79,16 +79,14 @@ const WallPriceCalculator = () => {
     try {
       const storyLabels: Record<string, string> = { "1": "1 kerros", "1.5": "1,5 kerrosta", "2": "2 kerrosta" };
       const peelingLabels: Record<string, string> = { none: "Ei hilseilyä", "1-2": "1–2 seinällä", "3+": "Yli 3 seinällä" };
-      await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: contactName,
-          email: contactEmail || "",
-          phone: contactPhone || "",
-          service: "ulkomaalaus",
-          message: "",
-          priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
-          calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}`,
-        },
+      await submitContactForm({
+        name: contactName,
+        email: contactEmail || "",
+        phone: contactPhone || "",
+        service: "ulkomaalaus",
+        message: "",
+        priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
+        calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
