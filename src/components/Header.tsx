@@ -144,6 +144,7 @@ const Header = () => {
                           <Link
                             key={subItem.href}
                             to={subItem.href}
+                            onClick={() => setOpenDropdown(null)}
                             className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium"
                           >
                             {subItem.label}
