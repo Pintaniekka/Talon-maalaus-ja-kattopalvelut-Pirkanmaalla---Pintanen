@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail } from 'lucide-react';
 import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { submitContactForm } from '@/lib/contactForm';
 
 type CalculatorType = 'roof' | 'wall' | null;
 type RoofSlope = '5-19' | '20-30' | '31+' | null;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { submitContactForm } from "@/lib/contactForm";
 
 type WallStories = "1" | "1.5" | "2" | null;
 type WallPeeling = "none" | "1-2" | "3+" | null;
