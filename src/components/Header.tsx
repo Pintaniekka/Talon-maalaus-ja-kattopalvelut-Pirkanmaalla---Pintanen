@@ -201,6 +201,7 @@ const Header = () => {
                     <Link
                       key={item.href}
                       to={item.href}
+                      onClick={closeNavigationMenus}
                       className="py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
                     >
                       {item.label}
@@ -213,6 +214,7 @@ const Header = () => {
                     <div className="flex items-center">
                       <Link
                         to={item.href}
+                        onClick={closeNavigationMenus}
                         className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
                       >
                         {item.label}
@@ -236,6 +238,7 @@ const Header = () => {
                             <Link
                               key={subItem.href}
                               to={subItem.href}
+                              onClick={closeNavigationMenus}
                               className="block py-2 px-4 text-foreground/80 hover:text-primary transition-colors"
                             >
                               {subItem.label}
