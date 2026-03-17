@@ -126,7 +126,11 @@ const Header = () => {
             />
           </Link>
 
-          <nav aria-label="Päänavigaatio" className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4">
+          <nav
+            aria-label="Päänavigaatio"
+            className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+            onPointerLeave={handleDesktopNavLeave}
+          >
             {navItems.map((item) => {
               if (!item.dropdown) {
                 return (
@@ -145,8 +149,8 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
-                  onMouseLeave={handleDesktopDropdownClose}
+                  onPointerEnter={() => handleDesktopDropdownOpen(item.label)}
+                  onPointerLeave={handleDesktopDropdownClose}
                 >
                   <div className="flex items-center gap-1">
                     <Link
