@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   resolve: {
+    dedupe: ['react', 'react-dom', 'react-router-dom'],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
