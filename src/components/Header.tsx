@@ -39,9 +39,9 @@ const Header = () => {
       label: "Hinnat & Laskuri",
       href: "/hinnat",
       dropdown: [
-        { label: "Tiilikaton pinnoitus", href: "/hinnat/tiilikaton-pinnoitus" },
-        { label: "Katon puhdistus", href: "/hinnat/katon-puhdistus" },
-        { label: "Talon maalaus", href: "/hinnat/talon-maalaus" },
+        { label: "Tiilikaton pinnoitus hinta", href: "/hinnat/tiilikaton-pinnoitus" },
+        { label: "Katon puhdistus hinta", href: "/hinnat/katon-puhdistus" },
+        { label: "Talon maalaus hinta", href: "/hinnat/talon-maalaus" },
       ],
     },
     { label: "Referenssit", href: "/referenssit" },
