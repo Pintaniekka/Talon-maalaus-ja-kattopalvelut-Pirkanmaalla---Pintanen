@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type MouseEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -12,18 +12,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const isTransitioning = useRef(false);
+  const transitionTimeoutRef = useRef<number | null>(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setOpenDropdown(null);
-  }, [location.pathname]);
 
   const navItems = [
     {
@@ -48,8 +39,55 @@ const Header = () => {
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
-  const closeNavigationMenus = () => {
+  function closeNavigationMenus() {
     setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
+  }
+
+  function startNavigationTransition() {
+    isTransitioning.current = true;
+
+    if (transitionTimeoutRef.current !== null) {
+      window.clearTimeout(transitionTimeoutRef.current);
+    }
+
+    transitionTimeoutRef.current = window.setTimeout(() => {
+      isTransitioning.current = false;
+      transitionTimeoutRef.current = null;
+    }, 300);
+  }
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    closeNavigationMenus();
+    startNavigationTransition();
+  }, [location]);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current !== null) {
+        window.clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
+    event.currentTarget.blur();
+    closeNavigationMenus();
+    startNavigationTransition();
+  };
+
+  const handleDesktopDropdownOpen = (label: string) => {
+    if (isTransitioning.current) return;
+    setOpenDropdown(label);
+  };
+
+  const handleDesktopDropdownClose = () => {
     setOpenDropdown(null);
   };
 
@@ -105,14 +143,17 @@ const Header = () => {
             />
           </Link>
 
-          <nav aria-label="Päänavigaatio" className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4">
+          <nav
+            aria-label="Päänavigaatio"
+            className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+          >
             {navItems.map((item) => {
               if (!item.dropdown) {
                 return (
                   <Link
                     key={item.href}
                     to={item.href}
-                    onClick={closeNavigationMenus}
+                    onClick={handleNavigationLinkClick}
                     className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
@@ -124,18 +165,20 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
+                  onMouseLeave={handleDesktopDropdownClose}
                 >
                   <div className="flex items-center gap-1">
                     <Link
                       to={item.href}
-                      onClick={closeNavigationMenus}
+                      onClick={handleNavigationLinkClick}
                       className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
                     >
                       {item.label}
                     </Link>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`}
+                    />
                   </div>
 
                   <AnimatePresence>
@@ -151,7 +194,7 @@ const Header = () => {
                           <Link
                             key={subItem.href}
                             to={subItem.href}
-                            onClick={closeNavigationMenus}
+                            onClick={handleNavigationLinkClick}
                             className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium"
                           >
                             {subItem.label}
@@ -223,7 +266,9 @@ const Header = () => {
                         onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                         className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
                       >
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                        />
                       </button>
                     </div>
                     <AnimatePresence>
@@ -263,4 +308,5 @@ const Header = () => {
     </header>
   );
 };
+
 export default Header;
