@@ -12,6 +12,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isDesktopHoverLocked, setIsDesktopHoverLocked] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -24,6 +25,15 @@ const Header = () => {
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isDesktopHoverLocked) return;
+
+    const unlockHover = () => setIsDesktopHoverLocked(false);
+
+    window.addEventListener("pointermove", unlockHover, { once: true });
+    return () => window.removeEventListener("pointermove", unlockHover);
+  }, [isDesktopHoverLocked]);
 
   const navItems = [
     {
@@ -51,6 +61,21 @@ const Header = () => {
   const closeNavigationMenus = () => {
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
+  };
+
+  const handleNavigationLinkClick = () => {
+    closeNavigationMenus();
+    setIsDesktopHoverLocked(true);
+  };
+
+  const handleDesktopDropdownOpen = (label: string) => {
+    if (isDesktopHoverLocked) return;
+    setOpenDropdown(label);
+  };
+
+  const handleDesktopDropdownClose = () => {
+    setOpenDropdown(null);
+    setIsDesktopHoverLocked(false);
   };
 
   return (
@@ -112,7 +137,7 @@ const Header = () => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    onClick={closeNavigationMenus}
+                    onClick={handleNavigationLinkClick}
                     className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
@@ -124,13 +149,13 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
+                  onMouseLeave={handleDesktopDropdownClose}
                 >
                   <div className="flex items-center gap-1">
                     <Link
                       to={item.href}
-                      onClick={closeNavigationMenus}
+                      onClick={handleNavigationLinkClick}
                       className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
                     >
                       {item.label}
@@ -151,7 +176,7 @@ const Header = () => {
                           <Link
                             key={subItem.href}
                             to={subItem.href}
-                            onClick={closeNavigationMenus}
+                            onClick={handleNavigationLinkClick}
                             className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium"
                           >
                             {subItem.label}
@@ -263,4 +288,5 @@ const Header = () => {
     </header>
   );
 };
+
 export default Header;
