@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -25,15 +25,6 @@ const Header = () => {
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (!isDesktopHoverLocked) return;
-
-    const unlockHover = () => setIsDesktopHoverLocked(false);
-
-    window.addEventListener("pointermove", unlockHover, { once: true });
-    return () => window.removeEventListener("pointermove", unlockHover);
-  }, [isDesktopHoverLocked]);
 
   const navItems = [
     {
@@ -63,7 +54,8 @@ const Header = () => {
     setOpenDropdown(null);
   };
 
-  const handleNavigationLinkClick = () => {
+  const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
+    event.currentTarget.blur();
     closeNavigationMenus();
     setIsDesktopHoverLocked(true);
   };
@@ -74,6 +66,10 @@ const Header = () => {
   };
 
   const handleDesktopDropdownClose = () => {
+    setOpenDropdown(null);
+  };
+
+  const handleDesktopNavLeave = () => {
     setOpenDropdown(null);
     setIsDesktopHoverLocked(false);
   };
@@ -130,7 +126,11 @@ const Header = () => {
             />
           </Link>
 
-          <nav aria-label="Päänavigaatio" className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4">
+          <nav
+            aria-label="Päänavigaatio"
+            className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
+            onPointerLeave={handleDesktopNavLeave}
+          >
             {navItems.map((item) => {
               if (!item.dropdown) {
                 return (
@@ -149,8 +149,8 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
-                  onMouseLeave={handleDesktopDropdownClose}
+                  onPointerEnter={() => handleDesktopDropdownOpen(item.label)}
+                  onPointerLeave={handleDesktopDropdownClose}
                 >
                   <div className="flex items-center gap-1">
                     <Link
