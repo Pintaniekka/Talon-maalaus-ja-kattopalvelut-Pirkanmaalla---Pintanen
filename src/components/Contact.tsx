@@ -22,15 +22,7 @@ const Contact = () => {
 
     setIsLoading(true);
     try {
-      if (!supabase) {
-        throw new Error('Yhteys palvelimeen ei ole käytettävissä');
-      }
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formState,
-      });
-
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      await submitContactForm(formState);
 
       setIsSubmitted(true);
       setFormState({ name: '', email: '', phone: '', service: '', message: '' });

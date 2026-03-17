@@ -140,9 +140,7 @@ const PriceCalculator = () => {
         details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}`;
         estimate = wallPrice ? `${wallPrice.min.toLocaleString('fi-FI')} – ${wallPrice.max.toLocaleString('fi-FI')} €` : '';
       }
-      await supabase.functions.invoke('send-contact-email', {
-        body: { name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details },
-      });
+      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details });
       setShowPrice(true);
       toast({ title: 'Kiitos!', description: 'Yhteystietosi on vastaanotettu.' });
     } catch {

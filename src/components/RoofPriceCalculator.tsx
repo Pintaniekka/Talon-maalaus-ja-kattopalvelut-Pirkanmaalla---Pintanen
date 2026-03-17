@@ -62,16 +62,14 @@ const RoofPriceCalculator = () => {
     setIsLoading(true);
     try {
       const slopeLabels: Record<string, string> = { "5-19": "5-19° (Loiva)", "20-30": "20-30° (Normaali)", "31+": "31°+ (Jyrkkä)" };
-      await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: contactName,
-          email: contactEmail || "",
-          phone: contactPhone || "",
-          service: "tiilikatto",
-          message: "",
-          priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
-          calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
-        },
+      await submitContactForm({
+        name: contactName,
+        email: contactEmail || "",
+        phone: contactPhone || "",
+        service: "tiilikatto",
+        message: "",
+        priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
+        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });

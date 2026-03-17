@@ -61,17 +61,13 @@ const DesktopQuoteDrawer = () => {
     }
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: form.name,
-          email: "",
-          phone: form.phone,
-          service: "Arviokäynti",
-          message: `Osoite: ${form.address}\nPostinumero: ${form.postalCode}\nKaupunki: ${form.city}\n\n${form.message}`,
-          isCalculator: false,
-        },
+      await submitContactForm({
+        name: form.name,
+        email: "",
+        phone: form.phone,
+        service: "Arviokäynti",
+        message: `Osoite: ${form.address}\nPostinumero: ${form.postalCode}\nKaupunki: ${form.city}\n\n${form.message}`,
       });
-      if (error) throw error;
       setIsSubmitted(true);
       setForm({ name: "", phone: "", address: "", postalCode: "", city: "", message: "" });
       toast({ title: "Kiitos! Olemme sinuun yhteydessä pian." });

@@ -79,16 +79,14 @@ const WallPriceCalculator = () => {
     try {
       const storyLabels: Record<string, string> = { "1": "1 kerros", "1.5": "1,5 kerrosta", "2": "2 kerrosta" };
       const peelingLabels: Record<string, string> = { none: "Ei hilseilyä", "1-2": "1–2 seinällä", "3+": "Yli 3 seinällä" };
-      await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: contactName,
-          email: contactEmail || "",
-          phone: contactPhone || "",
-          service: "ulkomaalaus",
-          message: "",
-          priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
-          calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}`,
-        },
+      await submitContactForm({
+        name: contactName,
+        email: contactEmail || "",
+        phone: contactPhone || "",
+        service: "ulkomaalaus",
+        message: "",
+        priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
+        calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
