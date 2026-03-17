@@ -98,18 +98,18 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Palvelumme */}
+          {/* Column 2: Sivunavigaatio */}
           <div>
-            <h3 className="font-bold mb-4 text-lg">Palvelumme</h3>
+            <h3 className="font-bold mb-4 text-lg">Sivunavigaatio</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">
-                  Tiilikaton pinnoitus
+                <Link to="/" className="hover:text-primary-foreground transition-colors">
+                  Etusivu
                 </Link>
               </li>
               <li>
-                <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">
-                  Ulkomaalaus
+                <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">
+                  Tiilikaton pinnoitus
                 </Link>
               </li>
               <li>
@@ -118,8 +118,28 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">
+                  Ulkomaalaus
+                </Link>
+              </li>
+              <li>
                 <Link to="/hinnat" className="hover:text-primary-foreground transition-colors">
                   Hintalaskuri
+                </Link>
+              </li>
+              <li>
+                <Link to="/toiminta-alueet" className="hover:text-primary-foreground transition-colors">
+                  Toiminta-alueet
+                </Link>
+              </li>
+              <li>
+                <Link to="/referenssit" className="hover:text-primary-foreground transition-colors">
+                  Referenssit
+                </Link>
+              </li>
+              <li>
+                <Link to="/meista" className="hover:text-primary-foreground transition-colors">
+                  Tutustu meihin
                 </Link>
               </li>
             </ul>
