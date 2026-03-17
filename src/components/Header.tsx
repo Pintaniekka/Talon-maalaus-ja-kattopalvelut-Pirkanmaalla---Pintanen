@@ -112,6 +112,7 @@ const Header = () => {
                   <Link
                     key={item.href}
                     to={item.href}
+                    onClick={closeNavigationMenus}
                     className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
@@ -129,6 +130,7 @@ const Header = () => {
                   <div className="flex items-center gap-1">
                     <Link
                       to={item.href}
+                      onClick={closeNavigationMenus}
                       className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
                     >
                       {item.label}
@@ -149,7 +151,7 @@ const Header = () => {
                           <Link
                             key={subItem.href}
                             to={subItem.href}
-                            onClick={() => setOpenDropdown(null)}
+                            onClick={closeNavigationMenus}
                             className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium"
                           >
                             {subItem.label}
