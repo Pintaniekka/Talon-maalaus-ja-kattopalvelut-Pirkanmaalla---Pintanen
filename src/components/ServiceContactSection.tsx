@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, Send, Check, Loader2 } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
 import { getStorageUrl } from '@/lib/storage';
+import { submitContactForm } from '@/lib/contactForm';
 import WhatsAppIcon from './WhatsAppIcon';
 
 type ContactVariant = 'katto' | 'maalaus' | 'general';

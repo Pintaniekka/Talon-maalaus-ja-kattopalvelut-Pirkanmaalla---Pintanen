@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, UserRound, Phone, MapPin, Mail, Building, MessageSquare } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { submitContactForm } from "@/lib/contactForm";
 
 const DesktopQuoteDrawer = () => {
   const [open, setOpen] = useState(false);
