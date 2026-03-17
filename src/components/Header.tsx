@@ -1,4 +1,4 @@
-import { useState, useEffect, type MouseEvent } from "react";
+import { useState, useEffect, useRef, type MouseEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -12,19 +12,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isDesktopHoverLocked, setIsDesktopHoverLocked] = useState(false);
+  const isTransitioning = useRef(false);
+  const transitionTimeoutRef = useRef<number | null>(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setOpenDropdown(null);
-  }, [location.pathname]);
 
   const navItems = [
     {
@@ -49,29 +39,56 @@ const Header = () => {
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
-  const closeNavigationMenus = () => {
+  function closeNavigationMenus() {
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
-  };
+  }
+
+  function startNavigationTransition() {
+    isTransitioning.current = true;
+
+    if (transitionTimeoutRef.current !== null) {
+      window.clearTimeout(transitionTimeoutRef.current);
+    }
+
+    transitionTimeoutRef.current = window.setTimeout(() => {
+      isTransitioning.current = false;
+      transitionTimeoutRef.current = null;
+    }, 300);
+  }
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    closeNavigationMenus();
+    startNavigationTransition();
+  }, [location]);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current !== null) {
+        window.clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
     closeNavigationMenus();
-    setIsDesktopHoverLocked(true);
+    startNavigationTransition();
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
-    if (isDesktopHoverLocked) return;
+    if (isTransitioning.current) return;
     setOpenDropdown(label);
   };
 
   const handleDesktopDropdownClose = () => {
     setOpenDropdown(null);
-  };
-
-  const handleDesktopNavLeave = () => {
-    setOpenDropdown(null);
-    setIsDesktopHoverLocked(false);
   };
 
   return (
@@ -129,7 +146,6 @@ const Header = () => {
           <nav
             aria-label="Päänavigaatio"
             className="flex items-center gap-4 lg:gap-6 flex-1 justify-end mr-4"
-            onPointerLeave={handleDesktopNavLeave}
           >
             {navItems.map((item) => {
               if (!item.dropdown) {
@@ -149,8 +165,8 @@ const Header = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onPointerEnter={() => handleDesktopDropdownOpen(item.label)}
-                  onPointerLeave={handleDesktopDropdownClose}
+                  onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
+                  onMouseLeave={handleDesktopDropdownClose}
                 >
                   <div className="flex items-center gap-1">
                     <Link
