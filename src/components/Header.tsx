@@ -48,6 +48,11 @@ const Header = () => {
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
+  const closeNavigationMenus = () => {
+    setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
@@ -107,6 +112,7 @@ const Header = () => {
                   <Link
                     key={item.href}
                     to={item.href}
+                    onClick={closeNavigationMenus}
                     className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
@@ -124,6 +130,7 @@ const Header = () => {
                   <div className="flex items-center gap-1">
                     <Link
                       to={item.href}
+                      onClick={closeNavigationMenus}
                       className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
                     >
                       {item.label}
@@ -144,7 +151,7 @@ const Header = () => {
                           <Link
                             key={subItem.href}
                             to={subItem.href}
-                            onClick={() => setOpenDropdown(null)}
+                            onClick={closeNavigationMenus}
                             className="block px-4 py-3 text-foreground hover:bg-muted transition-colors font-medium"
                           >
                             {subItem.label}
@@ -194,6 +201,7 @@ const Header = () => {
                     <Link
                       key={item.href}
                       to={item.href}
+                      onClick={closeNavigationMenus}
                       className="py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
                     >
                       {item.label}
@@ -206,6 +214,7 @@ const Header = () => {
                     <div className="flex items-center">
                       <Link
                         to={item.href}
+                        onClick={closeNavigationMenus}
                         className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
                       >
                         {item.label}
@@ -229,6 +238,7 @@ const Header = () => {
                             <Link
                               key={subItem.href}
                               to={subItem.href}
+                              onClick={closeNavigationMenus}
                               className="block py-2 px-4 text-foreground/80 hover:text-primary transition-colors"
                             >
                               {subItem.label}
