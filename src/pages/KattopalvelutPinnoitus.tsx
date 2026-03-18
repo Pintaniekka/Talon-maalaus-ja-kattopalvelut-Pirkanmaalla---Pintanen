@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
+import { Search, Check, Clock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import ServicePageHero from "@/components/ServicePageHero";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ProcessAccordion from "@/components/ProcessAccordion";
@@ -23,11 +24,18 @@ const trustStats = [
   { value: "5 vuotta", label: "Takuu työlle", sub: "Seison yrittäjänä oman jäljen takana." },
 ];
 
-/* ── Pricing table ── */
-const priceRows = [
-  { size: "150–180 m²", duration: "2 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "2 850 € – 3 200 €", real: "n. 2 150 € – 2 400 €" },
-  { size: "190–240 m²", duration: "2–3 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "3 300 € – 3 700 €", real: "n. 2 480 € – 2 760 €" },
-  { size: "250–300 m²", duration: "2–4 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "3 750 € – 4 880 €", real: "n. 2 800 € – 3 600 €" },
+/* ── Pricing cards ── */
+const pricingCards = [
+  { size: "150–180 m²", label: "Pieni/keskisuuri koti", duration: "2 työpäivää", normalPrice: "2 850 € – 3 200 €", afterPrice: "alk. 2 150 €", featured: false },
+  { size: "190–240 m²", label: "Yleisin kattokoko", duration: "2–3 työpäivää", normalPrice: "3 300 € – 3 700 €", afterPrice: "alk. 2 480 €", featured: true },
+  { size: "250–300 m²", label: "Suuri omakotitalo", duration: "2–4 työpäivää", normalPrice: "3 750 € – 4 880 €", afterPrice: "alk. 2 800 €", featured: false },
+];
+
+const pricingIncludes = [
+  "Syväpuhdistava pesu",
+  "Kasvustonestokäsittely",
+  "Tiilien vaihto & huolto",
+  "2x Maalaus / Pinnoitus",
 ];
 
 /* ── Warning signs ── */
@@ -48,13 +56,21 @@ const KattopalvelutPinnoitus = () => {
 
       {/* ═══ HERO ═══ */}
       <ServicePageHero
-        title="Tiilikaton pinnoitus Pirkanmaa"
-        subtitle="Pysäytä katon rapautuminen ennen kuin on liian myöhäistä"
+        title=""
+        subtitle=""
         backgroundImage={kattoImage}
       >
-        <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg mb-10">
-          Laadukas tiilikaton pinnoitus Pirkanmaalla <strong>säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong>jopa 10–15 vuotta lisäaikaa</strong>.
-        </p>
+        {/* Glassmorphism container for H1 + body text */}
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
+            Tiilikaton pinnoitus Pirkanmaa
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
+            Pysäytä katon rapautuminen ennen kuin on liian myöhäistä. Laadukas tiilikaton pinnoitus Pirkanmaalla <strong className="text-primary-foreground">säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong className="text-primary-foreground">jopa 10–15 vuotta lisäaikaa</strong>.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#yhteystiedot"
@@ -209,64 +225,69 @@ const KattopalvelutPinnoitus = () => {
             </p>
           </motion.div>
 
-          {/* Desktop pricing cards */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {priceRows.map((row, i) => (
+          {/* Pricing cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {pricingCards.map((card, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl p-6 shadow-sm border border-border/50 flex flex-col"
+                className={`relative bg-card rounded-2xl shadow-sm flex flex-col overflow-hidden ${
+                  card.featured
+                    ? "border-2 border-accent md:scale-105 md:shadow-lg"
+                    : "border border-border/50"
+                }`}
               >
-                <p className="text-2xl font-bold text-foreground mb-1">{row.size}</p>
-                <p className="text-sm text-muted-foreground mb-4">{row.duration}</p>
-                <div className="border-t border-border/30 pt-4 mb-4">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Sisältö</p>
-                  <p className="text-sm text-foreground">{row.content}</p>
-                </div>
-                <div className="mt-auto space-y-3">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Hinta-arvio</p>
-                    <p className="text-lg font-semibold text-foreground">{row.price}</p>
+                {/* Featured badge */}
+                {card.featured && (
+                  <div className="bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center py-1.5">
+                    Yleisin kattokoko
                   </div>
-                  <div className="bg-accent/10 rounded-xl p-3">
-                    <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
-                    <p className="text-xl font-bold text-accent">{row.real}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                )}
 
-          {/* Mobile cards */}
-          <div className="md:hidden space-y-4">
-            {priceRows.map((row, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-card rounded-2xl p-5 shadow-sm border border-border/50"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <p className="text-lg font-bold text-foreground">{row.size}</p>
-                    <p className="text-sm text-muted-foreground">{row.duration}</p>
+                <div className="p-5 md:p-6 flex flex-col flex-1">
+                  {/* Size & label */}
+                  <p className="text-2xl font-bold text-foreground">{card.size}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{card.label}</p>
+
+                  {/* Prices */}
+                  <div className="mb-5">
+                    <p className="text-sm line-through text-muted-foreground/60 mb-1">
+                      Norm. {card.normalPrice}
+                    </p>
+                    <p className="text-3xl md:text-4xl font-bold text-accent">{card.afterPrice}</p>
+                    <p className="text-xs text-muted-foreground mt-1">kotitalousvähennyksen jälkeen</p>
                   </div>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">{row.content}</p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Hinta-arvio</p>
-                    <p className="text-foreground font-semibold">{row.price}</p>
+
+                  {/* Includes */}
+                  <ul className="space-y-2.5 mb-5 flex-1">
+                    {pricingIncludes.map((item) => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Duration */}
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-5">
+                    <Clock className="w-4 h-4" />
+                    Kesto: {card.duration}
                   </div>
-                  <div className="bg-accent/10 rounded-xl p-3">
-                    <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
-                    <p className="text-accent font-bold">{row.real}</p>
-                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href="#yhteystiedot"
+                    className={`inline-flex items-center justify-center w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-sm ${
+                      card.featured
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-primary text-primary-foreground"
+                    }`}
+                  >
+                    Pyydä tarjous tästä
+                  </a>
                 </div>
               </motion.div>
             ))}
