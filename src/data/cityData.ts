@@ -24,9 +24,9 @@ export const cities: CityData[] = [
     alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere",
     alueMetaDesc:
       "Katto- ja maalauspalvelut Tampereella huolellisella toteutuksella. Tiilikaton pinnoitus, puhdistus ja talon maalaus suoraan tekijöiltä. Pyydä maksuton arvio.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere – 5v takuu",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Tampereella huolellisilla pohjatöillä ja kestävillä maalauspinnoitteilla. 5 vuoden takuu. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus Tampereella alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
