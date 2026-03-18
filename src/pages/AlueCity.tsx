@@ -2,7 +2,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Users, Award, Clock, ChevronRight } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+
 import TeamContactSection from "@/components/TeamContactSection";
 import FAQSection from "@/components/FAQSection";
 import { generalFAQ } from "@/data/faqData";
