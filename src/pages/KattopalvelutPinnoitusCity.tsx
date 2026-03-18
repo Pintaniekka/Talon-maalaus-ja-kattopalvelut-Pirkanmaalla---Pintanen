@@ -38,24 +38,17 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
       />
 
       <PinnoitusCityHero cityName={cityData.name} backgroundImage={kattoImage} />
-      <PinnoitusTrustStats />
+      <PinnoitusTrustStats cityName={cityData.name} />
 
       {/* Testimonials */}
-      <section className="bg-background">
-        <div className="section-container py-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-accent text-center mb-6">
-            Kokemuksia Pintasen kattopalveluista
-          </h2>
-        </div>
-        <TestimonialsMarquee />
-      </section>
+      <TestimonialsMarquee />
 
       <PinnoitusProblemSection cityName={cityData.name} />
       <PinnoitusCityProcess cityName={cityData.name} />
       <PinnoitusComparison />
       <PinnoitusPricingCards cityName={cityData.name} />
-      <PinnoitusFinancing />
       <KotitalousVahennys />
+      <PinnoitusFinancing />
       <PinnoitusEntrepreneur />
 
       <FAQSection items={getPinnoitusCityFAQ(cityData.name)} />
