@@ -225,64 +225,69 @@ const KattopalvelutPinnoitus = () => {
             </p>
           </motion.div>
 
-          {/* Desktop pricing cards */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {priceRows.map((row, i) => (
+          {/* Pricing cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {pricingCards.map((card, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl p-6 shadow-sm border border-border/50 flex flex-col"
+                className={`relative bg-card rounded-2xl shadow-sm flex flex-col overflow-hidden ${
+                  card.featured
+                    ? "border-2 border-accent md:scale-105 md:shadow-lg"
+                    : "border border-border/50"
+                }`}
               >
-                <p className="text-2xl font-bold text-foreground mb-1">{row.size}</p>
-                <p className="text-sm text-muted-foreground mb-4">{row.duration}</p>
-                <div className="border-t border-border/30 pt-4 mb-4">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Sisältö</p>
-                  <p className="text-sm text-foreground">{row.content}</p>
-                </div>
-                <div className="mt-auto space-y-3">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Hinta-arvio</p>
-                    <p className="text-lg font-semibold text-foreground">{row.price}</p>
+                {/* Featured badge */}
+                {card.featured && (
+                  <div className="bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center py-1.5">
+                    Yleisin kattokoko
                   </div>
-                  <div className="bg-accent/10 rounded-xl p-3">
-                    <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
-                    <p className="text-xl font-bold text-accent">{row.real}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                )}
 
-          {/* Mobile cards */}
-          <div className="md:hidden space-y-4">
-            {priceRows.map((row, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-card rounded-2xl p-5 shadow-sm border border-border/50"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <p className="text-lg font-bold text-foreground">{row.size}</p>
-                    <p className="text-sm text-muted-foreground">{row.duration}</p>
+                <div className="p-5 md:p-6 flex flex-col flex-1">
+                  {/* Size & label */}
+                  <p className="text-2xl font-bold text-foreground">{card.size}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{card.label}</p>
+
+                  {/* Prices */}
+                  <div className="mb-5">
+                    <p className="text-sm line-through text-muted-foreground/60 mb-1">
+                      Norm. {card.normalPrice}
+                    </p>
+                    <p className="text-3xl md:text-4xl font-bold text-accent">{card.afterPrice}</p>
+                    <p className="text-xs text-muted-foreground mt-1">kotitalousvähennyksen jälkeen</p>
                   </div>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">{row.content}</p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Hinta-arvio</p>
-                    <p className="text-foreground font-semibold">{row.price}</p>
+
+                  {/* Includes */}
+                  <ul className="space-y-2.5 mb-5 flex-1">
+                    {pricingIncludes.map((item) => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Duration */}
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-5">
+                    <Clock className="w-4 h-4" />
+                    Kesto: {card.duration}
                   </div>
-                  <div className="bg-accent/10 rounded-xl p-3">
-                    <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
-                    <p className="text-accent font-bold">{row.real}</p>
-                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href="#yhteystiedot"
+                    className={`inline-flex items-center justify-center w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-sm ${
+                      card.featured
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-primary text-primary-foreground"
+                    }`}
+                  >
+                    Pyydä tarjous tästä
+                  </a>
                 </div>
               </motion.div>
             ))}
