@@ -108,22 +108,22 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/kattopalvelut/pinnoitus" className="hover:text-primary-foreground transition-colors">
+                <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="hover:text-primary-foreground transition-colors">
                   Tiilikaton pinnoitus
                 </Link>
               </li>
               <li>
-                <Link to="/kattopalvelut/puhdistus" className="hover:text-primary-foreground transition-colors">
+                <Link to="/katon-puhdistus-pirkanmaa" className="hover:text-primary-foreground transition-colors">
                   Katon puhdistus
                 </Link>
               </li>
               <li>
-                <Link to="/talon-maalaus" className="hover:text-primary-foreground transition-colors">
+                <Link to="/talon-maalaus-pirkanmaa" className="hover:text-primary-foreground transition-colors">
                   Ulkomaalaus
                 </Link>
               </li>
               <li>
-                <Link to="/hinnat" className="hover:text-primary-foreground transition-colors">
+                <Link to="/maalauspalvelut-hinta-pirkanmaa" className="hover:text-primary-foreground transition-colors">
                   Hintalaskuri
                 </Link>
               </li>
@@ -151,7 +151,7 @@ const Footer = () => {
             <p className="text-sm text-primary-foreground/70 leading-loose">
               {[...pirkanmaaCities, ...pirkanmaaExtra].map((city, i, arr) => (
                 <span key={city.slug}>
-                  <Link to={`/alue/${city.slug}`} className="hover:underline hover:text-primary-foreground transition-colors">
+                  <Link to={`/maalauspalvelut-${city.slug}`} className="hover:underline hover:text-primary-foreground transition-colors">
                     {city.name}
                   </Link>
                   {i < arr.length - 1 && ", "}
@@ -166,7 +166,7 @@ const Footer = () => {
             <p className="text-sm text-primary-foreground/70 leading-loose">
               {kantaHameCities.map((city, i, arr) => (
                 <span key={city.slug}>
-                  <Link to={`/alue/${city.slug}`} className="hover:underline hover:text-primary-foreground transition-colors">
+                  <Link to={`/maalauspalvelut-${city.slug}`} className="hover:underline hover:text-primary-foreground transition-colors">
                     {city.name}
                   </Link>
                   {i < arr.length - 1 && ", "}

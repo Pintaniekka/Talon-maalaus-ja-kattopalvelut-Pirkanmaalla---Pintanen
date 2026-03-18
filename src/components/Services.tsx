@@ -97,8 +97,8 @@ const Services = () => {
           <div
             role="link"
             tabIndex={0}
-            onClick={() => navigate("/kattopalvelut/puhdistus")}
-            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/kattopalvelut/puhdistus"); }}
+            onClick={() => navigate("/katon-puhdistus-pirkanmaa")}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/katon-puhdistus-pirkanmaa"); }}
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage

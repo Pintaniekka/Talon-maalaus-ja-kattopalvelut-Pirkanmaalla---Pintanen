@@ -33,7 +33,7 @@ const ToimintaAlueetBanner = () => {
               {cities.map((city) => (
                 <Link
                   key={city.slug}
-                  to={`/alue/${city.slug}`}
+                  to={`/maalauspalvelut-${city.slug}`}
                   className="px-4 py-2 bg-card rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   {city.name}

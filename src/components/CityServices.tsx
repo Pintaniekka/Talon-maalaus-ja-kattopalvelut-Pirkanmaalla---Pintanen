@@ -17,7 +17,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
   const services = [
     {
       title: "Tiilikaton pinnoitus",
-      href: `/kattopalvelut/pinnoitus/${citySlug}`,
+      href: `/tiilikaton-pinnoitus-${citySlug}`,
       beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
       afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
       description: "Vanha tiilikatto uuteen loistoon. Puhdistamme sammaleen, suojaamme tiilen ja maalaamme pinnan kestäväksi.",
@@ -26,7 +26,7 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
     },
     {
       title: "Ulkomaalaus",
-      href: `/talon-maalaus/${citySlug}`,
+      href: `/talon-maalaus-${citySlug}`,
       beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
       afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
       description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
@@ -113,8 +113,8 @@ const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
           <div
             role="link"
             tabIndex={0}
-            onClick={() => navigate(`/kattopalvelut/puhdistus/${citySlug}`)}
-            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/kattopalvelut/puhdistus/${citySlug}`); }}
+            onClick={() => navigate(`/katon-puhdistus-${citySlug}`)}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/katon-puhdistus-${citySlug}`); }}
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage

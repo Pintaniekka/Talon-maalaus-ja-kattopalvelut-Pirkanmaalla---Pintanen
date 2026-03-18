@@ -3,9 +3,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
+import { cities as fullServiceCities, allCities } from "./data/cityData";
 
 // Lazy-loaded subpages
 const KattopalvelutPinnoitus = lazy(() => import("./pages/KattopalvelutPinnoitus"));
@@ -37,21 +38,60 @@ const App = () => (
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/kattopalvelut/pinnoitus" element={<KattopalvelutPinnoitus />} />
-              <Route path="/kattopalvelut/pinnoitus/:city" element={<KattopalvelutPinnoitusCity />} />
-              <Route path="/kattopalvelut/puhdistus" element={<KattopalvelutPuhdistus />} />
-              <Route path="/kattopalvelut/puhdistus/:city" element={<KattopalvelutPuhdistusCity />} />
-              <Route path="/talon-maalaus" element={<TalonMaalaus />} />
-              <Route path="/talon-maalaus/:city" element={<TalonMaalausCity />} />
+
+              {/* ── New primary routes ── */}
+              <Route path="/tiilikaton-pinnoitus-pirkanmaa" element={<KattopalvelutPinnoitus />} />
+              <Route path="/katon-puhdistus-pirkanmaa" element={<KattopalvelutPuhdistus />} />
+              <Route path="/talon-maalaus-pirkanmaa" element={<TalonMaalaus />} />
+              <Route path="/maalauspalvelut-hinta-pirkanmaa" element={<Hinnat />} />
+              <Route path="/tiilikaton-pinnoitus-hinta-pirkanmaa" element={<HinnatTiilikalonPinnoitus />} />
+              <Route path="/katon-puhdistus-hinta-pirkanmaa" element={<HinnatKatonPuhdistus />} />
+              <Route path="/talon-maalaus-hinta-pirkanmaa" element={<HinnatTalonMaalaus />} />
               <Route path="/toiminta-alueet" element={<ToimintaAlueet />} />
-              <Route path="/alue/:city" element={<AlueCity />} />
               <Route path="/referenssit" element={<Referenssit />} />
-              <Route path="/hinnat" element={<Hinnat />} />
-              <Route path="/hinnat/tiilikaton-pinnoitus" element={<HinnatTiilikalonPinnoitus />} />
-              <Route path="/hinnat/katon-puhdistus" element={<HinnatKatonPuhdistus />} />
-              <Route path="/hinnat/talon-maalaus" element={<HinnatTalonMaalaus />} />
               <Route path="/meista" element={<Meista />} />
               <Route path="/image-test" element={<ImageTest />} />
+
+              {/* ── City service pages (8 full-service cities × 3 services) ── */}
+              {fullServiceCities.map(city => (
+                <Route key={`pin-${city.slug}`} path={`/tiilikaton-pinnoitus-${city.slug}`} element={<KattopalvelutPinnoitusCity citySlug={city.slug} />} />
+              ))}
+              {fullServiceCities.map(city => (
+                <Route key={`puh-${city.slug}`} path={`/katon-puhdistus-${city.slug}`} element={<KattopalvelutPuhdistusCity citySlug={city.slug} />} />
+              ))}
+              {fullServiceCities.map(city => (
+                <Route key={`maal-${city.slug}`} path={`/talon-maalaus-${city.slug}`} element={<TalonMaalausCity citySlug={city.slug} />} />
+              ))}
+
+              {/* ── Area pages (all cities) ── */}
+              {allCities.map(city => (
+                <Route key={`alue-${city.slug}`} path={`/maalauspalvelut-${city.slug}`} element={<AlueCity citySlug={city.slug} />} />
+              ))}
+
+              {/* ═══ 301-style redirects (old → new) ═══ */}
+              <Route path="/kattopalvelut/pinnoitus" element={<Navigate to="/tiilikaton-pinnoitus-pirkanmaa" replace />} />
+              <Route path="/kattopalvelut/puhdistus" element={<Navigate to="/katon-puhdistus-pirkanmaa" replace />} />
+              <Route path="/talon-maalaus" element={<Navigate to="/talon-maalaus-pirkanmaa" replace />} />
+              <Route path="/hinnat" element={<Navigate to="/maalauspalvelut-hinta-pirkanmaa" replace />} />
+              <Route path="/hinnat/tiilikaton-pinnoitus" element={<Navigate to="/tiilikaton-pinnoitus-hinta-pirkanmaa" replace />} />
+              <Route path="/hinnat/katon-puhdistus" element={<Navigate to="/katon-puhdistus-hinta-pirkanmaa" replace />} />
+              <Route path="/hinnat/talon-maalaus" element={<Navigate to="/talon-maalaus-hinta-pirkanmaa" replace />} />
+
+              {/* Old city service redirects */}
+              {fullServiceCities.map(city => (
+                <Route key={`rpin-${city.slug}`} path={`/kattopalvelut/pinnoitus/${city.slug}`} element={<Navigate to={`/tiilikaton-pinnoitus-${city.slug}`} replace />} />
+              ))}
+              {fullServiceCities.map(city => (
+                <Route key={`rpuh-${city.slug}`} path={`/kattopalvelut/puhdistus/${city.slug}`} element={<Navigate to={`/katon-puhdistus-${city.slug}`} replace />} />
+              ))}
+              {fullServiceCities.map(city => (
+                <Route key={`rmaal-${city.slug}`} path={`/talon-maalaus/${city.slug}`} element={<Navigate to={`/talon-maalaus-${city.slug}`} replace />} />
+              ))}
+
+              {/* Old area page redirects */}
+              {allCities.map(city => (
+                <Route key={`ralue-${city.slug}`} path={`/alue/${city.slug}`} element={<Navigate to={`/maalauspalvelut-${city.slug}`} replace />} />
+              ))}
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

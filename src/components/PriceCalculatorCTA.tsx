@@ -22,7 +22,7 @@ const PriceCalculatorCTA = () => {
             Laske arvio projektisi hinnasta muutamassa sekunnissa. Meillä ei ole piilokuluja.
           </p>
           <Link
-            to="/hinnat"
+            to="/maalauspalvelut-hinta-pirkanmaa"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg"
           >
             Kokeile hintalaskuria
