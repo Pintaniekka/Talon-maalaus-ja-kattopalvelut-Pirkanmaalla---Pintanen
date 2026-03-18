@@ -48,13 +48,21 @@ const KattopalvelutPinnoitus = () => {
 
       {/* ═══ HERO ═══ */}
       <ServicePageHero
-        title="Tiilikaton pinnoitus Pirkanmaa"
-        subtitle="Pysäytä katon rapautuminen ennen kuin on liian myöhäistä"
+        title=""
+        subtitle=""
         backgroundImage={kattoImage}
       >
-        <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg mb-10">
-          Laadukas tiilikaton pinnoitus Pirkanmaalla <strong>säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong>jopa 10–15 vuotta lisäaikaa</strong>.
-        </p>
+        {/* Glassmorphism container for H1 + body text */}
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
+            Tiilikaton pinnoitus Pirkanmaa
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
+            Pysäytä katon rapautuminen ennen kuin on liian myöhäistä. Laadukas tiilikaton pinnoitus Pirkanmaalla <strong className="text-primary-foreground">säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong className="text-primary-foreground">jopa 10–15 vuotta lisäaikaa</strong>.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#yhteystiedot"
