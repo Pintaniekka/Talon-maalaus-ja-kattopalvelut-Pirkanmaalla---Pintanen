@@ -13,7 +13,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const isTransitioning = useRef(false);
-  const transitionTimeoutRef = useRef<number | null>(null);
   const location = useLocation();
 
   const navItems = [
@@ -44,19 +43,6 @@ const Header = () => {
     setOpenDropdown(null);
   }
 
-  function startNavigationTransition() {
-    isTransitioning.current = true;
-
-    if (transitionTimeoutRef.current !== null) {
-      window.clearTimeout(transitionTimeoutRef.current);
-    }
-
-    transitionTimeoutRef.current = window.setTimeout(() => {
-      isTransitioning.current = false;
-      transitionTimeoutRef.current = null;
-    }, 300);
-  }
-
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -64,31 +50,31 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    closeNavigationMenus();
-    startNavigationTransition();
-  }, [location]);
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
 
-  useEffect(() => {
-    return () => {
-      if (transitionTimeoutRef.current !== null) {
-        window.clearTimeout(transitionTimeoutRef.current);
-      }
-    };
-  }, []);
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+
+    isTransitioning.current = true;
+    const timer = window.setTimeout(() => {
+      isTransitioning.current = false;
+    }, 800);
+
+    return () => window.clearTimeout(timer);
+  }, [location.pathname]);
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
-    closeNavigationMenus();
-    startNavigationTransition();
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+    isTransitioning.current = true;
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
     if (isTransitioning.current) return;
     setOpenDropdown(label);
-  };
-
-  const handleDesktopDropdownClose = () => {
-    setOpenDropdown(null);
   };
 
   return (
@@ -166,7 +152,7 @@ const Header = () => {
                   key={item.label}
                   className="relative group"
                   onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
-                  onMouseLeave={handleDesktopDropdownClose}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <div className="flex items-center gap-1">
                     <Link
