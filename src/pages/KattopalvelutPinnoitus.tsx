@@ -24,11 +24,18 @@ const trustStats = [
   { value: "5 vuotta", label: "Takuu työlle", sub: "Seison yrittäjänä oman jäljen takana." },
 ];
 
-/* ── Pricing table ── */
-const priceRows = [
-  { size: "150–180 m²", duration: "2 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "2 850 € – 3 200 €", real: "n. 2 150 € – 2 400 €" },
-  { size: "190–240 m²", duration: "2–3 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "3 300 € – 3 700 €", real: "n. 2 480 € – 2 760 €" },
-  { size: "250–300 m²", duration: "2–4 työpäivää", content: "Pesu, suoja-aine, 2× pinnoitus", price: "3 750 € – 4 880 €", real: "n. 2 800 € – 3 600 €" },
+/* ── Pricing cards ── */
+const pricingCards = [
+  { size: "150–180 m²", label: "Pieni/keskisuuri koti", duration: "2 työpäivää", normalPrice: "2 850 € – 3 200 €", afterPrice: "alk. 2 150 €", featured: false },
+  { size: "190–240 m²", label: "Yleisin kattokoko", duration: "2–3 työpäivää", normalPrice: "3 300 € – 3 700 €", afterPrice: "alk. 2 480 €", featured: true },
+  { size: "250–300 m²", label: "Suuri omakotitalo", duration: "2–4 työpäivää", normalPrice: "3 750 € – 4 880 €", afterPrice: "alk. 2 800 €", featured: false },
+];
+
+const pricingIncludes = [
+  "Syväpuhdistava pesu",
+  "Kasvustonestokäsittely",
+  "Tiilien vaihto & huolto",
+  "2x Maalaus / Pinnoitus",
 ];
 
 /* ── Warning signs ── */
