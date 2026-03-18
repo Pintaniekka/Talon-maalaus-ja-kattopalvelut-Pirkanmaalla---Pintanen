@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Check, Droplets, Shield, Sparkles, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
