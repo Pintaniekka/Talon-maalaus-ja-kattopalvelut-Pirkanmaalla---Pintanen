@@ -5,7 +5,7 @@
 import fs from "fs";
 import path from "path";
 
-// All city slugs that have /alue/:city pages
+// All city slugs that have /maalauspalvelut-:city pages
 const allCitySlugs = [
   // Full-service cities
   "tampere","sastamala","hameenkyro","ylojarvi","nokia","forssa","hameenlinna","huittinen",
@@ -14,7 +14,7 @@ const allCitySlugs = [
   "orivesi","parkano","pirkkala","palkane","ruovesi","urjala","valkeakoski","vesilahti","virrat",
 ];
 
-// Cities that also have /kattopalvelut/pinnoitus/:city, /puhdistus/:city, /talon-maalaus/:city
+// Cities that also have service-specific city pages
 const fullServiceSlugs = [
   "tampere","sastamala","hameenkyro","ylojarvi","nokia","forssa","hameenlinna","huittinen",
 ];
@@ -22,17 +22,36 @@ const fullServiceSlugs = [
 function getAllRoutes(): string[] {
   const routes: string[] = [
     "/meista",
-    "/kattopalvelut/pinnoitus",
-    "/kattopalvelut/puhdistus",
-    "/talon-maalaus",
+    "/tiilikaton-pinnoitus-pirkanmaa",
+    "/katon-puhdistus-pirkanmaa",
+    "/talon-maalaus-pirkanmaa",
     "/toiminta-alueet",
     "/referenssit",
-    "/hinnat",
-    "/hinnat/tiilikaton-pinnoitus",
-    "/hinnat/katon-puhdistus",
-    "/hinnat/talon-maalaus",
+    "/maalauspalvelut-hinta-pirkanmaa",
+    "/tiilikaton-pinnoitus-hinta-pirkanmaa",
+    "/katon-puhdistus-hinta-pirkanmaa",
+    "/talon-maalaus-hinta-pirkanmaa",
     "/image-test",
   ];
+
+  for (const slug of allCitySlugs) {
+    routes.push(`/maalauspalvelut-${slug}`);
+  }
+
+  for (const slug of fullServiceSlugs) {
+    routes.push(`/tiilikaton-pinnoitus-${slug}`);
+    routes.push(`/katon-puhdistus-${slug}`);
+    routes.push(`/talon-maalaus-${slug}`);
+  }
+
+  // Old routes (for redirect support on GitHub Pages)
+  routes.push("/kattopalvelut/pinnoitus");
+  routes.push("/kattopalvelut/puhdistus");
+  routes.push("/talon-maalaus");
+  routes.push("/hinnat");
+  routes.push("/hinnat/tiilikaton-pinnoitus");
+  routes.push("/hinnat/katon-puhdistus");
+  routes.push("/hinnat/talon-maalaus");
 
   for (const slug of allCitySlugs) {
     routes.push(`/alue/${slug}`);
