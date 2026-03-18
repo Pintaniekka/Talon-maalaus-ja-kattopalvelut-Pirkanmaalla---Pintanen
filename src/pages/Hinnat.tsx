@@ -33,7 +33,7 @@ const serviceCards = [
     title: "Katon puhdistus",
     description: "Säännöllinen puhdistus ja suojakäsittely säästää kattoa. Katso edulliset alkaen-hintamme.",
     cta: "Katso puhdistuksen hinnasto",
-    href: "/hinnat/katon-puhdistus",
+    href: "/katon-puhdistus-hinta-pirkanmaa",
     warranty: "Ilmainen tarkastus",
     bgImage: puhdistusBg,
     Icon: RoofCleanIcon,
