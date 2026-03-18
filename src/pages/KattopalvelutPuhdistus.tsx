@@ -126,7 +126,6 @@ const KattopalvelutPuhdistus = () => {
       <FAQSection items={puhdistusFAQ} />
       <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };

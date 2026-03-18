@@ -206,7 +206,6 @@ const AlueCity = () => {
 
       <FAQSection items={generalFAQ} />
       <TeamContactSection cityName={cityData.name} />
-      <ServiceCTA />
     </div>
   );
 };

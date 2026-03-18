@@ -136,7 +136,6 @@ const KattopalvelutPuhdistusCity = () => {
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="katto" cityName={cityData.name} />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };

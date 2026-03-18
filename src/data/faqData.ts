@@ -6,7 +6,7 @@ interface FAQItem {
 export const pinnoitusFAQ: FAQItem[] = [
   {
     question: 'Saako tiilikaton pinnoituksesta kotitalousvähennystä?',
-    answer: 'Kyllä saa! Tiilikaton pesu ja pinnoitus oikeuttavat merkittävään kotitalousvähennykseen. Voit vähentää 35 % työn osuudesta suoraan henkilökohtaisessa verotuksessasi. Koska pinnoitusurakoissa työn osuus on tyypillisesti jopa 80 % kokonaishinnasta, vähennyksen tuoma säästö on usein noin tuhat euroa. Puolisot voivat hyödyntää vähennyksen yhdessä, jolloin maksimietu on jopa 3 200 euroa vuodessa.',
+    answer: 'Kyllä saa! Tiilikaton pesu ja pinnoitus oikeuttavat merkittävään kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> suoraan henkilökohtaisessa verotuksessasi. Koska pinnoitusurakoissa työn osuus on tyypillisesti <strong>jopa 80 % kokonaishinnasta</strong>, vähennyksen tuoma säästö on usein noin tuhat euroa. Puolisot voivat hyödyntää vähennyksen yhdessä, jolloin <strong>maksimietu on jopa 3 200 euroa vuodessa</strong>.',
   },
   {
     question: 'Mitä tiilikaton pinnoitus maksaa?',
@@ -18,7 +18,7 @@ export const pinnoitusFAQ: FAQItem[] = [
   },
   {
     question: 'Kuinka kauan tiilikaton pinnoitus kestää?',
-    answer: 'Tyypillisen omakotitalon (noin 150–200 m²) tiilikaton pesu ja pinnoitus kestää noin 2–4 työpäivää sääolosuhteista riippuen. Työ pitää sisällään huolelliset pohjatyöt (kuten korkeapainepesun ja torjunta-ainekäsittelyn), riittävän kuivumisajan sekä kaksinkertaisen ruiskumaalauksen.',
+    answer: 'Tyypillisen omakotitalon (noin 150–200 m²) tiilikaton pesu ja pinnoitus kestää noin <strong>2–4 työpäivää</strong> sääolosuhteista riippuen. Työ pitää sisällään huolelliset pohjatyöt (kuten korkeapainepesun ja torjunta-ainekäsittelyn), riittävän kuivumisajan sekä kaksinkertaisen ruiskumaalauksen.',
   },
   {
     question: 'Milloin tiilikatto pitää pinnoittaa?',
@@ -26,7 +26,7 @@ export const pinnoitusFAQ: FAQItem[] = [
   },
   {
     question: 'Voiko tiilikaton pinnoittaa itse vai kannattaako käyttää ammattilaista?',
-    answer: 'Teknisesti katon voi pestä ja maalata itse, mutta kestävän ammattitason tuloksen saavuttaminen on erittäin vaikeaa ilman oikeaa kalustoa. Väärät menetelmät voivat vahingoittaa vanhaa kattoa, ja ilman ammattitason kasvustonestoainetta sammal tunkee nopeasti uuden maalin läpi. Ammattilaisen tekemälle pinnoitukselle saat 5 vuoden kirjallisen takuun, ja vain ammattilaisen työstä voi hakea kotitalousvähennystä.',
+    answer: 'Teknisesti katon voi pestä ja maalata itse, mutta kestävän ammattitason tuloksen saavuttaminen on erittäin vaikeaa ilman oikeaa kalustoa. Väärät menetelmät voivat vahingoittaa vanhaa kattoa, ja ilman ammattitason kasvustonestoainetta sammal tunkee nopeasti uuden maalin läpi. Ammattilaisen tekemälle pinnoitukselle saat <strong>5 vuoden kirjallisen takuun</strong>, ja <strong>vain ammattilaisen työstä voi hakea kotitalousvähennystä</strong>.',
   },
 ];
 

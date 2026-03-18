@@ -192,7 +192,6 @@ const TalonMaalausCity = () => {
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="maalaus" cityName={cityData.name} />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };

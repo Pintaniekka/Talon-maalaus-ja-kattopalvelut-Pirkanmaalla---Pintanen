@@ -164,7 +164,6 @@ const TalonMaalaus = () => {
       <FAQSection items={maalausFAQ} />
       <ServiceContactSection variant="maalaus" />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };
