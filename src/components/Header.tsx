@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
