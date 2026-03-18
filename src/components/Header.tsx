@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -12,8 +13,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const isTransitioning = useRef(false);
-  const transitionTimeoutRef = useRef<number | null>(null);
+  const isHoverLocked = useRef(false);
   const location = useLocation();
 
   const navItems = [
@@ -44,19 +44,6 @@ const Header = () => {
     setOpenDropdown(null);
   }
 
-  function startNavigationTransition() {
-    isTransitioning.current = true;
-
-    if (transitionTimeoutRef.current !== null) {
-      window.clearTimeout(transitionTimeoutRef.current);
-    }
-
-    transitionTimeoutRef.current = window.setTimeout(() => {
-      isTransitioning.current = false;
-      transitionTimeoutRef.current = null;
-    }, 300);
-  }
-
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -64,31 +51,36 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    closeNavigationMenus();
-    startNavigationTransition();
-  }, [location]);
-
-  useEffect(() => {
-    return () => {
-      if (transitionTimeoutRef.current !== null) {
-        window.clearTimeout(transitionTimeoutRef.current);
-      }
-    };
-  }, []);
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  }, [location.pathname]);
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
-    closeNavigationMenus();
-    startNavigationTransition();
+    isHoverLocked.current = true;
+
+    flushSync(() => {
+      setOpenDropdown(null);
+      setIsMobileMenuOpen(false);
+    });
+
+    // Lukon vapauttaja – laukeaa aina klikattaessa, riippumatta reitin muutoksesta
+    const unlockHover = () => {
+      isHoverLocked.current = false;
+      window.removeEventListener("mousemove", unlockHover);
+    };
+
+    setTimeout(() => {
+      window.addEventListener("mousemove", unlockHover);
+    }, 100);
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
-    if (isTransitioning.current) return;
+    if (isHoverLocked.current) return;
     setOpenDropdown(label);
-  };
-
-  const handleDesktopDropdownClose = () => {
-    setOpenDropdown(null);
   };
 
   return (
@@ -166,7 +158,7 @@ const Header = () => {
                   key={item.label}
                   className="relative group"
                   onMouseEnter={() => handleDesktopDropdownOpen(item.label)}
-                  onMouseLeave={handleDesktopDropdownClose}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <div className="flex items-center gap-1">
                     <Link
