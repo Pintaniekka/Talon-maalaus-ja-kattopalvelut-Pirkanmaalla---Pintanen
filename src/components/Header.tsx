@@ -53,38 +53,29 @@ const Header = () => {
   useEffect(() => {
     setOpenDropdown(null);
     setIsMobileMenuOpen(false);
-
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
-
-    isHoverLocked.current = true;
-
-    const unlockHover = () => {
-      isHoverLocked.current = false;
-      window.removeEventListener("mousemove", unlockHover);
-    };
-
-    const timer = window.setTimeout(() => {
-      window.addEventListener("mousemove", unlockHover);
-    }, 100);
-
-    return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("mousemove", unlockHover);
-    };
   }, [location.pathname]);
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
     isHoverLocked.current = true;
 
-    // Pakotetaan valikot kiinni välittömästi ohi Reactin renderöintijonon
-    // ja reitityksen transition-odottelun (lazy loading chunk).
     flushSync(() => {
       setOpenDropdown(null);
       setIsMobileMenuOpen(false);
     });
+
+    // Lukon vapauttaja – laukeaa aina klikattaessa, riippumatta reitin muutoksesta
+    const unlockHover = () => {
+      isHoverLocked.current = false;
+      window.removeEventListener("mousemove", unlockHover);
+    };
+
+    setTimeout(() => {
+      window.addEventListener("mousemove", unlockHover);
+    }, 100);
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
