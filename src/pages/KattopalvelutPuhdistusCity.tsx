@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, Droplets, Shield, Sparkles, Clock, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import CityServices from "@/components/CityServices";
 import ServiceContactSection from "@/components/ServiceContactSection";
@@ -136,7 +136,6 @@ const KattopalvelutPuhdistusCity = () => {
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="katto" cityName={cityData.name} />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };

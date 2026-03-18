@@ -1,19 +1,28 @@
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ClipboardCheck, ShieldCheck, Droplets, Bug, Paintbrush, CheckCircle } from "lucide-react";
+import { ClipboardCheck, ShieldCheck, Droplets, BrickWall, Paintbrush, CheckCircle } from "lucide-react";
+import { type ReactNode } from "react";
 
-const steps = [
+interface Step {
+  icon: typeof ClipboardCheck;
+  title: string;
+  content: ReactNode;
+}
+
+const steps: Step[] = [
   {
     icon: ClipboardCheck,
     title: "1. Ilmainen kuntoarvio ja välikaton tarkastus",
-    content:
-      "Emme arvaile. Ennen tarjousta tarkistamme tiilien lisäksi aina myös aluskatteen ja läpiviennit. Pystymme korjaamaan pienet aluskatteen vauriot. Suuremmissa vaurioissa kerromme rehellisesti tilanteesta.",
+    content: (
+      <>Emme arvaile. Ennen tarjousta tarkistamme tiilien lisäksi <strong>aina myös aluskatteen ja läpiviennit</strong>. Pystymme korjaamaan pienet aluskatteen vauriot. Suuremmissa vaurioissa kerromme rehellisesti tilanteesta.</>
+    ),
   },
   {
     icon: ShieldCheck,
     title: "2. Pihapiirin suojaus",
-    content:
-      "Katon pesu irrottaa likaa. Siksi suojaamme aina kriittisimmät paikat, jonne ei kuravettä saa mennä. Jätämme pihasi yhtä siistiksi kuin se oli tullessamme.",
+    content: (
+      <>Katon pesu irrottaa likaa. Siksi suojaamme aina kriittisimmät paikat, jonne ei kuravettä saa mennä. <strong>Jätämme pihasi yhtä siistiksi kuin se oli tullessamme.</strong></>
+    ),
   },
   {
     icon: Droplets,
@@ -22,10 +31,11 @@ const steps = [
       "Puhdistamme katon ammattitason korkeapainepesurilla. Samalla tyhjennämme ja huuhtelemme sadevesikourut (rännit) katolta irtoavasta liasta ja sammaleesta.",
   },
   {
-    icon: Bug,
+    icon: BrickWall,
     title: "4. Kasvustonesto ja tiilten vaihto",
-    content:
-      "Levitämme torjunta-aineen, joka tuhoaa sammaleen itiöt tiilen huokosista asti. Tämän jälkeen rikkinäiset tiilet vaihdetaan uusiin.",
+    content: (
+      <>Levitämme torjunta-aineen, joka <strong>tuhoaa sammaleen itiöt tiilen huokosista asti</strong>. Tämän jälkeen rikkinäiset tiilet vaihdetaan uusiin.</>
+    ),
   },
   {
     icon: Paintbrush,
@@ -36,8 +46,9 @@ const steps = [
   {
     icon: CheckCircle,
     title: "6. Lopputarkastus asiakkaan kanssa",
-    content:
-      "Työ on valmis vasta, kun olemme kiertäneet kohteen yhdessä kanssasi, tehneet lopputarkastuksen ja todenneet työnjäljen virheettömäksi. Saat työllemme 5 vuoden kirjallisen takuun.",
+    content: (
+      <>Työ on valmis vasta, kun olemme kiertäneet kohteen yhdessä kanssasi, tehneet lopputarkastuksen ja todenneet työnjäljen virheettömäksi. Saat työllemme <strong>5 vuoden kirjallisen takuun</strong>.</>
+    ),
   },
 ];
 

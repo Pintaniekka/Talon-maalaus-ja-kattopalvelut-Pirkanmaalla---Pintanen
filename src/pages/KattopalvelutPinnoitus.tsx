@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { AlertTriangle } from "lucide-react";
+import { Search } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ProcessAccordion from "@/components/ProcessAccordion";
@@ -9,7 +9,6 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
-import ServiceCTA from "@/components/ServiceCTA";
 import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
@@ -43,7 +42,7 @@ const KattopalvelutPinnoitus = () => {
   return (
     <div>
       <SEO
-        title="Tiilikaton pinnoitus Pirkanmaa & Tampere | 5v takuu"
+        title="Tiilikaton pinnoitus Pirkanmaa & Tampere | 5v takuu | Pintanen"
         description="Tiilikaton pinnoitus Pirkanmaalla. Säästä jopa 80 % vs. kattoremontti! Hyödynnä kotitalousvähennys ja tilaa ilmainen kuntoarvio. 5 vuoden takuu työlle."
       />
 
@@ -53,8 +52,8 @@ const KattopalvelutPinnoitus = () => {
         subtitle="Pysäytä katon rapautuminen ennen kuin on liian myöhäistä"
         backgroundImage={kattoImage}
       >
-        <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg mb-8">
-          Laadukas tiilikaton pinnoitus Pirkanmaalla säästää sinut kalliilta kattoremontilta. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille jopa 10–15 vuotta lisäaikaa.
+        <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg mb-10">
+          Laadukas tiilikaton pinnoitus Pirkanmaalla <strong>säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong>jopa 10–15 vuotta lisäaikaa</strong>.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -109,10 +108,10 @@ const KattopalvelutPinnoitus = () => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Miksi tiilikaton huolto ja pinnoitus on elintärkeää juuri nyt?
+              Miksi tiilikaton pinnoitus on elintärkeää juuri nyt?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Monen pirkanmaalaisen kodin tiilikatto näyttää ulkoisesti hyvältä, vaikka se olisi jo menettänyt suojakykynsä. Tiilen alkuperäinen tehdaspinnoite kuluu pois, ja tiilestä tulee kuin kuiva pesusieni. Tämä on merkki siitä, että katto tarvitsee huoltoa ja pinnoitusta.
+              Monen pirkanmaalaisen kodin tiilikatto näyttää ulkoisesti hyvältä, vaikka se olisi jo menettänyt suojakykynsä. Tiilen alkuperäinen tehdaspinnoite kuluu pois, ja tiilestä tulee <strong className="text-foreground">kuin kuiva pesusieni</strong>. Tämä on merkki siitä, että katto tarvitsee huoltoa ja pinnoitusta.
             </p>
           </motion.div>
 
@@ -134,7 +133,7 @@ const KattopalvelutPinnoitus = () => {
                   Pysäytä katon pakkasrapautuminen ajoissa
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Suomen talvessa tiili kokee kymmeniä jäätymis-sulamissyklejä. Vesi, joka imeytyy huokoisen tiilen sisään, jäätyy ja laajenee, murentaen tiiltä sisältäpäin. Tämä pakkasrapautuminen johtaa vääjäämättä tiilien halkeiluun ja lopulta kalliiseen kattoremonttiin, jos vettä pääsee aluskatteelle ja talon rakenteisiin.
+                  Suomen talvessa tiili kokee kymmeniä jäätymis-sulamissyklejä. Vesi, joka imeytyy huokoisen tiilen sisään, jäätyy ja laajenee, murentaen tiiltä sisältäpäin. Tämä <strong className="text-foreground">pakkasrapautuminen</strong> johtaa vääjäämättä tiilien halkeiluun ja lopulta <strong className="text-foreground">kalliiseen kattoremonttiin</strong>, jos vettä pääsee aluskatteelle ja talon rakenteisiin.
                 </p>
               </motion.div>
 
@@ -143,13 +142,13 @@ const KattopalvelutPinnoitus = () => {
                   Sammaleen poisto on vain puolet ratkaisusta
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Sammal ja jäkälä eivät ole vain ulkonäköhaitta. Ne tunkevat juurensa saumakohtiin ja pitävät katon jatkuvasti märkänä. Pelkkä pesu poistaa näkyvän lian, mutta vain ammattimainen tiilikaton pinnoitus sulkee tiilen huokoset. Se luo katollesi vettä hylkivän ja likaa hylkivän suojakilven, joka kestää vuosia.
+                  Sammal ja jäkälä eivät ole vain ulkonäköhaitta. Ne tunkevat juurensa saumakohtiin ja pitävät katon jatkuvasti märkänä. Pelkkä pesu poistaa näkyvän lian, mutta vain ammattimainen tiilikaton pinnoitus <strong className="text-foreground">sulkee tiilen huokoset</strong>. Se luo katollesi <strong className="text-foreground">vettä hylkivän ja likaa hylkivän suojakilven</strong>, joka kestää vuosia.
                 </p>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <AlertTriangle className="w-5 h-5 text-accent" />
+                  <Search className="w-5 h-5 text-accent" />
                   Huomaatko nämä merkit katollasi? Silloin pinnoituksella on kiire:
                 </h4>
                 <ul className="space-y-3">
@@ -188,10 +187,10 @@ const KattopalvelutPinnoitus = () => {
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, kattoremontti on usein täysin turha ja ylimitoitettu investointi.
+                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
               </p>
               <p>
-                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain noin 10–20 % uuden katon hinnasta. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), säästät kymmeniä tuhansia euroja ja vältät raskaan rakennusprojektin pihan mylläyksineen.
+                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
               </p>
             </div>
           </motion.div>
@@ -210,30 +209,35 @@ const KattopalvelutPinnoitus = () => {
             </p>
           </motion.div>
 
-          {/* Desktop table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full bg-card rounded-2xl overflow-hidden shadow-sm border border-border/50">
-              <thead>
-                <tr className="bg-accent/10">
-                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground">Katon koko (m²)</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground">Arvioitu kesto</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground">Palvelun sisältö</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold text-foreground">Hinta-arvio</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold text-accent">Todellinen hinta (kotitalousvähennys)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {priceRows.map((row, i) => (
-                  <tr key={i} className="border-t border-border/30">
-                    <td className="px-5 py-4 text-foreground font-medium">{row.size}</td>
-                    <td className="px-5 py-4 text-muted-foreground">{row.duration}</td>
-                    <td className="px-5 py-4 text-muted-foreground">{row.content}</td>
-                    <td className="px-5 py-4 text-foreground font-semibold">{row.price}</td>
-                    <td className="px-5 py-4 text-accent font-bold">{row.real}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Desktop pricing cards */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {priceRows.map((row, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl p-6 shadow-sm border border-border/50 flex flex-col"
+              >
+                <p className="text-2xl font-bold text-foreground mb-1">{row.size}</p>
+                <p className="text-sm text-muted-foreground mb-4">{row.duration}</p>
+                <div className="border-t border-border/30 pt-4 mb-4">
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Sisältö</p>
+                  <p className="text-sm text-foreground">{row.content}</p>
+                </div>
+                <div className="mt-auto space-y-3">
+                  <div>
+                    <p className="text-xs text-muted-foreground">Hinta-arvio</p>
+                    <p className="text-lg font-semibold text-foreground">{row.price}</p>
+                  </div>
+                  <div className="bg-accent/10 rounded-xl p-3">
+                    <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
+                    <p className="text-xl font-bold text-accent">{row.real}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Mobile cards */}
@@ -247,14 +251,19 @@ const KattopalvelutPinnoitus = () => {
                 transition={{ delay: i * 0.08 }}
                 className="bg-card rounded-2xl p-5 shadow-sm border border-border/50"
               >
-                <p className="text-lg font-bold text-foreground mb-1">{row.size}</p>
-                <p className="text-sm text-muted-foreground mb-2">{row.duration} · {row.content}</p>
-                <div className="flex justify-between items-end">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <p className="text-lg font-bold text-foreground">{row.size}</p>
+                    <p className="text-sm text-muted-foreground">{row.duration}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">{row.content}</p>
+                <div className="grid grid-cols-2 gap-3">
                   <div>
                     <p className="text-xs text-muted-foreground">Hinta-arvio</p>
                     <p className="text-foreground font-semibold">{row.price}</p>
                   </div>
-                  <div className="text-right">
+                  <div className="bg-accent/10 rounded-xl p-3">
                     <p className="text-xs text-muted-foreground">Kotitalousvähennyksellä</p>
                     <p className="text-accent font-bold">{row.real}</p>
                   </div>
@@ -263,14 +272,32 @@ const KattopalvelutPinnoitus = () => {
             ))}
           </div>
 
-          {/* Financing note */}
+          {/* Price calculator CTA button */}
+          <div className="text-center mt-10">
+            <Link
+              to="/hinnat/tiilikaton-pinnoitus"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
+            >
+              Laske hinta: katon pinnoitus Pirkanmaa
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ KOTITALOUSVÄHENNYS ═══ */}
+      <KotitalousVahennys />
+
+      {/* ═══ JOUSTAVA RAHOITUS ═══ */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-8 bg-card rounded-2xl p-6 border border-border/50 shadow-sm max-w-3xl mx-auto"
+            className="bg-card rounded-2xl p-6 md:p-8 border border-border/50 shadow-sm"
           >
-            <h3 className="text-lg font-bold text-foreground mb-2">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
               Joustava rahoitus – Katon pinnoitus kätevästi kuukausimaksulla
             </h3>
             <p className="text-muted-foreground leading-relaxed">
@@ -279,19 +306,6 @@ const KattopalvelutPinnoitus = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* ═══ KOTITALOUSVÄHENNYS ═══ */}
-      <KotitalousVahennys />
-
-      <div className="py-8 bg-background text-center">
-        <Link
-          to="/hinnat/tiilikaton-pinnoitus"
-          className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-colors"
-          style={{ backgroundColor: "hsl(30, 52%, 90%)", color: "hsl(215, 25%, 15%)" }}
-        >
-          Laske hinta: katon pinnoitus Pirkanmaa
-        </Link>
-      </div>
 
       {/* ═══ ENTREPRENEUR / EERIK ═══ */}
       <section className="section-padding bg-secondary">
@@ -323,13 +337,13 @@ const KattopalvelutPinnoitus = () => {
               />
               <div className="space-y-4 text-muted-foreground leading-relaxed text-center md:text-left">
                 <p>
-                  "Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Isojen yritysten tavoin, meillä et ole vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla henkilökohtaisesti alusta loppuun.
+                  "Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Isojen yritysten tavoin, meillä et ole vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla <strong className="text-foreground">henkilökohtaisesti alusta loppuun</strong>.
                 </p>
                 <p>
-                  Olen tehnyt töitä alalla jo viiden vuoden ajan, ja olen onnistuneesti suorittanut yli 100 urakkaa. Tiedän, miten pirkanmaalaiset katot kestävät vaihtelevia sääolosuhteita.
+                  Minulla on <strong className="text-foreground">5 vuoden vankka kokemus ja yli 100 onnistunutta urakkaa</strong>. Tiedän, miten pirkanmaalaiset katot kestävät vaihtelevia sääolosuhteita.
                 </p>
                 <p>
-                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn laadusta. Tästä syystä voin antaa työlleni 5 vuoden takuun, ja olen siitä ylpeä."
+                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn laadusta. Tästä syystä voin antaa työlleni <strong className="text-foreground">5 vuoden takuun</strong>, ja olen siitä ylpeä."
                 </p>
                 <p className="font-semibold text-foreground">– Eerik, Pintanen Oy</p>
               </div>
@@ -353,12 +367,6 @@ const KattopalvelutPinnoitus = () => {
         </div>
         <ToimintaAlueetBanner />
       </section>
-
-      {/* ═══ FINAL CTA ═══ */}
-      <ServiceCTA
-        title="Kiinnostuitko?"
-        subtitle="Pyydä ilmainen kuntotarkastus tai soita – vastaamme mielellämme kaikkiin kysymyksiisi."
-      />
     </div>
   );
 };
