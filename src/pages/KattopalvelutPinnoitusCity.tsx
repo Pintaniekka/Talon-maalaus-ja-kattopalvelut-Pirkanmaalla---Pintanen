@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, Droplets, Paintbrush, Shield, Clock, BadgeCheck, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import CityServices from "@/components/CityServices";
 import PriceCalculator from "@/components/PriceCalculator";
