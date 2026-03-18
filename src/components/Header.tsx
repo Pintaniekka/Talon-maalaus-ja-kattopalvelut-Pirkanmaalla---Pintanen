@@ -77,9 +77,14 @@ const Header = () => {
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
-    setOpenDropdown(null);
-    setIsMobileMenuOpen(false);
     isHoverLocked.current = true;
+
+    // Pakotetaan valikot kiinni välittömästi ohi Reactin renderöintijonon
+    // ja reitityksen transition-odottelun (lazy loading chunk).
+    flushSync(() => {
+      setOpenDropdown(null);
+      setIsMobileMenuOpen(false);
+    });
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
