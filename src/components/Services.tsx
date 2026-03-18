@@ -20,7 +20,7 @@ const services = [
   },
   {
     title: "Ulkomaalaus",
-    href: "/talon-maalaus",
+    href: "/talon-maalaus-pirkanmaa",
     beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
     afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
     description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
