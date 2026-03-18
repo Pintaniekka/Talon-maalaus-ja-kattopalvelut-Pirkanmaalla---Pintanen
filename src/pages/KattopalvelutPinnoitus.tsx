@@ -18,7 +18,7 @@ const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-j
 
 /* ── Trust-box data ── */
 const trustStats = [
-  { value: "4,9 / 5", label: "Google-arvostelut", sub: "Pirkanmaan tyytyväisimmät asiakkaat." },
+  { value: "⭐️4,9 / 5", label: "Google-arvostelut", sub: "Pirkanmaan tyytyväisimmät asiakkaat." },
   { value: "Yli 100", label: "Pinnoitettua kattoa", sub: "Olen tehnyt jokaisen urakan henkilökohtaisesti." },
   { value: "+5 vuotta", label: "Kokemusta alalta", sub: "Tiedän, miten suomalainen tiilikatto saadaan kestämään." },
   { value: "5 vuotta", label: "Takuu työlle", sub: "Seison yrittäjänä oman jäljen takana." },
@@ -26,9 +26,30 @@ const trustStats = [
 
 /* ── Pricing cards ── */
 const pricingCards = [
-  { size: "150–180 m²", label: "Pieni/keskisuuri koti", duration: "2 työpäivää", normalPrice: "2 850 € – 3 200 €", afterPrice: "alk. 2 150 €", featured: false },
-  { size: "190–240 m²", label: "Yleisin kattokoko", duration: "2–3 työpäivää", normalPrice: "3 300 € – 3 700 €", afterPrice: "alk. 2 480 €", featured: true },
-  { size: "250–300 m²", label: "Suuri omakotitalo", duration: "2–4 työpäivää", normalPrice: "3 750 € – 4 880 €", afterPrice: "alk. 2 800 €", featured: false },
+  {
+    size: "150–180 m²",
+    label: "Pieni/keskisuuri koti",
+    duration: "2 työpäivää",
+    normalPrice: "2 850 € – 3 200 €",
+    afterPrice: "alk. 2 150 €",
+    featured: false,
+  },
+  {
+    size: "190–240 m²",
+    label: "Yleisin kattokoko",
+    duration: "2–3 työpäivää",
+    normalPrice: "3 300 € – 3 700 €",
+    afterPrice: "alk. 2 480 €",
+    featured: true,
+  },
+  {
+    size: "250–300 m²",
+    label: "Suuri omakotitalo",
+    duration: "2–4 työpäivää",
+    normalPrice: "3 750 € – 4 880 €",
+    afterPrice: "alk. 2 800 €",
+    featured: false,
+  },
 ];
 
 const pricingIncludes = [
@@ -55,18 +76,17 @@ const KattopalvelutPinnoitus = () => {
       />
 
       {/* ═══ HERO ═══ */}
-      <ServicePageHero
-        title=""
-        subtitle=""
-        backgroundImage={kattoImage}
-      >
+      <ServicePageHero title="" subtitle="" backgroundImage={kattoImage}>
         {/* Glassmorphism container for H1 + body text */}
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
             Tiilikaton pinnoitus Pirkanmaa
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
-            Pysäytä katon rapautuminen ennen kuin on liian myöhäistä. Laadukas tiilikaton pinnoitus Pirkanmaalla <strong className="text-primary-foreground">säästää sinut kalliilta kattoremontilta</strong>. Pintasen ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille <strong className="text-primary-foreground">jopa 10–15 vuotta lisäaikaa</strong>.
+            Pysäytä katon rapautuminen ennen kuin on liian myöhäistä. Laadukas tiilikaton pinnoitus Pirkanmaalla{" "}
+            <strong className="text-primary-foreground">säästää sinut kalliilta kattoremontilta</strong>. Pintasen
+            ammattimainen pesu ja pinnoitus palauttavat katon loiston ja antavat sille{" "}
+            <strong className="text-primary-foreground">jopa 10–15 vuotta lisäaikaa</strong>.
           </p>
         </div>
 
@@ -127,7 +147,10 @@ const KattopalvelutPinnoitus = () => {
               Miksi tiilikaton pinnoitus on elintärkeää juuri nyt?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Monen pirkanmaalaisen kodin tiilikatto näyttää ulkoisesti hyvältä, vaikka se olisi jo menettänyt suojakykynsä. Tiilen alkuperäinen tehdaspinnoite kuluu pois, ja tiilestä tulee <strong className="text-foreground">kuin kuiva pesusieni</strong>. Tämä on merkki siitä, että katto tarvitsee huoltoa ja pinnoitusta.
+              Monen pirkanmaalaisen kodin tiilikatto näyttää ulkoisesti hyvältä, vaikka se olisi jo menettänyt
+              suojakykynsä. Tiilen alkuperäinen tehdaspinnoite kuluu pois, ja tiilestä tulee{" "}
+              <strong className="text-foreground">kuin kuiva pesusieni</strong>. Tämä on merkki siitä, että katto
+              tarvitsee huoltoa ja pinnoitusta.
             </p>
           </motion.div>
 
@@ -149,7 +172,11 @@ const KattopalvelutPinnoitus = () => {
                   Pysäytä katon pakkasrapautuminen ajoissa
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Suomen talvessa tiili kokee kymmeniä jäätymis-sulamissyklejä. Vesi, joka imeytyy huokoisen tiilen sisään, jäätyy ja laajenee, murentaen tiiltä sisältäpäin. Tämä <strong className="text-foreground">pakkasrapautuminen</strong> johtaa vääjäämättä tiilien halkeiluun ja lopulta <strong className="text-foreground">kalliiseen kattoremonttiin</strong>, jos vettä pääsee aluskatteelle ja talon rakenteisiin.
+                  Suomen talvessa tiili kokee kymmeniä jäätymis-sulamissyklejä. Vesi, joka imeytyy huokoisen tiilen
+                  sisään, jäätyy ja laajenee, murentaen tiiltä sisältäpäin. Tämä{" "}
+                  <strong className="text-foreground">pakkasrapautuminen</strong> johtaa vääjäämättä tiilien halkeiluun
+                  ja lopulta <strong className="text-foreground">kalliiseen kattoremonttiin</strong>, jos vettä pääsee
+                  aluskatteelle ja talon rakenteisiin.
                 </p>
               </motion.div>
 
@@ -158,7 +185,11 @@ const KattopalvelutPinnoitus = () => {
                   Sammaleen poisto on vain puolet ratkaisusta
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Sammal ja jäkälä eivät ole vain ulkonäköhaitta. Ne tunkevat juurensa saumakohtiin ja pitävät katon jatkuvasti märkänä. Pelkkä pesu poistaa näkyvän lian, mutta vain ammattimainen tiilikaton pinnoitus <strong className="text-foreground">sulkee tiilen huokoset</strong>. Se luo katollesi <strong className="text-foreground">vettä hylkivän ja likaa hylkivän suojakilven</strong>, joka kestää vuosia.
+                  Sammal ja jäkälä eivät ole vain ulkonäköhaitta. Ne tunkevat juurensa saumakohtiin ja pitävät katon
+                  jatkuvasti märkänä. Pelkkä pesu poistaa näkyvän lian, mutta vain ammattimainen tiilikaton pinnoitus{" "}
+                  <strong className="text-foreground">sulkee tiilen huokoset</strong>. Se luo katollesi{" "}
+                  <strong className="text-foreground">vettä hylkivän ja likaa hylkivän suojakilven</strong>, joka kestää
+                  vuosia.
                 </p>
               </motion.div>
 
@@ -203,10 +234,19 @@ const KattopalvelutPinnoitus = () => {
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
+                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja
+                puurakenteet ovat kunnossa,{" "}
+                <strong className="text-foreground">
+                  kattoremontti on usein täysin turha ja ylimitoitettu investointi
+                </strong>
+                .
               </p>
               <p>
-                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
+                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain{" "}
+                <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään
+                ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut),{" "}
+                <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan
+                rakennusprojektin pihan mylläyksineen.
               </p>
             </div>
           </motion.div>
@@ -216,12 +256,18 @@ const KattopalvelutPinnoitus = () => {
       {/* ═══ PRICING TABLE ═══ */}
       <section className="section-padding bg-secondary">
         <div className="section-container max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
               Paljonko maksaa tiilikaton pinnoitus Pirkanmaalla?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
+              Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon
+              jyrkkyyden ja lähtökunnon perusteella.
             </p>
           </motion.div>
 
@@ -235,9 +281,7 @@ const KattopalvelutPinnoitus = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className={`relative bg-card rounded-2xl shadow-sm flex flex-col overflow-hidden ${
-                  card.featured
-                    ? "border-2 border-accent md:scale-105 md:shadow-lg"
-                    : "border border-border/50"
+                  card.featured ? "border-2 border-accent md:scale-105 md:shadow-lg" : "border border-border/50"
                 }`}
               >
                 {/* Featured badge */}
@@ -254,9 +298,7 @@ const KattopalvelutPinnoitus = () => {
 
                   {/* Prices */}
                   <div className="mb-5">
-                    <p className="text-sm line-through text-muted-foreground/60 mb-1">
-                      Norm. {card.normalPrice}
-                    </p>
+                    <p className="text-sm line-through text-muted-foreground/60 mb-1">Norm. {card.normalPrice}</p>
                     <p className="text-3xl md:text-4xl font-bold text-accent">{card.afterPrice}</p>
                     <p className="text-xs text-muted-foreground mt-1">kotitalousvähennyksen jälkeen</p>
                   </div>
@@ -281,9 +323,7 @@ const KattopalvelutPinnoitus = () => {
                   <a
                     href="#yhteystiedot"
                     className={`inline-flex items-center justify-center w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-sm ${
-                      card.featured
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-primary text-primary-foreground"
+                      card.featured ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
                     }`}
                   >
                     Pyydä tarjous tästä
@@ -322,7 +362,9 @@ const KattopalvelutPinnoitus = () => {
               Joustava rahoitus – Katon pinnoitus kätevästi kuukausimaksulla
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Katon huoltoa ei kannata lykätä säästöjä odotellessa, sillä vesivahinko tai kattoremontti on aina kalliimpi vaihtoehto. Kauttamme saat joustavan rahoituksen, jolla voit maksaa pinnoituksen sinulle sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
+              Katon huoltoa ei kannata lykätä säästöjä odotellessa, sillä vesivahinko tai kattoremontti on aina
+              kalliimpi vaihtoehto. Kauttamme saat joustavan rahoituksen, jolla voit maksaa pinnoituksen sinulle
+              sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
             </p>
           </motion.div>
         </div>
@@ -337,7 +379,9 @@ const KattopalvelutPinnoitus = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent">Kuka katollasi kiipeää? Terveiset yrittäjältä</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent">
+              Kuka katollasi kiipeää? Terveiset yrittäjältä
+            </h2>
           </motion.div>
 
           <motion.div
@@ -358,13 +402,19 @@ const KattopalvelutPinnoitus = () => {
               />
               <div className="space-y-4 text-muted-foreground leading-relaxed text-center md:text-left">
                 <p>
-                  "Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Isojen yritysten tavoin, meillä et ole vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla <strong className="text-foreground">henkilökohtaisesti alusta loppuun</strong>.
+                  "Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Isojen yritysten tavoin, meillä et ole
+                  vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla{" "}
+                  <strong className="text-foreground">henkilökohtaisesti alusta loppuun</strong>.
                 </p>
                 <p>
-                  Minulla on <strong className="text-foreground">5 vuoden vankka kokemus ja yli 100 onnistunutta urakkaa</strong>. Tiedän, miten pirkanmaalaiset katot kestävät vaihtelevia sääolosuhteita.
+                  Minulla on{" "}
+                  <strong className="text-foreground">5 vuoden vankka kokemus ja yli 100 onnistunutta urakkaa</strong>.
+                  Tiedän, miten pirkanmaalaiset katot kestävät vaihtelevia sääolosuhteita.
                 </p>
                 <p>
-                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn laadusta. Tästä syystä voin antaa työlleni <strong className="text-foreground">5 vuoden takuun</strong>, ja olen siitä ylpeä."
+                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn
+                  laadusta. Tästä syystä voin antaa työlleni{" "}
+                  <strong className="text-foreground">5 vuoden takuun</strong>, ja olen siitä ylpeä."
                 </p>
                 <p className="font-semibold text-foreground">– Eerik, Pintanen Oy</p>
               </div>
