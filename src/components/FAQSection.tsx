@@ -58,9 +58,8 @@ const FAQSection = ({ items }: FAQSectionProps) => {
                   >
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-base leading-relaxed pb-5 pt-3 text-[#333]">
-                    {item.answer}
-                  </AccordionContent>
+                  <AccordionContent className="text-base leading-relaxed pb-5 pt-3 text-[#333]" dangerouslySetInnerHTML={{ __html: item.answer }} />
+
                 </AccordionItem>
               ))}
             </Accordion>
