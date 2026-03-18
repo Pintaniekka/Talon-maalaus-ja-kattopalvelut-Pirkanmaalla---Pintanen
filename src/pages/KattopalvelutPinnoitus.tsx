@@ -80,7 +80,7 @@ const KattopalvelutPinnoitus = () => {
             Pyydä maksuton kuntotarkastus
           </a>
           <Link
-            to="/hinnat/tiilikaton-pinnoitus"
+            to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
             style={{ backgroundColor: "hsla(30, 52%, 90%, 0.15)" }}
           >
