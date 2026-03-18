@@ -39,9 +39,13 @@ const Header = () => {
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
-  function closeNavigationMenus() {
-    setIsMobileMenuOpen(false);
-    setOpenDropdown(null);
+  function closeNavigationMenus(event?: MouseEvent<HTMLElement>) {
+    event?.currentTarget.blur();
+
+    flushSync(() => {
+      setIsMobileMenuOpen(false);
+      setOpenDropdown(null);
+    });
   }
 
   useEffect(() => {
@@ -289,6 +293,7 @@ const Header = () => {
               })}
               <a
                 href="#yhteystiedot"
+                onClick={closeNavigationMenus}
                 className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-primary text-primary-foreground rounded-xl font-semibold"
               >
                 Pyydä tarjous
