@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, Paintbrush, Shield, Clock, BadgeCheck, Home, Sun, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-import ServiceCTA from "@/components/ServiceCTA";
+
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import CityServices from "@/components/CityServices";
@@ -192,7 +192,6 @@ const TalonMaalausCity = () => {
       <CityServices cityName={cityData.name} citySlug={city!} />
       <ServiceContactSection variant="maalaus" cityName={cityData.name} />
       <KotitalousVahennys />
-      <ServiceCTA />
     </div>
   );
 };

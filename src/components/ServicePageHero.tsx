@@ -36,22 +36,26 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, c
 
       {/* Content */}
       <div className="relative z-[2] section-container text-center text-primary-foreground pt-24 pb-16">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-5xl mx-auto"
-        >
-          {title}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto italic"
-        >
-          {subtitle}
-        </motion.p>
+        {title && (
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-5xl mx-auto"
+          >
+            {title}
+          </motion.h1>
+        )}
+        {subtitle && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto italic"
+          >
+            {subtitle}
+          </motion.p>
+        )}
         {children && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}

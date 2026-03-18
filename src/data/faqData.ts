@@ -5,16 +5,28 @@ interface FAQItem {
 
 export const pinnoitusFAQ: FAQItem[] = [
   {
-    question: 'Miksi tiilikatto kannattaa pinnoittaa pelkän pesun sijaan?',
-    answer: 'Tiilen alkuperäisen tehdaspinnoitteen kuluessa huokoinen tiili altistuu kosteudelle ja sammaloitumiselle. Tämä johtaa Suomen sääolosuhteissa tuhoisaan pakkasrapautumiseen. Pinnoitus antaa katollesi uuden vettähylkivän suojan ja pidentää sen elinkaarta jopa 10–15 vuotta, mikä voi säästää kymmeniä tuhansia euroja verrattuna kokonaiseen kattoremonttiin.',
+    question: 'Saako tiilikaton pinnoituksesta kotitalousvähennystä?',
+    answer: 'Kyllä saa! Tiilikaton pesu ja pinnoitus oikeuttavat merkittävään kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> suoraan henkilökohtaisessa verotuksessasi. Koska pinnoitusurakoissa työn osuus on tyypillisesti <strong>jopa 80 % kokonaishinnasta</strong>, vähennyksen tuoma säästö on usein noin tuhat euroa. Puolisot voivat hyödyntää vähennyksen yhdessä, jolloin <strong>maksimietu on jopa 3 200 euroa vuodessa</strong>.',
   },
   {
-    question: 'Mitä tiilikaton pinnoitusprosessi sisältää?',
-    answer: 'Palvelumme on huoleton "avaimet käteen" -malli. Prosessi sisältää maksuttoman arviokäynnin, pihan suojauksen, katon pesun, rikkinäisten tiilten vaihdon, kasvustontorjunta-aineen levityksen sekä kestävän kaksikerroksisen pinnoituksen. Lopuksi teemme huolellisen loppusiivouksen ja lopputarkastuksen.',
+    question: 'Mitä tiilikaton pinnoitus maksaa?',
+    answer: 'Tiilikaton pinnoituksen hinta asettuu tyypillisesti 2 850 € ja 4 880 € välille katon koosta ja jyrkkyydestä riippuen. Lopullinen kustannus asiakkaalle on kuitenkin huomattavasti edullisempi kotitalousvähennyksen ansiosta – jopa alle 2 200 €. Hintamme sisältävät aina avaimet käteen -toteutuksen ja loppusiivouksen.',
   },
   {
-    question: 'Paljonko tiilikaton pinnoitus maksaa?',
-    answer: 'Hinta riippuu katon koosta, jyrkkyydestä ja kunnosta. Esimerkiksi tyypillisen 200 m² omakotitalon loivan katon perushuolto ja pinnoitus maksaa meillä noin 2800–3 200 euroa. Työn osuus on urakassa merkittävä, ja tästä osuudesta voit hakea kotitalousvähennystä verotuksessasi. (Laskuri alla)',
+    question: 'Voiko tiilikaton pinnoitustyön maksaa osissa?',
+    answer: 'Kyllä voi! Tarjoamme asiakkaillemme joustavan maksujärjestelyn. Näin voit jakaa työn kustannukset pienemmiksi, kuukausittain maksettaviksi osiksi. Katon huoltoa ei kannata lykätä säästöjen vuoksi. Ajoissa tehty pinnoitustyö on aina edullisempi kuin kallis kattoremontti, joka voi tulla tarpeeseen, jos odottaa liian kauan.',
+  },
+  {
+    question: 'Kuinka kauan tiilikaton pinnoitus kestää?',
+    answer: 'Tyypillisen omakotitalon (noin 150–200 m²) tiilikaton pesu ja pinnoitus kestää noin <strong>2–4 työpäivää</strong> sääolosuhteista riippuen. Työ pitää sisällään huolelliset pohjatyöt (kuten korkeapainepesun ja torjunta-ainekäsittelyn), riittävän kuivumisajan sekä kaksinkertaisen ruiskumaalauksen.',
+  },
+  {
+    question: 'Milloin tiilikatto pitää pinnoittaa?',
+    answer: 'Katto on syytä huoltaa ja pinnoittaa, kun tiilen alkuperäinen tehdaspinnoite on kulunut tai haalistunut, pinta tuntuu huokoiselta ja sammalta alkaa kertyä nopeasti. Yleensä tämä on ajankohtaista, kun katto on noin 10–15 vuotta vanha. Ajoissa tehty huolto estää pakkasrapautumisen ja pelastaa kalliilta kattoremontilta.',
+  },
+  {
+    question: 'Voiko tiilikaton pinnoittaa itse vai kannattaako käyttää ammattilaista?',
+    answer: 'Teknisesti katon voi pestä ja maalata itse, mutta kestävän ammattitason tuloksen saavuttaminen on erittäin vaikeaa ilman oikeaa kalustoa. Väärät menetelmät voivat vahingoittaa vanhaa kattoa, ja ilman ammattitason kasvustonestoainetta sammal tunkee nopeasti uuden maalin läpi. Ammattilaisen tekemälle pinnoitukselle saat <strong>5 vuoden kirjallisen takuun</strong>, ja <strong>vain ammattilaisen työstä voi hakea kotitalousvähennystä</strong>.',
   },
 ];
 
