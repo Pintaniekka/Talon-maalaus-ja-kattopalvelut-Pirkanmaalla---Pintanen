@@ -112,16 +112,28 @@ export const getMaalausCityFAQ = (cityName: string): FAQItem[] => [
 
 export const getPinnoitusCityFAQ = (cityName: string): FAQItem[] => [
   {
-    question: 'Riittääkö tiilikaton pesu vai pitääkö katto myös pinnoittaa?',
-    answer: 'Pelkkä korkeapainepesu puhdistaa kyllä katon, mutta se avaa samalla tiilen huokoset ja heikentää alkuperäistä suojaa. Siksi suosittelemme aina pesun jälkeistä oikeaa pinnoitusta. Uusi tehdasvärjätty pinnoite tukkii tiilen huokoset, jolloon vesi ei pääse jäätymään tiilen sisälle (pakkasrapautuminen).',
+    question: `Saako tiilikaton pinnoituksesta kotitalousvähennystä?`,
+    answer: `Kyllä saa! Tiilikaton pesu ja pinnoitus oikeuttavat merkittävään kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> suoraan henkilökohtaisessa verotuksessasi. Koska pinnoitusurakoissa työn osuus on tyypillisesti <strong>jopa 80 % kokonaishinnasta</strong>, vähennyksen tuoma säästö on usein yli tuhat euroa. Puolisot voivat hyödyntää vähennyksen yhdessä, jolloin <strong>maksimietu on jopa 3 200 euroa vuodessa</strong>.`,
   },
   {
-    question: 'Miten tiilikaton huolto ja pinnoittaminen käytännössä etenee?',
-    answer: `Hoidamme kattotyöt ${cityName} ja lähialueilla täysin avaimet käteen -periaatteella. Aloitamme tarvittavilla suojaustöillä, minkä jälkeen katto pestään ja rikkinäiset tiilet vaihdetaan. Tämän jälkeen levitämme sammaleenpoistoaineen ja pinnoitamme katon kaksi kertaa. Lopuksi siivoamme jälkemme huolellisesti.`,
+    question: `Mitä tiilikaton pinnoitus maksaa?`,
+    answer: `Tiilikaton pinnoituksen hinta asettuu tyypillisesti 2 850 € ja 4 880 € välille katon koosta ja jyrkkyydestä riippuen. Lopullinen kustannus asiakkaalle on kuitenkin huomattavasti edullisempi yllä mainitun kotitalousvähennyksen ansiosta – jopa alle 2 200 €. Hintamme sisältää aina avaimet käteen -toteutuksen ja loppusiivouksen.`,
   },
   {
-    question: 'Kuinka paljon tiilikaton pinnoitus maksaa ja saako työtä kotitalousvähennykseen?',
-    answer: 'Kustannukset riippuvat aina katon koosta ja jyrkkyydestä. Esimerkiksi tavallisen noin 200 neliön loivan omakotitalon katon perushuolto ja pinnoitus on hinnaltaan noin 2 800–3200 euroa. Laskuun eritellään työn osuus, jolloin voit hyödyntää verotuksessasi merkittävän kotitalousvähennyksen. Tämä laskee urakan todellista hintaa huomattavasti.',
+    question: `Voiko tiilikaton pinnoitustyön maksaa osissa?`,
+    answer: `Kyllä voi! Tarjoamme asiakkaillemme joustavan maksujärjestelyn. Näin voit jakaa työn kustannukset pienemmiksi, kuukausittain maksettaviksi osiksi. Katon huoltoa ei kannata lykätä säästöjen vuoksi. Ajoissa tehty pinnoitustyö on aina edullisempi kuin kallis kattoremontti, joka voi tulla tarpeeseen, jos odottaa liian kauan.`,
+  },
+  {
+    question: `Kuinka kauan tiilikaton pinnoitus kestää?`,
+    answer: `Tyypillisen omakotitalon (noin 150–200 m²) tiilikaton pesu ja pinnoitus kestää noin <strong>2–4 työpäivää</strong> sääolosuhteista riippuen. Työ pitää sisällään huolelliset pohjatyöt (kuten korkeapainepesun ja torjunta-ainekäsittelyn), riittävän kuivumisajan sekä kaksinkertaisen ruiskumaalauksen.`,
+  },
+  {
+    question: `Milloin tiilikatto pitää pinnoittaa?`,
+    answer: `Katto on syytä huoltaa ja pinnoittaa, kun tiilen alkuperäinen tehdaspinnoite on kulunut tai haalistunut, pinta tuntuu huokoiselta ja sammalta alkaa kertyä nopeasti. Yleensä tämä on ajankohtaista, kun katto on noin 10–15 vuotta vanha. Ajoissa tehty huolto estää pakkasrapautumisen ja pelastaa kalliilta kattoremontilta.`,
+  },
+  {
+    question: `Voiko tiilikaton pinnoittaa itse vai kannattaako käyttää ammattilaista?`,
+    answer: `Teknisesti katon voi pestä ja maalata itse, mutta kestävän ammattitason tuloksen saavuttaminen on erittäin vaikeaa ilman oikeaa kalustoa. Väärät menetelmät voivat vahingoittaa vanhaa kattoa, ja ilman ammattitason kasvustonestoainetta sammal tunkee nopeasti uuden maalin läpi. Ammattilaisen tekemälle pinnoitukselle saat <strong>5 vuoden kirjallisen takuun</strong>, ja <strong>vain ammattilaisen työstä voi hakea kotitalousvähennystä</strong>.`,
   },
 ];
 
