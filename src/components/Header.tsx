@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -76,9 +77,14 @@ const Header = () => {
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
-    setOpenDropdown(null);
-    setIsMobileMenuOpen(false);
     isHoverLocked.current = true;
+
+    // Pakotetaan valikot kiinni välittömästi ohi Reactin renderöintijonon
+    // ja reitityksen transition-odottelun (lazy loading chunk).
+    flushSync(() => {
+      setOpenDropdown(null);
+      setIsMobileMenuOpen(false);
+    });
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
