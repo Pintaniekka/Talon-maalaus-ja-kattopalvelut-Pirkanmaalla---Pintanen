@@ -70,8 +70,8 @@ const Contact = () => {
                 Pintanen Oy
               </h3>
               <p className="text-primary-foreground/70 mb-8">
-                <Link to="/kattopalvelut/pinnoitus" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
-                Toiminta-alue: <Link to="/kattopalvelut/pinnoitus" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Pirkanmaa</Link> ja ympäröivät kunnat.
+                <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
+                Toiminta-alue: <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Pirkanmaa</Link> ja ympäröivät kunnat.
               </p>
             </div>
 
