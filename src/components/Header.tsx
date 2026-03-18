@@ -21,18 +21,18 @@ const Header = () => {
       label: "Palvelut",
       href: "#",
       dropdown: [
-        { label: "Tiilikaton pinnoitus", href: "/kattopalvelut/pinnoitus" },
-        { label: "Katon puhdistus", href: "/kattopalvelut/puhdistus" },
-        { label: "Ulkomaalaus", href: "/talon-maalaus" },
+        { label: "Tiilikaton pinnoitus", href: "/tiilikaton-pinnoitus-pirkanmaa" },
+        { label: "Katon puhdistus", href: "/katon-puhdistus-pirkanmaa" },
+        { label: "Ulkomaalaus", href: "/talon-maalaus-pirkanmaa" },
       ],
     },
     {
       label: "Hinnat & Laskuri",
-      href: "/hinnat",
+      href: "/maalauspalvelut-hinta-pirkanmaa",
       dropdown: [
-        { label: "Tiilikaton pinnoitus hinta", href: "/hinnat/tiilikaton-pinnoitus" },
-        { label: "Katon puhdistus hinta", href: "/hinnat/katon-puhdistus" },
-        { label: "Talon maalaus hinta", href: "/hinnat/talon-maalaus" },
+        { label: "Tiilikaton pinnoitus hinta", href: "/tiilikaton-pinnoitus-hinta-pirkanmaa" },
+        { label: "Katon puhdistus hinta", href: "/katon-puhdistus-hinta-pirkanmaa" },
+        { label: "Talon maalaus hinta", href: "/talon-maalaus-hinta-pirkanmaa" },
       ],
     },
     { label: "Referenssit", href: "/referenssit" },
@@ -71,7 +71,6 @@ const Header = () => {
       setIsMobileMenuOpen(false);
     });
 
-    // Lukon vapauttaja – laukeaa aina klikattaessa, riippumatta reitin muutoksesta
     const unlockHover = () => {
       isHoverLocked.current = false;
       window.removeEventListener("mousemove", unlockHover);

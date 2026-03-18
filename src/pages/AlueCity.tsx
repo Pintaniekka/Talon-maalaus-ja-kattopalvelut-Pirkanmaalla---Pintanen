@@ -18,8 +18,9 @@ const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-
 const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
-const AlueCity = () => {
-  const { city } = useParams<{ city: string }>();
+const AlueCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
+  const { city: paramCity } = useParams<{ city: string }>();
+  const city = propSlug || paramCity;
   const cityData = city ? getCityBySlug(city) : undefined;
 
   if (!cityData) return <Navigate to="/toiminta-alueet" replace />;
@@ -29,7 +30,7 @@ const AlueCity = () => {
   const services = [
     {
       title: `Tiilikaton pinnoitus`,
-      href: hasSubPages ? `/kattopalvelut/pinnoitus/${cityData.slug}` : '/kattopalvelut/pinnoitus',
+      href: hasSubPages ? `/tiilikaton-pinnoitus-${cityData.slug}` : '/tiilikaton-pinnoitus-pirkanmaa',
       description: "Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15–20 vuotta ja suojaa tiiliä rapautumiselta.",
       warranty: "5v takuu",
       bgImage: pinnoitusBg,
@@ -37,7 +38,7 @@ const AlueCity = () => {
     },
     {
       title: `Tiilikaton puhdistus`,
-      href: hasSubPages ? `/kattopalvelut/puhdistus/${cityData.slug}` : '/kattopalvelut/puhdistus',
+      href: hasSubPages ? `/katon-puhdistus-${cityData.slug}` : '/katon-puhdistus-pirkanmaa',
       description: "Mekaaninen puhdistus ja sammaleentorjuntakäsittely pitävät katon kunnossa vuosiksi eteenpäin.",
       warranty: "Ilmainen tarkastus",
       bgImage: puhdistusBg,
@@ -45,7 +46,7 @@ const AlueCity = () => {
     },
     {
       title: `Talon maalaus`,
-      href: hasSubPages ? `/talon-maalaus/${cityData.slug}` : '/talon-maalaus',
+      href: hasSubPages ? `/talon-maalaus-${cityData.slug}` : '/talon-maalaus-pirkanmaa',
       description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
       warranty: "2v takuu",
       bgImage: maalausBg,

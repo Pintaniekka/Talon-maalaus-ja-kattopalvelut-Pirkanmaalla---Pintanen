@@ -9,7 +9,7 @@ import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
 const services = [
   {
     title: "Tiilikaton pinnoitus",
-    href: "/kattopalvelut/pinnoitus",
+    href: "/tiilikaton-pinnoitus-pirkanmaa",
     beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
     afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
     description: "Vanha tiilikatto uuteen uskoon. Katto pestään ja päälle tulee 2-kerroksinen pinnoite.",
@@ -20,7 +20,7 @@ const services = [
   },
   {
     title: "Ulkomaalaus",
-    href: "/talon-maalaus",
+    href: "/talon-maalaus-pirkanmaa",
     beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
     afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
     description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
@@ -97,8 +97,8 @@ const Services = () => {
           <div
             role="link"
             tabIndex={0}
-            onClick={() => navigate("/kattopalvelut/puhdistus")}
-            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/kattopalvelut/puhdistus"); }}
+            onClick={() => navigate("/katon-puhdistus-pirkanmaa")}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/katon-puhdistus-pirkanmaa"); }}
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
             <OptimizedImage

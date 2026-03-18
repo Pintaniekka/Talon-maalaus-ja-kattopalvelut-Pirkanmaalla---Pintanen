@@ -70,8 +70,8 @@ const Contact = () => {
                 Pintanen Oy
               </h3>
               <p className="text-primary-foreground/70 mb-8">
-                <Link to="/kattopalvelut/pinnoitus" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
-                Toiminta-alue: <Link to="/kattopalvelut/pinnoitus" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Pirkanmaa</Link> ja ympäröivät kunnat.
+                <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Tiilikattojen pinnoitukset</Link> ja ulkomaalaukset ammattitaidolla. 
+                Toiminta-alue: <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">Pirkanmaa</Link> ja ympäröivät kunnat.
               </p>
             </div>
 
@@ -96,7 +96,7 @@ const Contact = () => {
                 </div>
               </a>
 
-              <Link to="/kattopalvelut/pinnoitus" className="flex items-center gap-4 p-5 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group border border-white/10">
+              <Link to="/tiilikaton-pinnoitus-pirkanmaa" className="flex items-center gap-4 p-5 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group border border-white/10">
                 <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6 text-accent" />
                 </div>

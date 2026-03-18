@@ -24,7 +24,7 @@ const serviceCards = [
     description:
       "Katso tarkat hintaesimerkit erikokoisille kohteille, hintavertailu ja lue, mistä pinnoituksen hinta koostuu.",
     cta: "Katso pinnoituksen hintaesimerkit",
-    href: "/hinnat/tiilikaton-pinnoitus",
+    href: "/tiilikaton-pinnoitus-hinta-pirkanmaa",
     warranty: "5v takuu",
     bgImage: pinnoitusBg,
     Icon: RoofTileIcon,
@@ -33,7 +33,7 @@ const serviceCards = [
     title: "Katon puhdistus",
     description: "Säännöllinen puhdistus ja suojakäsittely säästää kattoa. Katso edulliset alkaen-hintamme.",
     cta: "Katso puhdistuksen hinnasto",
-    href: "/hinnat/katon-puhdistus",
+    href: "/katon-puhdistus-hinta-pirkanmaa",
     warranty: "Ilmainen tarkastus",
     bgImage: puhdistusBg,
     Icon: RoofCleanIcon,
@@ -43,7 +43,7 @@ const serviceCards = [
     description:
       "Tutustu ulkomaalauksen neliöhintoihin, pohjatöiden vaikutuksiin ja katso esimerkkilaskelmat puutaloille.",
     cta: "Katso maalauksen hintaesimerkit",
-    href: "/hinnat/talon-maalaus",
+    href: "/talon-maalaus-hinta-pirkanmaa",
     warranty: "2v takuu",
     bgImage: maalausBg,
     Icon: PaintBrushIcon,

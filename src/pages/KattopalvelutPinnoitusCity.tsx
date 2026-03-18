@@ -16,11 +16,12 @@ import { getCityBySlug } from "@/data/cityData";
 
 const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
 
-const KattopalvelutPinnoitusCity = () => {
-  const { city } = useParams<{ city: string }>();
+const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
+  const { city: paramCity } = useParams<{ city: string }>();
+  const city = propSlug || paramCity;
   const cityData = city ? getCityBySlug(city) : undefined;
 
-  if (!cityData) return <Navigate to="/kattopalvelut/pinnoitus" replace />;
+  if (!cityData) return <Navigate to="/tiilikaton-pinnoitus-pirkanmaa" replace />;
 
   const processSteps = [
     {

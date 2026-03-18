@@ -15,11 +15,12 @@ import { getCityBySlug } from "@/data/cityData";
 
 const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
-const TalonMaalausCity = () => {
-  const { city } = useParams<{ city: string }>();
+const TalonMaalausCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
+  const { city: paramCity } = useParams<{ city: string }>();
+  const city = propSlug || paramCity;
   const cityData = city ? getCityBySlug(city) : undefined;
 
-  if (!cityData) return <Navigate to="/talon-maalaus" replace />;
+  if (!cityData) return <Navigate to="/talon-maalaus-pirkanmaa" replace />;
 
   const processSteps = [
     { icon: Home, title: "Kunnon arviointi", description: "Arvioimme talon pintojen kunnon ja annamme pitävän tarjouksen." },

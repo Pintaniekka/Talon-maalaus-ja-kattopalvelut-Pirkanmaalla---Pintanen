@@ -141,7 +141,7 @@ const HinnatKatonPuhdistus = () => {
               <p>Katon kunto vaatii joskus laajempaa huolenpitoa. Tutustu myös tiilikaton pinnoituksen hintoihin.</p>
             </div>
             <div className="mt-6 text-center">
-              <Link to="/hinnat/tiilikaton-pinnoitus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+              <Link to="/tiilikaton-pinnoitus-hinta-pirkanmaa" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
                 Katso tiilikaton pinnoituksen hintaesimerkit <ArrowRight className="w-5 h-5" />
               </Link>
             </div>

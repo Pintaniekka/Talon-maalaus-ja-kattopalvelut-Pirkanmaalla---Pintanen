@@ -32,7 +32,7 @@ const ToimintaAlueetSection = () => {
               transition={{ delay: index * 0.02 }}
             >
               <Link
-                to={`/alue/${city.slug}`}
+                to={`/maalauspalvelut-${city.slug}`}
                 className="flex items-center justify-between gap-1 bg-secondary text-secondary-foreground px-3 py-2.5 rounded-full text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors group"
               >
                 <span>{city.name}</span>
