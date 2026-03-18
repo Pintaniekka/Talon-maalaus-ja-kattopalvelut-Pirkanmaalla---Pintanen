@@ -24,7 +24,7 @@ const serviceCards = [
     description:
       "Katso tarkat hintaesimerkit erikokoisille kohteille, hintavertailu ja lue, mistä pinnoituksen hinta koostuu.",
     cta: "Katso pinnoituksen hintaesimerkit",
-    href: "/hinnat/tiilikaton-pinnoitus",
+    href: "/tiilikaton-pinnoitus-hinta-pirkanmaa",
     warranty: "5v takuu",
     bgImage: pinnoitusBg,
     Icon: RoofTileIcon,
