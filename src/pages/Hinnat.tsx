@@ -43,7 +43,7 @@ const serviceCards = [
     description:
       "Tutustu ulkomaalauksen neliöhintoihin, pohjatöiden vaikutuksiin ja katso esimerkkilaskelmat puutaloille.",
     cta: "Katso maalauksen hintaesimerkit",
-    href: "/hinnat/talon-maalaus",
+    href: "/talon-maalaus-hinta-pirkanmaa",
     warranty: "2v takuu",
     bgImage: maalausBg,
     Icon: PaintBrushIcon,

@@ -296,7 +296,7 @@ const KattopalvelutPinnoitus = () => {
           {/* Price calculator CTA button */}
           <div className="text-center mt-10">
             <Link
-              to="/hinnat/tiilikaton-pinnoitus"
+              to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
               style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
             >

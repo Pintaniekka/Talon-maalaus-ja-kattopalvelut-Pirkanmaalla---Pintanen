@@ -14,11 +14,12 @@ import { getCityBySlug } from "@/data/cityData";
 
 const puhdistusImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 
-const KattopalvelutPuhdistusCity = () => {
-  const { city } = useParams<{ city: string }>();
+const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
+  const { city: paramCity } = useParams<{ city: string }>();
+  const city = propSlug || paramCity;
   const cityData = city ? getCityBySlug(city) : undefined;
 
-  if (!cityData) return <Navigate to="/kattopalvelut/puhdistus" replace />;
+  if (!cityData) return <Navigate to="/katon-puhdistus-pirkanmaa" replace />;
 
   const features = [
     { icon: Droplets, title: "Mekaaninen puhdistus", description: "Puhdistamme katon mekaanisesti ilman painepesua – painepesuri voi kuluttaa tiilen pintaa." },

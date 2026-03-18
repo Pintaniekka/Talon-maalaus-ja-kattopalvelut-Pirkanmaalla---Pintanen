@@ -19,12 +19,12 @@ const Features = () => {
             </span>
           </div>
           <div className="text-primary-foreground/90 text-sm md:text-base flex flex-wrap gap-x-1">
-            <Link to="/alue/tampere" className="hover:text-accent transition-colors underline underline-offset-2">Tampere</Link>,
-            <Link to="/alue/sastamala" className="hover:text-accent transition-colors underline underline-offset-2">Sastamala</Link>,
-            <Link to="/alue/hameenkyro" className="hover:text-accent transition-colors underline underline-offset-2">Hämeenkyrö</Link>,
-            <Link to="/alue/ylojarvi" className="hover:text-accent transition-colors underline underline-offset-2">Ylöjärvi</Link>,
-            <Link to="/alue/nokia" className="hover:text-accent transition-colors underline underline-offset-2">Nokia</Link>,
-            <Link to="/alue/forssa" className="hover:text-accent transition-colors underline underline-offset-2">Forssa</Link>
+            <Link to="/maalauspalvelut-tampere" className="hover:text-accent transition-colors underline underline-offset-2">Tampere</Link>,
+            <Link to="/maalauspalvelut-sastamala" className="hover:text-accent transition-colors underline underline-offset-2">Sastamala</Link>,
+            <Link to="/maalauspalvelut-hameenkyro" className="hover:text-accent transition-colors underline underline-offset-2">Hämeenkyrö</Link>,
+            <Link to="/maalauspalvelut-ylojarvi" className="hover:text-accent transition-colors underline underline-offset-2">Ylöjärvi</Link>,
+            <Link to="/maalauspalvelut-nokia" className="hover:text-accent transition-colors underline underline-offset-2">Nokia</Link>,
+            <Link to="/maalauspalvelut-forssa" className="hover:text-accent transition-colors underline underline-offset-2">Forssa</Link>
           </div>
           <Link 
             to="/toiminta-alueet" 

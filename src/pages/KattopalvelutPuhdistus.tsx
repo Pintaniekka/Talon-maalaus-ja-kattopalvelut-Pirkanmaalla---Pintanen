@@ -102,7 +102,7 @@ const KattopalvelutPuhdistus = () => {
           </motion.div>
         </div>
         <div className="text-center mt-8">
-          <Link to="/hinnat/katon-puhdistus" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
+          <Link to="/katon-puhdistus-hinta-pirkanmaa" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
             Katso katon puhdistuksen hintaesimerkit <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

@@ -37,12 +37,12 @@ const SEOTextSection = () => {
             </p>
             <p>
               Toimimme laajasti koko Pirkanmaan alueella, palvellen asiakkaitamme muun muassa{" "}
-              <Link to="/alue/tampere" className="text-primary hover:underline">Tampereella</Link>,{" "}
-              <Link to="/alue/nokia" className="text-primary hover:underline">Nokialla</Link>,{" "}
-              <Link to="/alue/ylojarvi" className="text-primary hover:underline">Ylöjärvellä</Link>,{" "}
-              <Link to="/alue/sastamala" className="text-primary hover:underline">Sastamalassa</Link>,{" "}
-              <Link to="/alue/kangasala" className="text-primary hover:underline">Kangasalla</Link> ja{" "}
-              <Link to="/alue/hameenkyro" className="text-primary hover:underline">Hämeenkyrössä</Link>.
+              <Link to="/maalauspalvelut-tampere" className="text-primary hover:underline">Tampereella</Link>,{" "}
+              <Link to="/maalauspalvelut-nokia" className="text-primary hover:underline">Nokialla</Link>,{" "}
+              <Link to="/maalauspalvelut-ylojarvi" className="text-primary hover:underline">Ylöjärvellä</Link>,{" "}
+              <Link to="/maalauspalvelut-sastamala" className="text-primary hover:underline">Sastamalassa</Link>,{" "}
+              <Link to="/maalauspalvelut-kangasala" className="text-primary hover:underline">Kangasalla</Link> ja{" "}
+              <Link to="/maalauspalvelut-hameenkyro" className="text-primary hover:underline">Hämeenkyrössä</Link>.
             </p>
             <p>
               Oli kyseessä sitten omakotitalon ulkomaalaus, kesämökin huoltomaalaus tai taloyhtiön tiilikaton pinnoitus, me hoidamme urakan alusta loppuun saakka reippaalla asenteella. Tiedämme, että Suomen vaihtelevat sääolosuhteet asettavat rakennusten ulkopinnoille kovat vaatimukset. Siksi käytämme työssämme vain alan parhaita menetelmiä ja laadukkaimpia materiaaleja. Nämä saavat lopputuloksen kestämään katsetta ja aikaa.
