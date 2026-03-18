@@ -12,7 +12,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const isTransitioning = useRef(false);
+  const isHoverLocked = useRef(false);
   const location = useLocation();
 
   const navItems = [
@@ -57,23 +57,32 @@ const Header = () => {
       document.activeElement.blur();
     }
 
-    isTransitioning.current = true;
-    const timer = window.setTimeout(() => {
-      isTransitioning.current = false;
-    }, 800);
+    isHoverLocked.current = true;
 
-    return () => window.clearTimeout(timer);
+    const unlockHover = () => {
+      isHoverLocked.current = false;
+      window.removeEventListener("mousemove", unlockHover);
+    };
+
+    const timer = window.setTimeout(() => {
+      window.addEventListener("mousemove", unlockHover);
+    }, 100);
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("mousemove", unlockHover);
+    };
   }, [location.pathname]);
 
   const handleNavigationLinkClick = (event: MouseEvent<HTMLElement>) => {
     event.currentTarget.blur();
     setOpenDropdown(null);
     setIsMobileMenuOpen(false);
-    isTransitioning.current = true;
+    isHoverLocked.current = true;
   };
 
   const handleDesktopDropdownOpen = (label: string) => {
-    if (isTransitioning.current) return;
+    if (isHoverLocked.current) return;
     setOpenDropdown(label);
   };
 
