@@ -25,7 +25,7 @@ const MaalausFinancing = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => 
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110"
             style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
           >
-            Kysy tarjous: Talon maalaus Pirkanmaa
+            Kysy tarjous: Talon maalaus {cityName}
           </a>
         </motion.div>
       </div>

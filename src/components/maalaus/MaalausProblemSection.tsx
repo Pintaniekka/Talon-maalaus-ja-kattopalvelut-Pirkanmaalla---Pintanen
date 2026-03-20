@@ -81,7 +81,7 @@ const MaalausProblemSection = ({ cityName = 'Pirkanmaa' }: { cityName?: string }
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-colors hover:brightness-110"
               style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
             >
-              Pyydä maksuton kuntotarkastus Pirkanmaalla
+              Pyydä maksuton kuntotarkastus – {cityName}
             </a>
           </div>
         </div>
