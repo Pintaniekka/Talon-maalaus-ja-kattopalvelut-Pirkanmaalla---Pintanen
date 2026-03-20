@@ -166,9 +166,11 @@ export const cities: CityData[] = [
     alueMetaTitle: "Tiilikaton huolto ja maalaus Forssa",
     alueMetaDesc:
       "Palvelemme Forssassa kattojen pinnoituksissa ja talojen maalauksissa. Huolellinen valmistelu ja siisti työnjälki. Pyydä maksuton arvio.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Forssa – Reilu ja selkeä hinnoittelu",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Forssa | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Forssassa huolellisesti toteutettuna ja kestävillä materiaaleilla. Takuu: 5 vuotta. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus Forssassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+    pinnoitusLocalHookTitle: "Forssan ja Lounais-Hämeen vaativien sääolojen kestävä kattosuoja",
+    pinnoitusLocalHookText: "Forssan seudulla, joka sijaitsee Lounais-Hämeen sydämessä, sää voi muuttua nopeasti. Loimijoen laakso tuo alueelle kosteutta, ja talven loputtua pakkaset voivat olla edelleen voimakkaita. Tämä voi vaatia paljon pientalon tiilikatolta. Jos huomaat, että tiilen pinta on muuttunut karheaksi ja menettänyt värinsä, on aika tehdä jotain asialle. Ammattitason tiilikaton pinnoitus on hyvä ratkaisu, koska se sulkee tiilen huokoset tehokkaasti. Tämä varmistaa, että kattosi on kuiva, tiivis ja näyttävä, jopa Forssan talvikauden haastavissa olosuhteissa.",
     puhdistusMetaTitle: "Katon puhdistus Forssa – Säännöllinen huolto kannattaa",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Forssassa tehokkaasti ja edullisesti. Katto kuntoon ennen vaurioita. Pyydä tarjous.",
