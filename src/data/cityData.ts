@@ -216,9 +216,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenlinna – Ilmainen arvio",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenlinnassa edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenlinna – Laadukkaat maalit",
+    maalausMetaTitle: "Talon maalaus Hämeenlinna | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Hämeenlinnassa siistillä työnjäljellä ja laadukkailla materiaaleilla. Takuu: 2 vuotta. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Hämeenlinnassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Vanajaveden kosteusrasituksen hallinta Hämeenlinnan pientaloissa",
+    maalausLocalHookText: "Hämeenlinnassa Vanajaveden läheisyys ja järven yllä oleva sumu aiheuttavat jatkuvasti kosteusongelmia. Tämä vaikuttaa erityisesti Aulangon ja Jukolan alueilla oleviin puuverhouksiin. Jos pohjatyöt tehdään huonosti, kosteus jää helposti maalin alle ja aiheuttaa nopeasti hilseilyä. Pintasen palvelu panostaa Hämeenlinnassa erityisesti huolellisiin pohjatöihin. Näin taataan, että uusi maalipinta tarttuu hyvin ja kestää pitkään.",
     alueIntro:
       "Pintanen palvelee Hämeenlinnan seutua säännöllisesti ja on toteuttanut alueella useita katto- ja maalausurakoita. Tarjoamme tiilikaton pinnoitusta, katon puhdistusta ja talon ulkomaalausta.\n\nJokaiseen kohteeseen teemme maksuttoman arviokäynnin, jossa kartoitamme pintojen kunnon ja annamme tarjouksen. Yrittäjät ovat itse työmaalla ja vastaavat työn laadusta henkilökohtaisesti.\n\nHämeenlinnan seudulla on laaja rakennuskanta – historiallisia puutaloja keskustassa, 70–80-luvun omakotitaloja lähiöissä ja uudempia pientaloja kasvavilla alueilla. Vanajaveden rannalla ilmankosteus on korkea, mikä rasittaa sekä kattopintoja että julkisivuja erityisesti syksyisin ja talvisin.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Hämeenlinnan alueelle.",
     pinnoitusIntro:
