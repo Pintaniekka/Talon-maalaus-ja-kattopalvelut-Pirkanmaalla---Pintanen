@@ -14,42 +14,42 @@ const steps: Step[] = [
     icon: ClipboardCheck,
     title: '1. Maksuton kuntoarvio ja kirjallinen tarjous',
     content: (
-      <p>Emme arvaile. Tulemme paikan päälle arvioimaan ulkoverhouksen kunnon, tunnistamme vanhan maalityypin (öljy- vai vesiohenteinen) ja arvioimaan pohjatöiden vaativuuden. Saat meiltä aina selkeän, kiinteähintaisen tarjouksen, joka sisältää kaikki materiaalit ja työn.</p>
+      <p>Emme arvaile. Tulemme paikan päälle arvioimaan ulkoverhouksen kunnon, tunnistamme vanhan maalityypin (öljy- vai vesiohenteinen) ja arvioimaan pohjatöiden vaativuuden. <strong>Saat meiltä aina selkeän, kiinteähintaisen tarjouksen</strong>, joka sisältää kaikki materiaalit ja työn.</p>
     ),
   },
   {
     icon: ShieldCheck,
     title: '2. Pihapiirin ja pintojen huolellinen suojaus',
     content: (
-      <p>Huoltomaalaus ja julkisivun pesu voivat aiheuttaa roiskeita. Suojaamme ennen työn aloitusta kriittiset paikat, kuten terassit huolella. Jätämme pihasi vähintään yhtä siistiksi kuin se oli tullessamme – yrittäjänä vastaan siitä, että omaisuuttasi kohdellaan kunnioituksella.</p>
+      <p>Huoltomaalaus ja julkisivun pesu voivat aiheuttaa roiskeita. <strong>Suojaamme ennen työn aloitusta kriittiset paikat</strong>, kuten terassit huolella. Jätämme pihasi vähintään yhtä siistiksi kuin se oli tullessamme – yrittäjänä vastaan siitä, että omaisuuttasi kohdellaan kunnioituksella.</p>
     ),
   },
   {
     icon: Droplets,
     title: '3. Pohjatyöt: Märkähomepesu ja mekaaninen kaavinta',
     content: (
-      <p>Tämä on maalausurakan kriittisin vaihe. Pesemme julkisivun tarkoitukseen sopivalla homepesuaineella ja harjoilla irrottaaksemme lian ja mikrobikasvuston. Kaavimme irtoilevan ja kuplivan maalin mekaanisesti pois, jotta uusi maali saa maksimaalisen tartuntapinnan.</p>
+      <p><strong>Tämä on maalausurakan kriittisin vaihe.</strong> Pesemme julkisivun tarkoitukseen sopivalla homepesuaineella ja harjoilla irrottaaksemme lian ja mikrobikasvuston. Kaavimme irtoilevan ja kuplivan maalin mekaanisesti pois, jotta uusi maali saa maksimaalisen tartuntapinnan.</p>
     ),
   },
   {
     icon: Layers,
     title: '4. Pohjustus ja puupuhtaiden pintojen käsittely',
     content: (
-      <p>Puhdistettu ja kuivunut paljas puupinta on suojattava nopeasti kosteudelta. Käsittelemme kaikki puupuhtaat kohdat laadukkaalla pohjamaalilla. Tämä estää puun halkeilua ja varmistaa, että pintamaalin sideaineet tarttuvat alustaan kestävästi.</p>
+      <p>Puhdistettu ja kuivunut paljas puupinta on suojattava nopeasti kosteudelta. <strong>Käsittelemme kaikki puupuhtaat kohdat laadukkaalla pohjamaalilla.</strong> Tämä estää puun halkeilua ja varmistaa, että pintamaalin sideaineet tarttuvat alustaan kestävästi.</p>
     ),
   },
   {
     icon: Paintbrush,
     title: '5. Pintamaalaus ammattilaistason tuotteilla',
     content: (
-      <p>Maalaamme talon säänkestävillä huippumaaleilla kohteen vaatimusten ja halutun peittävyyden mukaan. Huolehdimme tarkoista rajauksista ja varmistamme, että maalausolosuhteet (lämpötila ja ilmankosteus) ovat optimaaliset kestävän pinnan muodostumiseen.</p>
+      <p>Maalaamme talon säänkestävillä huippumaaleilla kohteen vaatimusten ja halutun peittävyyden mukaan. Huolehdimme tarkoista rajauksista ja <strong>varmistamme, että maalausolosuhteet ovat optimaaliset</strong> kestävän pinnan muodostumiseen.</p>
     ),
   },
   {
     icon: CheckCircle,
     title: '6. Lopputarkastus',
     content: (
-      <p>Työ on valmis vasta, kun olemme kiertäneet kohteen yhdessä kanssasi. Puramme mahdolliset telineet, siivoamme jälkemme ja suoritamme lopputarkastuksen. Saat työllemme <strong>kirjallisen takuun</strong> – yrittäjänä takaan, että jälki kestää tarkastelun läheltä ja kaukaa.</p>
+      <p>Työ on valmis vasta, kun olemme kiertäneet kohteen yhdessä kanssasi. Puramme mahdolliset telineet, siivoamme jälkemme ja suoritamme lopputarkastuksen. <strong>Saat työllemme kirjallisen takuun</strong> – yrittäjänä takaan, että jälki kestää tarkastelun läheltä ja kaukaa.</p>
     ),
   },
 ];

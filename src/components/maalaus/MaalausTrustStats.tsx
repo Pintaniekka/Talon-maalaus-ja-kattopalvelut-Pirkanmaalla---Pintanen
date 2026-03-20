@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 
 const trustStats = [
   { value: '4,9 / 5', label: 'Google-arvostelut', sub: 'Pirkanmaan tyytyväisimmät asiakkaat.' },
-  { value: 'Yli 60', label: 'Maalattua taloa', sub: 'Jokainen urakka on tehty henkilökohtaisesti.' },
+  { value: 'Yli 60', label: 'Maalattua taloa', sub: (<>Jokainen urakka on tehty <strong className="text-foreground">henkilökohtaisesti</strong>.</>) },
   { value: '+5 vuotta', label: 'Kokemusta alalta', sub: 'Talon maalaus ei enää herätä kysymyksiä.' },
-  { value: '2 vuotta', label: 'Takuu työlle', sub: 'Seison yrittäjänä oman jälkeni takana.' },
+  { value: '2 vuotta', label: 'Takuu työlle', sub: (<><strong className="text-foreground">Seison yrittäjänä oman jälkeni takana.</strong></>) },
 ];
 
 const MaalausTrustStats = () => {
@@ -14,7 +14,7 @@ const MaalausTrustStats = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {trustStats.map((stat, i) => (
             <motion.div
-              key={stat.label}
+              key={String(stat.label)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

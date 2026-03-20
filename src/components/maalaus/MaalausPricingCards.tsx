@@ -61,8 +61,8 @@ const MaalausPricingCards = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) 
                   <p className="text-sm line-through text-muted-foreground/60 mb-1">
                     Norm. {card.normalPrice}
                   </p>
-                  <p className="text-3xl md:text-4xl font-bold text-accent">{card.afterPrice}</p>
-                  <p className="text-xs text-muted-foreground mt-1">kotitalousvähennyksen jälkeen</p>
+                  <p className="text-3xl md:text-4xl font-bold text-accent"><strong>{card.afterPrice}</strong></p>
+                  <p className="text-xs text-muted-foreground mt-1"><strong>kotitalousvähennyksen jälkeen</strong></p>
                 </div>
 
                 <ul className="space-y-2.5 mb-5 flex-1">

@@ -46,10 +46,10 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            Talon maalaus {cityName} – Kestävä julkisivu suoraan yrittäjän maalaamana
+            Talon maalaus {cityName}
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
-            Suojaa kotisi säänvaihteluilta ja pidennä ulkoverhouksen ikää laadukkaalla maalauksella. Meiltä saat perusteelliset pohjatyöt, säänkestävän lopputuloksen ja täysin läpinäkyvän hinnoittelun. Kokeile avointa hintalaskuriamme heti verkossa tai kutsu meidät maksuttomalle arviokäynnille suoraan kotiovellesi – palvelemme paikallisesti ja joustavasti!
+            <strong>Suojaa kotisi säänvaihteluilta ja pidennä ulkoverhouksen ikää laadukkaalla maalauksella.</strong> Meiltä saat <strong>perusteelliset pohjatyöt</strong>, <strong>säänkestävän lopputuloksen</strong> ja <strong>täysin läpinäkyvän hinnoittelun</strong>. <strong>Kokeile avointa hintalaskuriamme heti verkossa</strong> tai kutsu meidät <strong>maksuttomalle arviokäynnille</strong> suoraan kotiovellesi – palvelemme paikallisesti ja joustavasti!
           </p>
         </div>
 
@@ -88,9 +88,10 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
                 {cityData.maalausLocalHookTitle}
               </h2>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed text-center">
-              {cityData.maalausLocalHookText}
-            </p>
+            <p
+              className="text-lg text-muted-foreground leading-relaxed text-center"
+              dangerouslySetInnerHTML={{ __html: cityData.maalausLocalHookText || '' }}
+            />
           </motion.div>
         </div>
       </section>
