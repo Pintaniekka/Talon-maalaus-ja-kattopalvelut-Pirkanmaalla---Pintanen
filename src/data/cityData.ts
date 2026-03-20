@@ -7,6 +7,8 @@ export interface CityData {
   pinnoitusIntro?: string;
   pinnoitusMetaTitle?: string;
   pinnoitusMetaDesc?: string;
+  pinnoitusLocalHookTitle?: string;
+  pinnoitusLocalHookText?: string;
   puhdistusIntro?: string;
   puhdistusMetaTitle?: string;
   puhdistusMetaDesc?: string;
