@@ -54,7 +54,7 @@ const steps: Step[] = [
   },
 ];
 
-const MaalausProcessAccordion = () => {
+const MaalausProcessAccordion = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="section-padding bg-secondary">
       <div className="section-container max-w-3xl mx-auto">
