@@ -358,6 +358,11 @@ export const simpleCities: CityData[] = [
     alueMetaTitle: "Katto- ja maalauspalvelu Pirkkala – Yrittäjät tekevät työn",
     alueMetaDesc:
       "Katon pinnoitus ja talon maalaus Pirkkalassa ammattitaidolla. Yrittäjät mukana jokaisessa työssä. Pyydä arvio.",
+    maalausMetaTitle: "Talon maalaus Pirkkala | Hintalaskuri | Pintanen",
+    maalausMetaDesc:
+      "Laadukas talon ulkomaalaus Pirkkalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Pyhäjärven kosteuden ja lentokenttäalueen rasitteiden hallinta Pirkkalassa",
+    maalausLocalHookText: "Pirkkalan tiiviillä asuinalueilla Pyhäjärven läheisyys pitää ilmankosteuden korkeana ympäri vuoden. Tämä kosteus yhdistettynä lentokenttäalueen pölyyn ja ympäristörasitteisiin tekee julkisivujen kunnossapidosta erityisen tärkeää. Puuverhouksen maalipinta kuluu näissä olosuhteissa tavallista nopeammin, ja homesienille syntyy hyvä kasvualusta. Pintasen ammattitaitoinen talon maalaus Pirkkalassa sisältää aina perusteellisen homepesun ja huolelliset pohjatyöt, jotta kotisi ulkoverhous kestää hyvin Pirkkalan vaativia olosuhteita.",
     alueIntro:
       "Pirkkala sijaitsee aivan Tampereen vieressä ja on yksi Pintasen ydintoiminta-alueista. Tiivis ja nopeasti kasvanut kunta tarjoaa paljon omakotitaloja ja rivitaloja, joissa katto- ja maalauspalveluille on jatkuvaa tarvetta.\n\nKäymme aina ensin arvioimassa kohteen ilmaiseksi paikan päällä. Yrittäjät tekevät työn itse, ja jokainen urakka viimeistellään huolellisesti.\n\nPirkkalan tiiviillä asuinalueilla Pyhäjärven läheisyys pitää ilmankosteuden korkeana. Myös lentokenttäalueen pöly ja ympäristö tuovat omia rasitteitaan. Alueen omakotitaloissa ja rivitaloissa kattojen ja julkisivujen kunnossapito on tärkeää sekä rakenteille että kiinteistön arvolle.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
