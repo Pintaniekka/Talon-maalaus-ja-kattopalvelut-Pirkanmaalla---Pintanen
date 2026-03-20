@@ -96,9 +96,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenkyrö – Turvallisesti ja huolellisesti",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenkyrössä edullisesti ja huolellisesti. Sammaleet ja lika pois katolta. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenkyrö – Siisti työnjälki",
+    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Hämeenkyrössä huolellisella pohjatyöllä ja kestävällä lopputuloksella. 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Hämeenkyrössä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Hämeenkyrön avoimien peltomaisemien ja viistosateiden hallinta",
+    maalausLocalHookText: "Hämeenkyrön avoimet pellot ja Kyröskosken ympäristön korkeuserot altistavat talojen ulkoseinät suoralle tuulelle ja epämukaville sateille. Kun talon maalipinta ohenee, vesi pääsee helposti sisään paneelien rakoihin ja halkeamiin, mikä tekee puun pehmenemisestä nopeampaa. Pintanen tarjoaa Hämeenkyrön alueella erittäin kestävää ulkomaalausta, joka luo talollesi vankan ja joustavan suojan, joka ei riipu säästä.",
     alueIntro:
       "Hämeenkyrö kuuluu Pintasen vakituiseen toiminta-alueeseen, ja olemme toteuttaneet alueella lukuisia katto- ja maalausurakoita. Tarjoamme tiilikaton pinnoitusta, katon puhdistusta sekä talon ulkomaalausta.\n\nAloitamme jokaisen projektin ilmaisella arviokäynnillä, jossa selvitämme pintojen kunnon ja tarvittavat toimenpiteet. Yrittäjät ovat itse paikalla tekemässä työn – laatu on meille kunnia-asia.\n\nHämeenkyrössä luonnonläheiset tontit tuovat omat haasteensa: metsän keskellä katot keräävät neulasia ja sammaloituvat nopeasti, ja Kyrösjärven rannoilla kosteus rasittaa sekä kattoja että julkisivuja. Kunnan alueella on paljon 70–90-luvun omakotitaloja, joiden huolto on usein ajankohtaista.\n\nOta yhteyttä – arviokäynti on aina maksuton.",
     pinnoitusIntro:
