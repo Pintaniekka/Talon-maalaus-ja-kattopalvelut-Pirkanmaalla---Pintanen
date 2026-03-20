@@ -246,9 +246,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Huittinen – Poistaa levän ja sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Huittisissa tehokkaasti ja edullisesti. Katto pysyy kunnossa pidempään. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Huittinen – Tarkka työnjälki",
+    maalausMetaTitle: "Talon maalaus Huittinen | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Huittisissa ammattitaidolla ja huolellisilla pohjatöillä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Huittisissa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Satakunnan lakeuksien tuulikuorman ja säärasituksen hallinta",
+    maalausLocalHookText: "Huittisten avoimessa peltomaisemassa tuuli pääsee vapaasti liikkumaan, ja sade iskee usein suoraan talon julkisivuun. Tästä syystä vanhat maalipinnat voivat päästää kosteuden syvemmälle puun rakenteeseen, mikä saattaa aiheuttaa lahovaurioita. Me Pintanen tarjoamme Huittisten alueella erittäin laadukasta ulkomaalausta, joka suojaa taloa tehokkaasti sääoloilta. Me teemme työmme huolella, jotta talosi arvo säilyy hyvänä Satakunnan vaihtelevissa sääolosuhteissa.",
     alueIntro:
       "Pintanen palvelee Huittisten seutua ja toteuttaa alueella tiilikaton pinnoituksia, katon puhdistuksia sekä ulkomaalauksia. Huittinen sijaitsee Satakunnan rajalla, ja ajamme alueelle säännöllisesti.\n\nJokainen projekti alkaa ilmaisella arviokäynnillä kohteessa. Yrittäjät tekevät työn itse ja viimeistelevät työmaan huolellisesti – aikatauluista pidämme kiinni.\n\nHuittisten seudulla Kokemäenjoen ja Loimijoen yhtymäkohta tekee ympäristöstä kosteudelle alttiin. Jokivarsien lähellä ilmankosteus on ajoittain korkeaa, mikä edistää sammalen kasvua katoilla ja kosteuden tunkeutumista julkisivuihin. Alueella on paljon perinteisiä pientaloja ja maatilakiinteistöjä, joissa oikea-aikainen huolto on erityisen tärkeää.\n\nOta yhteyttä – sovitaan maksuton arviokäynti Huittisten alueelle.",
     pinnoitusIntro:
