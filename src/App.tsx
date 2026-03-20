@@ -17,6 +17,7 @@ const TalonMaalaus = lazy(() => import("./pages/TalonMaalaus"));
 const TalonMaalausCity = lazy(() => import("./pages/TalonMaalausCity"));
 const ToimintaAlueet = lazy(() => import("./pages/ToimintaAlueet"));
 const AlueCity = lazy(() => import("./pages/AlueCity"));
+const AlueCityTampere = lazy(() => import("./pages/AlueCityTampere"));
 const Referenssit = lazy(() => import("./pages/Referenssit"));
 const Hinnat = lazy(() => import("./pages/Hinnat"));
 const HinnatTiilikalonPinnoitus = lazy(() => import("./pages/HinnatTiilikalonPinnoitus"));
