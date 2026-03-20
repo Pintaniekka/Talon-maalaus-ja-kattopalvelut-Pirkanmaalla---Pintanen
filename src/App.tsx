@@ -16,8 +16,7 @@ const KattopalvelutPuhdistusCity = lazy(() => import("./pages/KattopalvelutPuhdi
 const TalonMaalaus = lazy(() => import("./pages/TalonMaalaus"));
 const TalonMaalausCity = lazy(() => import("./pages/TalonMaalausCity"));
 const ToimintaAlueet = lazy(() => import("./pages/ToimintaAlueet"));
-const AlueCity = lazy(() => import("./pages/AlueCity"));
-const AlueCityTampere = lazy(() => import("./pages/AlueCityTampere"));
+const ServiceAreaPage = lazy(() => import("./pages/ServiceAreaPage"));
 const Referenssit = lazy(() => import("./pages/Referenssit"));
 const Hinnat = lazy(() => import("./pages/Hinnat"));
 const HinnatTiilikalonPinnoitus = lazy(() => import("./pages/HinnatTiilikalonPinnoitus"));
@@ -64,10 +63,9 @@ const App = () => (
                 <Route key={`maal-${city.slug}`} path={`/talon-maalaus-${city.slug}`} element={<TalonMaalausCity citySlug={city.slug} />} />
               ))}
 
-              {/* ── Area pages (all cities) ── */}
-              <Route path="/maalauspalvelut-tampere" element={<AlueCityTampere />} />
-              {allCities.filter(city => city.slug !== "tampere").map(city => (
-                <Route key={`alue-${city.slug}`} path={`/maalauspalvelut-${city.slug}`} element={<AlueCity citySlug={city.slug} />} />
+              {/* ── Area pages (all 24 cities – unified dynamic template) ── */}
+              {allCities.map(city => (
+                <Route key={`alue-${city.slug}`} path={`/maalauspalvelut-${city.slug}`} element={<ServiceAreaPage citySlug={city.slug} />} />
               ))}
 
               {/* ═══ 301-style redirects (old → new) ═══ */}
