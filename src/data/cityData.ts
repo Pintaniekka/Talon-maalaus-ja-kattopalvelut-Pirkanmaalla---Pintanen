@@ -15,6 +15,8 @@ export interface CityData {
   maalausIntro?: string;
   maalausMetaTitle?: string;
   maalausMetaDesc?: string;
+  maalausLocalHookTitle?: string;
+  maalausLocalHookText?: string;
   localSection?: string;
 }
 
@@ -34,9 +36,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Tampere – Huolelliset pohjatyöt",
+    maalausMetaTitle: "Talon maalaus Tampere | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Tampereella huolellisella valmistelulla ja laadukkailla maaleilla. Homepesu aina ennen maalausta. Takuu: 2 vuotta. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Tampereella. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Tampereen harjutuulten ja kahden järven kosteusrasituksen hallinta",
+    maalausLocalHookText: "Tampere sijaitsee Näsijärven ja Pyhäjärven välissä olevalla kannaksella, ja kaupungin läpi kulkeva harjujakso aiheuttaa talojen julkisivuille erityisen suuren rasituksen. Pispalan ja Pyynikin rinteillä voimakas harjutuuli ja suora säärasitus kuluttavat maalipintaa. Järvien lähellä olevilla alueilla, kuten Tahmelassa, Ranta-Tampellassa ja Atalan rinteillä, suurin haaste on korkea ilmankosteus. Korkea ilmankosteus edistää homeen kasvua ja puun kosteusliikettä, mikä aiheuttaa ongelmia talojen ulkoverhouksille. Suojaa kotisi Tampereen säältä Pintasen tarkkuudella – emme tingi pohjatöistä.",
     alueIntro:
       "Pintanen on Pirkanmaalainen maalaus- ja kattopalveluyritys, joka toimii aktiivisesti koko Tampereen seudulla. Toteutamme tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia omakotitaloihin sekä taloyhtiöihin.\n\nJokaiseen kohteeseen tehdään aina ilmainen arviokäynti paikan päällä, jossa kartoitamme työn laajuuden, pintojen kunnon ja tarvittavat materiaalit huolellisesti. Me yrittäjät teemme työn itse alusta loppuun, joten laatu pysyy hyvänä, ja pystymme toteuttamaan kaiken, minkä lupaamme.\n\nTampereen seudulla on tuhansia tiilikattoja ja puu-ulkoverhouksia erityisesti Hervannassa, Leinolassa, Kämmenniemessä ja Atalassa. Näissä 70–90-luvun taloissa katon pinnoitus tai puhdistus on usein jo ajankohtainen. Myös julkisivujen huoltomaalaus on tarpeen, kun edellisestä maalauksesta on kulunut yli kymmenen vuotta.\n\nUrakat suoritetaan huolellisesti ja työstä aieutuneet sotkut siivotaan aina ennen luovutusta. Ota yhteyttä ja sovitaan maksuton arviokäynti.",
     pinnoitusIntro:
@@ -62,9 +66,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Sastamala – Katto puhtaaksi kerralla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Sastamalassa tehokkaasti ja edullisesti. Laita katto kunnossa ajoissa. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Sastamala – Märkähomepesu aina",
+    maalausMetaTitle: "Talon maalaus Sastamala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Sastamalassa siistillä työnjäljellä ja huolellisilla pohjatöillä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Sastamalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Puuverhouksen suojaaminen Sastamalan vesistöjen kosteusrasitukselta",
+    maalausLocalHookText: "Sastamalan maisema on Rautaveden ja Liekoveden hallitsema. Ne tuovat mukanaan runsaasti kosteutta, joka on suuri haaste puujulkisivuille. Erityisesti Vammalan keskustan ja rantojen lähellä ilmankosteus on korkea. Se pääsee helposti suojaamattomaan puuhun, mikä aiheuttaa maalin lohkeilua ja altistaa laudoituksen homeelle. Pintanen tuntee alueen olosuhteet hyvin. Teen huolelliset ja ammattitaitoiset homepesut ja maalaukset. Näin varmistetaan, että talosi ulkoverhous kestää Sastamalan järvi-ilmaston vaikutukset hyvin.",
     alueIntro:
       "Pintanen palvelee Sastamalan seutua monipuolisesti – toteutamme tiilikaton pinnoituksia, katon puhdistuksia ja ulkomaalauksia niin omakotitaloihin kuin maatilakiinteistöihinkin.\n\nEnnen työn aloittamista käymme aina arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät jokaisen urakan itse, mikä takaa tasalaatuisen ja huolellisen lopputuloksen. Viimeistely ja työmaan siistiminen kuuluvat aina hintaan.\n\nSastamalan laajalla alueella on runsaasti perinteisiä puutaloja, maatilarakennuksia ja 80–90-luvun omakotitaloja. Metsäisillä tonteilla katot sammaloituvat helposti, ja Rautaveden sekä Kuloveden rannoilla kosteus rasittaa julkisivuja. Oikea-aikainen huolto säästää rakennusten omistajia suuremmilta korjauskustannuksilta.\n\nOta yhteyttä ja sovitaan maksuton käynti Sastamalan alueelle – palvelemme joustavasti koko kunnan alueella.",
     pinnoitusIntro:
@@ -90,9 +96,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenkyrö – Turvallisesti ja huolellisesti",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenkyrössä edullisesti ja huolellisesti. Sammaleet ja lika pois katolta. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenkyrö – Siisti työnjälki",
+    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Hämeenkyrössä huolellisella pohjatyöllä ja kestävällä lopputuloksella. 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Hämeenkyrössä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Hämeenkyrön avoimien peltomaisemien ja viistosateiden hallinta",
+    maalausLocalHookText: "Hämeenkyrön avoimet pellot ja Kyröskosken ympäristön korkeuserot altistavat talojen ulkoseinät suoralle tuulelle ja epämukaville sateille. Kun talon maalipinta ohenee, vesi pääsee helposti sisään paneelien rakoihin ja halkeamiin, mikä tekee puun pehmenemisestä nopeampaa. Pintanen tarjoaa Hämeenkyrön alueella erittäin kestävää ulkomaalausta, joka luo talollesi vankan ja joustavan suojan, joka ei riipu säästä.",
     alueIntro:
       "Hämeenkyrö kuuluu Pintasen vakituiseen toiminta-alueeseen, ja olemme toteuttaneet alueella lukuisia katto- ja maalausurakoita. Tarjoamme tiilikaton pinnoitusta, katon puhdistusta sekä talon ulkomaalausta.\n\nAloitamme jokaisen projektin ilmaisella arviokäynnillä, jossa selvitämme pintojen kunnon ja tarvittavat toimenpiteet. Yrittäjät ovat itse paikalla tekemässä työn – laatu on meille kunnia-asia.\n\nHämeenkyrössä luonnonläheiset tontit tuovat omat haasteensa: metsän keskellä katot keräävät neulasia ja sammaloituvat nopeasti, ja Kyrösjärven rannoilla kosteus rasittaa sekä kattoja että julkisivuja. Kunnan alueella on paljon 70–90-luvun omakotitaloja, joiden huolto on usein ajankohtaista.\n\nOta yhteyttä – arviokäynti on aina maksuton.",
     pinnoitusIntro:
@@ -118,9 +126,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Ylöjärvi – Pidentää katon ikää",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Ylöjärvellä edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Ylöjärvi – Julkisivu kuntoon",
+    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Ylöjärvellä ammattitaidolla ja huolellisella valmistelulla. 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Ylöjärvellä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Puutarhakaupungin julkisivujen suojaus puiden varjostukselta",
+    maalausLocalHookText: "Ylöjärven puutarhakaupungissa, erityisesti Metsäkylän ja Siivikkalan vehreillä alueilla, suuret puut ja Näsijärven läheisyys luovat varjoisia ja kosteita pienilmastoja. Varjoisilla paikoilla maali kuivuu hitaammin, mikä edistää homesienien kasvua ja maalin hilseilyä. Pintasen talon maalaus Ylöjärvellä panostaa tehokkaaseen homepesuun ja oikeisiin maalausolosuhteisiin, jotta kotisi julkisivu pysyy upeana ja terveenä metsän siimeksessäkin.",
     alueIntro:
       "Ylöjärvi on yksi Pintasen ydintoiminta-alueista Tampereen naapurissa. Toteutamme alueella tiilikaton pinnoituksia, katon puhdistuksia ja ulkomaalauksia monenlaisiin omakotitaloihin.\n\nJokaiseen kohteeseen teemme maksuttoman arviokäynnin ennen työn aloittamista. Yrittäjät ovat aina itse työmaalla, ja jokainen urakka viimeistellään huolella.\n\nYlöjärvi on kasvanut voimakkaasti, ja kaupungin asuinalueet ulottuvat Siivikkalasta Metsäkylään ja Vuorentaustaan. Eri vuosikymmenten pientalot vaativat erityyppistä huoltoa – vanhemmissa taloissa katon pinnoitus voi olla ajankohtainen, kun taas uudemmissa julkisivun ensimaalaus lähestyy. Metsäisillä tonteilla katot keräävät helposti kasvustoa.\n\nSovitaan maksuton arviokäynti – ota yhteyttä.",
     pinnoitusIntro:
@@ -146,9 +156,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Nokia – Ammattitaidolla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Nokiassa tehokkaasti ja edullisesti. Katto puhtaaksi laadukkailla työmenetelmillä. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Nokia – 2v takuu",
+    maalausMetaTitle: "Talon maalaus Nokia | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Nokiassa siistillä työnjäljellä ja laadukkailla materiaaleilla. Takuu: 2 vuotta. Ota yhteyttä ja sovitaan käynti.",
+      "Laadukas talon ulkomaalaus Nokialla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Nokian kasvavien pientaloalueiden julkisivujen huolto",
+    maalausLocalHookText: "Nokialla asuinalueet leviävät Nokianvirran varrelta aina Harjuniityn ja Sammaliston kaltaisiin uusiin lähiöihin. Olipa kyseessä perinteinen puutalo virran tuntumassa tai moderni uudiskohde, säännöllinen huoltomaalaus on tärkeää puun kosteusliikkeen hallitsemiseksi. Huolehdin, että Nokian kohteissa tehdään pohjatyöt ja mekaaninen kaavinta kunnolla, jotta uusi maalipinta suojaa kotiasi hyvin Nokianvirran aiheuttamilta kosteusvaikutuksilta.",
     alueIntro:
       "Nokia on yksi Pintasen aktiivisimmista palvelualueista Tampereen länsipuolella. Toteutamme Nokialla tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia kaiken kokoisiin kiinteistöihin.\n\nTeemme aina ilmaisen arviointikäynnin kohteeseen ennen työn aloitusta. Yrittäjät tekevät työn itse, ja työmaalla pidetään kiinni sovitusta aikataulusta. Viimeistely ja työmaan siistiminen kuuluvat aina urakkaan.\n\nNokialla Kokemäenjoen ja Pyhäjärven läheisyys pitää ilmankosteuden korkeana, mikä rasittaa sekä kattopintoja että julkisivuja ympäri vuoden. Kaupungin omakotitaloalueet – Alhoniitty, Kankaantaka ja Linnavuori – ovat pääosin 80–2000-luvun pientaloja. Monessa kohteessa katon tai julkisivun huolto on jo ajankohtaista.\n\nSovitaan arviokäynti – se on aina maksuton.",
     pinnoitusIntro:
@@ -174,9 +186,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Forssa – Säännöllinen huolto kannattaa",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Forssassa tehokkaasti ja edullisesti. Katto kuntoon ennen vaurioita. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Forssa – Vankka kokemus",
+    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Forssassa laadukkailla maaleilla ja tarkalla työnjäljellä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Forssassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Lounais-Hämeen lämpötilavaihteluiden kestävä maalaustyö",
+    maalausLocalHookText: "Forssan alueella Loimijoen laakson kostea ilma ja sisämaan suuret lämpötilan muutokset vaikuttavat maalin kiinnitykseen. Kun maalipinta altistuu ilmalle ja alkaa kulua pois, se ei enää estä vettä, mikä aiheuttaa puun kulumisen. Pintanen tarjoaa forssalaisille pientalojen asukkaille laadukasta talon maalaus palvelua, joka saa seinät kestämään Forssan alueen vaativia olosuhteita ja pitämään rakennuksen ulkopinnan joustavana.",
     alueIntro:
       "Vaikka Pintasen kotikaupunki on Tampere, palvelemme aktiivisesti myös Forssan seutua Etelä-Hämeessä. Tarjoamme tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia omakotitaloihin sekä maatilakiinteistöihin.\n\nJokaiseen kohteeseen tehdään ilmainen arviokäynti. Yrittäjät tekevät työn itse ja viimeistelevät jokaisen työmaan huolellisesti. Forssan suuntaan ajamme säännöllisesti, joten aikataulut järjestyvät joustavasti.\n\nForssan seudulla avoimet peltomaisemat altistavat rakennukset tuulelle ja viistosateelle, mikä kuluttaa maalipintoja ja kattoja tavallista nopeammin. Alueella on paljon perinteisiä puutaloja ja maatiloja, joissa oikea-aikainen kunnossapito on erityisen tärkeää.\n\nOta yhteyttä ja sovitaan käynti Forssan alueelle – arviokäynti on aina maksuton.",
     pinnoitusIntro:
@@ -202,9 +216,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenlinna – Ilmainen arvio",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenlinnassa edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenlinna – Laadukkaat maalit",
+    maalausMetaTitle: "Talon maalaus Hämeenlinna | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Hämeenlinnassa siistillä työnjäljellä ja laadukkailla materiaaleilla. Takuu: 2 vuotta. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Hämeenlinnassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Vanajaveden kosteusrasituksen hallinta Hämeenlinnan pientaloissa",
+    maalausLocalHookText: "Hämeenlinnassa Vanajaveden läheisyys ja järven yllä oleva sumu aiheuttavat jatkuvasti kosteusongelmia. Tämä vaikuttaa erityisesti Aulangon ja Jukolan alueilla oleviin puuverhouksiin. Jos pohjatyöt tehdään huonosti, kosteus jää helposti maalin alle ja aiheuttaa nopeasti hilseilyä. Pintasen palvelu panostaa Hämeenlinnassa erityisesti huolellisiin pohjatöihin. Näin taataan, että uusi maalipinta tarttuu hyvin ja kestää pitkään.",
     alueIntro:
       "Pintanen palvelee Hämeenlinnan seutua säännöllisesti ja on toteuttanut alueella useita katto- ja maalausurakoita. Tarjoamme tiilikaton pinnoitusta, katon puhdistusta ja talon ulkomaalausta.\n\nJokaiseen kohteeseen teemme maksuttoman arviokäynnin, jossa kartoitamme pintojen kunnon ja annamme tarjouksen. Yrittäjät ovat itse työmaalla ja vastaavat työn laadusta henkilökohtaisesti.\n\nHämeenlinnan seudulla on laaja rakennuskanta – historiallisia puutaloja keskustassa, 70–80-luvun omakotitaloja lähiöissä ja uudempia pientaloja kasvavilla alueilla. Vanajaveden rannalla ilmankosteus on korkea, mikä rasittaa sekä kattopintoja että julkisivuja erityisesti syksyisin ja talvisin.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Hämeenlinnan alueelle.",
     pinnoitusIntro:
@@ -230,9 +246,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Huittinen – Poistaa levän ja sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Huittisissa tehokkaasti ja edullisesti. Katto pysyy kunnossa pidempään. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Huittinen – Tarkka työnjälki",
+    maalausMetaTitle: "Talon maalaus Huittinen | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Huittisissa ammattitaidolla ja huolellisilla pohjatöillä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Huittisissa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Satakunnan lakeuksien tuulikuorman ja säärasituksen hallinta",
+    maalausLocalHookText: "Huittisten avoimessa peltomaisemassa tuuli pääsee vapaasti liikkumaan, ja sade iskee usein suoraan talon julkisivuun. Tästä syystä vanhat maalipinnat voivat päästää kosteuden syvemmälle puun rakenteeseen, mikä saattaa aiheuttaa lahovaurioita. Me Pintanen tarjoamme Huittisten alueella erittäin laadukasta ulkomaalausta, joka suojaa taloa tehokkaasti sääoloilta. Me teemme työmme huolella, jotta talosi arvo säilyy hyvänä Satakunnan vaihtelevissa sääolosuhteissa.",
     alueIntro:
       "Pintanen palvelee Huittisten seutua ja toteuttaa alueella tiilikaton pinnoituksia, katon puhdistuksia sekä ulkomaalauksia. Huittinen sijaitsee Satakunnan rajalla, ja ajamme alueelle säännöllisesti.\n\nJokainen projekti alkaa ilmaisella arviokäynnillä kohteessa. Yrittäjät tekevät työn itse ja viimeistelevät työmaan huolellisesti – aikatauluista pidämme kiinni.\n\nHuittisten seudulla Kokemäenjoen ja Loimijoen yhtymäkohta tekee ympäristöstä kosteudelle alttiin. Jokivarsien lähellä ilmankosteus on ajoittain korkeaa, mikä edistää sammalen kasvua katoilla ja kosteuden tunkeutumista julkisivuihin. Alueella on paljon perinteisiä pientaloja ja maatilakiinteistöjä, joissa oikea-aikainen huolto on erityisen tärkeää.\n\nOta yhteyttä – sovitaan maksuton arviokäynti Huittisten alueelle.",
     pinnoitusIntro:
@@ -281,6 +299,11 @@ export const simpleCities: CityData[] = [
     alueMetaTitle: "Katon huolto ja talon maalaus Kangasala",
     alueMetaDesc:
       "Katon pinnoitus ja julkisivumaalaus Kangasalla. Huolelliset pohjatyöt ja tarkka työnjälki aina mukana. Kysy tarjous.",
+    maalausMetaTitle: "Talon maalaus Kangasala | Hintalaskuri | Pintanen",
+    maalausMetaDesc:
+      "Laadukas talon ulkomaalaus Kangasalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Kangasalan järvimaisemien kosteusrasituksen hallinta julkisivuissa",
+    maalausLocalHookText: "Kangasalan kauniit järvimaisemat Roineen ja Längelmäveden ympärillä tuovat mukanaan kosteutta, joka on suuri haaste talojen puujulkisivuille. Erityisesti kesäisin ja syksyisin korkea ilmankosteus edistää homesienien kasvua ja puun kosteusliikettä, mikä voi johtaa maalin hilseilyyn ja halkeamiin. Pintasen ammattitaitoinen huoltomaalaus Kangasalla panostaa perusteellisiin pohjatöihin ja homepesuun, jotta kotisi julkisivu kestää järvi-ilmaston vaikutukset hyvin ja näyttää upealta vuodesta toiseen.",
     alueIntro:
       "Kangasala on Tampereen itäinen naapuri ja yksi Pintasen ydintoiminta-alueista. Kaupungissa on laajat omakotitaloalueet, joissa katto- ja maalauspalveluille on jatkuvasti kysyntää.\n\nJokaiseen kohteeseen käymme ensin arvioimassa tilanteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun – emme käytä aliurakoitsijoita emmekä välitä töitä eteenpäin.\n\nKangasalan kauniit järvimaisemat tuovat mukanaan kosteutta, joka rasittaa kattopintoja ja julkisivuja. Roine, Längelmävesi ja muut järvet pitävät ilmankosteuden korkeana erityisesti kesäisin ja syksyisin. Alueen eri-ikäisissä omakotitaloissa huollon tarve vaihtelee – vanhemmissa taloissa katon pinnoitus on ajankohtaista, uudemmissa julkisivujen kunto kannattaa tarkistaa.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti.",
   },
@@ -335,6 +358,11 @@ export const simpleCities: CityData[] = [
     alueMetaTitle: "Katto- ja maalauspalvelu Pirkkala – Yrittäjät tekevät työn",
     alueMetaDesc:
       "Katon pinnoitus ja talon maalaus Pirkkalassa ammattitaidolla. Yrittäjät mukana jokaisessa työssä. Pyydä arvio.",
+    maalausMetaTitle: "Talon maalaus Pirkkala | Hintalaskuri | Pintanen",
+    maalausMetaDesc:
+      "Laadukas talon ulkomaalaus Pirkkalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Pyhäjärven kosteuden ja lentokenttäalueen rasitteiden hallinta Pirkkalassa",
+    maalausLocalHookText: "Pirkkalan tiiviillä asuinalueilla Pyhäjärven läheisyys pitää ilmankosteuden korkeana ympäri vuoden. Tämä kosteus yhdistettynä lentokenttäalueen pölyyn ja ympäristörasitteisiin tekee julkisivujen kunnossapidosta erityisen tärkeää. Puuverhouksen maalipinta kuluu näissä olosuhteissa tavallista nopeammin, ja homesienille syntyy hyvä kasvualusta. Pintasen ammattitaitoinen talon maalaus Pirkkalassa sisältää aina perusteellisen homepesun ja huolelliset pohjatyöt, jotta kotisi ulkoverhous kestää hyvin Pirkkalan vaativia olosuhteita.",
     alueIntro:
       "Pirkkala sijaitsee aivan Tampereen vieressä ja on yksi Pintasen ydintoiminta-alueista. Tiivis ja nopeasti kasvanut kunta tarjoaa paljon omakotitaloja ja rivitaloja, joissa katto- ja maalauspalveluille on jatkuvaa tarvetta.\n\nKäymme aina ensin arvioimassa kohteen ilmaiseksi paikan päällä. Yrittäjät tekevät työn itse, ja jokainen urakka viimeistellään huolellisesti.\n\nPirkkalan tiiviillä asuinalueilla Pyhäjärven läheisyys pitää ilmankosteuden korkeana. Myös lentokenttäalueen pöly ja ympäristö tuovat omia rasitteitaan. Alueen omakotitaloissa ja rivitaloissa kattojen ja julkisivujen kunnossapito on tärkeää sekä rakenteille että kiinteistön arvolle.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
@@ -405,3 +433,6 @@ export const getCityBySlug = (slug: string): CityData | undefined => {
 export const cityHasServicePages = (city: CityData): boolean => {
   return !!city.pinnoitusIntro;
 };
+
+/** Cities with dedicated maalaus (painting) subpages */
+export const maalausCities: CityData[] = allCities.filter((c) => !!c.maalausLocalHookTitle);

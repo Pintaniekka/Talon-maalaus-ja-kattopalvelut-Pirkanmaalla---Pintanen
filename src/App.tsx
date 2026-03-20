@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
-import { cities as fullServiceCities, allCities } from "./data/cityData";
+import { cities as fullServiceCities, allCities, maalausCities } from "./data/cityData";
 
 // Lazy-loaded subpages
 const KattopalvelutPinnoitus = lazy(() => import("./pages/KattopalvelutPinnoitus"));
@@ -59,7 +59,7 @@ const App = () => (
               {fullServiceCities.map(city => (
                 <Route key={`puh-${city.slug}`} path={`/katon-puhdistus-${city.slug}`} element={<KattopalvelutPuhdistusCity citySlug={city.slug} />} />
               ))}
-              {fullServiceCities.map(city => (
+              {maalausCities.map(city => (
                 <Route key={`maal-${city.slug}`} path={`/talon-maalaus-${city.slug}`} element={<TalonMaalausCity citySlug={city.slug} />} />
               ))}
 
@@ -84,7 +84,7 @@ const App = () => (
               {fullServiceCities.map(city => (
                 <Route key={`rpuh-${city.slug}`} path={`/kattopalvelut/puhdistus/${city.slug}`} element={<Navigate to={`/katon-puhdistus-${city.slug}`} replace />} />
               ))}
-              {fullServiceCities.map(city => (
+              {maalausCities.map(city => (
                 <Route key={`rmaal-${city.slug}`} path={`/talon-maalaus/${city.slug}`} element={<Navigate to={`/talon-maalaus-${city.slug}`} replace />} />
               ))}
 

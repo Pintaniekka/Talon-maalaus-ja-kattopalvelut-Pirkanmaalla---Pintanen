@@ -15,7 +15,7 @@ const pricingIncludes = [
   'Pintamaalaus',
 ];
 
-const MaalausPricingCards = () => {
+const MaalausPricingCards = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="section-padding bg-secondary">
       <div className="section-container max-w-5xl mx-auto">
@@ -26,7 +26,7 @@ const MaalausPricingCards = () => {
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-            Paljonko maksaa talon maalaus Pirkanmaalla?
+            Paljonko maksaa talon maalaus – {cityName}?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
@@ -100,7 +100,7 @@ const MaalausPricingCards = () => {
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             style={{ backgroundColor: 'hsl(38, 60%, 65%)', color: 'hsl(215, 25%, 15%)' }}
           >
-            Laske hinta: Talon maalaus Pirkanmaa
+            Laske hinta: Talon maalaus {cityName}
           </Link>
         </div>
       </div>

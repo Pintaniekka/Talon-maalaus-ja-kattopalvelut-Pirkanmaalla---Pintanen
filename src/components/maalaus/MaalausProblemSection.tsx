@@ -10,7 +10,7 @@ const warningSignsData = [
   { sign: 'Halkeamat paneelien päissä', desc: 'Puu on päässyt kastumaan ja kuivumaan toistuvasti, mikä on rikkonut puun rakenteen.' },
 ];
 
-const MaalausProblemSection = () => {
+const MaalausProblemSection = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="section-padding bg-accent-light">
       <div className="section-container">
@@ -81,7 +81,7 @@ const MaalausProblemSection = () => {
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-colors hover:brightness-110"
               style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
             >
-              Pyydä maksuton kuntotarkastus Pirkanmaalla
+              Pyydä maksuton kuntotarkastus – {cityName}
             </a>
           </div>
         </div>
