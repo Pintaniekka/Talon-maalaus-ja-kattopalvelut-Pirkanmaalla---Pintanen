@@ -59,7 +59,7 @@ const App = () => (
               {fullServiceCities.map(city => (
                 <Route key={`puh-${city.slug}`} path={`/katon-puhdistus-${city.slug}`} element={<KattopalvelutPuhdistusCity citySlug={city.slug} />} />
               ))}
-              {fullServiceCities.map(city => (
+              {maalausCities.map(city => (
                 <Route key={`maal-${city.slug}`} path={`/talon-maalaus-${city.slug}`} element={<TalonMaalausCity citySlug={city.slug} />} />
               ))}
 
