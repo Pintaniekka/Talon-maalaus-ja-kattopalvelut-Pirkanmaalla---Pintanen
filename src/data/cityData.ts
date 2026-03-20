@@ -36,9 +36,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Tampere – Huolelliset pohjatyöt",
+    maalausMetaTitle: "Talon maalaus Tampere | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Tampereella huolellisella valmistelulla ja laadukkailla maaleilla. Homepesu aina ennen maalausta. Takuu: 2 vuotta. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Tampereella. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Tampereen harjutuulten ja kahden järven kosteusrasituksen hallinta",
+    maalausLocalHookText: "Tampere sijaitsee Näsijärven ja Pyhäjärven välissä olevalla kannaksella, ja kaupungin läpi kulkeva harjujakso aiheuttaa talojen julkisivuille erityisen suuren rasituksen. Pispalan ja Pyynikin rinteillä voimakas harjutuuli ja suora säärasitus kuluttavat maalipintaa. Järvien lähellä olevilla alueilla, kuten Tahmelassa, Ranta-Tampellassa ja Atalan rinteillä, suurin haaste on korkea ilmankosteus. Korkea ilmankosteus edistää homeen kasvua ja puun kosteusliikettä, mikä aiheuttaa ongelmia talojen ulkoverhouksille. Suojaa kotisi Tampereen säältä Pintasen tarkkuudella – emme tingi pohjatöistä.",
     alueIntro:
       "Pintanen on Pirkanmaalainen maalaus- ja kattopalveluyritys, joka toimii aktiivisesti koko Tampereen seudulla. Toteutamme tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia omakotitaloihin sekä taloyhtiöihin.\n\nJokaiseen kohteeseen tehdään aina ilmainen arviokäynti paikan päällä, jossa kartoitamme työn laajuuden, pintojen kunnon ja tarvittavat materiaalit huolellisesti. Me yrittäjät teemme työn itse alusta loppuun, joten laatu pysyy hyvänä, ja pystymme toteuttamaan kaiken, minkä lupaamme.\n\nTampereen seudulla on tuhansia tiilikattoja ja puu-ulkoverhouksia erityisesti Hervannassa, Leinolassa, Kämmenniemessä ja Atalassa. Näissä 70–90-luvun taloissa katon pinnoitus tai puhdistus on usein jo ajankohtainen. Myös julkisivujen huoltomaalaus on tarpeen, kun edellisestä maalauksesta on kulunut yli kymmenen vuotta.\n\nUrakat suoritetaan huolellisesti ja työstä aieutuneet sotkut siivotaan aina ennen luovutusta. Ota yhteyttä ja sovitaan maksuton arviokäynti.",
     pinnoitusIntro:
