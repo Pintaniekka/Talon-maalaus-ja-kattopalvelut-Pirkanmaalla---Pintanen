@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Search, Check, Clock } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
+import { getImageSrcSet } from "@/lib/storage";
 import { Badge } from "@/components/ui/badge";
 import ServicePageHero from "@/components/ServicePageHero";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
@@ -196,20 +198,42 @@ const KattopalvelutPinnoitus = () => {
 
       {/* ═══ COMPARISON: Pinnoitus vs. kattoremontti ═══ */}
       <section className="section-padding bg-background">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
-              Tiilikaton pinnoitus vai kokonaan uusi kattoremontti?
-            </h2>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
-              </p>
-              <p>
-                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
-              </p>
+        <div className="section-container">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
+                  Tiilikaton pinnoitus vai kokonaan uusi kattoremontti?
+                </h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
+                  </p>
+                  <p>
+                    Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link
+                    to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-foreground transition-all hover:brightness-95 text-lg"
+                    style={{ backgroundColor: 'hsl(36, 56%, 91%)' }}
+                  >
+                    Hintalaskuri
+                  </Link>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <OptimizedImage
+                  src={getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp')}
+                  srcSet={getImageSrcSet(getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp'))}
+                  alt="Tummanharmaa tiilikatto pinnoituksen jälkeen"
+                  className="w-full rounded-2xl shadow-lg"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -330,43 +354,38 @@ const KattopalvelutPinnoitus = () => {
 
       {/* ═══ ENTREPRENEUR / EERIK ═══ */}
       <section className="section-padding bg-secondary">
-        <div className="section-container max-w-4xl mx-auto">
+        <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent">Kuka katollasi kiipeää? Terveiset yrittäjältä</h2>
-          </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8 text-center">
+              Kuka katollesi kiipeää? Terveiset yrittäjältä
+            </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-card rounded-2xl p-6 md:p-10 shadow-sm border border-border/50"
-          >
-            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
-              <img
-                src={getStorageUrl("Pictures-200/Eerik-kattomaalari-200.webp")}
-                alt="Eerik Pitkänen – Pintanen Oy yrittäjä"
-                className="w-24 h-24 rounded-full object-cover flex-shrink-0"
-                loading="lazy"
-                decoding="async"
-                width={96}
-                height={96}
-              />
-              <div className="space-y-4 text-muted-foreground leading-relaxed text-center md:text-left">
+            <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
+              <div className="flex justify-center">
+                <img
+                  src={getStorageUrl("Pictures-200/Eerik-kattomaalari-200.webp")}
+                  alt="Eerik Pitkänen – Pintanen Oy, kattopalvelut"
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  "Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Isojen yritysten tavoin, meillä et ole vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla <strong className="text-foreground">henkilökohtaisesti alusta loppuun</strong>.
+                  Moi, olen Eerik, ja olen perustanut oman yrityksen, Pintasen. Toisin kuin isot yritykset, meillä et ole vain yksi tilausnumero muiden joukossa. Hoidan tiilikattojen pinnoitukset Pirkanmaalla <strong className="text-foreground">henkilökohtaisesti alusta loppuun</strong>.
                 </p>
                 <p>
                   Minulla on <strong className="text-foreground">5 vuoden vankka kokemus ja yli 100 onnistunutta urakkaa</strong>. Tiedän, miten pirkanmaalaiset katot kestävät vaihtelevia sääolosuhteita.
                 </p>
                 <p>
-                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn laadusta. Tästä syystä voin antaa työlleni <strong className="text-foreground">5 vuoden takuun</strong>, ja olen siitä ylpeä."
+                  Kun tilaat pinnoituksen minulta, tiedät aina, kuka työskentelee pihallasi ja kuka vastaa työn laadusta. Tästä syystä voin antaa työlleni <strong className="text-foreground">5 vuoden takuun</strong>, ja olen siitä ylpeä.
                 </p>
-                <p className="font-semibold text-foreground">– Eerik, Pintanen Oy</p>
+                <p className="font-medium text-foreground">— Eerik, Pintanen Oy</p>
               </div>
             </div>
           </motion.div>
