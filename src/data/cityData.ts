@@ -186,9 +186,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Forssa – Säännöllinen huolto kannattaa",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Forssassa tehokkaasti ja edullisesti. Katto kuntoon ennen vaurioita. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Forssa – Vankka kokemus",
+    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Forssassa laadukkailla maaleilla ja tarkalla työnjäljellä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Forssassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Lounais-Hämeen lämpötilavaihteluiden kestävä maalaustyö",
+    maalausLocalHookText: "Forssan alueella Loimijoen laakson kostea ilma ja sisämaan suuret lämpötilan muutokset vaikuttavat maalin kiinnitykseen. Kun maalipinta altistuu ilmalle ja alkaa kulua pois, se ei enää estä vettä, mikä aiheuttaa puun kulumisen. Pintanen tarjoaa forssalaisille pientalojen asukkaille laadukasta talon maalaus palvelua, joka saa seinät kestämään Forssan alueen vaativia olosuhteita ja pitämään rakennuksen ulkopinnan joustavana.",
     alueIntro:
       "Vaikka Pintasen kotikaupunki on Tampere, palvelemme aktiivisesti myös Forssan seutua Etelä-Hämeessä. Tarjoamme tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia omakotitaloihin sekä maatilakiinteistöihin.\n\nJokaiseen kohteeseen tehdään ilmainen arviokäynti. Yrittäjät tekevät työn itse ja viimeistelevät jokaisen työmaan huolellisesti. Forssan suuntaan ajamme säännöllisesti, joten aikataulut järjestyvät joustavasti.\n\nForssan seudulla avoimet peltomaisemat altistavat rakennukset tuulelle ja viistosateelle, mikä kuluttaa maalipintoja ja kattoja tavallista nopeammin. Alueella on paljon perinteisiä puutaloja ja maatiloja, joissa oikea-aikainen kunnossapito on erityisen tärkeää.\n\nOta yhteyttä ja sovitaan käynti Forssan alueelle – arviokäynti on aina maksuton.",
     pinnoitusIntro:
