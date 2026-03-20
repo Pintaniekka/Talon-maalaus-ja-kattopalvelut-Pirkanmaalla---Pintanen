@@ -23,7 +23,7 @@ const Header = () => {
       dropdown: [
         { label: "Tiilikaton pinnoitus", href: "/tiilikaton-pinnoitus-pirkanmaa" },
         { label: "Katon puhdistus", href: "/katon-puhdistus-pirkanmaa" },
-        { label: "Ulkomaalaus", href: "/talon-maalaus-pirkanmaa" },
+        { label: "Talon maalaus", href: "/talon-maalaus-pirkanmaa" },
       ],
     },
     {
