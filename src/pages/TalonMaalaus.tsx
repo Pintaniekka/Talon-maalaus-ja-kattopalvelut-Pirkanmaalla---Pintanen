@@ -1,169 +1,99 @@
-import { motion } from "framer-motion";
-import { Check, Paintbrush, Shield, Clock, BadgeCheck, Home, Sun, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
-
+import MaalausTrustStats from "@/components/maalaus/MaalausTrustStats";
+import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import MaalausProblemSection from "@/components/maalaus/MaalausProblemSection";
+import MaalausProcessAccordion from "@/components/maalaus/MaalausProcessAccordion";
+import MaalausComparison from "@/components/maalaus/MaalausComparison";
+import MaalausPricingCards from "@/components/maalaus/MaalausPricingCards";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import ServiceContactSection from "@/components/ServiceContactSection";
+import MaalausFinancing from "@/components/maalaus/MaalausFinancing";
+import MaalausEntrepreneur from "@/components/maalaus/MaalausEntrepreneur";
 import FAQSection from "@/components/FAQSection";
-import { maalausFAQ } from "@/data/faqData";
+import ServiceContactSection from "@/components/ServiceContactSection";
+import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import SEO from "@/components/SEO";
 import { getStorageUrl } from "@/lib/storage";
+import { Link } from "react-router-dom";
 
 const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
+const faqItems = [
+  {
+    question: "Saako talon maalauksesta kotitalousvähennystä?",
+    answer: "Kyllä saa! Koska Pintanen kuuluu ennakkoperintärekisteriin, tekemämme työ on täysin kotitalousvähennyskelpoista, ja erittelemme työn osuuden aina selkeästi loppulaskuun helpottaaksemme vähennyksen hakemista. Vuonna 2026 voit vähentää 35 % työn osuudesta suoraan verotuksessasi, ja puolisot voivat hyödyntää vähennyksen yhdessä, jolloin maksimietu on jopa 3 200 euroa vuodessa.",
+  },
+  {
+    question: "Mitä talon maalaus maksaa?",
+    answer: "Talon maalauksen hinta asettuu tyypillisesti 3 000 eurosta ja 10 000 euroon välille riippuen talon koosta, kerrosmäärästä ja pohjatöiden vaativuudesta. Yhden kerroksen omakotitalon maalaus on edullisempaa, kun taas kaksi kerrosta vaatii usein telineitä tai nostimia. Hintamme on aina \"avaimet käteen\" -toteutus.",
+  },
+  {
+    question: "Voiko maalaustyön maksaa osissa tai rahoituksella?",
+    answer: "Kyllä voi! Tarjoamme asiakkaillemme joustavan rahoituksen ja maksujärjestelyn, jolla voit jakaa julkisivun maalauksen kustannukset sinulle sopiviin kuukausieriin. Talon huoltomaalausta ei kannata viivästyttää säästöjen vuoksi, sillä ajoissa tehty suojaus on aina edullisempi investointi kuin lahojen lautojen vaihtaminen tai laajempi ulkoverhousremontti.",
+  },
+  {
+    question: "Kuinka kauan omakotitalon maalaus kestää?",
+    answer: "Tyypillisen pirkanmaalaisen omakotitalon pesu, pohjatyöt ja maalaus kestävät sääolosuhteitten mukaan noin 3–7 työpäivää. Prosessi alkaa huolellisella homepesulla ja mekaanisella kaavinnalla, jonka jälkeen pinnan on annettava kuivua ennen maalausta. Yrittäjänä varmistan, että työt etenevät aikataulussa laadusta tinkimättä.",
+  },
+  {
+    question: "Milloin talon ulkomaalaus on ajankohtaista?",
+    answer: "Puuverhoiltu talo on syytä huoltomaalata keskimäärin 10–15 vuoden välein. Pirkanmaalla säärasitus on kovaa: etelä- ja länsiseinät saattavat vaatia huoltoa jo aiemmin UV-säteilyn ja viistosateiden vuoksi. Hälyttäviä merkkejä ovat maalin hilseily, pinnan liituuntuminen, eli maali jää sormiin pölynä, tai mustien homepilkkujen ilmestyminen laudoitukseen.",
+  },
+  {
+    question: "Kannattaako talo maalata itse vai palkata ammattilainen?",
+    answer: "Vaikka talon voi maalata itse, ammattilaisen käyttäminen varmistaa kestävän tartunnan ja säästää viikkojen urakalta. Maalauksen tärkein vaihe on pohjatyöt, kuten oikeaoppinen homepesu ja huolellinen kaavinta, joihin meillä on ammattitason välineet. Valitsemalla Pintasen saat työlle kirjallisen takuun, varmistat turvallisen työskentelyn korkeuksissa ja voit hyödyntää kotitalousvähennyksen, jota ei saa itse tehdystä työstä.",
+  },
+];
+
 const TalonMaalaus = () => {
-  const processSteps = [
-    { icon: Home, title: "Kunnon arviointi", description: "Arvioimme talon pintojen kunnon ja annamme pitävän tarjouksen." },
-    { icon: Shield, title: "Pohjatyöt", description: "Märkähomepesu, kaapiminen ja tarvittavat paikkaukset." },
-    { icon: Paintbrush, title: "Pohjamaalaus", description: "Laadukas pohjamaalaus paljaisiin puuosiin varmistaa pintamaalin tarttuvuuden." },
-    { icon: Sun, title: "Pintamaalaus", description: "Laadukas kerros kestävää ulkomaalia suojaamaan pintoja." },
-    { icon: BadgeCheck, title: "Tarkastus", description: "Huolellinen lopputarkastus ja dokumentointi." },
-  ];
-
-  const benefits = [
-    "Huolelliset pohjatyöt (märkähomepesu aina)",
-    "Laadukkaat maalit ja materiaalit",
-    "Tarkka työnjälki",
-    "Työmaa jätetään siistiin kuntoon",
-    "Vankka kokemus",
-    "2 vuoden takuu työlle",
-  ];
-
-  const services = [
-    { name: "Puutalon ulkomaalaus", description: "Lautaverhoilut, hirsi- ja paneelipinnat" },
-    { name: "Terassien ja kuistien maalaus ja öljyäminen", description: "Kuistit ja terassit" },
-    { name: "Sokkeleiden maalaus", description: "Sokkeleiden pinnoitus ja maalaus" },
-  ];
-
   return (
     <div>
-      <SEO title="Talon maalaus Pirkanmaa – 2v takuu" description="Talon maalaus Pirkanmaalla huolellisella pohjatyöllä ja laadukkailla maaleilla. Ammattimainen lopputulos. 2 vuoden takuu." />
-      <ServicePageHero
-        title="Talon maalaus"
-        subtitle="Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla – 2 vuoden takuu"
-        backgroundImage={heroImage}
+      <SEO
+        title="Talon maalaus Pirkanmaa | Hintalaskuri"
+        description="Laadukas talon ulkomaalaus Pirkanmaalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!"
+        preloadImage={heroImage}
       />
 
-      {/* Info Text Section */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto space-y-6 text-foreground text-base md:text-lg leading-relaxed">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-2 text-center">Miksi maalata talo?</h2>
-            <p>Talo kannattaa maalata noin <strong>kymmenen vuoden</strong> välein tai kun huomaat seinässä vikoja, kuten hilseilevää maalia tai homepilkkuja.</p>
-            <p>Monet ajattelevat, että maalauksen tarkoitus on vain tehdä talosta esteettisempi. Todellisuudessa maalipinta <strong>suojelee</strong> puuverhousta säältä ja kosteudelta.</p>
-            <p>Yleensä ihmiset ajattelevat maalauksen huoltovälistä huolimattomasti. Toimiin ryhdytään vasta kun maali on jo alkanut <strong>hilseilemään</strong>, mutta silloin huoltovälin rajoja on jo ylitetty. Tällöin työ ei ole enää vain huoltomaalaus, vaan vaatii paljon enemmän <strong>pohjatöitä</strong> ja mahdollisia <strong>puukorjauksia</strong>, mikä kasvattaa työn laajuutta ja kustannuksia.</p>
-            <p>Jos olet ajatellut <strong>myydä</strong> talosi, julkisivun maalaus voi olla yllättävän tehokas tapa tehdä siitä houkuttelevampi. Raikas ja huoliteltu ulkopinta antaa koko rakennukselle uudenkarhean ensivaikutelman.</p>
-            <p><strong>Meillä Pintasilla huoltomaalaus tehdään suunnitelmallisesti ja oikea-aikaisesti</strong>, jotta vältytään turhilta kustannuksilta ja rakenteiden vaurioilta. Arvioimme aina kohteen kunnon huolellisesti ja toteutamme työn niin, että talosi pysyy suojattuna ja edustavana vuosiksi eteenpäin. Kun maalaus tehdään ajoissa ja ammattitaidolla, <strong>lopputulos näkyy sekä rakenteiden kestävyydessä että kiinteistön arvossa.</strong></p>
-          </motion.div>
+      <ServicePageHero
+        title="Talon maalaus Pirkanmaa – Kestävä julkisivu suoraan yrittäjän maalaamana"
+        subtitle=""
+        backgroundImage={heroImage}
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            Suojaa kotisi säänvaihteluilta ja pidennä ulkoverhouksen ikää laadukkaalla maalauksella. Meiltä saat perusteelliset pohjatyöt, säänkestävän lopputuloksen ja täysin läpinäkyvän hinnoittelun. Kokeile avointa hintalaskuriamme heti verkossa tai kutsu meidät maksuttomalle arviokäynnille suoraan kotiovellesi – palvelemme paikallisesti ja joustavasti koko Pirkanmaan alueella!
+          </p>
         </div>
-      </section>
 
-      {/* Services */}
-      <section className="section-padding bg-accent-light">
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Maalauspalvelumme</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Tarjoamme kattavat ulkomaalauspalvelut kaikenlaisiin taloihin.</p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {services.map((service, index) => (
-              <motion.div key={service.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="card-elevated">
-                <h3 className="font-bold text-foreground mb-2">{service.name}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="section-padding bg-secondary">
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Työprosessimme</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Huolellinen työ takaa kestävän lopputuloksen.</p>
-          </motion.div>
-          <div className="grid md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
-              <motion.div key={step.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="card-elevated text-center bg-card">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="section-padding bg-background">
-        <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita Pintanen?</h2>
-              <p className="text-lg text-muted-foreground mb-8">Olemme erikoistuneet ulkomaalaukseen ja tiedämme, mitä laadukas työ vaatii. Huolellisesti tehdyt pohjatyöt ovat avain pitkäikäiseen lopputulokseen.</p>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.li key={benefit} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-accent" />
-                    </div>
-                    <span className="text-foreground font-medium">{benefit}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-primary/5 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Pyydä ilmainen arvio</h3>
-              <p className="text-muted-foreground mb-6">Tulemme mielellämme arvioimaan maalaustyön laajuuden ja antamaan tarjouksen. Arvio on aina maksuton eikä sido mihinkään.</p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span className="text-foreground">Arvio 1-3 arkipäivän sisällä</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-foreground">Sitomaton tarjous</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After Slider */}
-      <section className="section-padding bg-muted">
-        <div className="section-container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">Ennen & Jälkeen</h2>
-            <p className="text-muted-foreground text-lg">Vedä liukusäädintä ja näe ero.</p>
-          </motion.div>
-          <div className="max-w-2xl mx-auto">
-            <BeforeAfterSlider
-              beforeImage={getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp")}
-              afterImage={getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp")}
-              beforeAlt="Puutalo ennen värinvaihtoa ja maalaustyötä Tampereella"
-              afterAlt="Violetti omakotitalo värinvaihdon jälkeen Tampereella"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 bg-background">
-        <div className="section-container text-center">
-          <Link to="/talon-maalaus-hinta-pirkanmaa" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-lg">
-            Katso talon maalauksen hintaesimerkit <ArrowRight className="w-5 h-5" />
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#yhteystiedot"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 text-base"
+            style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
+          >
+            Pyydä ilmainen kuntoarvio: Talon maalaus Pirkanmaa
+          </a>
+          <Link
+            to="/talon-maalaus-hinta-pirkanmaa"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-foreground transition-all hover:brightness-95 text-base"
+            style={{ backgroundColor: 'hsl(36, 56%, 91%)' }}
+          >
+            Laske hinta laskurilla
           </Link>
         </div>
-      </section>
+      </ServicePageHero>
 
-      <FAQSection items={maalausFAQ} />
-      <ServiceContactSection variant="maalaus" />
+      <MaalausTrustStats />
+      <TestimonialsMarquee />
+      <MaalausProblemSection />
+      <MaalausProcessAccordion />
+      <MaalausComparison />
+      <MaalausPricingCards />
       <KotitalousVahennys />
+      <MaalausFinancing />
+      <MaalausEntrepreneur />
+      <FAQSection items={faqItems} />
+      <ServiceContactSection variant="maalaus" />
+      <ToimintaAlueetBanner />
     </div>
   );
 };

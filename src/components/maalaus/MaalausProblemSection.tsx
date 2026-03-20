@@ -1,0 +1,93 @@
+import { motion } from 'framer-motion';
+import { Search } from 'lucide-react';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import { getStorageUrl } from '@/lib/storage';
+
+const warningSignsData = [
+  { sign: 'Maali hilseilee tai lohkeilee', desc: 'Kosteus on päässyt maalin alle ja heikentänyt sen tartunnan puuhun.' },
+  { sign: 'Pinta liituuntuu tai haalistuu', desc: 'Maalipinta on hapettunut, eikä se enää hylje vettä tai likaa.' },
+  { sign: 'Mustat pisteet (sinistäjäsieni tai homesieni)', desc: 'Pintamulta tai ilman epäpuhtaudet tarjoavat kasvualustan homeelle, joka on puhdistettava homepesulla ennen maalausta.' },
+  { sign: 'Halkeamat paneelien päissä', desc: 'Puu on päässyt kastumaan ja kuivumaan toistuvasti, mikä on rikkonut puun rakenteen.' },
+];
+
+const MaalausProblemSection = () => {
+  return (
+    <section className="section-padding bg-accent-light">
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+            Miksi talon huoltomaalaus on tärkeää juuri nyt?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Talon ulkoverhouksen maalaus ei ole vain esteettinen asia. Se on myös tärkeää puun suojaamiseksi. Kun maalin sideaineet kuluvat ja pinta alkaa haalistua tai halkeilla, puun luonnollinen suoja heikkenee. Tämä on merkki siitä, että talo tarvitsee huoltomaalausta ennen kuin vauriot ehtivät syvälle puukuituun.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
+          {/* Left: Before/After slider (sticky on desktop) */}
+          <div className="lg:sticky lg:top-28">
+            <BeforeAfterSlider
+              beforeImage={getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp')}
+              afterImage={getStorageUrl('Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp')}
+              beforeAlt="Puutalo ennen huoltomaalausta Pirkanmaalla"
+              afterAlt="Puutalo huoltomaalauksen jälkeen Pirkanmaalla"
+            />
+          </div>
+
+          {/* Right: Informational text */}
+          <div className="space-y-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                Estä kosteuseläminen ja lahottajasienien kasvu
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Suomen syksyn viistosateet ja talven kostea ilma ovat rankkoja suojaamattomalle puupinnalle. Jos maalipinta on rikki, vesi pääsee imeytymään puuhun. Se aiheuttaa voimakasta kosteusliikettä – puu laajenee ja supistuu, mikä avaa halkeamia entisestään. Jatkuva kosteus luo hyvät olot lahottajasienille, jotka tuhoavat puun rakenteen sisältäpäin. Ammattilaisen tekemä maalaus muodostaa pinnalle kalvon, joka säätelee puun kosteustasapainoa, pitää rakenteet kuivina ja viivästyttää kallista ulkoverhousremonttia.
+              </p>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                UV-säteily – Puukuidun ja sideaineiden kuluttaja
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Aurinko on julkisivun suurin rasite. Suora UV-säteily hajottaa maalin sideaineita ja harmaannuttaa suojaamatonta puuta. Tämä tekee puun pinnasta nukkaisen, jolloin maali ei tartu siihen kunnolla. Laadukas ammattitason maali sisältää <strong className="text-foreground">UV-suojan</strong>, joka pitää värin kirkkaana ja estää puun pinnan haurastumisen.
+              </p>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h4 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                <Search className="w-5 h-5 text-accent" />
+                Onko talosi ulkoseinässä näitä merkkejä? Silloin maalauksella on kiire:
+              </h4>
+              <ul className="space-y-3">
+                {warningSignsData.map((w) => (
+                  <li key={w.sign} className="flex items-start gap-3">
+                    <span className="mt-1 w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                    <span className="text-muted-foreground">
+                      <strong className="text-foreground">{w.sign}:</strong> {w.desc}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <a
+              href="#yhteystiedot"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-colors hover:brightness-110"
+              style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
+            >
+              Pyydä maksuton kuntotarkastus Pirkanmaalla
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default MaalausProblemSection;
