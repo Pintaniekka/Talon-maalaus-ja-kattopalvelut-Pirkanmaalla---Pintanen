@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import { getStorageUrl } from '@/lib/storage';
 
 const eemilImage = getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp');
 

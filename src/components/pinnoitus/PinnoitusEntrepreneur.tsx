@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import { getStorageUrl } from '@/lib/storage';
 
 const eerikImage = getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp');
 
