@@ -194,9 +194,11 @@ export const cities: CityData[] = [
     alueMetaTitle: "Katon pinnoitus ja julkisivumaalaus Hämeenlinna",
     alueMetaDesc:
       "Katto- ja maalauspalvelut Hämeenlinnassa suoraan tekijöiltä. Kestävä toteutus ja selkeä työprosessi. Ota yhteyttä.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenlinna – Katto kuntoon kerralla",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenlinna | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Hämeenlinnassa huolellisin pohjatöin ja laadukkaalla toteutuksella. 5 vuoden takuu. Pyydä arvio.",
+      "Tiilikaton pinnoitus Hämeenlinnassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+    pinnoitusLocalHookTitle: "Hämeenlinnan arvokiinteistöjen ja pientalojen tiilikattojen pinnoitus",
+    pinnoitusLocalHookText: "Hämeenlinnassa vanhat ja uudet talot elävät hyvin yhdessä Vanajaveden rannalla. Vanajaveden läheisyys tuo kuitenkin omat haasteensa. Ilmankosteus on jatkuva ongelma, joka vaikuttaa tiilikattojen kestävyyteen ja saa ne helposti sammaloitumaan. Onneksi on olemassa ratkaisu. Pintasen asiantunteva tiilikaton pinnoitus on edullinen tapa uudistaa katon ulkonäkö ja palauttaa sen suojakyky. Riippumatta siitä, asutko Aulangon lähellä tai Jukolassa, hyvä tiilikaton pinnoitus takaa, että kattosi kestää Hämeenlinnan sään jopa seuraavat 10-15 vuotta.",
     puhdistusMetaTitle: "Katon puhdistus Hämeenlinna – Ilmainen arvio",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenlinnassa edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Kysy tarjous.",
