@@ -21,8 +21,6 @@ const PinnoitusEntrepreneur = () => {
             <div className="flex justify-center">
               <img
                 src={eerikImage}
-                srcSet={getImageSrcSet(eerikImage)}
-                sizes="160px"
                 alt="Eerik Pitkänen – Pintanen Oy, kattopalvelut"
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"

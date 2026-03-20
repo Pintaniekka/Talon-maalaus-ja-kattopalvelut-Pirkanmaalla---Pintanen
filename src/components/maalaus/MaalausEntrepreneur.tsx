@@ -21,8 +21,6 @@ const MaalausEntrepreneur = () => {
             <div className="flex justify-center">
               <img
                 src={eemilImage}
-                srcSet={getImageSrcSet(eemilImage)}
-                sizes="160px"
                 alt="Eemil Pitkänen – Pintanen Oy, maalauspalvelut"
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"
