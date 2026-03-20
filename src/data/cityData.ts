@@ -433,3 +433,6 @@ export const getCityBySlug = (slug: string): CityData | undefined => {
 export const cityHasServicePages = (city: CityData): boolean => {
   return !!city.pinnoitusIntro;
 };
+
+/** Cities with dedicated maalaus (painting) subpages */
+export const maalausCities: CityData[] = allCities.filter((c) => !!c.maalausLocalHookTitle);
