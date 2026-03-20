@@ -31,10 +31,10 @@ const MaalausEntrepreneur = () => {
             </div>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Moi! Olen Eemil, Pintasen yrittäjä. Toisin kuin suuret maalausliikkeet, meillä et ole vain yksi tilausnumero muiden joukossa, enkä lähetä pihallesi kokemattomia kesätyöntekijöitä. Hoidan talojen maalaukset Pirkanmaalla henkilökohtaisesti alusta loppuun saakka, jolloin voit luottaa siihen, että työn laadusta vastaa aina tutut kasvot.
+                Moi! Olen Eemil, Pintasen yrittäjä. Toisin kuin suuret maalausliikkeet, meillä et ole vain yksi tilausnumero muiden joukossa, enkä lähetä pihallesi kokemattomia kesätyöntekijöitä. <strong className="text-foreground">Hoidan talojen maalaukset Pirkanmaalla henkilökohtaisesti alusta loppuun saakka</strong>, jolloin voit luottaa siihen, että työn laadusta vastaa aina tutut kasvot.
               </p>
               <p>
-                Viiden vuoden kokemuksella ja yli 60 onnistuneen urakan myötä tiedän tarkalleen, miten pirkanmaalaiset julkisivut saadaan kestämään vaihtelevia sääolosuhteita. Ymmärrän, että huolelliset pohjatyöt ja tarkka maalaus ovat kestävyyden kannalta kaiken A ja O. Seison ylpeänä oman kädenjälkeni takana, ja siksi myönnän kaikille urakoilleni täyden takuun.
+                <strong className="text-foreground">Viiden vuoden kokemuksella ja yli 60 onnistuneen urakan myötä</strong> tiedän tarkalleen, miten pirkanmaalaiset julkisivut saadaan kestämään vaihtelevia sääolosuhteita. Ymmärrän, että <strong className="text-foreground">huolelliset pohjatyöt ja tarkka maalaus ovat kestävyyden kannalta kaiken A ja O</strong>. Seison ylpeänä oman kädenjälkeni takana, ja siksi myönnän kaikille urakoilleni täyden takuun.
               </p>
               <p className="font-medium text-foreground">— Eemil, Pintanen Oy</p>
             </div>
