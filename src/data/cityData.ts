@@ -126,9 +126,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Ylöjärvi – Pidentää katon ikää",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Ylöjärvellä edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Ylöjärvi – Julkisivu kuntoon",
+    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Ylöjärvellä ammattitaidolla ja huolellisella valmistelulla. 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Ylöjärvellä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Puutarhakaupungin julkisivujen suojaus puiden varjostukselta",
+    maalausLocalHookText: "Ylöjärven puutarhakaupungissa, erityisesti Metsäkylän ja Siivikkalan vehreillä alueilla, suuret puut ja Näsijärven läheisyys luovat varjoisia ja kosteita pienilmastoja. Varjoisilla paikoilla maali kuivuu hitaammin, mikä edistää homesienien kasvua ja maalin hilseilyä. Pintasen talon maalaus Ylöjärvellä panostaa tehokkaaseen homepesuun ja oikeisiin maalausolosuhteisiin, jotta kotisi julkisivu pysyy upeana ja terveenä metsän siimeksessäkin.",
     alueIntro:
       "Ylöjärvi on yksi Pintasen ydintoiminta-alueista Tampereen naapurissa. Toteutamme alueella tiilikaton pinnoituksia, katon puhdistuksia ja ulkomaalauksia monenlaisiin omakotitaloihin.\n\nJokaiseen kohteeseen teemme maksuttoman arviokäynnin ennen työn aloittamista. Yrittäjät ovat aina itse työmaalla, ja jokainen urakka viimeistellään huolella.\n\nYlöjärvi on kasvanut voimakkaasti, ja kaupungin asuinalueet ulottuvat Siivikkalasta Metsäkylään ja Vuorentaustaan. Eri vuosikymmenten pientalot vaativat erityyppistä huoltoa – vanhemmissa taloissa katon pinnoitus voi olla ajankohtainen, kun taas uudemmissa julkisivun ensimaalaus lähestyy. Metsäisillä tonteilla katot keräävät helposti kasvustoa.\n\nSovitaan maksuton arviokäynti – ota yhteyttä.",
     pinnoitusIntro:
