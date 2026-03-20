@@ -29,6 +29,8 @@ export const cities: CityData[] = [
     pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
       "Tiilikaton pinnoitus Tampereella alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+    pinnoitusLocalHookTitle: "Tiilikaton suojaaminen Tampereen kahden järven kosteudelta",
+    pinnoitusLocalHookText: "Tampere sijaitsee Näsijärven ja Pyhäjärven välissä, mikä tekee ilmastosta kostean ja vaativan rakennusten pinnoille. Järvien läheisyys nostaa ilmankosteutta erityisesti kesäisin ja syksyisin, mikä kiihdyttää sammalen ja levän kasvua katoilla. Tampereen omakotitaloalueet – Hervanta, Leinola, Kämmenniemi, Atala ja Kalkku – koostuvat pääosin 70–90-luvun pientaloista, joiden tiilikatot ovat saavuttaneet iän, jossa huolto on välttämätöntä. Talvisin lumi- ja jääkuorma rasittaa kattoja, ja keväisin sulamisvedet voivat aiheuttaa ongelmia kuluneella kattopinnalla. Tampereen olosuhteissa säännöllinen kunnossapito on paras tapa välttää kalliit korjaukset.",
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
