@@ -10,7 +10,7 @@ const warningSignsData = [
   { sign: 'Halkeamat paneelien päissä', desc: 'Puu on päässyt kastumaan ja kuivumaan toistuvasti, mikä on rikkonut puun rakenteen.' },
 ];
 
-const MaalausProblemSection = () => {
+const MaalausProblemSection = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="section-padding bg-accent-light">
       <div className="section-container">
