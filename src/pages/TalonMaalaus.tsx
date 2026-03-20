@@ -54,11 +54,14 @@ const TalonMaalaus = () => {
       />
 
       <ServicePageHero
-        title="Talon maalaus Pirkanmaa – Kestävä julkisivu suoraan yrittäjän maalaamana"
+        title=""
         subtitle=""
         backgroundImage={heroImage}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            Talon maalaus Pirkanmaa – Kestävä julkisivu suoraan yrittäjän maalaamana
+          </h1>
           <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
             Suojaa kotisi säänvaihteluilta ja pidennä ulkoverhouksen ikää laadukkaalla maalauksella. Meiltä saat perusteelliset pohjatyöt, säänkestävän lopputuloksen ja täysin läpinäkyvän hinnoittelun. Kokeile avointa hintalaskuriamme heti verkossa tai kutsu meidät maksuttomalle arviokäynnille suoraan kotiovellesi – palvelemme paikallisesti ja joustavasti koko Pirkanmaan alueella!
           </p>
@@ -70,7 +73,7 @@ const TalonMaalaus = () => {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 text-base"
             style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
           >
-            Pyydä ilmainen kuntoarvio: Talon maalaus Pirkanmaa
+            Pyydä ilmainen kuntoarvio
           </a>
           <Link
             to="/talon-maalaus-hinta-pirkanmaa"
