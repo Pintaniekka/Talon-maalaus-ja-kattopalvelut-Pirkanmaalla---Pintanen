@@ -66,9 +66,11 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Sastamala – Katto puhtaaksi kerralla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Sastamalassa tehokkaasti ja edullisesti. Laita katto kunnossa ajoissa. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Sastamala – Märkähomepesu aina",
+    maalausMetaTitle: "Talon maalaus Sastamala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
-      "Talon maalaus Sastamalassa siistillä työnjäljellä ja huolellisilla pohjatöillä. Urakoissa 2 vuoden takuu. Ota yhteyttä.",
+      "Laadukas talon ulkomaalaus Sastamalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Puuverhouksen suojaaminen Sastamalan vesistöjen kosteusrasitukselta",
+    maalausLocalHookText: "Sastamalan maisema on Rautaveden ja Liekoveden hallitsema. Ne tuovat mukanaan runsaasti kosteutta, joka on suuri haaste puujulkisivuille. Erityisesti Vammalan keskustan ja rantojen lähellä ilmankosteus on korkea. Se pääsee helposti suojaamattomaan puuhun, mikä aiheuttaa maalin lohkeilua ja altistaa laudoituksen homeelle. Pintanen tuntee alueen olosuhteet hyvin. Teen huolelliset ja ammattitaitoiset homepesut ja maalaukset. Näin varmistetaan, että talosi ulkoverhous kestää Sastamalan järvi-ilmaston vaikutukset hyvin.",
     alueIntro:
       "Pintanen palvelee Sastamalan seutua monipuolisesti – toteutamme tiilikaton pinnoituksia, katon puhdistuksia ja ulkomaalauksia niin omakotitaloihin kuin maatilakiinteistöihinkin.\n\nEnnen työn aloittamista käymme aina arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät jokaisen urakan itse, mikä takaa tasalaatuisen ja huolellisen lopputuloksen. Viimeistely ja työmaan siistiminen kuuluvat aina hintaan.\n\nSastamalan laajalla alueella on runsaasti perinteisiä puutaloja, maatilarakennuksia ja 80–90-luvun omakotitaloja. Metsäisillä tonteilla katot sammaloituvat helposti, ja Rautaveden sekä Kuloveden rannoilla kosteus rasittaa julkisivuja. Oikea-aikainen huolto säästää rakennusten omistajia suuremmilta korjauskustannuksilta.\n\nOta yhteyttä ja sovitaan maksuton käynti Sastamalan alueelle – palvelemme joustavasti koko kunnan alueella.",
     pinnoitusIntro:
