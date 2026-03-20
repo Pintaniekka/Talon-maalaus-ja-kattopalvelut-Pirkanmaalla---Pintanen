@@ -25,9 +25,9 @@ export const cities: CityData[] = [
   {
     name: "Tampere",
     slug: "tampere",
-    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere | Yrittäjä tekee työn",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Tampereella huolellisella toteutuksella. Tiilikaton pinnoitus, puhdistus ja talon maalaus suoraan tekijöiltä. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus ja talon maalaus Tampereella. Laske hinta-arvio hintalaskurilla. Tilaa ilmainen arviokäynti ja hyödynnä kotitalousvähennys. Kirjallinen takuu.",
     pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
       "Tiilikaton pinnoitus Tampereella alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",

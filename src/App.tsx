@@ -17,6 +17,7 @@ const TalonMaalaus = lazy(() => import("./pages/TalonMaalaus"));
 const TalonMaalausCity = lazy(() => import("./pages/TalonMaalausCity"));
 const ToimintaAlueet = lazy(() => import("./pages/ToimintaAlueet"));
 const AlueCity = lazy(() => import("./pages/AlueCity"));
+const AlueCityTampere = lazy(() => import("./pages/AlueCityTampere"));
 const Referenssit = lazy(() => import("./pages/Referenssit"));
 const Hinnat = lazy(() => import("./pages/Hinnat"));
 const HinnatTiilikalonPinnoitus = lazy(() => import("./pages/HinnatTiilikalonPinnoitus"));
@@ -64,7 +65,8 @@ const App = () => (
               ))}
 
               {/* ── Area pages (all cities) ── */}
-              {allCities.map(city => (
+              <Route path="/maalauspalvelut-tampere" element={<AlueCityTampere />} />
+              {allCities.filter(city => city.slug !== "tampere").map(city => (
                 <Route key={`alue-${city.slug}`} path={`/maalauspalvelut-${city.slug}`} element={<AlueCity citySlug={city.slug} />} />
               ))}
 
