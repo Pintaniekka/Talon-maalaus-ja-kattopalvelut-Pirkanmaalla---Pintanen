@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Clock, ChevronRight, CreditCard } from "lucide-react";
@@ -11,6 +12,8 @@ import SEO from "@/components/SEO";
 import OptimizedImage from "@/components/OptimizedImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
 import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
+import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
+import { getAreaCityContent } from "@/data/areaCityContent";
 
 const heroImage = getStorageUrl("talon-maalaus-pensseli-header.webp");
 
@@ -29,34 +32,6 @@ const trustStats = [
   { value: "2–5 vuotta", label: "Takuu työlle", sub: (<><strong className="text-foreground">Takaamme itse tekemämme työn.</strong></>) },
 ];
 
-/* ── Service Cards ── */
-const services = [
-  {
-    title: "Tiilikaton pinnoitus",
-    href: "/tiilikaton-pinnoitus-tampere",
-    description: "Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15–20 vuotta ja suojaa tiiliä rapautumiselta.",
-    warranty: "5v takuu",
-    bgImage: pinnoitusBg,
-    Icon: RoofTileIcon,
-  },
-  {
-    title: "Tiilikaton puhdistus",
-    href: "/katon-puhdistus-tampere",
-    description: "Mekaaninen puhdistus ja sammaleentorjuntakäsittely pitävät katon kunnossa vuosiksi eteenpäin.",
-    warranty: "Ilmainen tarkastus",
-    bgImage: puhdistusBg,
-    Icon: RoofCleanIcon,
-  },
-  {
-    title: "Talon maalaus",
-    href: "/talon-maalaus-tampere",
-    description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
-    warranty: "2v takuu",
-    bgImage: maalausBg,
-    Icon: PaintBrushIcon,
-  },
-];
-
 /* ── Pinnoitus Pricing ── */
 const pinnoitusCards = [
   { size: "150–180 m²", label: "Pieni/keskisuuri koti", duration: "2 työpäivää", normalPrice: "2 850 € – 3 200 €", afterPrice: "alk. 2 150 €", featured: false },
@@ -73,15 +48,15 @@ const maalausCards = [
 ];
 const maalausIncludes = ["Huolellinen suojaus", "Homepesu ja kaavinta", "Puupuhtaiden pintojen pohjamaalaus", "Pintamaalaus"];
 
-/* ── FAQ ── */
-const tampereFAQ = [
+/* ── FAQ (yhteinen kaikille aluesivuille) ── */
+const areaFAQ = [
   {
     question: "Saako talon maalauksesta ja tiilikaton pinnoituksesta kotitalousvähennystä?",
     answer: "Kyllä saa! Sekä talon maalaus että tiilikaton pinnoitus oikeuttavat kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> henkilökohtaisessa verotuksessasi. Koska urakoissamme työn osuus on tyypillisesti jopa 80 % kokonaishinnasta, säästö on usein tuhat euroa. Puolisoiden yhteinen maksimietu on jopa <strong>3 200 euroa vuodessa</strong>. Erittelemme työn osuuden suoraan laskulle, joten vähennyksen hakeminen on sinulle täysin vaivatonta.",
   },
   {
     question: "Mitä omakotitalon julkisivun maalaus tai tiilikaton pinnoitus tyypillisesti maksaa?",
-    answer: "Jokainen kohde on yksilöllinen, mutta olemme hinnoittelussamme täysin avoimia. Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus asettuu Tampereella tyypillisesti noin <strong>2 800–5 800 euron</strong> välille. Puuverhouksen huoltomaalaus perusteellisine pohjatöineen maksaa talon koosta riippuen noin <strong>3 000 – 10 000 euroa</strong>. Muistathan, että lopullinen summa on kotitalousvähennyksen jälkeen sinulle huomattavasti edullisempi. Pyydä meidät ilmaiselle arviokäynnille, niin saat tarkan, kiinteän avaimet käteen -tarjouksen ilman piilokuluja.",
+    answer: "Jokainen kohde on yksilöllinen, mutta olemme hinnoittelussamme täysin avoimia. Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus asettuu tyypillisesti noin <strong>2 800–5 800 euron</strong> välille. Puuverhouksen huoltomaalaus perusteellisine pohjatöineen maksaa talon koosta riippuen noin <strong>3 000 – 10 000 euroa</strong>. Muistathan, että lopullinen summa on kotitalousvähennyksen jälkeen sinulle huomattavasti edullisempi. Pyydä meidät ilmaiselle arviokäynnille, niin saat tarkan, kiinteän avaimet käteen -tarjouksen ilman piilokuluja.",
   },
   {
     question: "Voiko katto- tai maalausurakan maksaa osissa?",
@@ -160,12 +135,47 @@ const PricingGrid = ({
   </div>
 );
 
-const AlueCityTampere = () => {
+const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
+  const cityData = getCityBySlug(citySlug);
+  const areaContent = getAreaCityContent(citySlug);
+
+  if (!cityData || !areaContent) return <Navigate to="/toiminta-alueet" replace />;
+
+  const cityName = cityData.name;
+  const hasSubPages = cityHasServicePages(cityData);
+
+  const services = [
+    {
+      title: "Tiilikaton pinnoitus",
+      href: hasSubPages ? `/tiilikaton-pinnoitus-${cityData.slug}` : "/tiilikaton-pinnoitus-pirkanmaa",
+      description: "Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15–20 vuotta ja suojaa tiiliä rapautumiselta.",
+      warranty: "5v takuu",
+      bgImage: pinnoitusBg,
+      Icon: RoofTileIcon,
+    },
+    {
+      title: "Tiilikaton puhdistus",
+      href: hasSubPages ? `/katon-puhdistus-${cityData.slug}` : "/katon-puhdistus-pirkanmaa",
+      description: "Mekaaninen puhdistus ja sammaleentorjuntakäsittely pitävät katon kunnossa vuosiksi eteenpäin.",
+      warranty: "Ilmainen tarkastus",
+      bgImage: puhdistusBg,
+      Icon: RoofCleanIcon,
+    },
+    {
+      title: "Talon maalaus",
+      href: hasSubPages ? `/talon-maalaus-${cityData.slug}` : "/talon-maalaus-pirkanmaa",
+      description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
+      warranty: "2v takuu",
+      bgImage: maalausBg,
+      Icon: PaintBrushIcon,
+    },
+  ];
+
   return (
     <div>
       <SEO
-        title="Tiilikaton pinnoitus ja talon maalaus Tampere | Yrittäjä tekee työn | Pintanen"
-        description="Tiilikaton pinnoitus ja talon maalaus Tampereella. Laske hinta-arvio hintalaskurilla. Tilaa ilmainen arviokäynti ja hyödynnä kotitalousvähennys. Kirjallinen takuu."
+        title={areaContent.alueMetaTitle}
+        description={areaContent.alueMetaDesc}
         preloadImage={heroImage}
       />
 
@@ -173,10 +183,10 @@ const AlueCityTampere = () => {
       <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
-            Tiilikaton pinnoitus ja talon maalaus Tampere
+            Tiilikaton pinnoitus ja talon maalaus {cityName}
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
-            Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset Tampereella ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
+            Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityName}lla ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -216,6 +226,26 @@ const AlueCityTampere = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ LOCAL HOOK ══════════════════ */}
+      <section className="section-padding bg-card">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-4 font-heading">
+              {areaContent.alueLocalHookTitle}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+              {areaContent.alueLocalHookText}
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -260,10 +290,10 @@ const AlueCityTampere = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Palvelut Tampereen-alueella
+              Palvelut {cityName}n alueella
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tarjoamme laadukkaat maalaus- ja kattopalvelut Tampereella.
+              Tarjoamme laadukkaat maalaus- ja kattopalvelut {cityName}lla.
             </p>
           </motion.div>
 
@@ -321,7 +351,7 @@ const AlueCityTampere = () => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa tiilikaton pinnoitus Tampereella?
+              Paljonko maksaa tiilikaton pinnoitus {cityName}lla?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
@@ -336,7 +366,7 @@ const AlueCityTampere = () => {
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
               style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
             >
-              Laske hinta: tiilikaton pinnoitus Tampere
+              Laske hinta: tiilikaton pinnoitus {cityName}
             </Link>
           </div>
         </div>
@@ -352,7 +382,7 @@ const AlueCityTampere = () => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa talon maalaus Tampereella?
+              Paljonko maksaa talon maalaus {cityName}lla?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
@@ -367,7 +397,7 @@ const AlueCityTampere = () => {
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
               style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
             >
-              Laske hinta: Talon maalaus Tampere
+              Laske hinta: Talon maalaus {cityName}
             </Link>
           </div>
         </div>
@@ -451,10 +481,10 @@ const AlueCityTampere = () => {
       </section>
 
       {/* ══════════════════ FAQ ══════════════════ */}
-      <FAQSection items={tampereFAQ} />
+      <FAQSection items={areaFAQ} />
 
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
-      <TeamContactSection cityName="Tampere" />
+      <TeamContactSection cityName={cityName} />
 
       {/* ══════════════════ TOIMINTA-ALUEET ══════════════════ */}
       <ToimintaAlueetBanner />
@@ -462,4 +492,4 @@ const AlueCityTampere = () => {
   );
 };
 
-export default AlueCityTampere;
+export default ServiceAreaPage;
