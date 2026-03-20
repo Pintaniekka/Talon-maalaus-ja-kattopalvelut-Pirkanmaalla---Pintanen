@@ -15,6 +15,8 @@ export interface CityData {
   maalausIntro?: string;
   maalausMetaTitle?: string;
   maalausMetaDesc?: string;
+  maalausLocalHookTitle?: string;
+  maalausLocalHookText?: string;
   localSection?: string;
 }
 
