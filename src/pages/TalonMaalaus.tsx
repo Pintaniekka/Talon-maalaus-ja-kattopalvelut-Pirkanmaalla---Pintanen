@@ -20,7 +20,7 @@ const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.
 const faqItems = [
   {
     question: "Saako talon maalauksesta kotitalousvähennystä?",
-    answer: "Kyllä saa! Koska Pintanen kuuluu ennakkoperintärekisteriin, tekemämme työ on täysin kotitalousvähennyskelpoista, ja erittelemme työn osuuden aina selkeästi loppulaskuun helpottaaksemme vähennyksen hakemista. Vuonna 2026 voit vähentää 35 % työn osuudesta suoraan verotuksessasi, ja puolisot voivat hyödyntää vähennyksen yhdessä, jolloin maksimietu on jopa 3 200 euroa vuodessa.",
+    answer: "Kyllä saa! Koska <strong>Pintanen kuuluu ennakkoperintärekisteriin</strong>, tekemämme työ on täysin kotitalousvähennyskelpoista, ja erittelemme työn osuuden aina selkeästi loppulaskuun helpottaaksemme vähennyksen hakemista. Vuonna 2026 voit <strong>vähentää 35 % työn osuudesta</strong> suoraan verotuksessasi, ja puolisot voivat hyödyntää vähennyksen yhdessä, jolloin <strong>maksimietu on jopa 3 200 euroa vuodessa</strong>.",
   },
   {
     question: "Mitä talon maalaus maksaa?",
@@ -32,15 +32,15 @@ const faqItems = [
   },
   {
     question: "Kuinka kauan omakotitalon maalaus kestää?",
-    answer: "Tyypillisen pirkanmaalaisen omakotitalon pesu, pohjatyöt ja maalaus kestävät sääolosuhteitten mukaan noin 3–7 työpäivää. Prosessi alkaa huolellisella homepesulla ja mekaanisella kaavinnalla, jonka jälkeen pinnan on annettava kuivua ennen maalausta. Yrittäjänä varmistan, että työt etenevät aikataulussa laadusta tinkimättä.",
+    answer: "Tyypillisen pirkanmaalaisen omakotitalon pesu, pohjatyöt ja maalaus kestävät sääolosuhteitten mukaan noin <strong>3–7 työpäivää</strong>. Prosessi alkaa huolellisella homepesulla ja mekaanisella kaavinnalla, jonka jälkeen pinnan on annettava kuivua ennen maalausta. Yrittäjänä varmistan, että työt etenevät aikataulussa laadusta tinkimättä.",
   },
   {
     question: "Milloin talon ulkomaalaus on ajankohtaista?",
-    answer: "Puuverhoiltu talo on syytä huoltomaalata keskimäärin 10–15 vuoden välein. Pirkanmaalla säärasitus on kovaa: etelä- ja länsiseinät saattavat vaatia huoltoa jo aiemmin UV-säteilyn ja viistosateiden vuoksi. Hälyttäviä merkkejä ovat maalin hilseily, pinnan liituuntuminen, eli maali jää sormiin pölynä, tai mustien homepilkkujen ilmestyminen laudoitukseen.",
+    answer: "Puuverhoiltu talo on syytä huoltomaalata keskimäärin <strong>10–15 vuoden välein</strong>. Pirkanmaalla säärasitus on kovaa: etelä- ja länsiseinät saattavat vaatia huoltoa jo aiemmin UV-säteilyn ja viistosateiden vuoksi. Hälyttäviä merkkejä ovat maalin hilseily, pinnan liituuntuminen, eli maali jää sormiin pölynä, tai mustien homepilkkujen ilmestyminen laudoitukseen.",
   },
   {
     question: "Kannattaako talo maalata itse vai palkata ammattilainen?",
-    answer: "Vaikka talon voi maalata itse, ammattilaisen käyttäminen varmistaa kestävän tartunnan ja säästää viikkojen urakalta. Maalauksen tärkein vaihe on pohjatyöt, kuten oikeaoppinen homepesu ja huolellinen kaavinta, joihin meillä on ammattitason välineet. Valitsemalla Pintasen saat työlle kirjallisen takuun, varmistat turvallisen työskentelyn korkeuksissa ja voit hyödyntää kotitalousvähennyksen, jota ei saa itse tehdystä työstä.",
+    answer: "Vaikka talon voi maalata itse, ammattilaisen käyttäminen varmistaa kestävän tartunnan ja säästää viikkojen urakalta. Maalauksen tärkein vaihe on pohjatyöt, kuten oikeaoppinen homepesu ja huolellinen kaavinta, joihin meillä on ammattitason välineet. Valitsemalla Pintasen saat työlle <strong>kirjallisen takuun</strong>, varmistat turvallisen työskentelyn korkeuksissa ja voit hyödyntää <strong>kotitalousvähennyksen</strong>, jota ei saa itse tehdystä työstä.",
   },
 ];
 
