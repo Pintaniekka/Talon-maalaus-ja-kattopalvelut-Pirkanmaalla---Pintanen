@@ -54,9 +54,11 @@ export const cities: CityData[] = [
     alueMetaTitle: "Katon huolto ja maalaus Sastamala",
     alueMetaDesc:
       "Tarjoamme kattopalvelut ja ulkomaalaukset Sastamalassa. Laadukas työnjälki ja selkeä toimintatapa. Ota yhteyttä.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Sastamala – Yrittäjät tekevät työn",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Sastamala | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Sastamalassa laadukkailla pinnoitteilla ja huolellisella pohjatyöllä. 5 vuoden takuu. Pyydä arvio.",
+      "Tiilikaton pinnoitus Sastamalassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+    pinnoitusLocalHookTitle: "Tiilikaton suojaaminen Sastamalan järvimaisemien kosteudelta",
+    pinnoitusLocalHookText: "Sastamalan ja historiallisen Tyrvään upeat maisemat Rautaveden ja Liekoveden rannoilla ovat todella kauniit, mutta ne myös tuovat mukanaan paljon kosteutta. Tämä kosteus on suoraan vesistöjen lähellä olemisen seuraus, ja se luo ihanteelliset olosuhteet sammaleelle, joka voi vahingoittaa tiilikattoja. On siis tärkeää, että huolehdit säännöllisestä huollosta ja ammattitaitoisesta pinnoituksesta, riippumatta siitä, asutko Vammalan keskustassa tai maaseudun rauhassa. Tiilikaton pinnoitus on paras keino suojata sekä perinteikäs että uudempi talosi Pirkanmaan sääolosuhteilta. Kun pinnoitamme tiilikaton, palautamme tiilen alkuperäisen suojan ja varmistamme, että se palvelee sinua hyvin jopa 10-15 vuotta.",
     puhdistusMetaTitle: "Katon puhdistus Sastamala – Katto puhtaaksi kerralla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Sastamalassa tehokkaasti ja edullisesti. Laita katto kunnossa ajoissa. Kysy tarjous.",
