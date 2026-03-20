@@ -88,9 +88,10 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
                 {cityData.maalausLocalHookTitle}
               </h2>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed text-center">
-              {cityData.maalausLocalHookText}
-            </p>
+            <p
+              className="text-lg text-muted-foreground leading-relaxed text-center"
+              dangerouslySetInnerHTML={{ __html: cityData.maalausLocalHookText || '' }}
+            />
           </motion.div>
         </div>
       </section>
