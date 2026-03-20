@@ -1,6 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import PinnoitusCityHero from "@/components/pinnoitus/PinnoitusCityHero";
 import PinnoitusTrustStats from "@/components/pinnoitus/PinnoitusTrustStats";
+import PinnoitusLocalHook from "@/components/pinnoitus/PinnoitusLocalHook";
 import PinnoitusProblemSection from "@/components/pinnoitus/PinnoitusProblemSection";
 import PinnoitusCityProcess from "@/components/pinnoitus/PinnoitusCityProcess";
 import PinnoitusComparison from "@/components/pinnoitus/PinnoitusComparison";
@@ -40,7 +41,14 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
       <PinnoitusCityHero cityName={cityData.name} backgroundImage={kattoImage} />
       <PinnoitusTrustStats cityName={cityData.name} />
 
-      {/* Testimonials */}
+      {/* Local Hook – kaupunkikohtainen paikallisteksti heti luottamuslaatikon jälkeen */}
+      {cityData.pinnoitusLocalHookTitle && cityData.pinnoitusLocalHookText && (
+        <PinnoitusLocalHook
+          title={cityData.pinnoitusLocalHookTitle}
+          text={cityData.pinnoitusLocalHookText}
+        />
+      )}
+
       <TestimonialsMarquee />
 
       <PinnoitusProblemSection cityName={cityData.name} />

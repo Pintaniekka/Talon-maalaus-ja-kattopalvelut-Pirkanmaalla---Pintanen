@@ -222,9 +222,11 @@ export const cities: CityData[] = [
     alueMetaTitle: "Katto- ja maalauspalvelu Huittinen",
     alueMetaDesc:
       "Tiilikaton huolto ja talon maalaus Huittisissa. Panostamme pohjatöihin ja pitkäikäiseen lopputulokseen. Pyydä arvio kohteestasi.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Huittinen – Pitkäikäinen lopputulos",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Huittinen | 5v takuu | Pintanen",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Huittisissa huolellisella toteutuksella ja kestävällä lopputuloksella. Takuu: 5 vuotta. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus Huittisissa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+    pinnoitusLocalHookTitle: "Satakunnan avarien maisemien tuulikuorma ja katon tiiveys Huittisissa",
+    pinnoitusLocalHookText: "Huittisten laajat pellot ja avonaiset maisemat tuottavat omakotitalojen katoille omanlaisensa haasteen. Tuuli on esteetön ja sateet voimakkaat. Tällaisessa ympäristössä tiili, joka on päässyt huokoiseksi, on erityisen altis kosteuden imeytymiselle ja rapautumiselle. Pintasen tiilikaton pinnoitus ratkaisee tämän ongelman. Pinnoituksella luodaan tiilelle säänkestävä suojakerros. Se pitää veden katon yläpuolella ja estää sammaleen kasvun tehokkaasti, myös Satakunnan vaikeimmissa sääolosuhteissa.",
     puhdistusMetaTitle: "Katon puhdistus Huittinen – Poistaa levän ja sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Huittisissa tehokkaasti ja edullisesti. Katto pysyy kunnossa pidempään. Kysy tarjous.",
