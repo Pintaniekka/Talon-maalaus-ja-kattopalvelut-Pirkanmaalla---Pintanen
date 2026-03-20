@@ -299,6 +299,11 @@ export const simpleCities: CityData[] = [
     alueMetaTitle: "Katon huolto ja talon maalaus Kangasala",
     alueMetaDesc:
       "Katon pinnoitus ja julkisivumaalaus Kangasalla. Huolelliset pohjatyöt ja tarkka työnjälki aina mukana. Kysy tarjous.",
+    maalausMetaTitle: "Talon maalaus Kangasala | Hintalaskuri | Pintanen",
+    maalausMetaDesc:
+      "Laadukas talon ulkomaalaus Kangasalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+    maalausLocalHookTitle: "Kangasalan järvimaisemien kosteusrasituksen hallinta julkisivuissa",
+    maalausLocalHookText: "Kangasalan kauniit järvimaisemat Roineen ja Längelmäveden ympärillä tuovat mukanaan kosteutta, joka on suuri haaste talojen puujulkisivuille. Erityisesti kesäisin ja syksyisin korkea ilmankosteus edistää homesienien kasvua ja puun kosteusliikettä, mikä voi johtaa maalin hilseilyyn ja halkeamiin. Pintasen ammattitaitoinen huoltomaalaus Kangasalla panostaa perusteellisiin pohjatöihin ja homepesuun, jotta kotisi julkisivu kestää järvi-ilmaston vaikutukset hyvin ja näyttää upealta vuodesta toiseen.",
     alueIntro:
       "Kangasala on Tampereen itäinen naapuri ja yksi Pintasen ydintoiminta-alueista. Kaupungissa on laajat omakotitaloalueet, joissa katto- ja maalauspalveluille on jatkuvasti kysyntää.\n\nJokaiseen kohteeseen käymme ensin arvioimassa tilanteen paikan päällä maksutta. Yrittäjät tekevät työn itse alusta loppuun – emme käytä aliurakoitsijoita emmekä välitä töitä eteenpäin.\n\nKangasalan kauniit järvimaisemat tuovat mukanaan kosteutta, joka rasittaa kattopintoja ja julkisivuja. Roine, Längelmävesi ja muut järvet pitävät ilmankosteuden korkeana erityisesti kesäisin ja syksyisin. Alueen eri-ikäisissä omakotitaloissa huollon tarve vaihtelee – vanhemmissa taloissa katon pinnoitus on ajankohtaista, uudemmissa julkisivujen kunto kannattaa tarkistaa.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti.",
   },
