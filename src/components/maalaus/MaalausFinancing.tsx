@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { CreditCard } from 'lucide-react';
 
-const MaalausFinancing = () => {
+const MaalausFinancing = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="py-10 md:py-14 bg-background">
       <div className="section-container">
