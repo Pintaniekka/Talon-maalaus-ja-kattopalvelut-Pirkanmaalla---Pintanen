@@ -15,7 +15,7 @@ const pricingIncludes = [
   'Pintamaalaus',
 ];
 
-const MaalausPricingCards = () => {
+const MaalausPricingCards = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => {
   return (
     <section className="section-padding bg-secondary">
       <div className="section-container max-w-5xl mx-auto">
