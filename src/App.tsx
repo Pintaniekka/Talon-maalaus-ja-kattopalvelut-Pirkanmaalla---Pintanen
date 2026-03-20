@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
-import { cities as fullServiceCities, allCities } from "./data/cityData";
+import { cities as fullServiceCities, allCities, maalausCities } from "./data/cityData";
 
 // Lazy-loaded subpages
 const KattopalvelutPinnoitus = lazy(() => import("./pages/KattopalvelutPinnoitus"));
