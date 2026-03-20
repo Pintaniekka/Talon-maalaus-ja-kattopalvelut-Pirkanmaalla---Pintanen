@@ -198,20 +198,42 @@ const KattopalvelutPinnoitus = () => {
 
       {/* ═══ COMPARISON: Pinnoitus vs. kattoremontti ═══ */}
       <section className="section-padding bg-background">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
-              Tiilikaton pinnoitus vai kokonaan uusi kattoremontti?
-            </h2>
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
-              </p>
-              <p>
-                Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
-              </p>
+        <div className="section-container">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
+                  Tiilikaton pinnoitus vai kokonaan uusi kattoremontti?
+                </h2>
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    Tämä on yleisin kysymys, jota asiakkaamme pohtivat. Nyrkkisääntö on selkeä: jos katon aluskate ja puurakenteet ovat kunnossa, <strong className="text-foreground">kattoremontti on usein täysin turha ja ylimitoitettu investointi</strong>.
+                  </p>
+                  <p>
+                    Tiilikaton pinnoitus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">noin 10–20 % uuden katon hinnasta</strong>. Kun pinnoitus tehdään ajoissa (noin 10–15 vuoden iässä tai kun vanha pinnoite on kulunut), <strong className="text-foreground">säästät kymmeniä tuhansia euroja</strong> ja vältät raskaan rakennusprojektin pihan mylläyksineen.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link
+                    to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-foreground transition-all hover:brightness-95 text-lg"
+                    style={{ backgroundColor: 'hsl(36, 56%, 91%)' }}
+                  >
+                    Hintalaskuri
+                  </Link>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <OptimizedImage
+                  src={getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp')}
+                  srcSet={getImageSrcSet(getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp'))}
+                  alt="Tummanharmaa tiilikatto pinnoituksen jälkeen"
+                  className="w-full rounded-2xl shadow-lg"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
