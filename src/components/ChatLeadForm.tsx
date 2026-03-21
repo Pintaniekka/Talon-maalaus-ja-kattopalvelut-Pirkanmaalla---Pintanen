@@ -61,11 +61,20 @@ const ChatLeadForm = () => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
   }, [messages, currentStep, typing]);
 
-  // Trigger bubble after 5s
+  // Trigger bubble after 5s (initial) or 40s (after dismiss)
+  const bubbleDelay = useRef(5000);
   useEffect(() => {
-    const t = setTimeout(() => { if (!open) setBubbleVisible(true); }, 5000);
+    const t = setTimeout(() => { if (!open) setBubbleVisible(true); }, bubbleDelay.current);
     return () => clearTimeout(t);
   }, [open]);
+
+  const dismissBubble = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setBubbleVisible(false);
+    bubbleDelay.current = 40000;
+    // re-trigger after 40s
+    setTimeout(() => { setBubbleVisible(true); }, 40000);
+  };
 
   // Helper: add bot message with typing delay
   const botSay = useCallback((text: string, thenStep: Step) => {
