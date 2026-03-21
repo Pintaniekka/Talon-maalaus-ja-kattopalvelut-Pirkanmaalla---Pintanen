@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import MobileBottomBar from './MobileBottomBar';
 import DesktopQuoteDrawer from './DesktopQuoteDrawer';
+import ChatLeadForm from './ChatLeadForm';
 
 
 const ScrollToTop = () => {
@@ -27,6 +28,7 @@ const Layout = () => {
       <Footer />
       <MobileBottomBar />
       <DesktopQuoteDrawer />
+      <ChatLeadForm />
     </div>
   );
 };
