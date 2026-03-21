@@ -453,7 +453,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             <div className="flex justify-center gap-6 mb-8">
               <img
                 src={eerikImage}
-                alt="Eerik Pitkänen – Pintanen Oy"
+                alt={`Eerik Pitkänen – tiilikaton pinnoitus yrittäjä ${cityIn}`}
                 className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"
                 decoding="async"
