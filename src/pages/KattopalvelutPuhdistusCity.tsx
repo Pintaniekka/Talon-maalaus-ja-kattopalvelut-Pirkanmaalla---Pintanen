@@ -125,7 +125,7 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
               <h2 className="text-3xl md:text-4xl font-bold text-accent">
-                Palvelu {cityData.name}-alueella
+                Palvelu {cityData.cityGenitive} alueella
               </h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.localSection}</p>
