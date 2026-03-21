@@ -353,7 +353,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa tiilikaton pinnoitus {cityName}lla?
+              Paljonko maksaa tiilikaton pinnoitus {cityIn}?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
