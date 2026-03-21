@@ -35,7 +35,7 @@ const contactPersons = {
   },
 };
 
-const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContactSectionProps) => {
+const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: ServiceContactSectionProps) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
