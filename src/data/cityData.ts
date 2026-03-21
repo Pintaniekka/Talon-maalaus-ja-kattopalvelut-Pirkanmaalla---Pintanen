@@ -1,5 +1,7 @@
 export interface CityData {
   name: string;
+  cityIn: string;
+  cityGenitive: string;
   slug: string;
   alueIntro: string;
   alueMetaTitle?: string;
