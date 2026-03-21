@@ -271,37 +271,6 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      {/* ══════════════════ TESTIMONIALS ══════════════════ */}
-      <TestimonialsMarquee />
-
-      {/* ══════════════════ ONGELMANRATKAISU: KATTO ══════════════════ */}
-      <section className="section-padding bg-secondary">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
-              Tiilikaton ennakoiva huolto on kiinteistösi tärkein vakuutus
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Suomen sääolot vaihtelevat paljon ja vuosikymmenien aikana lumikuormat vaikuttavat betonitiilen pinnan heikkenemiseen. Tämä aiheuttaa sen, että kosteus ja sammal pääsevät vahingoittamaan kattoa <strong className="text-foreground">pakkasrapautumisen</strong> myötä. Pintasella kattotöistä vastaava yrittäjä Eerik varmistaa, että ajoissa tehty perusteellinen pesu ja ammattitason tiilikaton pinnoitus palauttavat tiilen vedenhylkivyyden ja rakenteellisen lujuuden. Tämä ennakoiva huolto on paras tapa <strong className="text-foreground">estää katon rapautuminen</strong> ja siirtää kattoremontin tarve kauas tulevaisuuteen.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════════════════ ONGELMANRATKAISU: MAALAUS ══════════════════ */}
-      <section className="section-padding bg-background">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
-              Kestävä ulkomaalaus suojaa kotisi puurakenteita
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Talon julkisivu joutuu jatkuvasti rasitukseen, ja haalistunut tai halkeileva ulkoverhous on merkki siitä, että suojakerros on pettänyt. Tämä avaa tien rakenteiden <strong className="text-foreground">kosteuselämiselle</strong> ja pysyville <strong className="text-foreground">lahovaurioille</strong>. Pintasen maalauspalveluista vastaava yrittäjä Eemil korostaa, että säännöllinen ja oikein tehty huoltomaalaus on paras tapa turvata puurakenteiden terveys. Kun urakka aloitetaan huolellisella <strong className="text-foreground">homepesulla</strong> ja viimeistellään laadukkailla maaleilla, julkisivu saa uuden suojakilven. Tämä säilyttää kotisi arvon ja estää kalliit korjaukset – kiitos yrittäjän tarkkuudesta.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ══════════════════ PALVELUKORTIT ══════════════════ */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
@@ -362,6 +331,38 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════ ONGELMANRATKAISU: KATTO ══════════════════ */}
+      <section className="section-padding bg-background">
+        <div className="section-container max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
+              Tiilikaton ennakoiva huolto on kiinteistösi tärkein vakuutus
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Suomen sääolot vaihtelevat paljon ja vuosikymmenien aikana lumikuormat vaikuttavat betonitiilen pinnan heikkenemiseen. Tämä aiheuttaa sen, että kosteus ja sammal pääsevät vahingoittamaan kattoa <strong className="text-foreground">pakkasrapautumisen</strong> myötä. Pintasella kattotöistä vastaava yrittäjä Eerik varmistaa, että ajoissa tehty perusteellinen pesu ja ammattitason tiilikaton pinnoitus palauttavat tiilen vedenhylkivyyden ja rakenteellisen lujuuden. Tämä ennakoiva huolto on paras tapa <strong className="text-foreground">estää katon rapautuminen</strong> ja siirtää kattoremontin tarve kauas tulevaisuuteen.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ══════════════════ ONGELMANRATKAISU: MAALAUS ══════════════════ */}
+      <section className="section-padding bg-secondary">
+        <div className="section-container max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
+              Kestävä ulkomaalaus suojaa kotisi puurakenteita
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Talon julkisivu joutuu jatkuvasti rasitukseen, ja haalistunut tai halkeileva ulkoverhous on merkki siitä, että suojakerros on pettänyt. Tämä avaa tien rakenteiden <strong className="text-foreground">kosteuselämiselle</strong> ja pysyville <strong className="text-foreground">lahovaurioille</strong>. Pintasen maalauspalveluista vastaava yrittäjä Eemil korostaa, että säännöllinen ja oikein tehty huoltomaalaus on paras tapa turvata puurakenteiden terveys. Kun urakka aloitetaan huolellisella <strong className="text-foreground">homepesulla</strong> ja viimeistellään laadukkailla maaleilla, julkisivu saa uuden suojakilven. Tämä säilyttää kotisi arvon ja estää kalliit korjaukset – kiitos yrittäjän tarkkuudesta.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ══════════════════ TESTIMONIALS ══════════════════ */}
+      <TestimonialsMarquee />
+
 
       {/* ══════════════════ PINNOITUS HINTAKORTIT ══════════════════ */}
       <section className="section-padding bg-background">
