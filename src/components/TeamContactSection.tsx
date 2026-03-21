@@ -5,6 +5,7 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 interface TeamContactSectionProps {
   cityName?: string;
+  cityGenitive?: string;
 }
 
 const team = [

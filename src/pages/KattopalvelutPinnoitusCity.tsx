@@ -54,7 +54,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
       <PinnoitusProblemSection cityName={cityData.name} cityIn={cityData.cityIn} cityGenitive={cityData.cityGenitive} />
       <PinnoitusCityProcess cityName={cityData.name} />
       <PinnoitusComparison />
-      <PinnoitusPricingCards cityName={cityData.name} />
+      <PinnoitusPricingCards cityName={cityData.name} cityIn={cityData.cityIn} />
       <KotitalousVahennys />
       <PinnoitusFinancing />
       <PinnoitusEntrepreneur />

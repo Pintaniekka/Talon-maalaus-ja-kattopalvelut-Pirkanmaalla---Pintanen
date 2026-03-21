@@ -64,7 +64,7 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
     }
   };
 
-  const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Ota yhteyttä';
+  const title = cityGenitive ? `Yhteystiedot ${cityGenitive} alueella` : cityName ? `Yhteystiedot – ${cityName}` : 'Ota yhteyttä';
 
   // On homepage (general), show only Eerik. On service pages, show relevant person.
   const persons = variant === 'general'
