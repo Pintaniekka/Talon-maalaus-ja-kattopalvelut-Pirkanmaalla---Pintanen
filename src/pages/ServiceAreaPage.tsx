@@ -208,7 +208,8 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
-            Tiilikaton pinnoitus ja talon maalaus {cityName}
+            Tiilikaton pinnoitus ja talon maalaus{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityName}</span>
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
             Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityIn} ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
@@ -369,29 +370,34 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
 
       {/* ══════════════════ PINNOITUS HINTAKORTIT ══════════════════ */}
       <section className="section-padding bg-background">
-        <div className="section-container max-w-5xl mx-auto">
-          {/* Hero-style pricing header */}
-          <div className="relative rounded-2xl overflow-hidden mb-10">
-            <img
-              src={pinnoitusPricingBg}
-              alt={`Tiilikaton pesu ja pinnoitus ${cityIn} - Pintanen Oy`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-black/55" />
+        <div className="section-container max-w-6xl mx-auto">
+          {/* Split-screen: text LEFT, image RIGHT */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 text-center py-10 md:py-14 px-4"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
                 Paljonko maksaa tiilikaton pinnoitus {cityIn}?
               </h2>
-              <p className="text-lg text-white/85 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
               </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-last"
+            >
+              <img
+                src={pinnoitusPricingBg}
+                alt={`Tiilikaton pesu ja pinnoitus ${cityIn} - Pintanen Oy`}
+                className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
+                loading="lazy"
+                decoding="async"
+              />
             </motion.div>
           </div>
 
@@ -411,27 +417,32 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
 
       {/* ══════════════════ MAALAUS HINTAKORTIT ══════════════════ */}
       <section className="section-padding bg-secondary">
-        <div className="section-container max-w-5xl mx-auto">
-          {/* Hero-style pricing header */}
-          <div className="relative rounded-2xl overflow-hidden mb-10">
-            <img
-              src={maalausPricingBg}
-              alt={`Talon ulkomaalaus perusteellisilla pohjatöillä ${cityIn}`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-black/55" />
+        <div className="section-container max-w-6xl mx-auto">
+          {/* Split-screen: image LEFT, text RIGHT */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-last lg:order-first"
+            >
+              <img
+                src={maalausPricingBg}
+                alt={`Talon ulkomaalaus perusteellisilla pohjatöillä ${cityIn}`}
+                className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 text-center py-10 md:py-14 px-4"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
                 Paljonko maksaa talon maalaus {cityIn}?
               </h2>
-              <p className="text-lg text-white/85 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
               </p>
             </motion.div>
