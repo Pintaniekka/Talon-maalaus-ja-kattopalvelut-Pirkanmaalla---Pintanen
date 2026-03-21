@@ -12,7 +12,7 @@ interface CityServicesProps {
   cityGenitive: string;
 }
 
-const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
+const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) => {
   const navigate = useNavigate();
 
   const services = [
