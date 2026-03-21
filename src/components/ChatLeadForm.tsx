@@ -87,6 +87,32 @@ const ChatLeadForm = () => {
     }, 1000);
   }, []);
 
+  const initialStep: Step = {
+    kind: 'buttons',
+    options: [
+      { label: 'Pyydä tarjous ✔️', value: 'tarjous' },
+      { label: 'Varaa ilmainen arviokäynti', value: 'arvio' },
+      { label: 'Minulla on kysyttävää', value: 'kysymys' },
+      { label: 'Jätä soittopyyntö 📞', value: 'soitto' },
+      { label: 'Milloin maalaus on ajankohtaista?', value: 'maalaus_info' },
+      { label: 'Milloin kattohuolto on ajankohtainen?', value: 'katto_info' },
+    ],
+  };
+
+  // Reset chat to beginning
+  const handleReset = () => {
+    setMessages([{ from: 'bot', text: 'Terve! 👋🏼 Oletko miettinyt talosi maalausta tai katon huoltoa?' }]);
+    setCurrentStep(initialStep);
+    setSelectedPath(null);
+    setArvioType('');
+    setSelectedServices([]);
+    setContactName('');
+    setContactPhone('');
+    setContactEmail('');
+    setQuestionText('');
+    setTyping(false);
+  };
+
   // Open chat
   const handleOpen = () => {
     setOpen(true);
