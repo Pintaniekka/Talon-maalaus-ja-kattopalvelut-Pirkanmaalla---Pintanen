@@ -1,4 +1,5 @@
 import { Phone, FileText } from "lucide-react";
+import { openQuoteDrawer } from "@/components/DesktopQuoteDrawer";
 
 const MobileBottomBar = () => {
   return (
@@ -11,13 +12,13 @@ const MobileBottomBar = () => {
           <Phone className="w-4 h-4" />
           Soita meille
         </a>
-        <a
-          href="#yhteystiedot"
+        <button
+          onClick={() => openQuoteDrawer()}
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all hover:scale-105"
         >
           <FileText className="w-4 h-4" />
           Pyydä tarjous
-        </a>
+        </button>
       </div>
     </nav>
   );
