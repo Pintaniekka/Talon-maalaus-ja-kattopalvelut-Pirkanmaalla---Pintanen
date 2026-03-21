@@ -9,6 +9,7 @@ import { RoofCleanIcon } from "./ServiceIcons";
 interface CityServicesProps {
   cityName: string;
   citySlug: string;
+  cityGenitive: string;
 }
 
 const CityServices = ({ cityName, citySlug }: CityServicesProps) => {
