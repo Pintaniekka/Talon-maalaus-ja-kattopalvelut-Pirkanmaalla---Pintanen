@@ -16,7 +16,7 @@ const warningSignsData = [
   { sign: 'Pinta tuntuu karhealta', desc: 'Tiili imee vettä sisäänsä jokaisella sateella.' },
 ];
 
-const PinnoitusProblemSection = ({ cityName }: PinnoitusProblemSectionProps) => {
+const PinnoitusProblemSection = ({ cityName, cityIn, cityGenitive }: PinnoitusProblemSectionProps) => {
   return (
     <section className="section-padding bg-accent-light">
       <div className="section-container">
