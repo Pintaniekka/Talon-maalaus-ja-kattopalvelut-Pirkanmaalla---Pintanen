@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { getStorageUrl } from '@/lib/storage';
 import OptimizedImage from './OptimizedImage';
 
-const logoUrl = getStorageUrl("Pintanen-logo.webp");
+const logoUrl = getStorageUrl("Pintanen-logo.png");
 
 const pirkanmaaCities = [
   { name: "Tampere", slug: "tampere" },
