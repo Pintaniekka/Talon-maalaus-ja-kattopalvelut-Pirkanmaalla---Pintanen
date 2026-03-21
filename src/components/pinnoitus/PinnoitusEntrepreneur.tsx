@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { getStorageUrl } from '@/lib/storage';
 
-const eerikImage = getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp');
+const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
 
 const PinnoitusEntrepreneur = () => {
   return (
