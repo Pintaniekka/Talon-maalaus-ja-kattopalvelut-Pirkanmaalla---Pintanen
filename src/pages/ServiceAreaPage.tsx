@@ -316,7 +316,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
                   <OptimizedImage
                     src={service.bgImage}
                     srcSet={getImageSrcSet(service.bgImage)}
-                    alt={service.title}
+                    alt={`${service.title} ${cityIn}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
