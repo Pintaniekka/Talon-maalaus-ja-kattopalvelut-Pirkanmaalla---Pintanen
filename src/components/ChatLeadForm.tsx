@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, Send, Loader2, Check } from 'lucide-react';
+import { X, Send, Loader2, Check, RotateCcw } from 'lucide-react';
 import { getStorageUrl } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
@@ -87,23 +87,39 @@ const ChatLeadForm = () => {
     }, 1000);
   }, []);
 
+  const initialStep: Step = {
+    kind: 'buttons',
+    options: [
+      { label: 'Pyydä tarjous ✔️', value: 'tarjous' },
+      { label: 'Varaa ilmainen arviokäynti', value: 'arvio' },
+      { label: 'Minulla on kysyttävää', value: 'kysymys' },
+      { label: 'Jätä soittopyyntö 📞', value: 'soitto' },
+      { label: 'Milloin maalaus on ajankohtaista?', value: 'maalaus_info' },
+      { label: 'Milloin kattohuolto on ajankohtainen?', value: 'katto_info' },
+    ],
+  };
+
+  // Reset chat to beginning
+  const handleReset = () => {
+    setMessages([{ from: 'bot', text: 'Terve! 👋🏼 Oletko miettinyt talosi maalausta tai katon huoltoa?' }]);
+    setCurrentStep(initialStep);
+    setSelectedPath(null);
+    setArvioType('');
+    setSelectedServices([]);
+    setContactName('');
+    setContactPhone('');
+    setContactEmail('');
+    setQuestionText('');
+    setTyping(false);
+  };
+
   // Open chat
   const handleOpen = () => {
     setOpen(true);
     setBubbleVisible(false);
     if (messages.length === 0) {
       setMessages([{ from: 'bot', text: 'Terve! 👋🏼 Oletko miettinyt talosi maalausta tai katon huoltoa?' }]);
-      setCurrentStep({
-        kind: 'buttons',
-        options: [
-          { label: 'Pyydä tarjous ✔️', value: 'tarjous' },
-          { label: 'Varaa ilmainen arviokäynti', value: 'arvio' },
-          { label: 'Minulla on kysyttävää', value: 'kysymys' },
-          { label: 'Jätä soittopyyntö 📞', value: 'soitto' },
-          { label: 'Milloin maalaus on ajankohtaista?', value: 'maalaus_info' },
-          { label: 'Milloin kattohuolto on ajankohtainen?', value: 'katto_info' },
-        ],
-      });
+      setCurrentStep(initialStep);
     }
   };
 
@@ -266,7 +282,7 @@ const ChatLeadForm = () => {
   return (
     <>
       {/* Floating button + bubble */}
-      <div className="fixed bottom-20 md:bottom-6 right-4 z-[9998] flex flex-col items-end gap-2">
+      <div className="fixed bottom-20 right-4 z-[9998] flex flex-col items-end gap-2">
         <AnimatePresence>
           {bubbleVisible && !open && (
             <motion.div
@@ -311,7 +327,7 @@ const ChatLeadForm = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-20 md:bottom-6 right-4 z-[9999] w-[min(380px,calc(100vw-2rem))] rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-20 right-4 z-[9999] w-[min(380px,calc(100vw-2rem))] rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             style={{ maxHeight: 'min(600px, calc(100vh - 120px))' }}
           >
             {/* Header */}
@@ -322,11 +338,15 @@ const ChatLeadForm = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-sm leading-tight">Eerik – Pintanen Oy</p>
-                <p className="text-[11px] opacity-80">Vastaa yleensä heti</p>
               </div>
-              <button onClick={() => setOpen(false)} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Sulje">
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button onClick={handleReset} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Aloita alusta" title="Aloita alusta">
+                  <RotateCcw className="w-4 h-4" />
+                </button>
+                <button onClick={() => setOpen(false)} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Sulje">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}
