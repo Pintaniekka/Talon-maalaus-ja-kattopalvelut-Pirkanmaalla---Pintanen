@@ -4,6 +4,10 @@ import { X, UserRound, Phone, MapPin, Mail, Building, MessageSquare } from "luci
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 
+// Global open trigger – allows any component to open the drawer
+let globalOpenFn: (() => void) | null = null;
+export const openQuoteDrawer = () => globalOpenFn?.();
+
 const DesktopQuoteDrawer = () => {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,13 +36,18 @@ const DesktopQuoteDrawer = () => {
 
   const handleClose = useCallback(() => setOpen(false), []);
 
+  // Register the global opener
+  useEffect(() => {
+    globalOpenFn = handleOpen;
+    return () => { globalOpenFn = null; };
+  }, [handleOpen]);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", onKey);
-    // Focus the close button when opened
     setTimeout(() => closeRef.current?.focus(), 100);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, handleClose]);
@@ -111,36 +120,37 @@ const DesktopQuoteDrawer = () => {
         </span>
       </button>
 
-      {/* Overlay + Drawer */}
+      {/* Overlay + Modal – works on all screen sizes */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="hidden lg:block fixed inset-0 z-[70] bg-black/30"
+              className="fixed inset-0 z-[70] bg-black/30"
               onClick={handleClose}
               aria-hidden="true"
             />
 
-            {/* Drawer panel */}
+            {/* Desktop: right drawer / Mobile: bottom sheet */}
             <motion.div
               ref={drawerRef}
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 28, stiffness: 300 }}
               role="dialog"
               aria-modal="true"
               aria-label="Pyydä arviokäynti"
-              className="hidden lg:flex fixed right-0 top-0 bottom-0 z-[80] w-[380px] max-w-[90vw] flex-col shadow-xl"
+              className="fixed z-[80] flex flex-col shadow-xl
+                bottom-0 left-0 right-0 max-h-[90dvh] rounded-t-2xl
+                lg:top-0 lg:bottom-0 lg:left-auto lg:right-0 lg:w-[380px] lg:max-w-[90vw] lg:max-h-none lg:rounded-t-none"
               style={{ backgroundColor: "#f2e8d8" }}
             >
               {/* Header */}
-              <div className="flex items-start justify-between px-6 pt-6 pb-2">
+              <div className="flex items-start justify-between px-5 pt-5 pb-2 lg:px-6 lg:pt-6">
                 <div className="flex-1 pr-4">
                   <h2 className="text-lg font-bold text-foreground leading-snug">
                     Pyydä meidät maksuttomalle arviokäynnille!
@@ -160,7 +170,7 @@ const DesktopQuoteDrawer = () => {
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-3">
+              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-3 lg:px-6">
                 {fields.map((f) => (
                   <div key={f.name} className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
@@ -195,7 +205,7 @@ const DesktopQuoteDrawer = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting || isSubmitted}
-                  className="mt-2 w-full rounded-xl py-3 font-semibold text-white text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 disabled:opacity-60"
+                  className="mt-2 mb-4 w-full rounded-xl py-3 font-semibold text-white text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 disabled:opacity-60"
                   style={{ backgroundColor: "hsl(var(--accent))" }}
                 >
                   {isSubmitted ? "Lähetetty ✓" : isSubmitting ? "Lähetetään..." : "Lähetä"}
