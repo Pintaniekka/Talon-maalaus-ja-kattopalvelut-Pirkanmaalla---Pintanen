@@ -17,6 +17,7 @@ const pricingIncludes = [
 
 interface PinnoitusPricingCardsProps {
   cityName: string;
+  cityIn: string;
 }
 
 const PinnoitusPricingCards = ({ cityName }: PinnoitusPricingCardsProps) => {
