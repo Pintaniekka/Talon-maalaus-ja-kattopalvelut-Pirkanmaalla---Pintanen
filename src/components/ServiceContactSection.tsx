@@ -21,7 +21,7 @@ const contactPersons = {
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'myynti@pintanen.fi',
-    image: getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp'),
+    image: getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp'),
     whatsapp: 'https://wa.me/358409640066',
   },
   maalaus: {
