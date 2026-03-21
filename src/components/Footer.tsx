@@ -65,7 +65,7 @@ const Footer = () => {
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen logo"
-              className="h-32 w-auto mb-6 brightness-0 invert object-contain"
+              className="h-20 w-auto mb-3 brightness-0 invert object-contain"
               width={360}
               height={144}
               sizes="360px"

@@ -412,19 +412,30 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       {/* ══════════════════ MAALAUS HINTAKORTIT ══════════════════ */}
       <section className="section-padding bg-secondary">
         <div className="section-container max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa talon maalaus {cityIn}?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
-            </p>
-          </motion.div>
+          {/* Hero-style pricing header */}
+          <div className="relative rounded-2xl overflow-hidden mb-10">
+            <img
+              src={maalausPricingBg}
+              alt={`Talon ulkomaalaus perusteellisilla pohjatöillä ${cityIn}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-black/55" />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 text-center py-10 md:py-14 px-4"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Paljonko maksaa talon maalaus {cityIn}?
+              </h2>
+              <p className="text-lg text-white/85 max-w-2xl mx-auto">
+                Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
+              </p>
+            </motion.div>
+          </div>
 
           <PricingGrid cards={maalausCards} includes={maalausIncludes} />
 
