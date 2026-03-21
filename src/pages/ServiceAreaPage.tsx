@@ -22,6 +22,9 @@ const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-
 const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
 const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
 
+const pinnoitusPricingBg = getStorageUrl("tiilenpunainen-tiilikatto-nokia-x.jpg");
+const maalausPricingBg = getStorageUrl("keltainen-talo-maalaus-jalkeen-hameenlinna-x.jpg");
+
 const eerikImage = getStorageUrl("Pictures-200/Eerik-kattomaalari-200.webp");
 const eemilImage = getStorageUrl("Pictures-200/Eemil-seinamaalari-200.webp");
 
