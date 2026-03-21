@@ -174,8 +174,32 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
     },
   ];
 
+  const dynamicFAQ = getAreaFAQ(cityName, cityIn, cityGenitive);
+  const shuffledFAQ = [...dynamicFAQ].sort((a, b) => {
+    const seedA = (citySlug.length * 7 + a.question.length) % 13;
+    const seedB = (citySlug.length * 7 + b.question.length) % 13;
+    return seedA - seedB;
+  });
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Tiilikaton pinnoitus ja talon maalaus ${cityName}`,
+    provider: { "@type": "LocalBusiness", name: "Pintanen Oy", url: "https://pintanen.fi" },
+    areaServed: { "@type": "City", name: cityName },
+    description: areaContent.alueMetaDesc,
+  };
+
   return (
     <div>
+      <SEO
+        title={areaContent.alueMetaTitle}
+        description={areaContent.alueMetaDesc}
+        preloadImage={heroImage}
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+      </Helmet>
       <SEO
         title={areaContent.alueMetaTitle}
         description={areaContent.alueMetaDesc}
