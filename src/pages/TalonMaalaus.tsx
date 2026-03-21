@@ -60,7 +60,8 @@ const TalonMaalaus = () => {
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            Talon maalaus Pirkanmaa
+            Talon maalaus{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaa</span>
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
             <strong>Suojaa kotisi säänvaihteluilta ja pidennä ulkoverhouksen ikää laadukkaalla maalauksella.</strong> Meiltä saat <strong>perusteelliset pohjatyöt</strong>, <strong>säänkestävän lopputuloksen</strong> ja <strong>täysin läpinäkyvän hinnoittelun</strong>. <strong>Kokeile avointa hintalaskuriamme heti verkossa</strong> tai kutsu meidät <strong>maksuttomalle arviokäynnille</strong> suoraan kotiovellesi – palvelemme paikallisesti ja joustavasti koko Pirkanmaan alueella!

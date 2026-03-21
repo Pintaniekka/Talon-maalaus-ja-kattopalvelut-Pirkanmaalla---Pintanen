@@ -44,10 +44,15 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
         description={cityData.puhdistusMetaDesc || `Tiilikaton mekaaninen puhdistus ja sammaleentorjunta ${cityData.name}. Alkaen 800 €. Ilmainen kuntotarkastus.`}
       />
       <ServicePageHero
-        title={`Tiilikaton puhdistus – ${cityData.name}`}
+        title=""
         subtitle="Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti"
         backgroundImage={puhdistusImage}
-      />
+      >
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-heading">
+          Tiilikaton puhdistus –{' '}
+          <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityData.name}</span>
+        </h1>
+      </ServicePageHero>
 
       <section className="section-padding bg-background">
         <div className="section-container">

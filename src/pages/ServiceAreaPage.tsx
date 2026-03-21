@@ -208,7 +208,8 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
-            Tiilikaton pinnoitus ja talon maalaus {cityName}
+            Tiilikaton pinnoitus ja talon maalaus{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityName}</span>
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
             Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityIn} ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
