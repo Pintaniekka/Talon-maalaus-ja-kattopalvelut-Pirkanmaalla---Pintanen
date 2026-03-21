@@ -20,7 +20,7 @@ interface PinnoitusPricingCardsProps {
   cityIn: string;
 }
 
-const PinnoitusPricingCards = ({ cityName }: PinnoitusPricingCardsProps) => {
+const PinnoitusPricingCards = ({ cityName, cityIn }: PinnoitusPricingCardsProps) => {
   return (
     <section className="section-padding bg-secondary">
       <div className="section-container max-w-5xl mx-auto">
