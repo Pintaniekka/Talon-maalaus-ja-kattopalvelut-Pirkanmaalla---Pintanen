@@ -3,6 +3,7 @@ import ServicePageHero from '@/components/ServicePageHero';
 
 interface PinnoitusCityHeroProps {
   cityName: string;
+  cityIn: string;
   backgroundImage: string;
 }
 
