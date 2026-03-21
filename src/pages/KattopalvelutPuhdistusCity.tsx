@@ -134,8 +134,8 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
       </section>
 
       <FAQSection items={getPuhdistusCityFAQ(cityData.name)} />
-      <CityServices cityName={cityData.name} citySlug={city!} />
-      <ServiceContactSection variant="katto" cityName={cityData.name} />
+      <CityServices cityName={cityData.name} citySlug={city!} cityGenitive={cityData.cityGenitive} />
+      <ServiceContactSection variant="katto" cityName={cityData.name} cityGenitive={cityData.cityGenitive} />
       <KotitalousVahennys />
     </div>
   );
