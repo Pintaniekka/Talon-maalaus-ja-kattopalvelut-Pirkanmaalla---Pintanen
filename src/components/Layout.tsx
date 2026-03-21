@@ -28,6 +28,7 @@ const Layout = () => {
       <Footer />
       <MobileBottomBar />
       <DesktopQuoteDrawer />
+      <ChatLeadForm />
     </div>
   );
 };
