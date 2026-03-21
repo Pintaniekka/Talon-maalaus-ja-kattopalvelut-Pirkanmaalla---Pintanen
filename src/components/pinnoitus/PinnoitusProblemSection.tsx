@@ -5,6 +5,8 @@ import { getStorageUrl } from '@/lib/storage';
 
 interface PinnoitusProblemSectionProps {
   cityName: string;
+  cityIn: string;
+  cityGenitive: string;
 }
 
 const warningSignsData = [
