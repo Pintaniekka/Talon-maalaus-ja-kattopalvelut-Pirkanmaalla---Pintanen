@@ -33,10 +33,15 @@ const KattopalvelutPuhdistus = () => {
     <div>
       <SEO title="Katon puhdistus Pirkanmaa – Ilmainen arvio" description="Tiilikaton puhdistus Pirkanmaalla - tehokas suoja katollesi. Sammaleet ja lika poistetaan mekaanisesti." />
       <ServicePageHero
-        title="Tiilikaton puhdistus"
+        title=""
         subtitle="Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti"
         backgroundImage={puhdistusImage}
-      />
+      >
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-heading">
+          Tiilikaton puhdistus{' '}
+          <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaa</span>
+        </h1>
+      </ServicePageHero>
 
       {/* Seloste-osio */}
       <section className="section-padding bg-background">
