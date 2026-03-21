@@ -200,11 +200,6 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
-      <SEO
-        title={areaContent.alueMetaTitle}
-        description={areaContent.alueMetaDesc}
-        preloadImage={heroImage}
-      />
 
       {/* ══════════════════ HERO ══════════════════ */}
       <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
