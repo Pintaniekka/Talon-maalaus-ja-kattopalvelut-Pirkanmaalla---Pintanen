@@ -269,25 +269,36 @@ const ChatLeadForm = () => {
       <div className="fixed bottom-20 md:bottom-6 right-4 z-[9998] flex flex-col items-end gap-2">
         <AnimatePresence>
           {bubbleVisible && !open && (
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.9 }}
-              onClick={handleOpen}
-              className="bg-white text-slate-800 text-sm rounded-2xl px-4 py-2.5 shadow-lg max-w-[220px] text-left cursor-pointer hover:shadow-xl transition-shadow"
+              className="relative"
             >
-              Hei! 👋🏼 Kuinka voisin palvella tänään?
-            </motion.button>
+              <button
+                onClick={handleOpen}
+                className="bg-white text-slate-800 text-sm rounded-2xl px-4 py-2.5 pr-7 shadow-lg max-w-[220px] text-left cursor-pointer hover:shadow-xl transition-shadow"
+              >
+                Hei! 👋🏼 Kuinka voisin palvella tänään?
+              </button>
+              <button
+                onClick={dismissBubble}
+                className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-slate-400 hover:bg-slate-500 text-white rounded-full flex items-center justify-center transition-colors"
+                aria-label="Sulje"
+              >
+                <X className="w-3 h-3" />
+              </button>
+            </motion.div>
           )}
         </AnimatePresence>
         {!open && (
           <button
             onClick={handleOpen}
-            className="relative w-14 h-14 rounded-full shadow-lg overflow-hidden border-2 border-white hover:scale-105 transition-transform"
+            className="relative w-14 h-14 rounded-full shadow-lg bg-[#38b6ff] border border-white/60 hover:scale-105 transition-transform"
             aria-label="Avaa chat"
           >
-            <img src={eerikImage} alt="Eerik – Pintanen" className="w-full h-full object-cover" />
-            <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white" />
+            <img src={eerikImage} alt="Eerik – Pintanen" className="w-full h-full rounded-full object-cover" />
+            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white z-10" />
           </button>
         )}
       </div>
