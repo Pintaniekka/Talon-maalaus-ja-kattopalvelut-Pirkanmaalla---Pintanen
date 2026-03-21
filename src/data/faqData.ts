@@ -137,10 +137,10 @@ export const getPinnoitusCityFAQ = (cityName: string): FAQItem[] => [
   },
 ];
 
-export const getPuhdistusCityFAQ = (cityName: string): FAQItem[] => [
+export const getPuhdistusCityFAQ = (cityName: string, cityGenitive?: string): FAQItem[] => [
   {
     question: 'Milloin tiilikaton puhdistus ja sammaleenpoisto on ajankohtaista?',
-    answer: `Katto kannattaa huoltaa heti, kun huomaat tiilten raoissa tai pinnoilla sammalta, jäkälää tai muuta kasvustoa. Sammal imee itseensä kosteutta, joka talvella jäätyessään rikkoo tiiliä. Teemme ${cityName} alueella säännöllisesti kattojen puhdistuksia, joilla pysäytetään rapautuminen ajoissa ja palautetaan kiinteistön siisti ilme.`,
+    answer: `Katto kannattaa huoltaa heti, kun huomaat tiilten raoissa tai pinnoilla sammalta, jäkälää tai muuta kasvustoa. Sammal imee itseensä kosteutta, joka talvella jäätyessään rikkoo tiiliä. Teemme ${cityGenitive || cityName + 'n'} alueella säännöllisesti kattojen puhdistuksia, joilla pysäytetään rapautuminen ajoissa ja palautetaan kiinteistön siisti ilme.`,
   },
   {
     question: 'Miten puhdistatte katon rikkomatta tiiliä?',
@@ -148,6 +148,6 @@ export const getPuhdistusCityFAQ = (cityName: string): FAQItem[] => [
   },
   {
     question: 'Kuinka kauan katon pesu ja puhdistus kestää?',
-    answer: `Useimmat omakotitalojen katot ${cityName} seudulla saadaan puhdistettua ja käsiteltyä 1 työpäivässä. Huolehdimme aina siitä, että piha ja terassit jäävät siistiin kuntoon. Tyhjennämme myös aina rännit roskista työn päätteeksi.`,
+    answer: `Useimmat omakotitalojen katot ${cityGenitive || cityName + 'n'} seudulla saadaan puhdistettua ja käsiteltyä 1 työpäivässä. Huolehdimme aina siitä, että piha ja terassit jäävät siistiin kuntoon. Tyhjennämme myös aina rännit roskista työn päätteeksi.`,
   },
 ];
