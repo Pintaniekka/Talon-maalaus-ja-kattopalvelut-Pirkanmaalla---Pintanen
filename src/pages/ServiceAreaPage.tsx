@@ -292,10 +292,10 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Palvelut {cityName}n alueella
+              Palvelut {cityGenitive} alueella
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tarjoamme laadukkaat maalaus- ja kattopalvelut {cityName}lla.
+              Tarjoamme laadukkaat maalaus- ja kattopalvelut {cityIn}.
             </p>
           </motion.div>
 
