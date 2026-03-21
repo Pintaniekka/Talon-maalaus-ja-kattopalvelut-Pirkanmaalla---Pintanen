@@ -11,6 +11,7 @@ type ContactVariant = 'katto' | 'maalaus' | 'general';
 interface ServiceContactSectionProps {
   variant?: ContactVariant;
   cityName?: string;
+  cityGenitive?: string;
 }
 
 const contactPersons = {
