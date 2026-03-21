@@ -30,7 +30,7 @@ const contactPersons = {
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
     email: 'myynti@pintanen.fi',
-    image: getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp'),
+    image: getStorageUrl('Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp'),
     whatsapp: 'https://wa.me/358401642233',
   },
 };

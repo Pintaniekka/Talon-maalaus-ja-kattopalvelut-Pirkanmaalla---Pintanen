@@ -25,8 +25,8 @@ const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.
 const pinnoitusPricingBg = getStorageUrl("Muut_referenssit/tiilenpunainen-tiilikatto-nokia.webp");
 const maalausPricingBg = getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-jalkeen-hameenlinna.webp");
 
-const eerikImage = getStorageUrl("Pictures-200/Eerik-kattomaalari-200.webp");
-const eemilImage = getStorageUrl("Pictures-200/Eemil-seinamaalari-200.webp");
+const eerikImage = getStorageUrl("Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp");
+const eemilImage = getStorageUrl("Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp");
 
 /* ── Trust Stats ── */
 const trustStats = [

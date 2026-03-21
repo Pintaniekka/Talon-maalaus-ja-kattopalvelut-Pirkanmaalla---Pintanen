@@ -5,7 +5,7 @@ import { getStorageUrl } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
 
-const eerikImage = getStorageUrl('Pictures-200/Eerik-kattomaalari-200.webp');
+const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
 
 // ── Types ──────────────────────────────────────────────────────────────────
 type Path = 'tarjous' | 'arvio' | 'kysymys' | 'soitto' | 'maalaus_info' | 'katto_info';
