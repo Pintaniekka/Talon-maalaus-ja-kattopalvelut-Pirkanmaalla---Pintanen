@@ -7,7 +7,7 @@ interface PinnoitusCityHeroProps {
   backgroundImage: string;
 }
 
-const PinnoitusCityHero = ({ cityName, backgroundImage }: PinnoitusCityHeroProps) => {
+const PinnoitusCityHero = ({ cityName, cityIn, backgroundImage }: PinnoitusCityHeroProps) => {
   return (
     <ServicePageHero title="" subtitle="" backgroundImage={backgroundImage}>
       {/* Glassmorphism container for H1 + body text */}
@@ -16,7 +16,7 @@ const PinnoitusCityHero = ({ cityName, backgroundImage }: PinnoitusCityHeroProps
           Tiilikaton pinnoitus {cityName}
         </h1>
         <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
-          Pysäytä katon kuluminen ennen kuin vauriot tulevat liian kalliiksi. Laadukas tiilikaton pinnoitus {cityName}lla on järkevin tapa estää kalliiden kattoremonttien tarve. Pintasen asiantuntija toteuttaa pinnoitukset ammattitaidolla, jolloin katto saa takaisin alkuperäisen suojansa. Tämä myös parantaa talon julkisivun ilmettä ja antaa katolle jopa <strong className="text-primary-foreground">10–15 vuotta lisäaikaa</strong>.
+          Pysäytä katon kuluminen ennen kuin vauriot tulevat liian kalliiksi. Laadukas tiilikaton pinnoitus {cityIn} on järkevin tapa estää kalliiden kattoremonttien tarve. Pintasen asiantuntija toteuttaa pinnoitukset ammattitaidolla, jolloin katto saa takaisin alkuperäisen suojansa. Tämä myös parantaa talon julkisivun ilmettä ja antaa katolle jopa <strong className="text-primary-foreground">10–15 vuotta lisäaikaa</strong>.
         </p>
       </div>
 

@@ -31,7 +31,7 @@ const PinnoitusPricingCards = ({ cityName, cityIn }: PinnoitusPricingCardsProps)
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-            Mitä tiilikaton pinnoitus maksaa {cityName}lla?
+            Mitä tiilikaton pinnoitus maksaa {cityIn}?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Me uskomme täysin avoimeen hinnoitteluun. Katon lopullinen hinta riippuu pinta-alasta, jyrkkyydestä ja tiilen kunnosta. Pintasen hinta on aina "avaimet käteen" -urakka, jossa ei ole piilokuluja.

@@ -87,7 +87,7 @@ const PinnoitusProblemSection = ({ cityName, cityIn, cityGenitive }: PinnoitusPr
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-accent-foreground transition-colors"
               style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
             >
-              Varaa maksuton kuntotarkastus {cityName}lla
+              Varaa maksuton kuntotarkastus {cityIn}
             </a>
           </div>
         </div>

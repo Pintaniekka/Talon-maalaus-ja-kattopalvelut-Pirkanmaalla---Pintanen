@@ -384,7 +384,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa talon maalaus {cityName}lla?
+              Paljonko maksaa talon maalaus {cityIn}?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
