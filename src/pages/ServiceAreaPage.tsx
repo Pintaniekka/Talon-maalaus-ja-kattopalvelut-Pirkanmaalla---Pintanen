@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Clock, ChevronRight, CreditCard } from "lucide-react";
@@ -48,31 +49,31 @@ const maalausCards = [
 ];
 const maalausIncludes = ["Huolellinen suojaus", "Homepesu ja kaavinta", "Puupuhtaiden pintojen pohjamaalaus", "Pintamaalaus"];
 
-/* ── FAQ (yhteinen kaikille aluesivuille) ── */
-const areaFAQ = [
+/* ── FAQ (dynaaminen per kaupunki) ── */
+const getAreaFAQ = (cityName: string, cityIn: string, cityGenitive: string) => [
   {
-    question: "Saako talon maalauksesta ja tiilikaton pinnoituksesta kotitalousvähennystä?",
-    answer: "Kyllä saa! Sekä talon maalaus että tiilikaton pinnoitus oikeuttavat kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> henkilökohtaisessa verotuksessasi. Koska urakoissamme työn osuus on tyypillisesti jopa 80 % kokonaishinnasta, säästö on usein tuhat euroa. Puolisoiden yhteinen maksimietu on jopa <strong>3 200 euroa vuodessa</strong>. Erittelemme työn osuuden suoraan laskulle, joten vähennyksen hakeminen on sinulle täysin vaivatonta.",
+    question: `Saako talon maalauksesta ja tiilikaton pinnoituksesta kotitalousvähennystä ${cityIn}?`,
+    answer: `Kyllä saa! Sekä talon maalaus että tiilikaton pinnoitus oikeuttavat kotitalousvähennykseen ${cityIn}. Voit vähentää <strong>35 % työn osuudesta</strong> henkilökohtaisessa verotuksessasi. Koska urakoissamme työn osuus on tyypillisesti jopa 80 % kokonaishinnasta, säästö on usein tuhat euroa. Puolisoiden yhteinen maksimietu on jopa <strong>3 200 euroa vuodessa</strong>. Erittelemme työn osuuden suoraan laskulle, joten vähennyksen hakeminen on sinulle täysin vaivatonta.`,
   },
   {
-    question: "Mitä omakotitalon julkisivun maalaus tai tiilikaton pinnoitus tyypillisesti maksaa?",
-    answer: "Jokainen kohde on yksilöllinen, mutta olemme hinnoittelussamme täysin avoimia. Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus asettuu tyypillisesti noin <strong>2 800–5 800 euron</strong> välille. Puuverhouksen huoltomaalaus perusteellisine pohjatöineen maksaa talon koosta riippuen noin <strong>3 000 – 10 000 euroa</strong>. Muistathan, että lopullinen summa on kotitalousvähennyksen jälkeen sinulle huomattavasti edullisempi. Pyydä meidät ilmaiselle arviokäynnille, niin saat tarkan, kiinteän avaimet käteen -tarjouksen ilman piilokuluja.",
+    question: `Mitä omakotitalon julkisivun maalaus tai tiilikaton pinnoitus maksaa ${cityIn}?`,
+    answer: `Jokainen kohde on yksilöllinen, mutta olemme hinnoittelussamme täysin avoimia. Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus ${cityGenitive} alueella asettuu tyypillisesti noin <strong>2 800–5 800 euron</strong> välille. Puuverhouksen huoltomaalaus perusteellisine pohjatöineen maksaa talon koosta riippuen noin <strong>3 000 – 10 000 euroa</strong>. Muistathan, että lopullinen summa on kotitalousvähennyksen jälkeen sinulle huomattavasti edullisempi. Pyydä meidät ilmaiselle arviokäynnille, niin saat tarkan, kiinteän avaimet käteen -tarjouksen ilman piilokuluja.`,
   },
   {
-    question: "Voiko katto- tai maalausurakan maksaa osissa?",
-    answer: "Ehdottomasti. Katon tai julkisivun rapautumista ei kannata jäädä seuraamaan säästöjä odotellessa, sillä pitkittyessään vauriot vaativat aina kalliimman remontin. Tarjoamme asiakkaillemme <strong>joustavan rahoitusvaihtoehdon</strong>, jonka avulla voit jakaa tiilikaton huollon tai talon maalauksen kustannukset sinulle sopiviin kuukausieriin. Näin kiinteistösi arvo ja kunto turvataan välittömästi, mutta taloutesi pysyy tasapainossa.",
+    question: `Voiko katto- tai maalausurakan maksaa osissa ${cityIn}?`,
+    answer: `Ehdottomasti. Katon tai julkisivun rapautumista ei kannata jäädä seuraamaan säästöjä odotellessa, sillä pitkittyessään vauriot vaativat aina kalliimman remontin. Tarjoamme ${cityGenitive} alueen asiakkaillemme <strong>joustavan rahoitusvaihtoehdon</strong>, jonka avulla voit jakaa tiilikaton huollon tai talon maalauksen kustannukset sinulle sopiviin kuukausieriin. Näin kiinteistösi arvo ja kunto turvataan välittömästi, mutta taloutesi pysyy tasapainossa.`,
   },
   {
-    question: "Kuinka kauan katon tai talon huoltourakka kestää?",
-    answer: "Tyypillisen omakotitalon tiilikaton pesu, kasvustonestokäsittely ja kaksinkertainen pinnoitus kestävät noin <strong>2–4 työpäivää</strong>, riippuen katon kunnosta ja säästä. Talon ulkomaalaus on hieman monivaiheisempi prosessi, johon kuluu tyypillisesti <strong>3–7 työpäivää</strong>. Maalauksessa tärkeää on antaa rakenteiden kuivua perusteellisen homepesun jälkeen ennen pintakäsittelyä. Varmistamme aina, että työ etenee sujuvasti, mutta emme koskaan tingi pohjatöiden vaatimasta ajasta.",
+    question: `Kuinka kauan katon tai talon huoltourakka kestää ${cityGenitive} alueella?`,
+    answer: `Tyypillisen omakotitalon tiilikaton pesu, kasvustonestokäsittely ja kaksinkertainen pinnoitus kestävät noin <strong>2–4 työpäivää</strong>, riippuen katon kunnosta ja säästä. Talon ulkomaalaus on hieman monivaiheisempi prosessi, johon kuluu tyypillisesti <strong>3–7 työpäivää</strong>. Maalauksessa tärkeää on antaa rakenteiden kuivua perusteellisen homepesun jälkeen ennen pintakäsittelyä. Varmistamme aina, että työ etenee sujuvasti, mutta emme koskaan tingi pohjatöiden vaatimasta ajasta.`,
   },
   {
-    question: "Mistä tiedän, onko aika maalata talo tai pinnoittaa katto?",
-    answer: "Nyrkkisääntö on, että puuverhous ja betonitiilikatto vaativat ammattilaisen huoltoa noin <strong>10–15 vuoden</strong> välein. Hälytysmerkkejä tiilikatolla ovat alkuperäisen värin haalistuminen, tiilen pinnan muuttuminen karheaksi ja huokoiseksi sekä kiihtyvä sammaleen kasvu. Julkisivussa huoltotarpeen paljastavat maalin liituuntuminen, hilseily, paneelien halkeamat tai mustat homepilkut. Jos huomaat näitä merkkejä, suojakerros on pettänyt ja rakenteet altistuvat kosteusvaurioille.",
+    question: `Mistä tiedän, onko aika maalata talo tai pinnoittaa katto ${cityIn}?`,
+    answer: `Nyrkkisääntö on, että puuverhous ja betonitiilikatto vaativat ammattilaisen huoltoa noin <strong>10–15 vuoden</strong> välein. Hälytysmerkkejä tiilikatolla ovat alkuperäisen värin haalistuminen, tiilen pinnan muuttuminen karheaksi ja huokoiseksi sekä kiihtyvä sammaleen kasvu. Julkisivussa huoltotarpeen paljastavat maalin liituuntuminen, hilseily, paneelien halkeamat tai mustat homepilkut. Jos huomaat näitä merkkejä, suojakerros on pettänyt ja rakenteet altistuvat kosteusvaurioille.`,
   },
   {
-    question: "Kannattaako katon pesu tai talon maalaus tehdä itse?",
-    answer: "Teknisesti työn voi tehdä itse, mutta kestävän ja turvallisen lopputuloksen saavuttaminen on ilman ammattitason välineitä erittäin riski- ja aikaavievää. Esimerkiksi tiilikaton vääränlainen korkeapainepesu voi rikkoa tiilen rakenteen lopullisesti, ja ilman kunnollista biosidikäsittelyä sammal tunkee nopeasti uuden maalin läpi. Ulkomaalauksessa puutteellisesti tehdyt pohjatyöt johtavat uuden maalin nopeaan irtoamiseen. Lisäksi, kun me teemme työn, saat <strong>kotitalousvähennyksen</strong> sekä <strong>5 vuoden takuun katoille</strong> ja <strong>2 vuoden takuun maalaustöille</strong>.",
+    question: `Kannattaako katon pesu tai talon maalaus tehdä itse ${cityIn}?`,
+    answer: `Teknisesti työn voi tehdä itse, mutta kestävän ja turvallisen lopputuloksen saavuttaminen on ilman ammattitason välineitä erittäin riski- ja aikaavievää. Esimerkiksi tiilikaton vääränlainen korkeapainepesu voi rikkoa tiilen rakenteen lopullisesti, ja ilman kunnollista biosidikäsittelyä sammal tunkee nopeasti uuden maalin läpi. Ulkomaalauksessa puutteellisesti tehdyt pohjatyöt johtavat uuden maalin nopeaan irtoamiseen. Lisäksi, kun me teemme työn, saat <strong>kotitalousvähennyksen</strong> sekä <strong>5 vuoden takuun katoille</strong> ja <strong>2 vuoden takuun maalaustöille</strong>.`,
   },
 ];
 
@@ -173,6 +174,22 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
     },
   ];
 
+  const dynamicFAQ = getAreaFAQ(cityName, cityIn, cityGenitive);
+  const shuffledFAQ = [...dynamicFAQ].sort((a, b) => {
+    const seedA = (citySlug.length * 7 + a.question.length) % 13;
+    const seedB = (citySlug.length * 7 + b.question.length) % 13;
+    return seedA - seedB;
+  });
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Tiilikaton pinnoitus ja talon maalaus ${cityName}`,
+    provider: { "@type": "LocalBusiness", name: "Pintanen Oy", url: "https://pintanen.fi" },
+    areaServed: { "@type": "City", name: cityName },
+    description: areaContent.alueMetaDesc,
+  };
+
   return (
     <div>
       <SEO
@@ -180,6 +197,9 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         description={areaContent.alueMetaDesc}
         preloadImage={heroImage}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+      </Helmet>
 
       {/* ══════════════════ HERO ══════════════════ */}
       <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
@@ -315,7 +335,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
                   <OptimizedImage
                     src={service.bgImage}
                     srcSet={getImageSrcSet(service.bgImage)}
-                    alt={service.title}
+                    alt={`${service.title} ${cityIn}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -452,14 +472,14 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             <div className="flex justify-center gap-6 mb-8">
               <img
                 src={eerikImage}
-                alt="Eerik Pitkänen – Pintanen Oy"
+                alt={`Eerik Pitkänen – tiilikaton pinnoitus yrittäjä ${cityIn}`}
                 className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"
                 decoding="async"
               />
               <img
                 src={eemilImage}
-                alt="Eemil Pitkänen – Pintanen Oy"
+                alt={`Eemil Pitkänen – talon maalaus yrittäjä ${cityIn}`}
                 className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"
                 decoding="async"
@@ -483,7 +503,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       </section>
 
       {/* ══════════════════ FAQ ══════════════════ */}
-      <FAQSection items={areaFAQ} />
+      <FAQSection items={shuffledFAQ} />
 
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
       <TeamContactSection cityName={cityName} cityGenitive={cityGenitive} />
