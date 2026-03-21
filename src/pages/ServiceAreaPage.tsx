@@ -486,7 +486,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       <FAQSection items={areaFAQ} />
 
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
-      <TeamContactSection cityName={cityName} />
+      <TeamContactSection cityName={cityName} cityGenitive={cityGenitive} />
 
       {/* ══════════════════ TOIMINTA-ALUEET ══════════════════ */}
       <ToimintaAlueetBanner />
