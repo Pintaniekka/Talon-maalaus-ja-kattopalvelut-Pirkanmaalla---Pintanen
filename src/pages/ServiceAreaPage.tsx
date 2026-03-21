@@ -335,6 +335,9 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
+      {/* ══════════════════ TESTIMONIALS ══════════════════ */}
+      <TestimonialsMarquee />
+
       {/* ══════════════════ ONGELMANRATKAISU: KATTO ══════════════════ */}
       <section className="section-padding bg-background">
         <div className="section-container max-w-4xl mx-auto">
@@ -362,9 +365,6 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
           </motion.div>
         </div>
       </section>
-
-      {/* ══════════════════ TESTIMONIALS ══════════════════ */}
-      <TestimonialsMarquee />
 
 
       {/* ══════════════════ PINNOITUS HINTAKORTIT ══════════════════ */}
