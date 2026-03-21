@@ -11,6 +11,7 @@ type ContactVariant = 'katto' | 'maalaus' | 'general';
 interface ServiceContactSectionProps {
   variant?: ContactVariant;
   cityName?: string;
+  cityGenitive?: string;
 }
 
 const contactPersons = {
@@ -34,7 +35,7 @@ const contactPersons = {
   },
 };
 
-const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContactSectionProps) => {
+const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: ServiceContactSectionProps) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -63,7 +64,7 @@ const ServiceContactSection = ({ variant = 'general', cityName }: ServiceContact
     }
   };
 
-  const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Ota yhteyttä';
+  const title = cityGenitive ? `Yhteystiedot ${cityGenitive} alueella` : cityName ? `Yhteystiedot – ${cityName}` : 'Ota yhteyttä';
 
   // On homepage (general), show only Eerik. On service pages, show relevant person.
   const persons = variant === 'general'

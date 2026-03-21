@@ -142,6 +142,8 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
   if (!cityData || !areaContent) return <Navigate to="/toiminta-alueet" replace />;
 
   const cityName = cityData.name;
+  const cityIn = cityData.cityIn;
+  const cityGenitive = cityData.cityGenitive;
   const hasSubPages = cityHasServicePages(cityData);
 
   const services = [
@@ -186,7 +188,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             Tiilikaton pinnoitus ja talon maalaus {cityName}
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
-            Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityName}lla ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
+            Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityIn} ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -290,10 +292,10 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Palvelut {cityName}n alueella
+              Palvelut {cityGenitive} alueella
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tarjoamme laadukkaat maalaus- ja kattopalvelut {cityName}lla.
+              Tarjoamme laadukkaat maalaus- ja kattopalvelut {cityIn}.
             </p>
           </motion.div>
 
@@ -351,7 +353,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa tiilikaton pinnoitus {cityName}lla?
+              Paljonko maksaa tiilikaton pinnoitus {cityIn}?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
@@ -382,7 +384,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-              Paljonko maksaa talon maalaus {cityName}lla?
+              Paljonko maksaa talon maalaus {cityIn}?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
@@ -484,7 +486,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       <FAQSection items={areaFAQ} />
 
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
-      <TeamContactSection cityName={cityName} />
+      <TeamContactSection cityName={cityName} cityGenitive={cityGenitive} />
 
       {/* ══════════════════ TOIMINTA-ALUEET ══════════════════ */}
       <ToimintaAlueetBanner />

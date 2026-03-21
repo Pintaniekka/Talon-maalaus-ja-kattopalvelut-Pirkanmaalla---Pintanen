@@ -1,5 +1,7 @@
 export interface CityData {
   name: string;
+  cityIn: string;
+  cityGenitive: string;
   slug: string;
   alueIntro: string;
   alueMetaTitle?: string;
@@ -24,6 +26,8 @@ export interface CityData {
 export const cities: CityData[] = [
   {
     name: "Tampere",
+    cityIn: "Tampereella",
+    cityGenitive: "Tampereen",
     slug: "tampere",
     alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere | Yrittäjä tekee työn",
     alueMetaDesc:
@@ -54,6 +58,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Sastamala",
+    cityIn: "Sastamalassa",
+    cityGenitive: "Sastamalan",
     slug: "sastamala",
     alueMetaTitle: "Katon huolto ja maalaus Sastamala",
     alueMetaDesc:
@@ -84,6 +90,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Hämeenkyrö",
+    cityIn: "Hämeenkyrössä",
+    cityGenitive: "Hämeenkyrön",
     slug: "hameenkyro",
     alueMetaTitle: "Katto- ja julkisivutyöt Hämeenkyrö",
     alueMetaDesc:
@@ -114,6 +122,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Ylöjärvi",
+    cityIn: "Ylöjärvellä",
+    cityGenitive: "Ylöjärven",
     slug: "ylojarvi",
     alueMetaTitle: "Katon pinnoitus, puhdistus ja maalaus Ylöjärvi",
     alueMetaDesc:
@@ -144,6 +154,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Nokia",
+    cityIn: "Nokialla",
+    cityGenitive: "Nokian",
     slug: "nokia",
     alueMetaTitle: "Katto- ja maalauspalvelut Nokia – Ilmainen arvio",
     alueMetaDesc:
@@ -174,6 +186,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Forssa",
+    cityIn: "Forssassa",
+    cityGenitive: "Forssan",
     slug: "forssa",
     alueMetaTitle: "Tiilikaton huolto ja maalaus Forssa",
     alueMetaDesc:
@@ -204,6 +218,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Hämeenlinna",
+    cityIn: "Hämeenlinnassa",
+    cityGenitive: "Hämeenlinnan",
     slug: "hameenlinna",
     alueMetaTitle: "Katon pinnoitus ja julkisivumaalaus Hämeenlinna",
     alueMetaDesc:
@@ -234,6 +250,8 @@ export const cities: CityData[] = [
   },
   {
     name: "Huittinen",
+    cityIn: "Huittisissa",
+    cityGenitive: "Huittisten",
     slug: "huittinen",
     alueMetaTitle: "Katto- ja maalauspalvelu Huittinen",
     alueMetaDesc:
@@ -268,6 +286,8 @@ export const cities: CityData[] = [
 export const simpleCities: CityData[] = [
   {
     name: "Akaa",
+    cityIn: "Akaassa",
+    cityGenitive: "Akaan",
     slug: "akaa",
     alueMetaTitle: "Katon pinnoitus ja maalaus Akaa",
     alueMetaDesc:
@@ -277,6 +297,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Ikaalinen",
+    cityIn: "Ikaalisissa",
+    cityGenitive: "Ikaalisten",
     slug: "ikaalinen",
     alueMetaTitle: "Katto- ja julkisivupalvelut Ikaalinen",
     alueMetaDesc:
@@ -286,6 +308,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Juupajoki",
+    cityIn: "Juupajoella",
+    cityGenitive: "Juupajoen",
     slug: "juupajoki",
     alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Juupajoki",
     alueMetaDesc:
@@ -295,6 +319,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Kangasala",
+    cityIn: "Kangasalla",
+    cityGenitive: "Kangasalan",
     slug: "kangasala",
     alueMetaTitle: "Katon huolto ja talon maalaus Kangasala",
     alueMetaDesc:
@@ -309,6 +335,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Kihniö",
+    cityIn: "Kihniössä",
+    cityGenitive: "Kihniön",
     slug: "kihnio",
     alueMetaTitle: "Katto- ja maalaustyöt Kihniö",
     alueMetaDesc:
@@ -318,6 +346,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Lempäälä",
+    cityIn: "Lempäälässä",
+    cityGenitive: "Lempäälän",
     slug: "lempaala",
     alueMetaTitle: "Katon pinnoitus ja puhdistus Lempäälä",
     alueMetaDesc:
@@ -327,6 +357,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Mänttä-Vilppula",
+    cityIn: "Mänttä-Vilppulassa",
+    cityGenitive: "Mänttä-Vilppulan",
     slug: "mantta-vilppula",
     alueMetaTitle: "Katto- ja maalauspalvelut Mänttä-Vilppula",
     alueMetaDesc:
@@ -336,6 +368,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Orivesi",
+    cityIn: "Orivedellä",
+    cityGenitive: "Oriveden",
     slug: "orivesi",
     alueMetaTitle: "Tiilikaton huolto ja maalaus Orivesi",
     alueMetaDesc:
@@ -345,6 +379,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Parkano",
+    cityIn: "Parkanossa",
+    cityGenitive: "Parkanon",
     slug: "parkano",
     alueMetaTitle: "Katon pinnoitus ja julkisivutyöt Parkano",
     alueMetaDesc:
@@ -354,6 +390,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Pirkkala",
+    cityIn: "Pirkkalassa",
+    cityGenitive: "Pirkkalan",
     slug: "pirkkala",
     alueMetaTitle: "Katto- ja maalauspalvelu Pirkkala – Yrittäjät tekevät työn",
     alueMetaDesc:
@@ -368,6 +406,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Pälkäne",
+    cityIn: "Pälkäneellä",
+    cityGenitive: "Pälkäneen",
     slug: "palkane",
     alueMetaTitle: "Katon huolto ja maalaus Pälkäne",
     alueMetaDesc:
@@ -377,6 +417,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Ruovesi",
+    cityIn: "Ruovedellä",
+    cityGenitive: "Ruoveden",
     slug: "ruovesi",
     alueMetaTitle: "Katon pinnoitus ja maalaus Ruovesi",
     alueMetaDesc:
@@ -386,6 +428,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Urjala",
+    cityIn: "Urjalassa",
+    cityGenitive: "Urjalan",
     slug: "urjala",
     alueMetaTitle: "Katto- ja julkisivupalvelut Urjala",
     alueMetaDesc:
@@ -395,6 +439,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Valkeakoski",
+    cityIn: "Valkeakoskella",
+    cityGenitive: "Valkeakosken",
     slug: "valkeakoski",
     alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Valkeakoski",
     alueMetaDesc:
@@ -404,6 +450,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Vesilahti",
+    cityIn: "Vesilahdella",
+    cityGenitive: "Vesilahden",
     slug: "vesilahti",
     alueMetaTitle: "Katto- ja maalauspalvelut Vesilahti",
     alueMetaDesc:
@@ -413,6 +461,8 @@ export const simpleCities: CityData[] = [
   },
   {
     name: "Virrat",
+    cityIn: "Virroilla",
+    cityGenitive: "Virtain",
     slug: "virrat",
     alueMetaTitle: "Katon huolto ja maalaus Virrat",
     alueMetaDesc:

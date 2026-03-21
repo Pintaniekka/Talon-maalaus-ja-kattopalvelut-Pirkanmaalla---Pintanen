@@ -38,7 +38,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
         preloadImage={kattoImage}
       />
 
-      <PinnoitusCityHero cityName={cityData.name} backgroundImage={kattoImage} />
+      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={kattoImage} />
       <PinnoitusTrustStats cityName={cityData.name} />
 
       {/* Local Hook – kaupunkikohtainen paikallisteksti heti luottamuslaatikon jälkeen */}
@@ -51,16 +51,16 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
 
       <TestimonialsMarquee />
 
-      <PinnoitusProblemSection cityName={cityData.name} />
+      <PinnoitusProblemSection cityName={cityData.name} cityIn={cityData.cityIn} cityGenitive={cityData.cityGenitive} />
       <PinnoitusCityProcess cityName={cityData.name} />
       <PinnoitusComparison />
-      <PinnoitusPricingCards cityName={cityData.name} />
+      <PinnoitusPricingCards cityName={cityData.name} cityIn={cityData.cityIn} />
       <KotitalousVahennys />
       <PinnoitusFinancing />
       <PinnoitusEntrepreneur />
 
       <FAQSection items={getPinnoitusCityFAQ(cityData.name)} />
-      <ServiceContactSection variant="katto" cityName={cityData.name} />
+      <ServiceContactSection variant="katto" cityName={cityData.name} cityGenitive={cityData.cityGenitive} />
       <ToimintaAlueetBanner />
     </div>
   );

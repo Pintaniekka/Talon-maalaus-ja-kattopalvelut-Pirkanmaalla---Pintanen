@@ -5,6 +5,7 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 interface TeamContactSectionProps {
   cityName?: string;
+  cityGenitive?: string;
 }
 
 const team = [
@@ -28,8 +29,8 @@ const team = [
   },
 ];
 
-const TeamContactSection = ({ cityName }: TeamContactSectionProps) => {
-  const title = cityName ? `Yhteystiedot ${cityName} alueella` : 'Yhteystiedot';
+const TeamContactSection = ({ cityName, cityGenitive }: TeamContactSectionProps) => {
+  const title = cityGenitive ? `Yhteystiedot ${cityGenitive} alueella` : cityName ? `Yhteystiedot – ${cityName}` : 'Yhteystiedot';
 
   return (
     <section id="yhteystiedot" className="section-padding bg-background">

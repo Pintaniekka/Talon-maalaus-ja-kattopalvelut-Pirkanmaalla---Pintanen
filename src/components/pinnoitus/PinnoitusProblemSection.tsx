@@ -5,6 +5,8 @@ import { getStorageUrl } from '@/lib/storage';
 
 interface PinnoitusProblemSectionProps {
   cityName: string;
+  cityIn: string;
+  cityGenitive: string;
 }
 
 const warningSignsData = [
@@ -14,7 +16,7 @@ const warningSignsData = [
   { sign: 'Pinta tuntuu karhealta', desc: 'Tiili imee vettä sisäänsä jokaisella sateella.' },
 ];
 
-const PinnoitusProblemSection = ({ cityName }: PinnoitusProblemSectionProps) => {
+const PinnoitusProblemSection = ({ cityName, cityIn, cityGenitive }: PinnoitusProblemSectionProps) => {
   return (
     <section className="section-padding bg-accent-light">
       <div className="section-container">
@@ -25,7 +27,7 @@ const PinnoitusProblemSection = ({ cityName }: PinnoitusProblemSectionProps) => 
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-            Onko kattosi vaarassa {cityName}n vaihtelevassa säässä?
+            Onko kattosi vaarassa {cityGenitive} vaihtelevassa säässä?
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Moni tamperelainen luulee, että omakotitalon katto on kunnossa, jos se näyttää siistiltä kaukaa katsottuna. Mutta totuus on toinen. Kun tiilen suoja kuluu pois, tiili imee kosteutta kuin <strong className="text-foreground">kuiva pesusieni</strong>. Siinä vaiheessa pelkkä puhdistus ei riitä. Katto tarvitsee ammattitaitoista pinnoitusta, jotta se kestää teknisesti pitkään.
@@ -85,7 +87,7 @@ const PinnoitusProblemSection = ({ cityName }: PinnoitusProblemSectionProps) => 
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-accent-foreground transition-colors"
               style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
             >
-              Varaa maksuton kuntotarkastus {cityName}lla
+              Varaa maksuton kuntotarkastus {cityIn}
             </a>
           </div>
         </div>
