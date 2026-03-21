@@ -95,17 +95,17 @@ export const generalFAQ: FAQItem[] = [
   },
 ];
 
-export const getMaalausCityFAQ = (cityName: string): FAQItem[] => [
+export const getMaalausCityFAQ = (cityName: string, cityGenitive?: string, cityIn?: string): FAQItem[] => [
   {
     question: 'Mistä tiedän, että taloni kaipaa huoltomaalausta?',
-    answer: `Yleisin syy tilata ulkomaalaus on vanhan maalipinnan haalistuminen, liituuntuminen tai näkyvä hilseily. Myös pinttynyt lika ja homepilkut kertovat huollon tarpeesta. Puuverhoillut talot ${cityName} alueella kaipaavat tyypillisesti uutta maalipintaa 10–15 vuoden välein, jotta puurakenteet pysyvät suojassa säärasitukselta ja kosteudelta.`,
+    answer: `Yleisin syy tilata ulkomaalaus on vanhan maalipinnan haalistuminen, liituuntuminen tai näkyvä hilseily. Myös pinttynyt lika ja homepilkut kertovat huollon tarpeesta. Puuverhoillut talot ${cityGenitive || cityName + 'n'} alueella kaipaavat tyypillisesti uutta maalipintaa 10–15 vuoden välein, jotta puurakenteet pysyvät suojassa säärasitukselta ja kosteudelta.`,
   },
   {
     question: 'Mitä pohjatöitä teette ennen varsinaista maalaamista?',
     answer: 'Kestävä lopputulos vaatii aina huolelliset pohjatyöt, ja siksi panostamme niihin erityisesti. Poistamme hilseilevän vanhan maalin huolellisesti ja teemme julkisivulle perusteellisen homepesun. Lisäksi pohjamaalaamme paljaat puupinnat ennen varsinaista pintamaalin levitystä.',
   },
   {
-    question: `Mitä omakotitalon maalaus ${cityName} alueella suurin piirtein maksaa?`,
+    question: `Mitä omakotitalon maalaus ${cityGenitive || cityName + 'n'} alueella suurin piirtein maksaa?`,
     answer: `Keskikokoisen puutalon huoltomaalaus asettuu useimmiten 5 000 ja 6 500 euron väliin, riippuen tarvittavien pohjatöiden määrästä. Koska suurin osa urakan hinnasta on työn osuutta, saat siitä tuntuvan kotitalousvähennyksen verotuksessasi. Tulemme mielellämme tekemään ilmaisen tarkan kuntoarvion paikan päälle!`,
   },
 ];
