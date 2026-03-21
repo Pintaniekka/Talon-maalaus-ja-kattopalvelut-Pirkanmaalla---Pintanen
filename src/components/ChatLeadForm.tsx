@@ -322,11 +322,15 @@ const ChatLeadForm = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-sm leading-tight">Eerik – Pintanen Oy</p>
-                <p className="text-[11px] opacity-80">Vastaa yleensä heti</p>
               </div>
-              <button onClick={() => setOpen(false)} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Sulje">
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button onClick={handleReset} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Aloita alusta" title="Aloita alusta">
+                  <RotateCcw className="w-4 h-4" />
+                </button>
+                <button onClick={() => setOpen(false)} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Sulje">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}
