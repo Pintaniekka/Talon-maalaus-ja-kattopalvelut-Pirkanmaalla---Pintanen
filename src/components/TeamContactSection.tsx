@@ -128,7 +128,7 @@ const TeamContactSection = ({ cityName, cityGenitive }: TeamContactSectionProps)
               <img
                 src={logoUrl}
                 alt="Pintanen Oy logo"
-                className="h-24 md:h-32 mb-4"
+                className="h-16 md:h-20 mb-4"
                 loading="lazy"
                 decoding="async"
               />
