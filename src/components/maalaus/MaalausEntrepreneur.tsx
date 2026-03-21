@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { getStorageUrl } from '@/lib/storage';
 
-const eemilImage = getStorageUrl('Pictures-200/Eemil-seinamaalari-200.webp');
+const eemilImage = getStorageUrl('Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp');
 
 const MaalausEntrepreneur = () => {
   return (
