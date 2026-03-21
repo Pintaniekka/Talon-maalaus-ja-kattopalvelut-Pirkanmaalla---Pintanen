@@ -11,7 +11,7 @@ interface TeamContactSectionProps {
   cityGenitive?: string;
 }
 
-const logoUrl = getStorageUrl('Pintanen-logo.webp');
+const logoUrl = getStorageUrl('Pintanen-logo.png');
 
 const team = [
   {

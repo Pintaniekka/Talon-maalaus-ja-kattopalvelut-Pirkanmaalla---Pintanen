@@ -7,7 +7,7 @@ import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 import WhatsAppIcon from "./WhatsAppIcon";
 
-const logoUrl = getStorageUrl("Pintanen-logo.webp");
+const logoUrl = getStorageUrl("Pintanen-logo.png");
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -15,7 +15,7 @@ interface TestImage {
 
 const testImages: TestImage[] = [
   // Logo
-  { label: "Logo", path: "Pintanen-logo.webp" },
+  { label: "Logo", path: "Pintanen-logo.png" },
   // Kartta
   { label: "Toimialuekartta", path: "Toiminta-alue-kartta-pirkanmaa-kantahame.png" },
   // Hero-kuvat
