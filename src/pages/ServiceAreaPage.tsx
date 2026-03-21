@@ -142,6 +142,8 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
   if (!cityData || !areaContent) return <Navigate to="/toiminta-alueet" replace />;
 
   const cityName = cityData.name;
+  const cityIn = cityData.cityIn;
+  const cityGenitive = cityData.cityGenitive;
   const hasSubPages = cityHasServicePages(cityData);
 
   const services = [
