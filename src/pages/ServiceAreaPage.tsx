@@ -460,7 +460,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
               />
               <img
                 src={eemilImage}
-                alt="Eemil Pitkänen – Pintanen Oy"
+                alt={`Eemil Pitkänen – talon maalaus yrittäjä ${cityIn}`}
                 className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-4 border-primary/20"
                 loading="lazy"
                 decoding="async"
