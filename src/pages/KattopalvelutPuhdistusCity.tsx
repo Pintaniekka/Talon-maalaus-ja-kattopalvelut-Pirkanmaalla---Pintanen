@@ -45,13 +45,18 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
       />
       <ServicePageHero
         title=""
-        subtitle="Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti"
+        subtitle=""
         backgroundImage={puhdistusImage}
       >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-heading">
-          Tiilikaton puhdistus –{' '}
-          <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityData.name}</span>
-        </h1>
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
+            Tiilikaton puhdistus –{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityData.name}</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
+            Ammattimainen mekaaninen puhdistus ja käsittely pidentää kattosi ikää huomattavasti
+          </p>
+        </div>
       </ServicePageHero>
 
       <section className="section-padding bg-background">
