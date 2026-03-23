@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
+import { getResponsiveSrcSet } from '@/lib/storage';
 
 interface PinnoitusCityHeroProps {
   cityName: string;
@@ -9,7 +10,7 @@ interface PinnoitusCityHeroProps {
 
 const PinnoitusCityHero = ({ cityName, cityIn, backgroundImage }: PinnoitusCityHeroProps) => {
   return (
-    <ServicePageHero title="" subtitle="" backgroundImage={backgroundImage}>
+    <ServicePageHero title="" subtitle="" backgroundImage={backgroundImage} backgroundSrcSet={getResponsiveSrcSet("kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen")}>
       {/* Glassmorphism container for H1 + body text */}
       <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
