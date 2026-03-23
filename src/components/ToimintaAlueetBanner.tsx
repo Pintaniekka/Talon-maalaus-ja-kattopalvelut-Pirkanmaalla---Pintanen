@@ -1,6 +1,6 @@
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import { getStorageUrl } from '@/lib/storage';
 
 const mapImage = getStorageUrl("Toiminta-alue-kartta-pirkanmaa-kantahame.png");
 
@@ -52,7 +52,6 @@ const ToimintaAlueetBanner = () => {
           <div className="flex justify-center">
             <img
               src={mapImage}
-              srcSet={getImageSrcSet(mapImage)}
               sizes="280px"
               alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
               className="w-full max-w-[280px] rounded-2xl object-contain"
