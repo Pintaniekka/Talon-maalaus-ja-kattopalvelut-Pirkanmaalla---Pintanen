@@ -29,12 +29,12 @@ export const cities: CityData[] = [
     cityIn: "Tampereella",
     cityGenitive: "Tampereen",
     slug: "tampere",
-    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere | Yrittäjä tekee työn",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Tampereella. Laske hinta-arvio hintalaskurilla. Tilaa ilmainen arviokäynti ja hyödynnä kotitalousvähennys. Kirjallinen takuu.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus ja talon maalaus Tampereella. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | Hinta alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Tampereella alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Tampereella. Me yrittäjät teemme työn itse. 5v takuu, kotitalousvähennys ja nopea hintalaskuri. Hinnat alk. 2750€-7000€.",
     pinnoitusLocalHookTitle: "Tiilikaton suojaaminen Näsijärven ja Pyhäjärven kosteudelta",
     pinnoitusLocalHookText: "Tampereella Näsijärven ja Pyhäjärven läheisyys luo kaupunkiin jatkuvan ilmankosteuden. Vesistöjen tuoma kosteus on erittäin hyvä kasvuympäristö sammaleelle. Sammale voi nopeasti heikentää tiilikaton kuntoa. Olit sitten asuinalueella Hervannassa, Lielahdessa tai Pyynikin vanhemmassa osassa, ammattitaitoinen tiilikaton pinnoitus on hyvä tapa suojata kotisi. Kun me pinnoitamme kattosi, se saa takaisin alkuperäisen vettä hylkivän suojansa. Näin me varmistamme, että tiilikatto kestää Tampereen vaihtelevia sääolosuhteita luotettavasti vielä jopa 10–15 vuotta. Tällä tavoin vältyt myös kalliilta kattoremontilta.",
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
