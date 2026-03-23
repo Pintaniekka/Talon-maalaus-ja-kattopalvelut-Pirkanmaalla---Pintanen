@@ -288,7 +288,7 @@ const Referenssit = () => {
   return (
     <div>
       <SEO title="Referenssit – Katon pinnoitus ja talon maalaus" description="Tutustu toteuttamiimme katto- ja maalausprojekteihin Pirkanmaalla. Näe ero ennen maalausta ja maalauksen jälkeen." />
-      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto")} backgroundSrcSet={getResponsiveSrcSet("tiilikaton-tehopesu-ja-sammaleenpoisto")} />
+      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto")} />
 
       <section className="section-padding bg-background">
         <div className="section-container">

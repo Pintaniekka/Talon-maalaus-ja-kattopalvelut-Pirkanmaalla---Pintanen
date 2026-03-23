@@ -16,11 +16,11 @@ import FAQSection from "@/components/FAQSection";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 import { getMaalausCityFAQ } from "@/data/faqData";
 
-const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroBase = "moderni-tumma-puutalo-julkisivumaalaus-valmis";
 
 const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
   const cityData = getCityBySlug(citySlug);
@@ -36,13 +36,14 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       <SEO
         title={cityData.maalausMetaTitle || `Talon maalaus ${cityName} | Hintalaskuri | Pintanen`}
         description={cityData.maalausMetaDesc || `Laadukas talon ulkomaalaus ${cityName}. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!`}
-        preloadImage={heroImage}
+        preloadImage={getResponsiveSrc(heroBase)}
       />
 
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={heroImage}
+        backgroundImage={getResponsiveSrc(heroBase)}
+        backgroundSrcSet={getResponsiveSrcSet(heroBase)}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">

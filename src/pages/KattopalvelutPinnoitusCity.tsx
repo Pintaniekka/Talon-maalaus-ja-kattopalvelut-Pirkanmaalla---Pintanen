@@ -15,10 +15,10 @@ import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import { getPinnoitusCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
 const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
   const { city: paramCity } = useParams<{ city: string }>();
@@ -35,10 +35,10 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
           cityData.pinnoitusMetaDesc ||
           `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`
         }
-        preloadImage={kattoImage}
+        preloadImage={getResponsiveSrc(kattoBase)}
       />
 
-      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={kattoImage} />
+      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={getResponsiveSrc(kattoBase)} />
       <PinnoitusTrustStats cityName={cityData.name} />
 
       {/* Local Hook – kaupunkikohtainen paikallisteksti heti luottamuslaatikon jälkeen */}

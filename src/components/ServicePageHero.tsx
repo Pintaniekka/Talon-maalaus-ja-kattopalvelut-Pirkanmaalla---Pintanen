@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import { getHeroSrcSet } from '@/lib/storage';
 
 interface ServicePageHeroProps {
   title: string;
@@ -16,7 +17,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, c
       {backgroundImage ? (
         <img
           src={backgroundImage}
-          srcSet={backgroundSrcSet}
+          srcSet={backgroundSrcSet || getHeroSrcSet(backgroundImage)}
           sizes="100vw"
           alt={`${title} – Pintanen Oy`}
           className="absolute inset-0 w-full h-full object-cover"
