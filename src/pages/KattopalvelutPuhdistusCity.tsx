@@ -2,17 +2,16 @@ import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, Droplets, Shield, Sparkles, Clock, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
-
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import CityServices from "@/components/CityServices";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import { getPuhdistusCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const puhdistusImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const puhdistusBase = "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen";
 
 const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
   const { city: paramCity } = useParams<{ city: string }>();
@@ -46,7 +45,8 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={puhdistusImage}
+        backgroundImage={getResponsiveSrc(puhdistusBase)}
+        backgroundSrcSet={getResponsiveSrcSet(puhdistusBase)}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
@@ -62,18 +62,11 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
-              Tiilikaton mekaaninen puhdistus ja käsittely
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">Tiilikaton mekaaninen puhdistus ja käsittely</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>{cityData.puhdistusIntro}</p>
-              <p>
-                Suosittelemme tiilikaton tarkastusta vuosittain. Sammal, jäkälä ja roskat kannattaa poistaa
-                säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.
-              </p>
-              <p>
-                <strong className="text-foreground">Käytämme ammattitason välineitä.</strong> Puhdistamme katon mekaanisesti käsityövälineillä, mikä säästää tiilen pintaa.
-              </p>
+              <p>Suosittelemme tiilikaton tarkastusta vuosittain. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
+              <p><strong className="text-foreground">Käytämme ammattitason välineitä.</strong> Puhdistamme katon mekaanisesti käsityövälineillä, mikä säästää tiilen pintaa.</p>
             </div>
           </motion.div>
         </div>
@@ -83,9 +76,7 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Mitä puhdistus sisältää?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Kattavat puhdistuspalvelut yhdellä hinnalla – ei piilokustannuksia.
-            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Kattavat puhdistuspalvelut yhdellä hinnalla – ei piilokustannuksia.</p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
@@ -119,9 +110,7 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
             <div className="bg-card rounded-2xl p-8 text-center shadow-lg">
               <h2 className="text-2xl font-bold text-accent mb-4">Hinnoittelu</h2>
-              <p className="text-muted-foreground mb-6">
-                Tiilikaton mekaanisen puhdistuksen ja käsittelyn hinta riippuu katon koosta ja sammaleen määrästä.
-              </p>
+              <p className="text-muted-foreground mb-6">Tiilikaton mekaanisen puhdistuksen ja käsittelyn hinta riippuu katon koosta ja sammaleen määrästä.</p>
               <div className="text-4xl font-bold text-primary mb-2">alkaen 800 €</div>
               <p className="text-accent font-medium">Pyydä tarjous, niin kerromme tarkan hinnan!</p>
             </div>
@@ -134,9 +123,7 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <MapPin className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold text-accent">
-                Palvelu {cityData.cityGenitive} alueella
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent">Palvelu {cityData.cityGenitive} alueella</h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">{cityData.localSection}</p>
           </motion.div>
