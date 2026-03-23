@@ -4,7 +4,7 @@ import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
 
 const comparisonBase = "tummanharmaa-kattotiili-pesu-ja-pinnoitustyo";
 
-const PinnoitusComparison = () => {
+const PinnoitusComparison = ({ cityIn }: { cityIn?: string }) => {
   return (
     <section className="section-padding bg-background">
       <div className="section-container">
@@ -47,7 +47,7 @@ const PinnoitusComparison = () => {
             >
               <ResponsiveSupabaseImage
                 baseName={comparisonBase}
-                alt="Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla"
+                cityIn={cityIn}
                 className="w-full rounded-2xl shadow-lg"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

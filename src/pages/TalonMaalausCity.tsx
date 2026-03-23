@@ -103,7 +103,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       <TestimonialsMarquee />
       <MaalausProblemSection cityName={cityName} />
       <MaalausProcessAccordion cityName={cityName} />
-      <MaalausComparison />
+      <MaalausComparison cityIn={cityData.cityIn} />
       <MaalausPricingCards cityName={cityName} />
       <KotitalousVahennys />
       <MaalausFinancing cityName={cityName} />
