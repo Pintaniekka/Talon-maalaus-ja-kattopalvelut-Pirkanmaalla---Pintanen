@@ -409,9 +409,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Pälkäneellä",
     cityGenitive: "Pälkäneen",
     slug: "palkane",
-    alueMetaTitle: "Katon huolto ja maalaus Pälkäne",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Pälkäne",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Pälkäneellä. Tiilikaton huolto ja julkisivumaalaus huolellisesti toteutettuna. Ota yhteyttä.",
+      "Tiilikaton pinnoitus & talon maalaus Pälkäneellä. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Pälkäne on kaunis järvikunta Pirkanmaan itäosassa, ja Pintanen palvelee aluetta säännöllisesti. Kunnan upea luonto on asumisen valttikortti, mutta järvien tuoma kosteus asettaa vaatimuksia rakennusten pinnoille.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin. Yrittäjät ovat aina itse paikalla tekemässä työn – aikatauluista ja laadusta pidetään kiinni.\n\nPälkäneen järviympäristössä ilmankosteus on ajoittain korkeaa, mikä edistää kasvuston muodostumista tiilikatoille. Puujulkisivut altistuvat kosteudelle erityisesti järvenrantaisilla tonteilla. Säännöllinen huolto pidentää rakenteiden käyttöikää merkittävästi ja ehkäisee kalliimpia korjaustarpeita.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan käynti Pälkäneen alueelle.",
   },
