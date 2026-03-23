@@ -29,20 +29,20 @@ export const cities: CityData[] = [
     cityIn: "Tampereella",
     cityGenitive: "Tampereen",
     slug: "tampere",
-    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere | Yrittäjä tekee työn",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Tampere",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Tampereella. Laske hinta-arvio hintalaskurilla. Tilaa ilmainen arviokäynti ja hyödynnä kotitalousvähennys. Kirjallinen takuu.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus ja talon maalaus Tampereella. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Tampere | Hinta alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Tampereella alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Tampereella. Me yrittäjät teemme työn itse. 5v takuu, kotitalousvähennys ja nopea hintalaskuri. Hinnat alk. 2750€-7000€.",
     pinnoitusLocalHookTitle: "Tiilikaton suojaaminen Näsijärven ja Pyhäjärven kosteudelta",
     pinnoitusLocalHookText: "Tampereella Näsijärven ja Pyhäjärven läheisyys luo kaupunkiin jatkuvan ilmankosteuden. Vesistöjen tuoma kosteus on erittäin hyvä kasvuympäristö sammaleelle. Sammale voi nopeasti heikentää tiilikaton kuntoa. Olit sitten asuinalueella Hervannassa, Lielahdessa tai Pyynikin vanhemmassa osassa, ammattitaitoinen tiilikaton pinnoitus on hyvä tapa suojata kotisi. Kun me pinnoitamme kattosi, se saa takaisin alkuperäisen vettä hylkivän suojansa. Näin me varmistamme, että tiilikatto kestää Tampereen vaihtelevia sääolosuhteita luotettavasti vielä jopa 10–15 vuotta. Tällä tavoin vältyt myös kalliilta kattoremontilta.",
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Tampere | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Tampere | Laske hinta laskurilla | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Tampereella. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Kestävä talon ulkomaalaus Tampereella. Yrittäjä Eemil tekee työn itse. Laske hinta heti, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio kotiovellesi!",
     maalausLocalHookTitle: "Tampereen harjutuulten ja kahden järven kosteusrasituksen hallinta",
     maalausLocalHookText: "Tampere sijaitsee <strong>Näsijärven ja Pyhäjärven</strong> välissä olevalla kannaksella, ja kaupungin läpi kulkeva harjujakso aiheuttaa talojen julkisivuille erityisen suuren rasituksen. <strong>Pispalan ja Pyynikin</strong> rinteillä voimakas harjutuuli ja suora säärasitus kuluttavat maalipintaa. Järvien lähellä olevilla alueilla, kuten <strong>Tahmelassa, Ranta-Tampellassa ja Atalan</strong> rinteillä, suurin haaste on korkea <strong>ilmankosteus</strong>. Korkea ilmankosteus edistää homeen kasvua ja puun kosteusliikettä, mikä aiheuttaa ongelmia talojen ulkoverhouksille. Suojaa kotisi Tampereen säältä Pintasen tarkkuudella – emme tingi pohjatöistä.",
     alueIntro:
@@ -61,20 +61,20 @@ export const cities: CityData[] = [
     cityIn: "Sastamalassa",
     cityGenitive: "Sastamalan",
     slug: "sastamala",
-    alueMetaTitle: "Katon huolto ja maalaus Sastamala",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Sastamala",
     alueMetaDesc:
-      "Tarjoamme kattopalvelut ja ulkomaalaukset Sastamalassa. Laadukas työnjälki ja selkeä toimintatapa. Ota yhteyttä.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Sastamala | 5v takuu | Pintanen",
+      "Talon maalaus ja tiilikaton pinnoitus Sastamalassa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Sastamala | Yrittäjät tekevät työn",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Sastamalassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Sastamalassa. Hinta alk. 2750€-7000€. Testaa hintalaskuri ja hyödynnä kotitalousvähennys. 5v takuu!",
     pinnoitusLocalHookTitle: "Tiilikaton suojaaminen Sastamalan järvimaisemien kosteudelta",
     pinnoitusLocalHookText: "Sastamalan ja historiallisen Tyrvään upeat maisemat Rautaveden ja Liekoveden rannoilla ovat todella kauniit, mutta ne myös tuovat mukanaan paljon kosteutta. Tämä kosteus on suoraan vesistöjen lähellä olemisen seuraus, ja se luo ihanteelliset olosuhteet sammaleelle, joka voi vahingoittaa tiilikattoja. On siis tärkeää, että huolehdit säännöllisestä huollosta ja ammattitaitoisesta pinnoituksesta, riippumatta siitä, asutko Vammalan keskustassa tai maaseudun rauhassa. Tiilikaton pinnoitus on paras keino suojata sekä perinteikäs että uudempi talosi Pirkanmaan sääolosuhteilta. Kun pinnoitamme tiilikaton, palautamme tiilen alkuperäisen suojan ja varmistamme, että se palvelee sinua hyvin jopa 10-15 vuotta.",
     puhdistusMetaTitle: "Katon puhdistus Sastamala – Katto puhtaaksi kerralla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Sastamalassa tehokkaasti ja edullisesti. Laita katto kunnossa ajoissa. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Sastamala | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Sastamala | Takuutyö yrittäjältä | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Sastamalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Ammattimainen talon ulkomaalaus Sastamalassa. Hinta n. 2000 € – 10 000 €. Yrittäjä tekee työn. Katso hintaesimerkit ja tilaa maksuton kuntotarkastus!",
     maalausLocalHookTitle: "Puuverhouksen suojaaminen Sastamalan vesistöjen kosteusrasitukselta",
     maalausLocalHookText: "Sastamalan maisema on <strong>Rautaveden ja Liekoveden</strong> hallitsema. Ne tuovat mukanaan runsaasti kosteutta, joka on suuri haaste puujulkisivuille. Erityisesti <strong>Vammalan keskustan</strong> ja rantojen lähellä <strong>ilmankosteus</strong> on korkea. Se pääsee helposti suojaamattomaan puuhun, mikä aiheuttaa maalin lohkeilua ja altistaa laudoituksen <strong>homeelle</strong>. Pintanen tuntee alueen olosuhteet hyvin. Teen huolelliset ja ammattitaitoiset homepesut ja maalaukset. Näin varmistetaan, että talosi ulkoverhous kestää Sastamalan järvi-ilmaston vaikutukset hyvin.",
     alueIntro:
@@ -93,20 +93,20 @@ export const cities: CityData[] = [
     cityIn: "Hämeenkyrössä",
     cityGenitive: "Hämeenkyrön",
     slug: "hameenkyro",
-    alueMetaTitle: "Katto- ja julkisivutyöt Hämeenkyrö",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Hämeenkyrö",
     alueMetaDesc:
-      "Katon pinnoitus ja talon maalaus Hämeenkyrössä huolellisin pohjatöin. Yrittäjät mukana jokaisessa projektissa. Pyydä arvio.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenkyrö | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus & talon maalaus Hämeenkyrössä. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenkyrö | Alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Hämeenkyrössä alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Hämeenkyrössä yrittäjä tekee työn. 5v takuu, kotitalousvähennys ja selkeä hintalaskuri. Hinnat alk. vain 2750€-7000€.",
     pinnoitusLocalHookTitle: "Hämeenkyrön kansallismaisemien ja Kyröskosken säärasitusten hallinta",
     pinnoitusLocalHookText: "Hämeenkyrön laajat pellot ja Kyröskosken ympärillä olevat vanhat maisemat saavat talojen katot alttiiksi suoralle tuulelle, epätasaisille sateille ja talven raskaalle lumelle. Kun tiilikaton pinta alkaa vähitellen muuttua huokoiseksi, sääolosuhteet voivat aiheuttaa vahinkoa rakenteille pakkasen myötä. Oikea-aikainen pinnoitus takaa, että tiili pysyy kosteudenkestävänä ja kestävänä kaikissa sääolosuhteissa. Tämä on hyvä ratkaisu, joka auttaa säilyttämään kotisi arvon ja ulkonäön keskellä Pirkanmaan kauneinta luontoa.",
     puhdistusMetaTitle: "Katon puhdistus Hämeenkyrö – Turvallisesti ja huolellisesti",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenkyrössä edullisesti ja huolellisesti. Sammaleet ja lika pois katolta. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Kestävä suoja julkisivulle | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Hämeenkyrössä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Laadukas talon maalaus Hämeenkyrössä. Perusteelliset pohjatyöt ja säänkestävä pinta yrittäjän tekemänä. Katso hinnat ja varaa maksuton kuntotarkastus nyt!",
     maalausLocalHookTitle: "Hämeenkyrön avoimien peltomaisemien ja viistosateiden hallinta",
     maalausLocalHookText: "Hämeenkyrön avoimet pellot ja <strong>Kyröskosken</strong> ympäristön korkeuserot altistavat talojen ulkoseinät suoralle tuulelle ja <strong>viistosateille</strong>. Kun talon maalipinta ohenee, vesi pääsee helposti sisään <strong>paneelien rakoihin</strong> ja halkeamiin, mikä tekee puun pehmenemisestä nopeampaa. Pintanen tarjoaa Hämeenkyrön alueella <strong>erittäin kestävää ulkomaalausta</strong>, joka luo talollesi vankan ja joustavan suojan, joka ei riipu säästä.",
     alueIntro:
@@ -125,20 +125,20 @@ export const cities: CityData[] = [
     cityIn: "Ylöjärvellä",
     cityGenitive: "Ylöjärven",
     slug: "ylojarvi",
-    alueMetaTitle: "Katon pinnoitus, puhdistus ja maalaus Ylöjärvi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Ylöjärvi",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Ylöjärvellä ammattitaidolla. Tiilikaton huolto ja julkisivumaalaus kestävällä lopputuloksella. Kysy tarjous.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Ylöjärvi | 5v takuu | Pintanen",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Ylöjärvellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Ylöjärvi | Hintalaskuri",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Ylöjärvellä alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Ylöjärvellä. Me yrittäjät teemme työn itse. 5v takuu, kotitalousvähennys ja hinnat alk. 2750€-7000€. Kokeile hintalaskuria!",
     pinnoitusLocalHookTitle: "Ylöjärven puutarhakaupungin kattojen suojaus sammaleelta",
     pinnoitusLocalHookText: "Ylöjärven puutarhakaupungissa luonto on aivan lähellä. Asuinalueet kuten Metsäkylä ja Siivikkala sijaitsevat usein metsän reunalla tai Näsijärven rantamaisemissa. Puiden antama varjo ja vesistöjen kosteus pitävät kattoja pitkään märkinä sateen jälkeen, ja tämä houkuttelee sammalta. Laadukas tiilikaton pinnoitus Ylöjärvellä on oiva ratkaisu, sillä se palauttaa vanhan katon loiston ja luo sille vettä ja likaa hylkivän suojan. Näin voit varmistaa, että kotisi katto pysyy hyvässä kunnossa, eikä metsän läheisyys pääse heikentämään sen arvoa ennenaikaisesti.",
     puhdistusMetaTitle: "Katon puhdistus Ylöjärvi – Pidentää katon ikää",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Ylöjärvellä edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hyödynnä kotitalousvähennys | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Ylöjärvellä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Talon ulkomaalaus Ylöjärvellä luotettavasti. Suojaa kotisi homeelta ja säältä. Laske hinta laskurilla ja pyydä Eemil poikkeamaan ilmaiselle arviokäynnille!",
     maalausLocalHookTitle: "Puutarhakaupungin julkisivujen suojaus puiden varjostukselta",
     maalausLocalHookText: "Ylöjärven puutarhakaupungissa, erityisesti <strong>Metsäkylän ja Siivikkalan</strong> vehreillä alueilla, suuret puut ja <strong>Näsijärven</strong> läheisyys luovat varjoisia ja kosteita pienilmastoja. Varjoisilla paikoilla maali kuivuu hitaammin, mikä edistää <strong>homesienien</strong> kasvua ja maalin hilseilyä. Pintasen talon maalaus Ylöjärvellä panostaa tehokkaaseen <strong>homepesuun</strong> ja oikeisiin maalausolosuhteisiin, jotta kotisi julkisivu pysyy upeana ja terveenä metsän siimeksessäkin.",
     alueIntro:
@@ -157,20 +157,20 @@ export const cities: CityData[] = [
     cityIn: "Nokialla",
     cityGenitive: "Nokian",
     slug: "nokia",
-    alueMetaTitle: "Katto- ja maalauspalvelut Nokia – Ilmainen arvio",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Nokia",
     alueMetaDesc:
-      "Palvelemme Nokiassa kattojen huolloissa ja talon maalauksissa. Selkeä toteutus ja kestävä lopputulos. Ota yhteyttä ja jutellaan kohteestasi.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Nokia | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus ja talon maalaus Nokialla. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Nokia | Yrittäjät tekevät työn",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Nokialla alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Nokialla. Hinta alk. 2750€-7000€. Hyödynnä kotitalousvähennys ja laske kustannus hintalaskurilla. 5v takuu suoraan yrittäjiltä.",
     pinnoitusLocalHookTitle: "Nokian pientaloalueiden kattojen elinkaaren maksimointi",
     pinnoitusLocalHookText: "Nokialla asuinalueet ovat levittäytyneet Nokianvirran rannoille ja vihreisiin lähiöihin, kuten Harjuniittyyn ja Sammalistoon. Alueen vesistöjen aiheuttama kosteus ja vaihtelevat sääolot koettelevat talojen tiilikattoja jatkuvasti. Kun tehdaspinnoite kuluu, tiili alkaa heikentyä ja kerätä sammalta ja muuta kasvustoa. Fiksusti ennakoivat Nokialla asuvat valitsevat ammattitaitoisen pinnoituksen, koska se on nopea, ympäristöystävällinen ja ennen kaikkea taloudellinen ratkaisu välttääkseen raskaat kattoremontit ja pitääkseen kodin turvassa.",
     puhdistusMetaTitle: "Katon puhdistus Nokia – Ammattitaidolla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Nokiassa tehokkaasti ja edullisesti. Katto puhtaaksi laadukkailla työmenetelmillä. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Nokia | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Nokia | Suoraan paikalliselta yrittäjältä | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Nokialla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Etsitkö luotettavaa talon maalausta Nokialla? Pintasen ulkomaalaukset toteuttaa yrittäjä itse. Hyödynnä kotitalousvähennys 2026 – laske hinta heti!",
     maalausLocalHookTitle: "Nokian kasvavien pientaloalueiden julkisivujen huolto",
     maalausLocalHookText: "Nokialla asuinalueet leviävät <strong>Nokianvirran</strong> varrelta aina <strong>Harjuniityn ja Sammaliston</strong> kaltaisiin uusiin lähiöihin. Olipa kyseessä perinteinen puutalo virran tuntumassa tai moderni uudiskohde, säännöllinen huoltomaalaus on tärkeää puun <strong>kosteusliikkeen</strong> hallitsemiseksi. Huolehdin, että Nokian kohteissa tehdään pohjatyöt ja <strong>mekaaninen kaavinta</strong> kunnolla, jotta uusi maalipinta suojaa kotiasi hyvin Nokianvirran aiheuttamilta kosteusvaikutuksilta.",
     alueIntro:
@@ -189,20 +189,20 @@ export const cities: CityData[] = [
     cityIn: "Forssassa",
     cityGenitive: "Forssan",
     slug: "forssa",
-    alueMetaTitle: "Tiilikaton huolto ja maalaus Forssa",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Forssa",
     alueMetaDesc:
-      "Palvelemme Forssassa kattojen pinnoituksissa ja talojen maalauksissa. Huolellinen valmistelu ja siisti työnjälki. Pyydä maksuton arvio.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Forssa | 5v takuu | Pintanen",
+      "Talon maalaus ja tiilikaton pinnoitus Forssassa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Forssa | Hinta alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Forssassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Forssassa. Yrittäjät asialla, 5v takuu ja kotitalousvähennys. Alk. 2750€-7000€. Katso tarkka hinta hintalaskurista.",
     pinnoitusLocalHookTitle: "Forssan ja Lounais-Hämeen vaativien sääolojen kestävä kattosuoja",
     pinnoitusLocalHookText: "Forssan seudulla, joka sijaitsee Lounais-Hämeen sydämessä, sää voi muuttua nopeasti. Loimijoen laakso tuo alueelle kosteutta, ja talven loputtua pakkaset voivat olla edelleen voimakkaita. Tämä voi vaatia paljon pientalon tiilikatolta. Jos huomaat, että tiilen pinta on muuttunut karheaksi ja menettänyt värinsä, on aika tehdä jotain asialle. Ammattitason tiilikaton pinnoitus on hyvä ratkaisu, koska se sulkee tiilen huokoset tehokkaasti. Tämä varmistaa, että kattosi on kuiva, tiivis ja näyttävä, jopa Forssan talvikauden haastavissa olosuhteissa.",
     puhdistusMetaTitle: "Katon puhdistus Forssa – Säännöllinen huolto kannattaa",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Forssassa tehokkaasti ja edullisesti. Katto kuntoon ennen vaurioita. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri verkossa | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Forssassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Kestävä talon ulkomaalaus Forssan seudulla. Säästy kalliilta remontilta ajoissa tehdyllä maalauksella. Yrittäjä vastaa laadusta. Tilaa ilmainen arviokäynti!",
     maalausLocalHookTitle: "Lounais-Hämeen lämpötilavaihteluiden kestävä maalaustyö",
     maalausLocalHookText: "Forssan alueella <strong>Loimijoen laakson</strong> kostea ilma ja sisämaan suuret <strong>lämpötilan muutokset</strong> vaikuttavat maalin kiinnitykseen. Kun maalipinta altistuu ilmalle ja alkaa kulua pois, se ei enää estä vettä, mikä aiheuttaa puun kulumisen. Pintanen tarjoaa forssalaisille <strong>pientalojen asukkaille</strong> laadukasta talon maalaus palvelua, joka saa seinät kestämään Forssan alueen vaativia olosuhteita ja pitämään rakennuksen ulkopinnan <strong>joustavana</strong>.",
     alueIntro:
@@ -221,20 +221,20 @@ export const cities: CityData[] = [
     cityIn: "Hämeenlinnassa",
     cityGenitive: "Hämeenlinnan",
     slug: "hameenlinna",
-    alueMetaTitle: "Katon pinnoitus ja julkisivumaalaus Hämeenlinna",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Hämeenlinna",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Hämeenlinnassa suoraan tekijöiltä. Kestävä toteutus ja selkeä työprosessi. Ota yhteyttä.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenlinna | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus & talon maalaus Hämeenlinnassa. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenlinna | 5v takuu",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Hämeenlinnassa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Hämeenlinnassa. Yrittäjät tekevät työn, hinta alk. 2750€-7000€. Käytä hintalaskuria ja hyödynnä kotitalousvähennys.",
     pinnoitusLocalHookTitle: "Hämeenlinnan arvokiinteistöjen ja pientalojen tiilikattojen pinnoitus",
     pinnoitusLocalHookText: "Hämeenlinnassa vanhat ja uudet talot elävät hyvin yhdessä Vanajaveden rannalla. Vanajaveden läheisyys tuo kuitenkin omat haasteensa. Ilmankosteus on jatkuva ongelma, joka vaikuttaa tiilikattojen kestävyyteen ja saa ne helposti sammaloitumaan. Onneksi on olemassa ratkaisu. Pintasen asiantunteva tiilikaton pinnoitus on edullinen tapa uudistaa katon ulkonäkö ja palauttaa sen suojakyky. Riippumatta siitä, asutko Aulangon lähellä tai Jukolassa, hyvä tiilikaton pinnoitus takaa, että kattosi kestää Hämeenlinnan sään jopa seuraavat 10-15 vuotta.",
     puhdistusMetaTitle: "Katon puhdistus Hämeenlinna – Ilmainen arvio",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenlinnassa edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenlinna | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Hämeenlinna | Laatua paikalliselta | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Hämeenlinnassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Ammattitaitoinen talon ulkomaalaus Hämeenlinnassa. Eemil hoitaa työn alusta loppuun. Kotitalousvähennys. Laske hinta sekunneissa!",
     maalausLocalHookTitle: "Vanajaveden kosteusrasituksen hallinta Hämeenlinnan pientaloissa",
     maalausLocalHookText: "Hämeenlinnassa <strong>Vanajaveden</strong> läheisyys ja järven yllä oleva sumu aiheuttavat jatkuvasti kosteusongelmia. Tämä vaikuttaa erityisesti <strong>Aulangon ja Jukolan</strong> alueilla oleviin puuverhouksiin. Jos pohjatyöt tehdään huonosti, kosteus jää helposti maalin alle ja aiheuttaa nopeasti hilseilyä. Pintasen palvelu panostaa Hämeenlinnassa erityisesti <strong>huolellisiin pohjatöihin</strong>. Näin taataan, että uusi maalipinta <strong>tarttuu hyvin</strong> ja kestää pitkään.",
     alueIntro:
@@ -253,20 +253,20 @@ export const cities: CityData[] = [
     cityIn: "Huittisissa",
     cityGenitive: "Huittisten",
     slug: "huittinen",
-    alueMetaTitle: "Katto- ja maalauspalvelu Huittinen",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Huittinen",
     alueMetaDesc:
-      "Tiilikaton huolto ja talon maalaus Huittisissa. Panostamme pohjatöihin ja pitkäikäiseen lopputulokseen. Pyydä arvio kohteestasi.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Huittinen | 5v takuu | Pintanen",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Huittisissa. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Huittinen | Alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Huittisissa alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Huittisissa. Yrittäjät tekee työn. 5v takuu, kotitalousvähennys ja hintalaskuri. Hinnat alk. 2750€-7000€.",
     pinnoitusLocalHookTitle: "Satakunnan avarien maisemien tuulikuorma ja katon tiiveys Huittisissa",
     pinnoitusLocalHookText: "Huittisten laajat pellot ja avonaiset maisemat tuottavat omakotitalojen katoille omanlaisensa haasteen. Tuuli on esteetön ja sateet voimakkaat. Tällaisessa ympäristössä tiili, joka on päässyt huokoiseksi, on erityisen altis kosteuden imeytymiselle ja rapautumiselle. Pintasen tiilikaton pinnoitus ratkaisee tämän ongelman. Pinnoituksella luodaan tiilelle säänkestävä suojakerros. Se pitää veden katon yläpuolella ja estää sammaleen kasvun tehokkaasti, myös Satakunnan vaikeimmissa sääolosuhteissa.",
     puhdistusMetaTitle: "Katon puhdistus Huittinen – Poistaa levän ja sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Huittisissa tehokkaasti ja edullisesti. Katto pysyy kunnossa pidempään. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Huittinen | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Huittinen | Maksuton arviokäynti| Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Huittisissa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Suojaa kotisi Satakunnan säältä. Laadukas talon ulkomaalaus Huittisissa suoraan yrittäjältä. Hinta-arvio nopeasti hintalaskurilla ja hyödynnä merkittävä kotitalousvähennys.",
     maalausLocalHookTitle: "Satakunnan lakeuksien tuulikuorman ja säärasituksen hallinta",
     maalausLocalHookText: "Huittisten avoimessa <strong>peltomaisemassa</strong> tuuli pääsee vapaasti liikkumaan, ja sade iskee usein <strong>suoraan talon julkisivuun</strong>. Tästä syystä vanhat maalipinnat voivat päästää kosteuden syvemmälle puun rakenteeseen, mikä saattaa aiheuttaa <strong>lahovaurioita</strong>. Me Pintanen tarjoamme Huittisten alueella erittäin laadukasta ulkomaalausta, joka suojaa taloa tehokkaasti sääoloilta. Me teemme työmme huolella, jotta talosi arvo säilyy hyvänä <strong>Satakunnan</strong> vaihtelevissa sääolosuhteissa.",
     alueIntro:
@@ -289,9 +289,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Akaassa",
     cityGenitive: "Akaan",
     slug: "akaa",
-    alueMetaTitle: "Katon pinnoitus ja maalaus Akaa",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Akaa",
     alueMetaDesc:
-      "Katon pinnoitus ja maalaus Akaassa huolellisesti toteutettuna. Palvelemme joustavasti koko alueella. Ota yhteyttä.",
+      "Tiilikaton pinnoitus ja talon maalaus Akaassa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Pintanen palvelee Akaan aluetta säännöllisesti. Akaa sijaitsee Etelä-Pirkanmaalla hyvien kulkuyhteyksien varrella, ja ajamme kohteisiin vaivattomasti.\n\nToteutamme alueella tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia. Jokaiseen kohteeseen teemme ilmaisen arviokäynnin, jossa selvitämme työn laajuuden ja pintojen kunnon. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita.\n\nAkaan Toijalassa ja Viialassa on runsaasti 60–80-luvun omakotitaloja, joiden tiilikatot alkavat olla siinä iässä, että huolto on ajankohtaista. Myös julkisivujen huoltomaalaus on monessa kohteessa tarpeen. Työmaat viimeistellään aina huolellisesti ja jälki siivotaan ennen luovutusta. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Akaan alueelle.",
   },
@@ -300,9 +300,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Ikaalisissa",
     cityGenitive: "Ikaalisten",
     slug: "ikaalinen",
-    alueMetaTitle: "Katto- ja julkisivupalvelut Ikaalinen",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Ikaalinen",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Ikaalisissa ammattitaidolla. Kestävä lopputulos ja selkeä hinnoittelu. Pyydä maksuton arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Ikaalisissa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Ikaalinen kuuluu Pintasen vakituiseen palvelualueeseen Pohjois-Pirkanmaalla. Kaupunki tunnetaan kylpylästään ja kauniista järvimaisemistaan, mutta myös omakotitaloalueistaan, joissa katto- ja maalauspalveluille on tarvetta.\n\nKäymme aina arvioimassa kohteen paikan päällä ilmaiseksi ennen työn aloittamista. Yrittäjät tekevät jokaisen urakan itse, joten laatu pysyy korkeana ja tasaisena. Aikatauluista pidämme kiinni.\n\nIkaalisten järviympäristö tuo kosteutta, joka edistää sammalen muodostumista katoille ja kosteuden tunkeutumista puujulkisivuihin. Säännöllinen huolto pitää kiinteistön kunnossa ja estää suuremmat korjaustarpeet. Tarjoamme tiilikaton pinnoituksia viiden vuoden takuulla ja maalauksia kahden vuoden takuulla.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Ikaalisten alueelle.",
   },
@@ -311,9 +311,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Juupajoella",
     cityGenitive: "Juupajoen",
     slug: "juupajoki",
-    alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Juupajoki",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Juupajoki",
     alueMetaDesc:
-      "Tiilikaton huolto ja talon maalaus Juupajoella. Työt tehdään huolellisesti alusta loppuun. Ota yhteyttä ja sovitaan käynti.",
+      "Tiilikaton pinnoitus & talon maalaus Juupajoella. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Pintanen palvelee myös Juupajoen kuntaa Koillis-Pirkanmaalla. Pieni ja rauhallinen kunta tarjoaa luonnonläheistä asumista, mutta metsäinen ympäristö asettaa omat vaatimuksensa rakennusten kunnossapidolle.\n\nTeemme ilmaisen arviokäynnin jokaiseen kohteeseen ennen työn aloitusta. Yrittäjät ovat aina itse paikalla työmaalla – emme välitä urakoita eteenpäin. Viimeistely ja työmaan siistiminen kuuluvat aina hintaan.\n\nJuupajoen metsäisillä tonteilla katot keräävät helposti neulasia, lehtiä ja sammalta. Varjoisilla paikoilla kosteus pysyy katoilla pitkään ja edistää kasvustoa. Puujulkisivut altistuvat samalle kosteudelle erityisesti pohjois- ja itäseinillä. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan arviokäynti Juupajoen alueelle.",
   },
@@ -322,9 +322,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Kangasalla",
     cityGenitive: "Kangasalan",
     slug: "kangasala",
-    alueMetaTitle: "Katon huolto ja talon maalaus Kangasala",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Kangasala",
     alueMetaDesc:
-      "Katon pinnoitus ja julkisivumaalaus Kangasalla. Huolelliset pohjatyöt ja tarkka työnjälki aina mukana. Kysy tarjous.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Kangasalla. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     maalausMetaTitle: "Talon maalaus Kangasala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
       "Laadukas talon ulkomaalaus Kangasalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
@@ -338,9 +338,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Kihniössä",
     cityGenitive: "Kihniön",
     slug: "kihnio",
-    alueMetaTitle: "Katto- ja maalaustyöt Kihniö",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Kihniö",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Kihniössä huolellisesti toteutettuna. Panostamme pohjatöihin ja siistiin lopputulokseen. Pyydä arvio.",
+      "Tiilikaton pinnoitus ja talon maalaus Kihniössä. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Kihniö sijaitsee Pohjois-Pirkanmaalla lähellä Satakunnan rajaa, ja Pintanen palvelee aluetta osana laajempaa toimintasädettään. Kunnan rauhallisessa maaseutuympäristössä on omakotitaloja ja maatilakiinteistöjä, joiden ylläpito vaatii ammattimaista huoltoa.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin ja yrittäjät tekevät työn itse. Emme käytä aliurakoitsijoita, ja työmaat jätetään aina siistiin kuntoon.\n\nKihniön avoimessa maastossa rakennukset altistuvat tuulelle ja sateelle enemmän kuin suojaisemmilla alueilla. Metsien lähellä katot sammaloituvat helposti, ja puujulkisivujen maalipinta kuluu säärasituksessa. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä – arviokäynti on aina maksuton.",
   },
@@ -349,9 +349,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Lempäälässä",
     cityGenitive: "Lempäälän",
     slug: "lempaala",
-    alueMetaTitle: "Katon pinnoitus ja puhdistus Lempäälä",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Lempäälä",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Lempäälässä kestävällä toteutuksella. Ota yhteyttä ja jutellaan kohteestasi.",
+      "Talon maalaus ja tiilikaton pinnoitus Lempäälässä. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Lempäälä on yksi Tampereen eteläisistä naapurikunnista ja kuuluu Pintasen ydintoiminta-alueeseen. Nopeasti kasvanut kunta tarjoaa monipuolisia asuinalueita, joissa katto- ja maalauspalveluille on jatkuvasti tarvetta.\n\nAloitamme jokaisen urakan ilmaisella arviokäynnillä kohteessa. Yrittäjät tekevät työn itse alusta loppuun – viimeistely ja siisteys kuuluvat aina hintaan.\n\nLempäälän asuinalueilla on sekä uudehkoja 2000-luvun omakotitaloja että vanhempia, 70–80-luvun pientaloja. Vanhemmissa taloissa katon pinnoitus on usein jo ajankohtaista, ja myös uudempien talojen julkisivuissa ensimmäisen huoltomaalauksen tarve lähestyy. Pyhäjärven ja Vanajaveden läheisyys tuo kosteutta, joka rasittaa pintoja.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
@@ -360,9 +360,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Mänttä-Vilppulassa",
     cityGenitive: "Mänttä-Vilppulan",
     slug: "mantta-vilppula",
-    alueMetaTitle: "Katto- ja maalauspalvelut Mänttä-Vilppula",
+    alueMetaTitle: "Tiilikaton pinnoitus & talon maalaus Mänttä-Vilppula",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Mänttä-Vilppulassa. Huolellinen valmistelu ja laadukas työnjälki. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus & talon maalaus Mänttä-Vilppulassa. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Mänttä-Vilppula sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta säännöllisesti. Teollisuushistoriallaan tunnetussa kaupungissa on monipuolinen rakennuskanta, joka tarvitsee ammattitaitoista huoltoa.\n\nKäymme aina ensin arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät työn itse – laatu pysyy tasaisena ja aikatauluista pidetään kiinni.\n\nMänttä-Vilppulassa Keurusselän ja muiden järvien läheisyys pitää ilmankosteuden korkeana. Kaupungin omakotitaloissa ja vanhemmissa teollisuusajan asunnoissa kattojen ja julkisivujen kunnossapito on usein ajankohtaista. Metsäiset tontit keräävät neulasia ja kasvustoa katoille.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti.",
   },
@@ -371,9 +371,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Orivedellä",
     cityGenitive: "Oriveden",
     slug: "orivesi",
-    alueMetaTitle: "Tiilikaton huolto ja maalaus Orivesi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Orivesi",
     alueMetaDesc:
-      "Tiilikaton huolto ja julkisivumaalaus Orivedellä. Kestävä toteutus ja selkeä toimintatapa. Ota yhteyttä.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Orivedellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Orivesi sijaitsee Tampereen itäpuolella ja kuuluu Pintasen vakituiseen toiminta-alueeseen. Luonnonläheinen kaupunki on tunnettu metsäisistä tonteistaan ja järvimaisemistaan.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin paikan päällä. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään huolellisesti ennen luovutusta.\n\nOriveden metsäisessä ympäristössä tiilikatot keräävät helposti neulasia, sammalta ja jäkälää. Järvien läheisyydessä kosteus rasittaa sekä kattopintoja että puujulkisivuja. Säännöllinen kunnossapito pidentää rakenteiden ikää ja ehkäisee kalliimpia korjauksia.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan käynti Oriveden alueelle.",
   },
@@ -382,9 +382,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Parkanossa",
     cityGenitive: "Parkanon",
     slug: "parkano",
-    alueMetaTitle: "Katon pinnoitus ja julkisivutyöt Parkano",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Parkano",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Parkanossa suoraan tekijöiltä. Panostamme huolelliseen työn jälkeen. Kysy tarjous.",
+      "Tiilikaton pinnoitus ja talon maalaus Parkanossa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Parkano sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta osana laajempaa toiminta-aluettaan. Kaupungin metsäisissä maisemissa rakennusten kunnossapito vaatii erityistä huomiota.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse alusta loppuun – emme välitä urakoita eteenpäin. Aikatauluista pidämme aina kiinni.\n\nParkanon seudulla metsäiset tontit tarkoittavat, että katot keräävät neulasia, sammalta ja kasvustoa tehokkaasti. Puujulkisivujen maalipinta kuluu nopeammin varjoisilla tonteilla, joissa kosteus ei pääse kuivamaan kunnolla. Talvisin runsas lumikuorma rasittaa kattoja.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti Parkanon alueelle.",
   },
@@ -393,9 +393,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Pirkkalassa",
     cityGenitive: "Pirkkalan",
     slug: "pirkkala",
-    alueMetaTitle: "Katto- ja maalauspalvelu Pirkkala – Yrittäjät tekevät työn",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Pirkkala",
     alueMetaDesc:
-      "Katon pinnoitus ja talon maalaus Pirkkalassa ammattitaidolla. Yrittäjät mukana jokaisessa työssä. Pyydä arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Pirkkalassa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     maalausMetaTitle: "Talon maalaus Pirkkala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
       "Laadukas talon ulkomaalaus Pirkkalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
@@ -409,9 +409,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Pälkäneellä",
     cityGenitive: "Pälkäneen",
     slug: "palkane",
-    alueMetaTitle: "Katon huolto ja maalaus Pälkäne",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Pälkäne",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Pälkäneellä. Tiilikaton huolto ja julkisivumaalaus huolellisesti toteutettuna. Ota yhteyttä.",
+      "Tiilikaton pinnoitus & talon maalaus Pälkäneellä. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Pälkäne on kaunis järvikunta Pirkanmaan itäosassa, ja Pintanen palvelee aluetta säännöllisesti. Kunnan upea luonto on asumisen valttikortti, mutta järvien tuoma kosteus asettaa vaatimuksia rakennusten pinnoille.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin. Yrittäjät ovat aina itse paikalla tekemässä työn – aikatauluista ja laadusta pidetään kiinni.\n\nPälkäneen järviympäristössä ilmankosteus on ajoittain korkeaa, mikä edistää kasvuston muodostumista tiilikatoille. Puujulkisivut altistuvat kosteudelle erityisesti järvenrantaisilla tonteilla. Säännöllinen huolto pidentää rakenteiden käyttöikää merkittävästi ja ehkäisee kalliimpia korjaustarpeita.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan käynti Pälkäneen alueelle.",
   },
@@ -420,9 +420,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Ruovedellä",
     cityGenitive: "Ruoveden",
     slug: "ruovesi",
-    alueMetaTitle: "Katon pinnoitus ja maalaus Ruovesi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Ruovesi",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Ruovedellä. Kestävä lopputulos ja siisti työnjälki. Pyydä maksuton arvio.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Ruovedellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Ruovesi sijaitsee Pohjois-Pirkanmaalla kauniin Ruoveden rannalla, ja Pintanen palvelee aluetta osana toiminta-aluettaan. Metsäinen ja järvinen ympäristö tekee kunnossapidosta erityisen tärkeää.\n\nKäymme arvioimassa jokaisen kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Sovitusta aikataulusta pidämme aina kiinni.\n\nRuovedellä metsien ja järvien keskellä katot keräävät sammalta, neulasia ja jäkälää tehokkaasti. Ilmankosteus on korkea erityisesti rantatonteilla, mikä rasittaa sekä kattopintoja että puujulkisivuja. Säännöllinen huolto ehkäisee kalliimpia korjaustarpeita ja pitää kiinteistön kunnossa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
@@ -431,9 +431,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Urjalassa",
     cityGenitive: "Urjalan",
     slug: "urjala",
-    alueMetaTitle: "Katto- ja julkisivupalvelut Urjala",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Urjala",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Urjalassa. Huolelliset pohjatyöt ja laadukkaat materiaalit. Ota yhteyttä ja kysy lisää.",
+      "Tiilikaton pinnoitus ja talon maalaus Urjalassa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Urjala sijaitsee Etelä-Pirkanmaalla, ja Pintanen palvelee aluetta säännöllisesti. Kunta tunnetaan maaseutumaisesta ympäristöstään ja perinteisistä omakotitaloistaan.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse alusta loppuun – viimeistely ja työmaan siistiminen kuuluvat aina urakkaan.\n\nUrjalan maaseutuympäristössä rakennukset altistuvat avoimilla alueilla tuulelle ja sateelle. Metsäisillä tonteilla katot keräävät sammalta ja neulasia. Perinteisissä puutaloissa julkisivujen huoltomaalaus on erityisen tärkeää, sillä maalipinta on puuverhouksen tärkein suoja kosteutta vastaan. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan arviokäynti Urjalan alueelle.",
   },
@@ -442,9 +442,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Valkeakoskella",
     cityGenitive: "Valkeakosken",
     slug: "valkeakoski",
-    alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Valkeakoski",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Valkeakoski",
     alueMetaDesc:
-      "Tiilikaton huolto ja talon maalaus Valkeakoskella. Panostamme kestävyyteen ja tarkkaan toteutukseen. Pyydä arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Valkeakoskella. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Valkeakoski on teollisuuskaupunki Etelä-Pirkanmaalla, ja Pintanen palvelee aluetta aktiivisesti. Kaupungin vesistöjen ympäröimä sijainti tekee katto- ja julkisivuhuollosta erityisen tärkeää.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin paikan päällä. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita emmekä välitä urakoita eteenpäin.\n\nValkeakoskella Mallasveden ja Vanajaveden läheisyys pitää ilmankosteuden korkeana ympäri vuoden. Kaupungin omakotitaloalueilla on runsaasti eri-ikäisiä pientaloja, joiden tiilikatot ja puujulkisivut kaipaavat säännöllistä huoltoa. Kosteus edistää sammalen kasvua katoilla ja voi aiheuttaa ongelmia myös julkisivuissa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan käynti Valkeakosken alueelle.",
   },
@@ -453,9 +453,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Vesilahdella",
     cityGenitive: "Vesilahden",
     slug: "vesilahti",
-    alueMetaTitle: "Katto- ja maalauspalvelut Vesilahti",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Vesilahti",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Vesilahdessa ammattitaidolla. Selkeä työprosessi ja pitkäikäinen lopputulos. Ota yhteyttä.",
+      "Tiilikaton pinnoitus & talon maalaus Vesilahdella. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Vesilahti on maaseutumainen kunta Tampereen lounaispuolella, ja Pintanen palvelee aluetta osana ydintoiminta-aluettaan. Kunnan rauhallinen ympäristö houkuttelee omakotiasujia, joiden kiinteistöt tarvitsevat säännöllistä huoltoa.\n\nKäymme aina arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät työn itse alusta loppuun, joten laatu pysyy tasaisena ja aikataulut pitävät.\n\nVesilahden maaseutuympäristössä avoimet alueet altistavat talojen julkisivut säälle, ja metsäisillä tonteilla katot keräävät sammalta ja neulasia. Järvien läheisyys tuo kosteutta, joka rasittaa pintoja ajan myötä. Oikea-aikainen kunnossapito on järkevä tapa pitää kiinteistö hyvässä kunnossa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti Vesilahden alueelle.",
   },
@@ -464,9 +464,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Virroilla",
     cityGenitive: "Virtain",
     slug: "virrat",
-    alueMetaTitle: "Katon huolto ja maalaus Virrat",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Virrat",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja julkisivumaalaus Virroilla. Huolellinen toteutus ja siisti lopputulos. Kysy tarjous kohteestasi.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Virroilla. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Virrat sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta osana laajempaa toimintasädettään. Luonnonkaunis kaupunki on tunnettu metsistään ja järvistään, jotka luovat vaativan ympäristön rakennusten pinnoille.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään siististi ja aikatauluista pidetään kiinni.\n\nVirtain metsäisessä ja järvisessä ympäristössä tiilikatot keräävät sammalta, neulasia ja jäkälää tehokkaasti. Puujulkisivujen maalipinta kuluu nopeammin kosteissa olosuhteissa. Säännöllinen katto- ja julkisivuhuolto pidentää rakenteiden ikää merkittävästi ja on aina edullisempi vaihtoehto kuin myöhemmät suuret korjaukset.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti Virtain alueelle.",
   },
