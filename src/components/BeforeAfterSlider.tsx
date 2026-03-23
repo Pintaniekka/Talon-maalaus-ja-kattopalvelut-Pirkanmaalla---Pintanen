@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import OptimizedImage from "./OptimizedImage";
-import { getImageSrcSet } from "@/lib/storage";
+
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
