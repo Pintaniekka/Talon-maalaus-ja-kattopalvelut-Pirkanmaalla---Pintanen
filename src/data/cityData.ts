@@ -442,9 +442,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Valkeakoskella",
     cityGenitive: "Valkeakosken",
     slug: "valkeakoski",
-    alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Valkeakoski",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Valkeakoski",
     alueMetaDesc:
-      "Tiilikaton huolto ja talon maalaus Valkeakoskella. Panostamme kestävyyteen ja tarkkaan toteutukseen. Pyydä arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Valkeakoskella. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Valkeakoski on teollisuuskaupunki Etelä-Pirkanmaalla, ja Pintanen palvelee aluetta aktiivisesti. Kaupungin vesistöjen ympäröimä sijainti tekee katto- ja julkisivuhuollosta erityisen tärkeää.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin paikan päällä. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita emmekä välitä urakoita eteenpäin.\n\nValkeakoskella Mallasveden ja Vanajaveden läheisyys pitää ilmankosteuden korkeana ympäri vuoden. Kaupungin omakotitaloalueilla on runsaasti eri-ikäisiä pientaloja, joiden tiilikatot ja puujulkisivut kaipaavat säännöllistä huoltoa. Kosteus edistää sammalen kasvua katoilla ja voi aiheuttaa ongelmia myös julkisivuissa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan käynti Valkeakosken alueelle.",
   },
