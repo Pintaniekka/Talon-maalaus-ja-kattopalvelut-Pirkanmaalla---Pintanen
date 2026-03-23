@@ -125,12 +125,12 @@ export const cities: CityData[] = [
     cityIn: "Ylöjärvellä",
     cityGenitive: "Ylöjärven",
     slug: "ylojarvi",
-    alueMetaTitle: "Katon pinnoitus, puhdistus ja maalaus Ylöjärvi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Ylöjärvi",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Ylöjärvellä ammattitaidolla. Tiilikaton huolto ja julkisivumaalaus kestävällä lopputuloksella. Kysy tarjous.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Ylöjärvi | 5v takuu | Pintanen",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Ylöjärvellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Ylöjärvi | Hintalaskuri",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Ylöjärvellä alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Ylöjärvellä. Me yrittäjät teemme työn itse. 5v takuu, kotitalousvähennys ja hinnat alk. 2750€-7000€. Kokeile hintalaskuria!",
     pinnoitusLocalHookTitle: "Ylöjärven puutarhakaupungin kattojen suojaus sammaleelta",
     pinnoitusLocalHookText: "Ylöjärven puutarhakaupungissa luonto on aivan lähellä. Asuinalueet kuten Metsäkylä ja Siivikkala sijaitsevat usein metsän reunalla tai Näsijärven rantamaisemissa. Puiden antama varjo ja vesistöjen kosteus pitävät kattoja pitkään märkinä sateen jälkeen, ja tämä houkuttelee sammalta. Laadukas tiilikaton pinnoitus Ylöjärvellä on oiva ratkaisu, sillä se palauttaa vanhan katon loiston ja luo sille vettä ja likaa hylkivän suojan. Näin voit varmistaa, että kotisi katto pysyy hyvässä kunnossa, eikä metsän läheisyys pääse heikentämään sen arvoa ennenaikaisesti.",
     puhdistusMetaTitle: "Katon puhdistus Ylöjärvi – Pidentää katon ikää",
