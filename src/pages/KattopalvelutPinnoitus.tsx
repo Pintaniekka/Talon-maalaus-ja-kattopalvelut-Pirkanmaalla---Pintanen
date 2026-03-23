@@ -61,7 +61,8 @@ const KattopalvelutPinnoitus = () => {
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={kattoImage}
+        backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       >
         {/* Glassmorphism container for H1 + body text */}
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
