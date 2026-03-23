@@ -35,7 +35,8 @@ const Hero = () => {
                 <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
               </h1>
               <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-sans">
-                Perheyritys, jossa yrittäjät tekevät työn itse – tiilikaton pinnoitukset ja talon maalaukset Pirkanmaalla.
+                Perheyritys, jossa yrittäjät tekevät työn itse – tiilikaton pinnoitukset ja talon maalaukset
+                Pirkanmaalla..
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                 <a href="/hinnat" className="btn-hero shadow-lg">
@@ -79,15 +80,15 @@ const Hero = () => {
       <div
         className="absolute left-0 top-full mt-[1px] w-full h-[110px] block md:hidden pointer-events-none z-20"
         style={{
-          backgroundColor: '#96dafb',
+          backgroundColor: "#96dafb",
           WebkitMaskImage: `url("${svgUrl}")`,
           maskImage: `url("${svgUrl}")`,
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat',
-          WebkitMaskSize: '100% 100%',
-          maskSize: '100% 100%',
-          WebkitMaskPosition: 'top center',
-          maskPosition: 'top center',
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskSize: "100% 100%",
+          maskSize: "100% 100%",
+          WebkitMaskPosition: "top center",
+          maskPosition: "top center",
         }}
       />
     </div>
