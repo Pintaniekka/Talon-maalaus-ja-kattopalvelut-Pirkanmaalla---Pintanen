@@ -104,9 +104,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenkyrö – Turvallisesti ja huolellisesti",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenkyrössä edullisesti ja huolellisesti. Sammaleet ja lika pois katolta. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Hämeenkyrö | Kestävä suoja julkisivulle | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Hämeenkyrössä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Laadukas talon maalaus Hämeenkyrössä. Perusteelliset pohjatyöt ja säänkestävä pinta yrittäjän tekemänä. Katso hinnat ja varaa maksuton kuntotarkastus nyt!",
     maalausLocalHookTitle: "Hämeenkyrön avoimien peltomaisemien ja viistosateiden hallinta",
     maalausLocalHookText: "Hämeenkyrön avoimet pellot ja <strong>Kyröskosken</strong> ympäristön korkeuserot altistavat talojen ulkoseinät suoralle tuulelle ja <strong>viistosateille</strong>. Kun talon maalipinta ohenee, vesi pääsee helposti sisään <strong>paneelien rakoihin</strong> ja halkeamiin, mikä tekee puun pehmenemisestä nopeampaa. Pintanen tarjoaa Hämeenkyrön alueella <strong>erittäin kestävää ulkomaalausta</strong>, joka luo talollesi vankan ja joustavan suojan, joka ei riipu säästä.",
     alueIntro:
