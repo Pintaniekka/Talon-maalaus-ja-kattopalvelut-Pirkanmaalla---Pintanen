@@ -16,7 +16,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, c
       {backgroundImage ? (
         <img
           src={backgroundImage}
-          srcSet={backgroundSrcSet || getHeroSrcSet(backgroundImage)}
+          srcSet={backgroundSrcSet}
           sizes="100vw"
           alt={`${title} – Pintanen Oy`}
           className="absolute inset-0 w-full h-full object-cover"

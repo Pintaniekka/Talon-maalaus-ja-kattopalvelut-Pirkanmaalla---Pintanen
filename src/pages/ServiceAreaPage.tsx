@@ -198,7 +198,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       </Helmet>
 
       {/* ══════════════════ HERO ══════════════════ */}
-      <ServicePageHero title="" subtitle="" backgroundImage={heroImage}>
+      <ServicePageHero title="" subtitle="" backgroundImage={heroImage} backgroundSrcSet={getResponsiveSrcSet("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla")}>
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
             Tiilikaton pinnoitus ja talon maalaus{' '}
