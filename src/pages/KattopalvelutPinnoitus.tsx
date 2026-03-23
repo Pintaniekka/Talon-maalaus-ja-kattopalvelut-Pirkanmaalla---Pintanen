@@ -15,7 +15,7 @@ import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
 /* ── Trust-box data ── */
 const trustStats = [
