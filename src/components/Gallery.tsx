@@ -1,37 +1,37 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
-import OptimizedImage from "./OptimizedImage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
 
 const images = [
   {
-    src: getStorageUrl("Muut_referenssit/tiilikatto-maalattu-forssa.webp"),
-    alt: "Ammattimaisesti maalattu tiilikatto Forssassa",
+    baseName: "vastamaalattu-tiilikatto-kattopinnoitus-jalkeen",
+    alt: "Vastamaalattu tiilikatto kattopinnoitus jälkeen Pirkanmaalla",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp"),
-    alt: "Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa",
+    baseName: "tummanharmaa-tiilikaton-pinnoitus-ja-huolto-jalkeen",
+    alt: "Tummanharmaa tiilikaton pinnoitus ja huolto jälkeen Pirkanmaalla",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp"),
-    alt: "Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella",
+    baseName: "uudenveroinen-punainen-tiilikatto-maalaus-jalkeen",
+    alt: "Uudenveroinen punainen tiilikatto maalaus jälkeen Pirkanmaalla",
     category: "Tiilikaton pinnoitus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp"),
-    alt: "Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä",
+    baseName: "tummansininen-puutalo-ulkomaalaus-jalkeen",
+    alt: "Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
-    alt: "Violetti omakotitalo värinvaihdon jälkeen Tampereella",
+    baseName: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
+    alt: "Violetti puutalo värinvaihto peittomaalaus jälkeen Pirkanmaalla",
     category: "Talon maalaus",
   },
   {
-    src: getStorageUrl("Muut_referenssit/harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp"),
-    alt: "Talon värinvaihto punaisesta harmaaksi Pirkanmaalla",
+    baseName: "harmaa-omakotitalo-varinvaihto-ulkomaalaus-jalkeen",
+    alt: "Harmaa omakotitalo värinvaihto ulkomaalaus jälkeen Pirkanmaalla",
     category: "Talon maalaus",
   },
 ];
@@ -68,9 +68,8 @@ const Gallery = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
-              <OptimizedImage
-                src={image.src}
-                srcSet={getImageSrcSet(image.src)}
+              <ResponsiveSupabaseImage
+                baseName={image.baseName}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

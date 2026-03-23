@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
-import OptimizedImage from './OptimizedImage';
+import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+import ResponsiveSupabaseImage from './ResponsiveSupabaseImage';
 
-const sideImage = getStorageUrl("Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp");
+const sideBase = "tummansininen-puutalo-ulkomaalaus-jalkeen";
 
 const MiksiPintanen = () => {
   return (
@@ -63,10 +63,9 @@ const MiksiPintanen = () => {
             viewport={{ once: true }}
             className="rounded-2xl overflow-hidden"
           >
-            <OptimizedImage
-              src={sideImage}
-              srcSet={getImageSrcSet(sideImage)}
-              alt="Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä"
+            <ResponsiveSupabaseImage
+              baseName={sideBase}
+              alt="Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla"
               className="w-full h-full object-cover rounded-2xl"
               sizes="(max-width: 768px) 100vw, 600px"
             />

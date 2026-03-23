@@ -5,9 +5,9 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const pensselikuva = getStorageUrl("talon-maalaus-pensseli-header.webp");
+const heroBase = "ammattilainen-maalaa-talon-ulkoverhousta-pensselilla";
 
 const Meista = () => {
   const values = [
@@ -41,7 +41,8 @@ const Meista = () => {
       <ServicePageHero
         title="Tutustu Pintaseen"
         subtitle="Tutustu meihin – olemme pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen"
-        backgroundImage={pensselikuva}
+        backgroundImage={getResponsiveSrc(heroBase)}
+        backgroundSrcSet={getResponsiveSrcSet(heroBase)}
       />
 
       <section className="section-padding bg-background">

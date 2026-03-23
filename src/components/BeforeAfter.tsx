@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
-import OptimizedImage from "./OptimizedImage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
 
-const kattoEnnen = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp");
-const kattoJalkeen = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp");
+const beforeBase = "haalistunut-punainen-tiilikatto-ennen-pinnoitusta";
+const afterBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
 const BeforeAfter = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -49,11 +49,10 @@ const BeforeAfter = () => {
             onTouchEnd={() => setIsDragging(false)}
             onTouchMove={handleMove}
           >
-            <OptimizedImage
-              src={kattoJalkeen}
-              srcSet={getImageSrcSet(kattoJalkeen)}
+            <ResponsiveSupabaseImage
+              baseName={afterBase}
               sizes="100vw"
-              alt="Huoltomaalattu punainen tiilikatto Valkeakoskella"
+              alt="Kirkkaan punainen tiilikatto pinnoituksen jälkeen Pirkanmaalla"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
@@ -61,11 +60,10 @@ const BeforeAfter = () => {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <OptimizedImage
-                src={kattoEnnen}
-                srcSet={getImageSrcSet(kattoEnnen)}
+              <ResponsiveSupabaseImage
+                baseName={beforeBase}
                 sizes="100vw"
-                alt="Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella"
+                alt="Haalistunut punainen tiilikatto ennen pinnoitusta Pirkanmaalla"
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />

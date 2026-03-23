@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import OptimizedImage from '@/components/OptimizedImage';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
 
-const comparisonImage = getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp');
+const comparisonBase = "tummanharmaa-kattotiili-pesu-ja-pinnoitustyo";
 
 const PinnoitusComparison = () => {
   return (
@@ -46,10 +45,9 @@ const PinnoitusComparison = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <OptimizedImage
-                src={comparisonImage}
-                srcSet={getImageSrcSet(comparisonImage)}
-                alt="Tummanharmaa tiilikatto pinnoituksen jälkeen"
+              <ResponsiveSupabaseImage
+                baseName={comparisonBase}
+                alt="Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla"
                 className="w-full rounded-2xl shadow-lg"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

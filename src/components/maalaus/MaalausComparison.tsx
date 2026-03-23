@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import OptimizedImage from '@/components/OptimizedImage';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
 
-const comparisonImage = getStorageUrl('Muut_referenssit/keltainen-seina-maalaus-jalkeen-pirkanmaa.webp');
+const comparisonBase = "keltainen-ulkoverhous-huoltomaalaus-jalkeen";
 
 const MaalausComparison = () => {
   return (
@@ -46,10 +45,9 @@ const MaalausComparison = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <OptimizedImage
-                src={comparisonImage}
-                srcSet={getImageSrcSet(comparisonImage)}
-                alt="Keltainen puujulkisivu maalauksen jälkeen Pirkanmaalla"
+              <ResponsiveSupabaseImage
+                baseName={comparisonBase}
+                alt="Keltainen ulkoverhous huoltomaalaus jälkeen Pirkanmaalla"
                 className="w-full rounded-2xl shadow-lg"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

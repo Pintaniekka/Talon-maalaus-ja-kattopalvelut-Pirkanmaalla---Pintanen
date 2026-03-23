@@ -2,15 +2,14 @@ import { motion } from "framer-motion";
 import { Check, Droplets, Shield, Sparkles, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
-
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import { puhdistusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const puhdistusImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const puhdistusBase = "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen";
 
 const KattopalvelutPuhdistus = () => {
   const features = [
@@ -35,7 +34,8 @@ const KattopalvelutPuhdistus = () => {
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={puhdistusImage}
+        backgroundImage={getResponsiveSrc(puhdistusBase)}
+        backgroundSrcSet={getResponsiveSrcSet(puhdistusBase)}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
@@ -48,13 +48,10 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </ServicePageHero>
 
-      {/* Seloste-osio */}
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">
-              Tiilikaton mekaaninen puhdistus ja käsittely
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">Tiilikaton mekaaninen puhdistus ja käsittely</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>Suosittelemme tiilikaton tarkastusta vuosittain. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
               <p><strong className="text-foreground">Käytämme ammattitason välineitä.</strong> Katon puhdistuksessa menetelmän valinta on erittäin tärkeää. Väärät menetelmät voivat vahingoittaa katon pintaa ja lyhentää sen käyttöikää. Siksi puhdistamme katon mekaanisesti käsityövälineillä, mikä säästää tiilen pintaa.</p>
@@ -65,7 +62,6 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
-      {/* Features */}
       <section className="section-padding bg-accent-light">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -86,7 +82,6 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
-      {/* Benefits & Pricing */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
@@ -118,7 +113,6 @@ const KattopalvelutPuhdistus = () => {
         </div>
       </section>
 
-      {/* When to clean */}
       <section className="section-padding bg-background">
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto text-center">
@@ -131,7 +125,6 @@ const KattopalvelutPuhdistus = () => {
           </motion.div>
         </div>
       </section>
-
 
       <FAQSection items={puhdistusFAQ} />
       <ServiceContactSection variant="katto" />

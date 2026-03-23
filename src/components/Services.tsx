@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
-import OptimizedImage from "./OptimizedImage";
+import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
 
 const services = [
   {
     title: "Tiilikaton pinnoitus",
     href: "/tiilikaton-pinnoitus-pirkanmaa",
-    beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
-    afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
+    beforeBase: "haalistunut-punainen-tiilikatto-ennen-pinnoitusta",
+    afterBase: "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen",
     description: "Vanha tiilikatto uuteen uskoon. Katto pestään ja päälle tulee 2-kerroksinen pinnoite.",
     features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
     warranty: "5v takuu",
@@ -21,8 +21,8 @@ const services = [
   {
     title: "Ulkomaalaus",
     href: "/talon-maalaus-pirkanmaa",
-    beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
-    afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
+    beforeBase: "keltainen-puutalo-varinvaihto-ennen-maalausta",
+    afterBase: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
     description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
     features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
     warranty: "2v takuu",
@@ -31,19 +31,19 @@ const services = [
   },
 ];
 
+const puhdistusBase = "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen";
+
 const Services = () => {
   const navigate = useNavigate();
 
   return (
     <section id="palvelut" className="section-padding bg-background">
       <div className="section-container">
-        {/* Section Header */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="heading-style text-3xl md:text-4xl text-accent mb-4">Palvelumme</h2>
           <p className="text-muted-foreground text-lg">Ammattitaitoinen maalari sopuhintaan. Yli 200 tyytyväistä asiakasta.</p>
         </motion.div>
 
-        {/* Services Grid - 2 columns */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => {
             const IconComponent = service.icon;
@@ -56,19 +56,19 @@ const Services = () => {
                   onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
                   className={`card-elevated group block transition-colors duration-300 cursor-pointer ${service.colorClass}`}
                 >
-                  {/* Before/After Slider */}
                   <div className="mb-6">
-                    <BeforeAfterSlider beforeImage={service.beforeImage} afterImage={service.afterImage} />
+                    <BeforeAfterSlider
+                      beforeImage={getResponsiveSrc(service.beforeBase)}
+                      afterImage={getResponsiveSrc(service.afterBase)}
+                      beforeSrcSet={getResponsiveSrcSet(service.beforeBase)}
+                      afterSrcSet={getResponsiveSrcSet(service.afterBase)}
+                    />
                   </div>
-
-                  {/* Content */}
                   <div className="flex items-center gap-2 mb-3">
                     <IconComponent className="w-6 h-6 text-accent flex-shrink-0" />
                     <h3 className="text-xl font-bold text-foreground font-heading">{service.title}</h3>
                   </div>
                   <p className="text-muted-foreground mb-6">{service.description}</p>
-
-                  {/* Features List */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map(feature => (
                       <li key={feature} className="flex items-center gap-2 text-foreground">
@@ -77,8 +77,6 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-
-                  {/* Warranty Badge */}
                   <div className="flex items-center justify-between">
                     <span className="bg-accent/15 text-accent text-xs font-semibold px-3 py-1 rounded-full">{service.warranty}</span>
                     <span className="flex items-center gap-1 text-accent font-medium text-sm group-hover:gap-2 transition-all">
@@ -101,10 +99,9 @@ const Services = () => {
             onKeyDown={(e) => { if (e.key === 'Enter') navigate("/katon-puhdistus-pirkanmaa"); }}
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
-            <OptimizedImage
-              src={getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
-              srcSet={getImageSrcSet(getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp"))}
-              alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
+            <ResponsiveSupabaseImage
+              baseName={puhdistusBase}
+              alt="Puhdas tiilikatto mekaanisen puhdistuksen jälkeen Pirkanmaalla"
               className="absolute inset-0 w-full h-full object-cover"
               sizes="(max-width: 768px) 100vw, 800px"
             />
@@ -121,7 +118,6 @@ const Services = () => {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

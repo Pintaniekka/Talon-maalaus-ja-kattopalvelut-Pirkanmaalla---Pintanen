@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
-import { getStorageUrl } from '@/lib/storage';
+import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+
+const beforeBase = "keltainen-puutalo-varinvaihto-ennen-maalausta";
+const afterBase = "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen";
 
 const warningSignsData = [
   { sign: 'Maali hilseilee tai lohkeilee', desc: 'Kosteus on päässyt maalin alle ja heikentänyt sen tartunnan puuhun.' },
@@ -32,10 +35,12 @@ const MaalausProblemSection = ({ cityName = 'Pirkanmaa' }: { cityName?: string }
           {/* Left: Before/After slider (sticky on desktop) */}
           <div className="lg:sticky lg:top-28">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp')}
-              afterImage={getStorageUrl('Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp')}
-              beforeAlt={`Puutalo ennen huoltomaalausta – ${cityName}`}
-              afterAlt={`Puutalo huoltomaalauksen jälkeen – ${cityName}`}
+              beforeImage={getResponsiveSrc(beforeBase)}
+              afterImage={getResponsiveSrc(afterBase)}
+              beforeSrcSet={getResponsiveSrcSet(beforeBase)}
+              afterSrcSet={getResponsiveSrcSet(afterBase)}
+              beforeAlt={`Keltainen puutalo värinvaihto ennen maalausta – ${cityName}`}
+              afterAlt={`Violetti puutalo värinvaihto peittomaalaus jälkeen – ${cityName}`}
             />
           </div>
 
