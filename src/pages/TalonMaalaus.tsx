@@ -15,7 +15,7 @@ import SEO from "@/components/SEO";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { Link } from "react-router-dom";
 
-const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroBase = "moderni-tumma-puutalo-julkisivumaalaus-valmis";
 
 const faqItems = [
   {
