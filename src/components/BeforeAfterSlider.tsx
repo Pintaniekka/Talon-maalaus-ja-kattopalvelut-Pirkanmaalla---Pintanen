@@ -8,6 +8,8 @@ interface BeforeAfterSliderProps {
   beforeAlt?: string;
   afterAlt?: string;
   aspectRatio?: string;
+  beforeSrcSet?: string;
+  afterSrcSet?: string;
 }
 
 const BeforeAfterSlider = ({
@@ -16,6 +18,8 @@ const BeforeAfterSlider = ({
   beforeAlt = "Tiilikatto ennen käsittelyä – kulunut ja sammaleinen pinta",
   afterAlt = "Tiilikatto käsittelyn jälkeen – suojattu ja uudenveroinen",
   aspectRatio = "4/3",
+  beforeSrcSet,
+  afterSrcSet,
 }: BeforeAfterSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -62,7 +66,7 @@ const BeforeAfterSlider = ({
     >
       <OptimizedImage
         src={afterImage}
-        srcSet={getImageSrcSet(afterImage)}
+        srcSet={afterSrcSet || getImageSrcSet(afterImage)}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
@@ -74,7 +78,7 @@ const BeforeAfterSlider = ({
       >
         <OptimizedImage
           src={beforeImage}
-          srcSet={getImageSrcSet(beforeImage)}
+          srcSet={beforeSrcSet || getImageSrcSet(beforeImage)}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
