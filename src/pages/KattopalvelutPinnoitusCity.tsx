@@ -37,7 +37,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
           cityData.pinnoitusMetaDesc ||
           `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`
         }
-        preloadImage={kattoImage}
+        preloadImage={heroImage}
       />
 
       <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={kattoImage} />
