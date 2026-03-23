@@ -78,7 +78,7 @@ const BeforeAfterSlider = ({
       >
         <OptimizedImage
           src={beforeImage}
-          srcSet={beforeSrcSet || getImageSrcSet(beforeImage)}
+          srcSet={beforeSrcSet}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
