@@ -13,9 +13,11 @@ import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
+const heroBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
+const heroImage = getResponsiveSrc(heroBase);
+const heroSrcSet = getResponsiveSrcSet(heroBase);
 
 /* ── Trust-box data ── */
 const trustStats = [
@@ -59,8 +61,8 @@ const KattopalvelutPinnoitus = () => {
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={getResponsiveSrc(kattoBase)}
-        backgroundSrcSet={getResponsiveSrcSet(kattoBase)}
+        backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       >
         {/* Glassmorphism container for H1 + body text */}
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
@@ -364,7 +366,7 @@ const KattopalvelutPinnoitus = () => {
             <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
               <div className="flex justify-center">
                 <img
-                  src={getStorageUrl("Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp")}
+                  src={`https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp`}
                   alt="Eerik Pitkänen – Pintanen Oy, kattopalvelut"
                   className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20"
                   loading="lazy"

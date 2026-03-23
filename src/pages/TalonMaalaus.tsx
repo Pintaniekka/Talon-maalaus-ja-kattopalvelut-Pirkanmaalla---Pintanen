@@ -16,6 +16,8 @@ import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { Link } from "react-router-dom";
 
 const heroBase = "moderni-tumma-puutalo-julkisivumaalaus-valmis";
+const heroImage = getResponsiveSrc(heroBase);
+const heroSrcSet = getResponsiveSrcSet(heroBase);
 
 const faqItems = [
   {
@@ -50,14 +52,14 @@ const TalonMaalaus = () => {
       <SEO
         title="Talon maalaus Pirkanmaa | Hintalaskuri"
         description="Laadukas talon ulkomaalaus Pirkanmaalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!"
-        preloadImage={getResponsiveSrc(heroBase)}
+        preloadImage={heroImage}
       />
 
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={getResponsiveSrc(heroBase)}
-        backgroundSrcSet={getResponsiveSrcSet(heroBase)}
+        backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">

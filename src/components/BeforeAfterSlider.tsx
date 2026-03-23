@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import OptimizedImage from "./OptimizedImage";
-import { getImageSrcSet } from "@/lib/storage";
+
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -66,7 +66,7 @@ const BeforeAfterSlider = ({
     >
       <OptimizedImage
         src={afterImage}
-        srcSet={afterSrcSet || getImageSrcSet(afterImage)}
+        srcSet={afterSrcSet}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
@@ -78,7 +78,7 @@ const BeforeAfterSlider = ({
       >
         <OptimizedImage
           src={beforeImage}
-          srcSet={beforeSrcSet || getImageSrcSet(beforeImage)}
+          srcSet={beforeSrcSet}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}

@@ -18,7 +18,9 @@ import SEO from "@/components/SEO";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
+const heroBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
+const heroImage = getResponsiveSrc(heroBase);
+const heroSrcSet = getResponsiveSrcSet(heroBase);
 
 const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
   const { city: paramCity } = useParams<{ city: string }>();
@@ -35,10 +37,10 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
           cityData.pinnoitusMetaDesc ||
           `Tiilikaton maalauspinnoitus ${cityData.name} – pidentää katon ikää jopa 15-20 vuotta. 5 vuoden takuu.`
         }
-        preloadImage={getResponsiveSrc(kattoBase)}
+        preloadImage={heroImage}
       />
 
-      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={getResponsiveSrc(kattoBase)} />
+      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={heroImage} />
       <PinnoitusTrustStats cityName={cityData.name} />
 
       {/* Local Hook – kaupunkikohtainen paikallisteksti heti luottamuslaatikon jälkeen */}
