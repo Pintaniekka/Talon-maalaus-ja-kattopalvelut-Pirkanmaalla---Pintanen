@@ -4,7 +4,7 @@ import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
 
 const comparisonBase = "keltainen-ulkoverhous-huoltomaalaus-jalkeen";
 
-const MaalausComparison = () => {
+const MaalausComparison = ({ cityIn }: { cityIn?: string }) => {
   return (
     <section className="section-padding bg-background">
       <div className="section-container">
