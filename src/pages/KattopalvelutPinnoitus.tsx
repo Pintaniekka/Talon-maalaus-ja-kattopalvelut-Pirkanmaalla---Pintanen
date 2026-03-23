@@ -13,7 +13,7 @@ import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
 const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
 
