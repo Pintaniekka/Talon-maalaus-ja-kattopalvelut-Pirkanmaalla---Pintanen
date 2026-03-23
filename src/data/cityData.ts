@@ -264,9 +264,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Huittinen – Poistaa levän ja sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Huittisissa tehokkaasti ja edullisesti. Katto pysyy kunnossa pidempään. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Huittinen | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Huittinen | Maksuton arviokäynti| Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Huittisissa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Suojaa kotisi Satakunnan säältä. Laadukas talon ulkomaalaus Huittisissa suoraan yrittäjältä. Hinta-arvio nopeasti hintalaskurilla ja hyödynnä merkittävä kotitalousvähennys.",
     maalausLocalHookTitle: "Satakunnan lakeuksien tuulikuorman ja säärasituksen hallinta",
     maalausLocalHookText: "Huittisten avoimessa <strong>peltomaisemassa</strong> tuuli pääsee vapaasti liikkumaan, ja sade iskee usein <strong>suoraan talon julkisivuun</strong>. Tästä syystä vanhat maalipinnat voivat päästää kosteuden syvemmälle puun rakenteeseen, mikä saattaa aiheuttaa <strong>lahovaurioita</strong>. Me Pintanen tarjoamme Huittisten alueella erittäin laadukasta ulkomaalausta, joka suojaa taloa tehokkaasti sääoloilta. Me teemme työmme huolella, jotta talosi arvo säilyy hyvänä <strong>Satakunnan</strong> vaihtelevissa sääolosuhteissa.",
     alueIntro:
