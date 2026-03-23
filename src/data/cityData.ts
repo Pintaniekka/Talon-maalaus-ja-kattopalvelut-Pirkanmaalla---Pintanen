@@ -371,9 +371,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Orivedellä",
     cityGenitive: "Oriveden",
     slug: "orivesi",
-    alueMetaTitle: "Tiilikaton huolto ja maalaus Orivesi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Orivesi",
     alueMetaDesc:
-      "Tiilikaton huolto ja julkisivumaalaus Orivedellä. Kestävä toteutus ja selkeä toimintatapa. Ota yhteyttä.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Orivedellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Orivesi sijaitsee Tampereen itäpuolella ja kuuluu Pintasen vakituiseen toiminta-alueeseen. Luonnonläheinen kaupunki on tunnettu metsäisistä tonteistaan ja järvimaisemistaan.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin paikan päällä. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään huolellisesti ennen luovutusta.\n\nOriveden metsäisessä ympäristössä tiilikatot keräävät helposti neulasia, sammalta ja jäkälää. Järvien läheisyydessä kosteus rasittaa sekä kattopintoja että puujulkisivuja. Säännöllinen kunnossapito pidentää rakenteiden ikää ja ehkäisee kalliimpia korjauksia.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan käynti Oriveden alueelle.",
   },
