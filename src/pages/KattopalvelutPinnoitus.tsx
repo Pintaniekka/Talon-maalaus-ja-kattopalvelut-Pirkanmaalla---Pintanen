@@ -15,7 +15,7 @@ import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
 /* ── Trust-box data ── */
 const trustStats = [
@@ -59,7 +59,8 @@ const KattopalvelutPinnoitus = () => {
       <ServicePageHero
         title=""
         subtitle=""
-        backgroundImage={kattoImage}
+        backgroundImage={getResponsiveSrc(kattoBase)}
+        backgroundSrcSet={getResponsiveSrcSet(kattoBase)}
       >
         {/* Glassmorphism container for H1 + body text */}
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
