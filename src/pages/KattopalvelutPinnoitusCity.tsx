@@ -15,10 +15,12 @@ import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import { getPinnoitusCityFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 
-const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
+const heroBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
+const heroImage = getResponsiveSrc(heroBase);
+const heroSrcSet = getResponsiveSrcSet(heroBase);
 
 const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string }) => {
   const { city: paramCity } = useParams<{ city: string }>();
