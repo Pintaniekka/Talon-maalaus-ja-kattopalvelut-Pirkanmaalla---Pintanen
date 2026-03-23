@@ -45,6 +45,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
         title=""
         subtitle=""
         backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
