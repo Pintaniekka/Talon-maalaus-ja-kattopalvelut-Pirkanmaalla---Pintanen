@@ -360,9 +360,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Mänttä-Vilppulassa",
     cityGenitive: "Mänttä-Vilppulan",
     slug: "mantta-vilppula",
-    alueMetaTitle: "Katto- ja maalauspalvelut Mänttä-Vilppula",
+    alueMetaTitle: "Tiilikaton pinnoitus & talon maalaus Mänttä-Vilppula",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Mänttä-Vilppulassa. Huolellinen valmistelu ja laadukas työnjälki. Pyydä maksuton arvio.",
+      "Tiilikaton pinnoitus & talon maalaus Mänttä-Vilppulassa. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Mänttä-Vilppula sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta säännöllisesti. Teollisuushistoriallaan tunnetussa kaupungissa on monipuolinen rakennuskanta, joka tarvitsee ammattitaitoista huoltoa.\n\nKäymme aina ensin arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät työn itse – laatu pysyy tasaisena ja aikatauluista pidetään kiinni.\n\nMänttä-Vilppulassa Keurusselän ja muiden järvien läheisyys pitää ilmankosteuden korkeana. Kaupungin omakotitaloissa ja vanhemmissa teollisuusajan asunnoissa kattojen ja julkisivujen kunnossapito on usein ajankohtaista. Metsäiset tontit keräävät neulasia ja kasvustoa katoille.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti.",
   },
