@@ -136,9 +136,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Ylöjärvi – Pidentää katon ikää",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Ylöjärvellä edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Ylöjärvi | Hyödynnä kotitalousvähennys | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Ylöjärvellä. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Talon ulkomaalaus Ylöjärvellä luotettavasti. Suojaa kotisi homeelta ja säältä. Laske hinta laskurilla ja pyydä Eemil poikkeamaan ilmaiselle arviokäynnille!",
     maalausLocalHookTitle: "Puutarhakaupungin julkisivujen suojaus puiden varjostukselta",
     maalausLocalHookText: "Ylöjärven puutarhakaupungissa, erityisesti <strong>Metsäkylän ja Siivikkalan</strong> vehreillä alueilla, suuret puut ja <strong>Näsijärven</strong> läheisyys luovat varjoisia ja kosteita pienilmastoja. Varjoisilla paikoilla maali kuivuu hitaammin, mikä edistää <strong>homesienien</strong> kasvua ja maalin hilseilyä. Pintasen talon maalaus Ylöjärvellä panostaa tehokkaaseen <strong>homepesuun</strong> ja oikeisiin maalausolosuhteisiin, jotta kotisi julkisivu pysyy upeana ja terveenä metsän siimeksessäkin.",
     alueIntro:
