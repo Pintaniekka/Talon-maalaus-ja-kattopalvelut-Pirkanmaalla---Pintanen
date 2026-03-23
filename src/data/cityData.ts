@@ -311,9 +311,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Juupajoella",
     cityGenitive: "Juupajoen",
     slug: "juupajoki",
-    alueMetaTitle: "Tiilikaton pinnoitus ja maalaus Juupajoki",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Juupajoki",
     alueMetaDesc:
-      "Tiilikaton huolto ja talon maalaus Juupajoella. Työt tehdään huolellisesti alusta loppuun. Ota yhteyttä ja sovitaan käynti.",
+      "Tiilikaton pinnoitus & talon maalaus Juupajoella. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Pintanen palvelee myös Juupajoen kuntaa Koillis-Pirkanmaalla. Pieni ja rauhallinen kunta tarjoaa luonnonläheistä asumista, mutta metsäinen ympäristö asettaa omat vaatimuksensa rakennusten kunnossapidolle.\n\nTeemme ilmaisen arviokäynnin jokaiseen kohteeseen ennen työn aloitusta. Yrittäjät ovat aina itse paikalla työmaalla – emme välitä urakoita eteenpäin. Viimeistely ja työmaan siistiminen kuuluvat aina hintaan.\n\nJuupajoen metsäisillä tonteilla katot keräävät helposti neulasia, lehtiä ja sammalta. Varjoisilla paikoilla kosteus pysyy katoilla pitkään ja edistää kasvustoa. Puujulkisivut altistuvat samalle kosteudelle erityisesti pohjois- ja itäseinillä. Pinnoituksille annamme viiden vuoden takuun ja talon maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan arviokäynti Juupajoen alueelle.",
   },
