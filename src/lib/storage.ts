@@ -65,7 +65,7 @@ const RESPONSIVE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200, 1500];
  * @param width - Haluttu leveys (400, 800, 1200 tai 1500)
  */
 export function getResponsiveUrl(baseName: string, width: ResponsiveWidth): string {
-  return `${FIXED_SUPABASE_URL}/storage/v1/object/public/images/Pictures-${width}/${encodeURI(baseName)}-${width}w.webp`;
+  return `${FIXED_SUPABASE_URL}/storage/v1/object/public/images/Pictures-${width}/${encodeURI(baseName)}-${width}.webp`;
 }
 
 /**
