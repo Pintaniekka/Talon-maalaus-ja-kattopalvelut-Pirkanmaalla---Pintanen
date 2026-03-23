@@ -40,7 +40,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
         preloadImage={heroImage}
       />
 
-      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={kattoImage} />
+      <PinnoitusCityHero cityName={cityData.name} cityIn={cityData.cityIn} backgroundImage={heroImage} />
       <PinnoitusTrustStats cityName={cityData.name} />
 
       {/* Local Hook – kaupunkikohtainen paikallisteksti heti luottamuslaatikon jälkeen */}
