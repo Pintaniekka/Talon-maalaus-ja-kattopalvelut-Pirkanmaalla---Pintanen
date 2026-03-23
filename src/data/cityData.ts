@@ -40,9 +40,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Tampere – Poistaa sammaleen",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Tampereella edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan mekaanisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Tampere | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Tampere | Laske hinta laskurilla | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Tampereella. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Kestävä talon ulkomaalaus Tampereella. Yrittäjä Eemil tekee työn itse. Laske hinta heti, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio kotiovellesi!",
     maalausLocalHookTitle: "Tampereen harjutuulten ja kahden järven kosteusrasituksen hallinta",
     maalausLocalHookText: "Tampere sijaitsee <strong>Näsijärven ja Pyhäjärven</strong> välissä olevalla kannaksella, ja kaupungin läpi kulkeva harjujakso aiheuttaa talojen julkisivuille erityisen suuren rasituksen. <strong>Pispalan ja Pyynikin</strong> rinteillä voimakas harjutuuli ja suora säärasitus kuluttavat maalipintaa. Järvien lähellä olevilla alueilla, kuten <strong>Tahmelassa, Ranta-Tampellassa ja Atalan</strong> rinteillä, suurin haaste on korkea <strong>ilmankosteus</strong>. Korkea ilmankosteus edistää homeen kasvua ja puun kosteusliikettä, mikä aiheuttaa ongelmia talojen ulkoverhouksille. Suojaa kotisi Tampereen säältä Pintasen tarkkuudella – emme tingi pohjatöistä.",
     alueIntro:
