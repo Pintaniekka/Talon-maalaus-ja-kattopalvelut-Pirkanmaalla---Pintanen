@@ -322,9 +322,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Kangasalla",
     cityGenitive: "Kangasalan",
     slug: "kangasala",
-    alueMetaTitle: "Katon huolto ja talon maalaus Kangasala",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Kangasala",
     alueMetaDesc:
-      "Katon pinnoitus ja julkisivumaalaus Kangasalla. Huolelliset pohjatyöt ja tarkka työnjälki aina mukana. Kysy tarjous.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Kangasalla. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     maalausMetaTitle: "Talon maalaus Kangasala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
       "Laadukas talon ulkomaalaus Kangasalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
