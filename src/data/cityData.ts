@@ -349,9 +349,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Lempäälässä",
     cityGenitive: "Lempäälän",
     slug: "lempaala",
-    alueMetaTitle: "Katon pinnoitus ja puhdistus Lempäälä",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Lempäälä",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Lempäälässä kestävällä toteutuksella. Ota yhteyttä ja jutellaan kohteestasi.",
+      "Talon maalaus ja tiilikaton pinnoitus Lempäälässä. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Lempäälä on yksi Tampereen eteläisistä naapurikunnista ja kuuluu Pintasen ydintoiminta-alueeseen. Nopeasti kasvanut kunta tarjoaa monipuolisia asuinalueita, joissa katto- ja maalauspalveluille on jatkuvasti tarvetta.\n\nAloitamme jokaisen urakan ilmaisella arviokäynnillä kohteessa. Yrittäjät tekevät työn itse alusta loppuun – viimeistely ja siisteys kuuluvat aina hintaan.\n\nLempäälän asuinalueilla on sekä uudehkoja 2000-luvun omakotitaloja että vanhempia, 70–80-luvun pientaloja. Vanhemmissa taloissa katon pinnoitus on usein jo ajankohtaista, ja myös uudempien talojen julkisivuissa ensimmäisen huoltomaalauksen tarve lähestyy. Pyhäjärven ja Vanajaveden läheisyys tuo kosteutta, joka rasittaa pintoja.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
