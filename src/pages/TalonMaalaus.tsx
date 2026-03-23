@@ -50,7 +50,7 @@ const TalonMaalaus = () => {
       <SEO
         title="Talon maalaus Pirkanmaa | Hintalaskuri"
         description="Laadukas talon ulkomaalaus Pirkanmaalla. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!"
-        preloadImage={heroImage}
+        preloadImage={getResponsiveSrc(heroBase)}
       />
 
       <ServicePageHero
