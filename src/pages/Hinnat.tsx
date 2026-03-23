@@ -6,17 +6,12 @@ import ServicePageHero from "@/components/ServicePageHero";
 import PriceCalculator from "@/components/PriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
-import OptimizedImage from "@/components/OptimizedImage";
+import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Pictures-750/Moderni-maalattu-musta-talo-pirkanmaa-750.webp");
-const heroImage480 = getStorageUrl("Pictures-480/Moderni-maalattu-musta-talo-pirkanmaa-480.webp");
-const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
-
-const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
-const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
-const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroImage = getResponsiveSrc("moderni-tumma-puutalo-julkisivumaalaus-valmis");
+const heroSrcSet = getResponsiveSrcSet("moderni-tumma-puutalo-julkisivumaalaus-valmis");
 
 const serviceCards = [
   {
@@ -26,7 +21,7 @@ const serviceCards = [
     cta: "Katso pinnoituksen hintaesimerkit",
     href: "/tiilikaton-pinnoitus-hinta-pirkanmaa",
     warranty: "5v takuu",
-    bgImage: pinnoitusBg,
+    baseName: "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen",
     Icon: RoofTileIcon,
   },
   {
@@ -35,7 +30,7 @@ const serviceCards = [
     cta: "Katso puhdistuksen hinnasto",
     href: "/katon-puhdistus-hinta-pirkanmaa",
     warranty: "Ilmainen tarkastus",
-    bgImage: puhdistusBg,
+    baseName: "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen",
     Icon: RoofCleanIcon,
   },
   {
@@ -45,7 +40,7 @@ const serviceCards = [
     cta: "Katso maalauksen hintaesimerkit",
     href: "/talon-maalaus-hinta-pirkanmaa",
     warranty: "2v takuu",
-    bgImage: maalausBg,
+    baseName: "vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen",
     Icon: PaintBrushIcon,
   },
 ];
@@ -163,9 +158,8 @@ const Hinnat = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link to={card.href} className="block rounded-2xl overflow-hidden group relative h-full min-h-[320px]">
-                  <OptimizedImage
-                    src={card.bgImage}
-                    srcSet={getImageSrcSet(card.bgImage)}
+                  <ResponsiveSupabaseImage
+                    baseName={card.baseName}
                     alt={card.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"

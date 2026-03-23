@@ -10,20 +10,13 @@ import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import TeamContactSection from "@/components/TeamContactSection";
 import SEO from "@/components/SEO";
-import OptimizedImage from "@/components/OptimizedImage";
+import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
+import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
 import { getAreaCityContent } from "@/data/areaCityContent";
 
-const heroImage = getStorageUrl("talon-maalaus-pensseli-header.webp");
-
-const pinnoitusBg = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
-const puhdistusBg = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
-const maalausBg = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
-
-const pinnoitusPricingBg = getStorageUrl("Muut_referenssit/tiilenpunainen-tiilikatto-nokia.webp");
-const maalausPricingBg = getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-jalkeen-hameenlinna.webp");
+const heroImage = getResponsiveSrc("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla");
 
 const eerikImage = getStorageUrl("Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp");
 const eemilImage = getStorageUrl("Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp");
@@ -156,7 +149,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       href: hasSubPages ? `/tiilikaton-pinnoitus-${cityData.slug}` : "/tiilikaton-pinnoitus-pirkanmaa",
       description: "Tiilikaton maalauspinnoitus pidentää katon ikää jopa 15–20 vuotta ja suojaa tiiliä rapautumiselta.",
       warranty: "5v takuu",
-      bgImage: pinnoitusBg,
+      baseName: "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen",
       Icon: RoofTileIcon,
     },
     {
@@ -164,7 +157,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       href: hasSubPages ? `/katon-puhdistus-${cityData.slug}` : "/katon-puhdistus-pirkanmaa",
       description: "Mekaaninen puhdistus ja sammaleentorjuntakäsittely pitävät katon kunnossa vuosiksi eteenpäin.",
       warranty: "Ilmainen tarkastus",
-      bgImage: puhdistusBg,
+      baseName: "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen",
       Icon: RoofCleanIcon,
     },
     {
@@ -172,7 +165,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       href: hasSubPages ? `/talon-maalaus-${cityData.slug}` : "/talon-maalaus-pirkanmaa",
       description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
       warranty: "2v takuu",
-      bgImage: maalausBg,
+      baseName: "vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen",
       Icon: PaintBrushIcon,
     },
   ];
@@ -305,9 +298,8 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
                   to={service.href}
                   className="block rounded-2xl overflow-hidden group relative h-full min-h-[320px]"
                 >
-                  <OptimizedImage
-                    src={service.bgImage}
-                    srcSet={getImageSrcSet(service.bgImage)}
+                  <ResponsiveSupabaseImage
+                    baseName={service.baseName}
                     alt={`${service.title} ${cityIn}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -391,12 +383,11 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
               viewport={{ once: true }}
               className="order-last"
             >
-              <img
-                src={pinnoitusPricingBg}
-                alt={`Tiilikaton pesu ja pinnoitus ${cityIn} - Pintanen Oy`}
+              <ResponsiveSupabaseImage
+                baseName="puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen"
+                alt={`Tiilikaton pesu ja pinnoitus ${cityIn}`}
                 className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
-                loading="lazy"
-                decoding="async"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </motion.div>
           </div>
@@ -426,12 +417,11 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
               viewport={{ once: true }}
               className="order-last lg:order-first"
             >
-              <img
-                src={maalausPricingBg}
+              <ResponsiveSupabaseImage
+                baseName="keltainen-omakotitalo-julkisivumaalaus-jalkeen"
                 alt={`Talon ulkomaalaus perusteellisilla pohjatöillä ${cityIn}`}
                 className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
-                loading="lazy"
-                decoding="async"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </motion.div>
             <motion.div
