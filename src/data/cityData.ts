@@ -300,9 +300,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Ikaalisissa",
     cityGenitive: "Ikaalisten",
     slug: "ikaalinen",
-    alueMetaTitle: "Katto- ja julkisivupalvelut Ikaalinen",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Ikaalinen",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Ikaalisissa ammattitaidolla. Kestävä lopputulos ja selkeä hinnoittelu. Pyydä maksuton arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Ikaalisissa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     alueIntro:
       "Ikaalinen kuuluu Pintasen vakituiseen palvelualueeseen Pohjois-Pirkanmaalla. Kaupunki tunnetaan kylpylästään ja kauniista järvimaisemistaan, mutta myös omakotitaloalueistaan, joissa katto- ja maalauspalveluille on tarvetta.\n\nKäymme aina arvioimassa kohteen paikan päällä ilmaiseksi ennen työn aloittamista. Yrittäjät tekevät jokaisen urakan itse, joten laatu pysyy korkeana ja tasaisena. Aikatauluista pidämme kiinni.\n\nIkaalisten järviympäristö tuo kosteutta, joka edistää sammalen muodostumista katoille ja kosteuden tunkeutumista puujulkisivuihin. Säännöllinen huolto pitää kiinteistön kunnossa ja estää suuremmat korjaustarpeet. Tarjoamme tiilikaton pinnoituksia viiden vuoden takuulla ja maalauksia kahden vuoden takuulla.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Ikaalisten alueelle.",
   },
