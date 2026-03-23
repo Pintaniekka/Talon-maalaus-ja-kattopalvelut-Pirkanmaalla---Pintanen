@@ -20,7 +20,7 @@ import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug } from "@/data/cityData";
 import { getMaalausCityFAQ } from "@/data/faqData";
 
-const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroBase = "moderni-tumma-puutalo-julkisivumaalaus-valmis";
 
 const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
   const cityData = getCityBySlug(citySlug);
