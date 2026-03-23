@@ -200,9 +200,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Forssa – Säännöllinen huolto kannattaa",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Forssassa tehokkaasti ja edullisesti. Katto kuntoon ennen vaurioita. Pyydä tarjous.",
-    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Forssa | Hintalaskuri verkossa | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Forssassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Kestävä talon ulkomaalaus Forssan seudulla. Säästy kalliilta remontilta ajoissa tehdyllä maalauksella. Yrittäjä vastaa laadusta. Tilaa ilmainen arviokäynti!",
     maalausLocalHookTitle: "Lounais-Hämeen lämpötilavaihteluiden kestävä maalaustyö",
     maalausLocalHookText: "Forssan alueella <strong>Loimijoen laakson</strong> kostea ilma ja sisämaan suuret <strong>lämpötilan muutokset</strong> vaikuttavat maalin kiinnitykseen. Kun maalipinta altistuu ilmalle ja alkaa kulua pois, se ei enää estä vettä, mikä aiheuttaa puun kulumisen. Pintanen tarjoaa forssalaisille <strong>pientalojen asukkaille</strong> laadukasta talon maalaus palvelua, joka saa seinät kestämään Forssan alueen vaativia olosuhteita ja pitämään rakennuksen ulkopinnan <strong>joustavana</strong>.",
     alueIntro:
