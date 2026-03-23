@@ -289,9 +289,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Akaassa",
     cityGenitive: "Akaan",
     slug: "akaa",
-    alueMetaTitle: "Katon pinnoitus ja maalaus Akaa",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Akaa",
     alueMetaDesc:
-      "Katon pinnoitus ja maalaus Akaassa huolellisesti toteutettuna. Palvelemme joustavasti koko alueella. Ota yhteyttä.",
+      "Tiilikaton pinnoitus ja talon maalaus Akaassa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Pintanen palvelee Akaan aluetta säännöllisesti. Akaa sijaitsee Etelä-Pirkanmaalla hyvien kulkuyhteyksien varrella, ja ajamme kohteisiin vaivattomasti.\n\nToteutamme alueella tiilikaton pinnoituksia, katon puhdistuksia ja talon ulkomaalauksia. Jokaiseen kohteeseen teemme ilmaisen arviokäynnin, jossa selvitämme työn laajuuden ja pintojen kunnon. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita.\n\nAkaan Toijalassa ja Viialassa on runsaasti 60–80-luvun omakotitaloja, joiden tiilikatot alkavat olla siinä iässä, että huolto on ajankohtaista. Myös julkisivujen huoltomaalaus on monessa kohteessa tarpeen. Työmaat viimeistellään aina huolellisesti ja jälki siivotaan ennen luovutusta. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan maksuton arviokäynti Akaan alueelle.",
   },
