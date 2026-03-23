@@ -12,10 +12,12 @@ import FAQSection from "@/components/FAQSection";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { Link } from "react-router-dom";
 
-const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroBase = "moderni-tumma-puutalo-julkisivumaalaus-valmis";
+const heroImage = getResponsiveSrc(heroBase);
+const heroSrcSet = getResponsiveSrcSet(heroBase);
 
 const faqItems = [
   {
