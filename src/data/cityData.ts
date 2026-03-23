@@ -232,9 +232,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Hämeenlinna – Ilmainen arvio",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Hämeenlinnassa edullisesti ja tehokkaasti. Sammaleet ja lika poistetaan huolellisesti. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Hämeenlinna | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Hämeenlinna | Laatua paikalliselta | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Hämeenlinnassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Ammattitaitoinen talon ulkomaalaus Hämeenlinnassa. Eemil hoitaa työn alusta loppuun. Kotitalousvähennys. Laske hinta sekunneissa!",
     maalausLocalHookTitle: "Vanajaveden kosteusrasituksen hallinta Hämeenlinnan pientaloissa",
     maalausLocalHookText: "Hämeenlinnassa <strong>Vanajaveden</strong> läheisyys ja järven yllä oleva sumu aiheuttavat jatkuvasti kosteusongelmia. Tämä vaikuttaa erityisesti <strong>Aulangon ja Jukolan</strong> alueilla oleviin puuverhouksiin. Jos pohjatyöt tehdään huonosti, kosteus jää helposti maalin alle ja aiheuttaa nopeasti hilseilyä. Pintasen palvelu panostaa Hämeenlinnassa erityisesti <strong>huolellisiin pohjatöihin</strong>. Näin taataan, että uusi maalipinta <strong>tarttuu hyvin</strong> ja kestää pitkään.",
     alueIntro:
