@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
-import { getStorageUrl } from '@/lib/storage';
+import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 
 interface PinnoitusProblemSectionProps {
   cityName: string;
@@ -15,6 +15,9 @@ const warningSignsData = [
   { sign: 'Rikkinäiset tiilet', desc: 'Merkki siitä, että vesi on jo päässyt rakenteen sisään ja jäätynyt.' },
   { sign: 'Pinta tuntuu karhealta', desc: 'Tiili imee vettä sisäänsä jokaisella sateella.' },
 ];
+
+const beforeBase = "haalistunut-punainen-tiilikatto-ennen-pinnoitusta";
+const afterBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
 const PinnoitusProblemSection = ({ cityName, cityIn, cityGenitive }: PinnoitusProblemSectionProps) => {
   return (
@@ -35,17 +38,17 @@ const PinnoitusProblemSection = ({ cityName, cityIn, cityGenitive }: PinnoitusPr
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
-          {/* Left: Before/After slider (sticky on desktop) */}
           <div className="lg:sticky lg:top-28">
             <BeforeAfterSlider
-              beforeImage={getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp')}
-              afterImage={getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp')}
-              beforeAlt={`Kulunut tiilikatto ennen pinnoitusta ${cityName}`}
-              afterAlt={`Tiilikatto pinnoituksen jälkeen ${cityName}`}
+              beforeImage={getResponsiveSrc(beforeBase)}
+              afterImage={getResponsiveSrc(afterBase)}
+              beforeSrcSet={getResponsiveSrcSet(beforeBase)}
+              afterSrcSet={getResponsiveSrcSet(afterBase)}
+              beforeAlt={`Haalistunut punainen tiilikatto ennen pinnoitusta ${cityName}`}
+              afterAlt={`Kirkkaan punainen tiilikatto pinnoituksen jälkeen ${cityName}`}
             />
           </div>
 
-          {/* Right: Informational text */}
           <div className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">

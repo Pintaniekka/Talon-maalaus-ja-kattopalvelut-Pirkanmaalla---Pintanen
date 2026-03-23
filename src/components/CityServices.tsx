@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { getStorageUrl, getImageSrcSet } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import BeforeAfterSlider from "./BeforeAfterSlider";
-import OptimizedImage from "./OptimizedImage";
+import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
 import { RoofCleanIcon } from "./ServiceIcons";
 
 interface CityServicesProps {
@@ -19,8 +19,8 @@ const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) =
     {
       title: "Tiilikaton pinnoitus",
       href: `/tiilikaton-pinnoitus-${citySlug}`,
-      beforeImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp"),
-      afterImage: getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp"),
+      beforeBase: "haalistunut-punainen-tiilikatto-ennen-pinnoitusta",
+      afterBase: "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen",
       description: "Vanha tiilikatto uuteen loistoon. Puhdistamme sammaleen, suojaamme tiilen ja maalaamme pinnan kestäväksi.",
       features: ["Sammaleenpuhdistus", "Suojakäsittely", "Pinnoitus"],
       warranty: "5v takuu",
@@ -28,40 +28,27 @@ const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) =
     {
       title: "Ulkomaalaus",
       href: `/talon-maalaus-${citySlug}`,
-      beforeImage: getStorageUrl("Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp"),
-      afterImage: getStorageUrl("Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp"),
+      beforeBase: "keltainen-puutalo-varinvaihto-ennen-maalausta",
+      afterBase: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
       description: "Huolelliset pohjatyöt ja laadukas maalipinta suojaavat taloasi vuosiksi eteenpäin.",
       features: ["Pohjatyöt", "Laadukkaat maalit", "Siisti työnjälki"],
       warranty: "2v takuu",
     },
   ];
 
+  const puhdistusBase = "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen";
+
   return (
     <section className="section-padding bg-secondary">
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">
-            Palvelut {cityGenitive} alueella
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Ammattitaitoinen maalari edullisesti. Yli 200 tyytyväistä asiakasta.
-          </p>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-heading">Palvelut {cityGenitive} alueella</h2>
+          <p className="text-muted-foreground text-lg">Ammattitaitoinen maalari edullisesti. Yli 200 tyytyväistä asiakasta.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-            >
+            <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15 }}>
               <div
                 role="link"
                 tabIndex={0}
@@ -71,16 +58,12 @@ const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) =
               >
                 <div className="mb-6 relative">
                   <BeforeAfterSlider
-                    beforeImage={service.beforeImage}
-                    afterImage={service.afterImage}
+                    beforeImage={getResponsiveSrc(service.beforeBase)}
+                    afterImage={getResponsiveSrc(service.afterBase)}
+                    beforeSrcSet={getResponsiveSrcSet(service.beforeBase)}
+                    afterSrcSet={getResponsiveSrcSet(service.afterBase)}
                   />
-                  <div
-                    className={`absolute inset-0 pointer-events-none rounded-xl ${
-                      index === 0
-                        ? 'bg-gradient-to-t from-red-600/25 to-transparent'
-                        : 'bg-gradient-to-t from-yellow-500/25 to-transparent'
-                    }`}
-                  />
+                  <div className={`absolute inset-0 pointer-events-none rounded-xl ${index === 0 ? 'bg-gradient-to-t from-red-600/25 to-transparent' : 'bg-gradient-to-t from-yellow-500/25 to-transparent'}`} />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 font-heading">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
@@ -105,12 +88,7 @@ const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) =
         </div>
 
         {/* Roof Cleaning Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-8 max-w-4xl mx-auto"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-8 max-w-4xl mx-auto">
           <div
             role="link"
             tabIndex={0}
@@ -118,10 +96,9 @@ const CityServices = ({ cityName, citySlug, cityGenitive }: CityServicesProps) =
             onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/katon-puhdistus-${citySlug}`); }}
             className="block rounded-2xl overflow-hidden relative group cursor-pointer"
           >
-            <OptimizedImage
-              src={getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp")}
-              srcSet={getImageSrcSet(getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp"))}
-              alt="Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa"
+            <ResponsiveSupabaseImage
+              baseName={puhdistusBase}
+              alt={`Puhdas tiilikatto mekaanisen puhdistuksen jälkeen ${cityName}`}
               className="absolute inset-0 w-full h-full object-cover"
               sizes="(max-width: 640px) 90vw, 800px"
             />
