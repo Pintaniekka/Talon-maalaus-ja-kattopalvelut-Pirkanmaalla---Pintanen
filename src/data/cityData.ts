@@ -431,9 +431,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Urjalassa",
     cityGenitive: "Urjalan",
     slug: "urjala",
-    alueMetaTitle: "Katto- ja julkisivupalvelut Urjala",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Urjala",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Urjalassa. Huolelliset pohjatyöt ja laadukkaat materiaalit. Ota yhteyttä ja kysy lisää.",
+      "Tiilikaton pinnoitus ja talon maalaus Urjalassa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Urjala sijaitsee Etelä-Pirkanmaalla, ja Pintanen palvelee aluetta säännöllisesti. Kunta tunnetaan maaseutumaisesta ympäristöstään ja perinteisistä omakotitaloistaan.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse alusta loppuun – viimeistely ja työmaan siistiminen kuuluvat aina urakkaan.\n\nUrjalan maaseutuympäristössä rakennukset altistuvat avoimilla alueilla tuulelle ja sateelle. Metsäisillä tonteilla katot keräävät sammalta ja neulasia. Perinteisissä puutaloissa julkisivujen huoltomaalaus on erityisen tärkeää, sillä maalipinta on puuverhouksen tärkein suoja kosteutta vastaan. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä ja sovitaan arviokäynti Urjalan alueelle.",
   },
