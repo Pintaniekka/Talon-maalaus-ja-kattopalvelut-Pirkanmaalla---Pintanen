@@ -420,9 +420,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Ruovedellä",
     cityGenitive: "Ruoveden",
     slug: "ruovesi",
-    alueMetaTitle: "Katon pinnoitus ja maalaus Ruovesi",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Ruovesi",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja talon maalaus Ruovedellä. Kestävä lopputulos ja siisti työnjälki. Pyydä maksuton arvio.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Ruovedellä. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Ruovesi sijaitsee Pohjois-Pirkanmaalla kauniin Ruoveden rannalla, ja Pintanen palvelee aluetta osana toiminta-aluettaan. Metsäinen ja järvinen ympäristö tekee kunnossapidosta erityisen tärkeää.\n\nKäymme arvioimassa jokaisen kohteen paikan päällä maksutta. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Sovitusta aikataulusta pidämme aina kiinni.\n\nRuovedellä metsien ja järvien keskellä katot keräävät sammalta, neulasia ja jäkälää tehokkaasti. Ilmankosteus on korkea erityisesti rantatonteilla, mikä rasittaa sekä kattopintoja että puujulkisivuja. Säännöllinen huolto ehkäisee kalliimpia korjaustarpeita ja pitää kiinteistön kunnossa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti.",
   },
