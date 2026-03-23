@@ -93,12 +93,12 @@ export const cities: CityData[] = [
     cityIn: "Hämeenkyrössä",
     cityGenitive: "Hämeenkyrön",
     slug: "hameenkyro",
-    alueMetaTitle: "Katto- ja julkisivutyöt Hämeenkyrö",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Hämeenkyrö",
     alueMetaDesc:
-      "Katon pinnoitus ja talon maalaus Hämeenkyrössä huolellisin pohjatöin. Yrittäjät mukana jokaisessa projektissa. Pyydä arvio.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenkyrö | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus & talon maalaus Hämeenkyrössä. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Hämeenkyrö | Alk. 2750€-7000€",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Hämeenkyrössä alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Hämeenkyrössä yrittäjä tekee työn. 5v takuu, kotitalousvähennys ja selkeä hintalaskuri. Hinnat alk. vain 2750€-7000€.",
     pinnoitusLocalHookTitle: "Hämeenkyrön kansallismaisemien ja Kyröskosken säärasitusten hallinta",
     pinnoitusLocalHookText: "Hämeenkyrön laajat pellot ja Kyröskosken ympärillä olevat vanhat maisemat saavat talojen katot alttiiksi suoralle tuulelle, epätasaisille sateille ja talven raskaalle lumelle. Kun tiilikaton pinta alkaa vähitellen muuttua huokoiseksi, sääolosuhteet voivat aiheuttaa vahinkoa rakenteille pakkasen myötä. Oikea-aikainen pinnoitus takaa, että tiili pysyy kosteudenkestävänä ja kestävänä kaikissa sääolosuhteissa. Tämä on hyvä ratkaisu, joka auttaa säilyttämään kotisi arvon ja ulkonäön keskellä Pirkanmaan kauneinta luontoa.",
     puhdistusMetaTitle: "Katon puhdistus Hämeenkyrö – Turvallisesti ja huolellisesti",
