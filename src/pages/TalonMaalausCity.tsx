@@ -36,7 +36,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       <SEO
         title={cityData.maalausMetaTitle || `Talon maalaus ${cityName} | Hintalaskuri | Pintanen`}
         description={cityData.maalausMetaDesc || `Laadukas talon ulkomaalaus ${cityName}. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!`}
-        preloadImage={heroImage}
+        preloadImage={getResponsiveSrc(heroBase)}
       />
 
       <ServicePageHero

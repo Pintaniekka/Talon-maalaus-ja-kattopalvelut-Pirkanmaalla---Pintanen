@@ -13,7 +13,7 @@ import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
 const kattoBase = "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen";
 
