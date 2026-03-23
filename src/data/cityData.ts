@@ -464,9 +464,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Virroilla",
     cityGenitive: "Virtain",
     slug: "virrat",
-    alueMetaTitle: "Katon huolto ja maalaus Virrat",
+    alueMetaTitle: "Talon maalaus & tiilikaton pinnoitus Virrat",
     alueMetaDesc:
-      "Tiilikaton pinnoitus ja julkisivumaalaus Virroilla. Huolellinen toteutus ja siisti lopputulos. Kysy tarjous kohteestasi.",
+      "Ammattimainen talon maalaus ja tiilikaton pinnoitus Virroilla. Yrittäjät tekevät työn (2-5v takuu). Hinnat alk. 2700€. Katso hintalaskuri. Kotitalousvähennys.",
     alueIntro:
       "Virrat sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta osana laajempaa toimintasädettään. Luonnonkaunis kaupunki on tunnettu metsistään ja järvistään, jotka luovat vaativan ympäristön rakennusten pinnoille.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse – emme käytä aliurakoitsijoita. Työmaat viimeistellään siististi ja aikatauluista pidetään kiinni.\n\nVirtain metsäisessä ja järvisessä ympäristössä tiilikatot keräävät sammalta, neulasia ja jäkälää tehokkaasti. Puujulkisivujen maalipinta kuluu nopeammin kosteissa olosuhteissa. Säännöllinen katto- ja julkisivuhuolto pidentää rakenteiden ikää merkittävästi ja on aina edullisempi vaihtoehto kuin myöhemmät suuret korjaukset.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti Virtain alueelle.",
   },
