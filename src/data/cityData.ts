@@ -393,9 +393,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Pirkkalassa",
     cityGenitive: "Pirkkalan",
     slug: "pirkkala",
-    alueMetaTitle: "Katto- ja maalauspalvelu Pirkkala – Yrittäjät tekevät työn",
+    alueMetaTitle: "Talon maalaus ja tiilikaton pinnoitus Pirkkala",
     alueMetaDesc:
-      "Katon pinnoitus ja talon maalaus Pirkkalassa ammattitaidolla. Yrittäjät mukana jokaisessa työssä. Pyydä arvio.",
+      "Talon maalaus ja tiilikaton pinnoitus Pirkkalassa. Hinnat alk. 2700€, testaa hintalaskuria! Yrittäjät tekevät työn 2-5v takuulla. Kotitalousvähennys.",
     maalausMetaTitle: "Talon maalaus Pirkkala | Hintalaskuri | Pintanen",
     maalausMetaDesc:
       "Laadukas talon ulkomaalaus Pirkkalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
