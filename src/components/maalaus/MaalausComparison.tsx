@@ -47,7 +47,7 @@ const MaalausComparison = ({ cityIn }: { cityIn?: string }) => {
             >
               <ResponsiveSupabaseImage
                 baseName={comparisonBase}
-                alt="Keltainen ulkoverhous huoltomaalaus jälkeen Pirkanmaalla"
+                cityIn={cityIn}
                 className="w-full rounded-2xl shadow-lg"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

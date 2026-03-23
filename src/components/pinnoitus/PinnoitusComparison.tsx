@@ -47,7 +47,7 @@ const PinnoitusComparison = ({ cityIn }: { cityIn?: string }) => {
             >
               <ResponsiveSupabaseImage
                 baseName={comparisonBase}
-                alt="Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla"
+                cityIn={cityIn}
                 className="w-full rounded-2xl shadow-lg"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
