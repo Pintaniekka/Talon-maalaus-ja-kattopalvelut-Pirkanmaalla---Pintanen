@@ -72,9 +72,9 @@ export const cities: CityData[] = [
     puhdistusMetaTitle: "Katon puhdistus Sastamala – Katto puhtaaksi kerralla",
     puhdistusMetaDesc:
       "Tiilikaton puhdistus Sastamalassa tehokkaasti ja edullisesti. Laita katto kunnossa ajoissa. Kysy tarjous.",
-    maalausMetaTitle: "Talon maalaus Sastamala | Hintalaskuri | Pintanen",
+    maalausMetaTitle: "Talon maalaus Sastamala | Takuutyö yrittäjältä | Pintanen",
     maalausMetaDesc:
-      "Laadukas talon ulkomaalaus Sastamalassa. Yrittäjä tekee työn. Laske hinta hintalaskurilla, hyödynnä kotitalousvähennys ja tilaa ilmainen arvio!",
+      "Ammattimainen talon ulkomaalaus Sastamalassa. Hinta n. 2000 € – 10 000 €. Yrittäjä tekee työn. Katso hintaesimerkit ja tilaa maksuton kuntotarkastus!",
     maalausLocalHookTitle: "Puuverhouksen suojaaminen Sastamalan vesistöjen kosteusrasitukselta",
     maalausLocalHookText: "Sastamalan maisema on <strong>Rautaveden ja Liekoveden</strong> hallitsema. Ne tuovat mukanaan runsaasti kosteutta, joka on suuri haaste puujulkisivuille. Erityisesti <strong>Vammalan keskustan</strong> ja rantojen lähellä <strong>ilmankosteus</strong> on korkea. Se pääsee helposti suojaamattomaan puuhun, mikä aiheuttaa maalin lohkeilua ja altistaa laudoituksen <strong>homeelle</strong>. Pintanen tuntee alueen olosuhteet hyvin. Teen huolelliset ja ammattitaitoiset homepesut ja maalaukset. Näin varmistetaan, että talosi ulkoverhous kestää Sastamalan järvi-ilmaston vaikutukset hyvin.",
     alueIntro:
