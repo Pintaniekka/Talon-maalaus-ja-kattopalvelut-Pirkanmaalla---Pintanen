@@ -338,9 +338,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Kihniössä",
     cityGenitive: "Kihniön",
     slug: "kihnio",
-    alueMetaTitle: "Katto- ja maalaustyöt Kihniö",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Kihniö",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Kihniössä huolellisesti toteutettuna. Panostamme pohjatöihin ja siistiin lopputulokseen. Pyydä arvio.",
+      "Tiilikaton pinnoitus ja talon maalaus Kihniössä. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Kihniö sijaitsee Pohjois-Pirkanmaalla lähellä Satakunnan rajaa, ja Pintanen palvelee aluetta osana laajempaa toimintasädettään. Kunnan rauhallisessa maaseutuympäristössä on omakotitaloja ja maatilakiinteistöjä, joiden ylläpito vaatii ammattimaista huoltoa.\n\nTeemme jokaiseen kohteeseen ilmaisen arviokäynnin ja yrittäjät tekevät työn itse. Emme käytä aliurakoitsijoita, ja työmaat jätetään aina siistiin kuntoon.\n\nKihniön avoimessa maastossa rakennukset altistuvat tuulelle ja sateelle enemmän kuin suojaisemmilla alueilla. Metsien lähellä katot sammaloituvat helposti, ja puujulkisivujen maalipinta kuluu säärasituksessa. Pinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun.\n\nOta yhteyttä – arviokäynti on aina maksuton.",
   },
