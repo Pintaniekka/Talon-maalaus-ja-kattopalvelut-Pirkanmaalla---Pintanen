@@ -453,9 +453,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Vesilahdella",
     cityGenitive: "Vesilahden",
     slug: "vesilahti",
-    alueMetaTitle: "Katto- ja maalauspalvelut Vesilahti",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Vesilahti",
     alueMetaDesc:
-      "Katto- ja maalauspalvelut Vesilahdessa ammattitaidolla. Selkeä työprosessi ja pitkäikäinen lopputulos. Ota yhteyttä.",
+      "Tiilikaton pinnoitus & talon maalaus Vesilahdella. Kokeile hintalaskuria (hinnat alk. 2700€). Yrittäjät tekevät työn, 2-5v takuu ja kotitalousvähennys.",
     alueIntro:
       "Vesilahti on maaseutumainen kunta Tampereen lounaispuolella, ja Pintanen palvelee aluetta osana ydintoiminta-aluettaan. Kunnan rauhallinen ympäristö houkuttelee omakotiasujia, joiden kiinteistöt tarvitsevat säännöllistä huoltoa.\n\nKäymme aina arvioimassa kohteen paikan päällä ilmaiseksi. Yrittäjät tekevät työn itse alusta loppuun, joten laatu pysyy tasaisena ja aikataulut pitävät.\n\nVesilahden maaseutuympäristössä avoimet alueet altistavat talojen julkisivut säälle, ja metsäisillä tonteilla katot keräävät sammalta ja neulasia. Järvien läheisyys tuo kosteutta, joka rasittaa pintoja ajan myötä. Oikea-aikainen kunnossapito on järkevä tapa pitää kiinteistö hyvässä kunnossa.\n\nPinnoituksille viiden vuoden takuu, maalauksille kahden vuoden takuu. Ota yhteyttä ja sovitaan arviokäynti Vesilahden alueelle.",
   },
