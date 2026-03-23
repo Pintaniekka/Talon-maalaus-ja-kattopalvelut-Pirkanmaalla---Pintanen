@@ -382,9 +382,9 @@ export const simpleCities: CityData[] = [
     cityIn: "Parkanossa",
     cityGenitive: "Parkanon",
     slug: "parkano",
-    alueMetaTitle: "Katon pinnoitus ja julkisivutyöt Parkano",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Parkano",
     alueMetaDesc:
-      "Katto- ja maalaustyöt Parkanossa suoraan tekijöiltä. Panostamme huolelliseen työn jälkeen. Kysy tarjous.",
+      "Tiilikaton pinnoitus ja talon maalaus Parkanossa. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
     alueIntro:
       "Parkano sijaitsee Pohjois-Pirkanmaalla, ja Pintanen palvelee aluetta osana laajempaa toiminta-aluettaan. Kaupungin metsäisissä maisemissa rakennusten kunnossapito vaatii erityistä huomiota.\n\nJokaiseen kohteeseen teemme ilmaisen arviokäynnin. Yrittäjät tekevät työn itse alusta loppuun – emme välitä urakoita eteenpäin. Aikatauluista pidämme aina kiinni.\n\nParkanon seudulla metsäiset tontit tarkoittavat, että katot keräävät neulasia, sammalta ja kasvustoa tehokkaasti. Puujulkisivujen maalipinta kuluu nopeammin varjoisilla tonteilla, joissa kosteus ei pääse kuivamaan kunnolla. Talvisin runsas lumikuorma rasittaa kattoja.\n\nPinnoituksille annamme viiden vuoden takuun ja maalauksille kahden vuoden takuun. Ota yhteyttä ja sovitaan arviokäynti Parkanon alueelle.",
   },
