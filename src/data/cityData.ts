@@ -157,12 +157,12 @@ export const cities: CityData[] = [
     cityIn: "Nokialla",
     cityGenitive: "Nokian",
     slug: "nokia",
-    alueMetaTitle: "Katto- ja maalauspalvelut Nokia – Ilmainen arvio",
+    alueMetaTitle: "Tiilikaton pinnoitus ja talon maalaus Nokia",
     alueMetaDesc:
-      "Palvelemme Nokiassa kattojen huolloissa ja talon maalauksissa. Selkeä toteutus ja kestävä lopputulos. Ota yhteyttä ja jutellaan kohteestasi.",
-    pinnoitusMetaTitle: "Tiilikaton pinnoitus Nokia | 5v takuu | Pintanen",
+      "Tiilikaton pinnoitus ja talon maalaus Nokialla. Yrittäjät tekevät työn 2-5v takuulla. Hinnat alk. 2700€ (katso hintalaskuri). Kotitalousvähennys!",
+    pinnoitusMetaTitle: "Tiilikaton pinnoitus Nokia | Yrittäjät tekevät työn",
     pinnoitusMetaDesc:
-      "Tiilikaton pinnoitus Nokialla alk. 2 850 €. Laske hinta hintalaskurilla. Säästä jopa 80 % vs. kattoremontti. 5v takuu & kotitalousvähennys.",
+      "Tiilikaton pinnoitus Nokialla. Hinta alk. 2750€-7000€. Hyödynnä kotitalousvähennys ja laske kustannus hintalaskurilla. 5v takuu suoraan yrittäjiltä.",
     pinnoitusLocalHookTitle: "Nokian pientaloalueiden kattojen elinkaaren maksimointi",
     pinnoitusLocalHookText: "Nokialla asuinalueet ovat levittäytyneet Nokianvirran rannoille ja vihreisiin lähiöihin, kuten Harjuniittyyn ja Sammalistoon. Alueen vesistöjen aiheuttama kosteus ja vaihtelevat sääolot koettelevat talojen tiilikattoja jatkuvasti. Kun tehdaspinnoite kuluu, tiili alkaa heikentyä ja kerätä sammalta ja muuta kasvustoa. Fiksusti ennakoivat Nokialla asuvat valitsevat ammattitaitoisen pinnoituksen, koska se on nopea, ympäristöystävällinen ja ennen kaikkea taloudellinen ratkaisu välttääkseen raskaat kattoremontit ja pitääkseen kodin turvassa.",
     puhdistusMetaTitle: "Katon puhdistus Nokia – Ammattitaidolla",
