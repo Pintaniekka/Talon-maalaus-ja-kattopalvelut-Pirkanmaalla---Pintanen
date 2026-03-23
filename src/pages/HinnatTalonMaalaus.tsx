@@ -8,9 +8,10 @@ import WallPriceCalculator from "@/components/WallPriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Muut_referenssit/talon-maalaus-ylojarvi-header.webp");
+const heroImage = getResponsiveSrc("vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen");
+const heroSrcSet = getResponsiveSrcSet("vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen");
 
 const priceExamples = [
   { size: "1-kerroksinen omakotitalo", price: "noin 3 500–6 000 €" },
@@ -69,6 +70,7 @@ const HinnatTalonMaalaus = () => {
         title="Talon maalauksen hinta – laske arvio heti"
         subtitle="Hintalaskuri, hintaesimerkit ja kotitalousvähennys"
         backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       />
 
       {/* Intro */}

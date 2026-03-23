@@ -8,11 +8,10 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 
 import FAQSection from "@/components/FAQSection";
 import RoofPriceCalculator from "@/components/RoofPriceCalculator";
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Pictures-750/tiilikatto-pesu-hameenlinna-750.webp");
-const heroImage480 = getStorageUrl("Pictures-480/tiilikatto-pesu-hameenlinna-480.webp");
-const heroSrcSet = `${heroImage480} 480w, ${heroImage} 750w`;
+const heroImage = getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto");
+const heroSrcSet = getResponsiveSrcSet("tiilikaton-tehopesu-ja-sammaleenpoisto");
 
 const priceExamples = [
   { size: "150 m² omakotitalo", price: "noin 2 700–3 300 €" },

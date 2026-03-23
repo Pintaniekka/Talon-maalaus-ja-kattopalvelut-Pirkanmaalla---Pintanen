@@ -8,9 +8,10 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 
-import { getStorageUrl } from "@/lib/storage";
+import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
-const heroImage = getStorageUrl("Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp");
+const heroImage = getResponsiveSrc("puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen");
+const heroSrcSet = getResponsiveSrcSet("puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen");
 
 const priceExamples = [
   { size: "Pieni omakotitalo", price: "noin 800–1 200 €" },
@@ -61,6 +62,7 @@ const HinnatKatonPuhdistus = () => {
         title="Katon puhdistus hinta – mitä pesu maksaa?"
         subtitle="Hintaesimerkit, sisältö ja milloin pelkkä puhdistus riittää"
         backgroundImage={heroImage}
+        backgroundSrcSet={heroSrcSet}
       />
 
       {/* Intro */}

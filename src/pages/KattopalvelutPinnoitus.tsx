@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Search, Check, Clock } from "lucide-react";
-import OptimizedImage from "@/components/OptimizedImage";
-import { getImageSrcSet } from "@/lib/storage";
 import { Badge } from "@/components/ui/badge";
 import ServicePageHero from "@/components/ServicePageHero";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
@@ -12,9 +10,10 @@ import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
+import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { pinnoitusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
-import { getStorageUrl } from "@/lib/storage";
+import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
 const kattoImage = getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp");
 
@@ -138,10 +137,12 @@ const KattopalvelutPinnoitus = () => {
             {/* Left: Before/After slider (sticky on desktop) */}
             <div className="lg:sticky lg:top-28">
               <BeforeAfterSlider
-                beforeImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp")}
-                afterImage={getStorageUrl("Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp")}
-                beforeAlt="Kulunut punainen tiilikatto ennen huoltomaalausta"
-                afterAlt="Huoltomaalattu punainen tiilikatto pinnoituksen jälkeen"
+                beforeImage={getResponsiveSrc("likainen-tiilikatto-ennen-pesua-ja-suojakasittelya")}
+                afterImage={getResponsiveSrc("uudenveroinen-punainen-tiilikatto-maalaus-jalkeen")}
+                beforeSrcSet={getResponsiveSrcSet("likainen-tiilikatto-ennen-pesua-ja-suojakasittelya")}
+                afterSrcSet={getResponsiveSrcSet("uudenveroinen-punainen-tiilikatto-maalaus-jalkeen")}
+                beforeAlt="Likainen tiilikatto ennen pesua ja suojakäsittelyä Pirkanmaalla"
+                afterAlt="Uudenveroinen punainen tiilikatto maalaus jälkeen Pirkanmaalla"
               />
             </div>
 
@@ -225,10 +226,9 @@ const KattopalvelutPinnoitus = () => {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                <OptimizedImage
-                  src={getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp')}
-                  srcSet={getImageSrcSet(getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp'))}
-                  alt="Tummanharmaa tiilikatto pinnoituksen jälkeen"
+                <ResponsiveSupabaseImage
+                  baseName="tummanharmaa-kattotiili-pesu-ja-pinnoitustyo"
+                  alt="Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla"
                   className="w-full rounded-2xl shadow-lg"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -265,7 +265,6 @@ const KattopalvelutPinnoitus = () => {
                     : "border border-border/50"
                 }`}
               >
-                {/* Featured badge */}
                 {card.featured && (
                   <div className="bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center py-1.5">
                     Yleisin kattokoko
@@ -273,11 +272,9 @@ const KattopalvelutPinnoitus = () => {
                 )}
 
                 <div className="p-5 md:p-6 flex flex-col flex-1">
-                  {/* Size & label */}
                   <p className="text-2xl font-bold text-foreground">{card.size}</p>
                   <p className="text-sm text-muted-foreground mb-4">{card.label}</p>
 
-                  {/* Prices */}
                   <div className="mb-5">
                     <p className="text-sm line-through text-muted-foreground/60 mb-1">
                       Norm. {card.normalPrice}
@@ -286,7 +283,6 @@ const KattopalvelutPinnoitus = () => {
                     <p className="text-xs text-muted-foreground mt-1">kotitalousvähennyksen jälkeen</p>
                   </div>
 
-                  {/* Includes */}
                   <ul className="space-y-2.5 mb-5 flex-1">
                     {pricingIncludes.map((item) => (
                       <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
@@ -296,13 +292,11 @@ const KattopalvelutPinnoitus = () => {
                     ))}
                   </ul>
 
-                  {/* Duration */}
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-5">
                     <Clock className="w-4 h-4" />
                     Kesto: {card.duration}
                   </div>
 
-                  {/* CTA */}
                   <a
                     href="#yhteystiedot"
                     className={`inline-flex items-center justify-center w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-sm ${

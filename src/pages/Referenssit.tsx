@@ -4,13 +4,13 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import SEO from '@/components/SEO';
-import OptimizedImage from '@/components/OptimizedImage';
-import { getStorageUrl, getImageSrcSet } from '@/lib/storage';
+import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
+import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 
 type Category = 'all' | 'pinnoitus' | 'puhdistus' | 'maalaus';
 
 interface ProjectImage {
-  src: string;
+  baseName: string;
   label: string;
 }
 
@@ -23,7 +23,7 @@ interface GroupedProject {
 
 interface SingleProject {
   type: 'single';
-  image: string;
+  baseName: string;
   title: string;
   category: Category;
 }
@@ -34,12 +34,14 @@ const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
   <div className="relative w-full h-full flex overflow-hidden">
     {images.map((img, idx) => (
       <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
-        <OptimizedImage
-          src={img.src}
-          srcSet={getImageSrcSet(img.src)}
+        <img
+          src={getResponsiveSrc(img.baseName)}
+          srcSet={getResponsiveSrcSet(img.baseName)}
           sizes="(max-width: 768px) 100vw, 33vw"
           alt={img.label}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          decoding="async"
           style={{
             objectPosition: idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
           }}
@@ -100,7 +102,7 @@ const Lightbox = ({
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
-        src={project.images[currentIndex].src}
+        src={getResponsiveSrc(project.images[currentIndex].baseName)}
         alt={project.images[currentIndex].label}
         className="max-w-full max-h-[75vh] object-contain rounded-lg"
         loading="eager"
@@ -121,7 +123,7 @@ const Lightbox = ({
                 onClick={(e) => { e.stopPropagation(); onSelectIndex(idx); }}
                 className={`relative w-16 h-12 rounded overflow-hidden border-2 transition-all ${idx === currentIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={img.src} alt={img.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                <img src={getResponsiveSrc(img.baseName)} alt={img.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
@@ -149,8 +151,8 @@ const Referenssit = () => {
       title: 'Tiilikaton pinnoitus – Valkeakoski',
       category: 'pinnoitus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-ennen-valkeakoski.webp'), label: 'Kulunut punainen tiilikatto ennen huoltomaalausta Valkeakoskella' },
-        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-valkeakoski.webp'), label: 'Huoltomaalattu punainen tiilikatto Valkeakoskella' },
+        { baseName: 'likainen-tiilikatto-ennen-pesua-ja-suojakasittelya', label: 'Likainen tiilikatto ennen pesua ja suojakäsittelyä Valkeakoskella' },
+        { baseName: 'uudenveroinen-punainen-tiilikatto-maalaus-jalkeen', label: 'Uudenveroinen punainen tiilikatto maalaus jälkeen Valkeakoskella' },
       ],
     },
     {
@@ -158,8 +160,8 @@ const Referenssit = () => {
       title: 'Tiilikaton pinnoitus – Tampere',
       category: 'pinnoitus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-ennen-tampere.webp'), label: 'Haalistunut punainen tiilikatto ennen kattomaalausta Tampereella' },
-        { src: getStorageUrl('Muut_referenssit/punainen-tiilikatto-maalaus-jalkeen-tampere.webp'), label: 'Valmis punainen tiilikatto kattomaalauksen jälkeen Tampereella' },
+        { baseName: 'haalistunut-punainen-tiilikatto-ennen-pinnoitusta', label: 'Haalistunut punainen tiilikatto ennen pinnoitusta Tampereella' },
+        { baseName: 'kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen', label: 'Kirkkaan punainen tiilikatto pinnoituksen jälkeen Tampereella' },
       ],
     },
     {
@@ -167,8 +169,8 @@ const Referenssit = () => {
       title: 'Tiilikaton puhdistus – Sastamala',
       category: 'puhdistus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/Katto-ennen-mekaaninen-puhdistus-sastamala.webp'), label: 'Sammaloitunut tiilikatto ennen mekaanista puhdistusta Sastamalassa' },
-        { src: getStorageUrl('Muut_referenssit/katto-jalkeen-mekaaninen-puhdistus-sastamala.webp'), label: 'Mekaanisesti puhdistettu tiilikatto käsittelyn jälkeen Sastamalassa' },
+        { baseName: 'sammaleinen-tiilikatto-ennen-mekaanista-puhdistusta', label: 'Sammaleinen tiilikatto ennen mekaanista puhdistusta Sastamalassa' },
+        { baseName: 'puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen', label: 'Puhdas tiilikatto mekaanisen puhdistuksen jälkeen Sastamalassa' },
       ],
     },
     {
@@ -176,8 +178,8 @@ const Referenssit = () => {
       title: 'Värinvaihto – Tampere',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-varinvaihto-ennen-tampere.webp'), label: 'Puutalo ennen värinvaihtoa ja maalaustyötä Tampereella' },
-        { src: getStorageUrl('Muut_referenssit/violetti-talo-maalaus-varinvaihto-jalkeen-tampere.webp'), label: 'Violetti omakotitalo värinvaihdon jälkeen Tampereella' },
+        { baseName: 'keltainen-puutalo-varinvaihto-ennen-maalausta', label: 'Keltainen puutalo värinvaihto ennen maalausta Tampereella' },
+        { baseName: 'violetti-puutalo-varinvaihto-peittomaalaus-jalkeen', label: 'Violetti puutalo värinvaihto peittomaalaus jälkeen Tampereella' },
       ],
     },
     {
@@ -185,8 +187,8 @@ const Referenssit = () => {
       title: 'Sinisen talon maalaus – Hämeenkyrö',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/laivaston-sininen-talo-maalaus-ennen-hameenkyro.webp'), label: 'Haalistunut talo ennen maalausta Hämeenkyrössä' },
-        { src: getStorageUrl('Muut_referenssit/laivaston-sininen-talo-maalaus-jalkeen-hameenkyro.webp'), label: 'Laivastonsininen puutalo maalauksen jälkeen Hämeenkyrössä' },
+        { baseName: 'tummansininen-puutalo-ulkomaalaus-ennen', label: 'Tummansininen puutalo ulkomaalaus ennen Hämeenkyrössä' },
+        { baseName: 'tummansininen-puutalo-ulkomaalaus-jalkeen', label: 'Tummansininen puutalo ulkomaalaus jälkeen Hämeenkyrössä' },
       ],
     },
     {
@@ -194,8 +196,8 @@ const Referenssit = () => {
       title: 'Värinvaihto harmaaksi – Pirkanmaa',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/punainen-talon-maalaus-ennen-varinvaihdos-pirkanmaa.webp'), label: 'Punainen talo ennen värinvaihtomaalausta Pirkanmaalla' },
-        { src: getStorageUrl('Muut_referenssit/harmaa-talon-maalaus-varinvaihdos-jalkeen-pirkanmaa.webp'), label: 'Talon värinvaihto punaisesta harmaaksi Pirkanmaalla' },
+        { baseName: 'punainen-omakotitalo-varinvaihto-ennen-maalausta', label: 'Punainen omakotitalo värinvaihto ennen maalausta Pirkanmaalla' },
+        { baseName: 'harmaa-omakotitalo-varinvaihto-ulkomaalaus-jalkeen', label: 'Harmaa omakotitalo värinvaihto ulkomaalaus jälkeen Pirkanmaalla' },
       ],
     },
     {
@@ -203,8 +205,8 @@ const Referenssit = () => {
       title: 'Vihreän talon maalaus – Hämeenkyrö',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/Vihrea-talon-maalaus-ennen-hameenkyro.webp'), label: 'Vihreä puutalo ennen huoltomaalausta Hämeenkyrössä' },
-        { src: getStorageUrl('Muut_referenssit/Virhea-talon-maalaus-jalkeen-hameenkyro.webp'), label: 'Vihreä omakotitalo maalauksen jälkeen Hämeenkyrössä' },
+        { baseName: 'vihrea-puutalo-ennen-ulkomaalausta-ja-pohjatoita', label: 'Vihreä puutalo ennen ulkomaalausta ja pohjatöitä Hämeenkyrössä' },
+        { baseName: 'vihrea-puutalo-ulkomaalaus-jalkeen', label: 'Vihreä puutalo ulkomaalaus jälkeen Hämeenkyrössä' },
       ],
     },
     {
@@ -212,8 +214,8 @@ const Referenssit = () => {
       title: 'Keltaisen talon maalaus – Hämeenlinna',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/keltainen-talon-maalaus-ennen-hameenlinna.webp'), label: 'Omakotitalo ennen huoltomaalausta Hämeenlinnassa' },
-        { src: getStorageUrl('Muut_referenssit/keltainen-talo-maalaus-jalkeen-hameenlinna.webp'), label: 'Valmis keltainen puutalo ulkomaalauksen jälkeen Hämeenlinnassa' },
+        { baseName: 'keltainen-omakotitalo-huoltomaalaus-ennen', label: 'Keltainen omakotitalo huoltomaalaus ennen Hämeenlinnassa' },
+        { baseName: 'keltainen-omakotitalo-julkisivumaalaus-jalkeen', label: 'Keltainen omakotitalo julkisivumaalaus jälkeen Hämeenlinnassa' },
       ],
     },
     {
@@ -221,8 +223,8 @@ const Referenssit = () => {
       title: 'Keltainen seinä – Pirkanmaa',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/Keltainen-seina-ennen-maalaus-pirkanmaa.webp'), label: 'Haalistunut keltainen puuseinä ennen ulkomaalausta Pirkanmaalla' },
-        { src: getStorageUrl('Muut_referenssit/keltainen-seina-maalaus-jalkeen-pirkanmaa.webp'), label: 'Keltainen puujulkisivu maalauksen jälkeen Pirkanmaalla' },
+        { baseName: 'keltainen-puuverhous-ennen-julkisivumaalausta', label: 'Keltainen puuverhous ennen julkisivumaalausta Pirkanmaalla' },
+        { baseName: 'keltainen-ulkoverhous-huoltomaalaus-jalkeen', label: 'Keltainen ulkoverhous huoltomaalaus jälkeen Pirkanmaalla' },
       ],
     },
     {
@@ -230,19 +232,26 @@ const Referenssit = () => {
       title: 'Parveke ja julkisivu – Ylöjärvi',
       category: 'maalaus',
       images: [
-        { src: getStorageUrl('Muut_referenssit/talo-ja-parveke-maalaus-kunnostus-ennen-ylojarvi.webp'), label: 'Talo ja puuparveke ennen kunnostusmaalausta Ylöjärvellä' },
-        { src: getStorageUrl('Muut_referenssit/talo-ja-parveke-maalaus-kunnostus-jalkeen-ylojarvi.webp'), label: 'Kunnostettu puuparveke ja julkisivu Ylöjärvellä' },
+        { baseName: 'puutalon-ja-parvekkeen-puuosien-kunnostus-ennen', label: 'Puutalon ja parvekkeen puuosien kunnostus ennen Ylöjärvellä' },
+        { baseName: 'puutalon-ja-parvekkeen-huoltomaalaus-jalkeen', label: 'Puutalon ja parvekkeen huoltomaalaus jälkeen Ylöjärvellä' },
       ],
     },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilenpunainen-tiilikatto-nokia.webp'), category: 'pinnoitus', title: 'Tiilenpunainen tiilikaton pinnoitus omakotitalossa Nokialla' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikaton-pinnoitus-tummanharmaa-pirkkala.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikaton pinnoitus kohteessa Pirkkalassa' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/tummanharmaa-tiilikaton-pinnoitus.webp'), category: 'pinnoitus', title: 'Tummanharmaa tiilikatto pinnoituksen ja suojauksen jälkeen' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikatto-maalattu-forssa.webp'), category: 'pinnoitus', title: 'Ammattimaisesti maalattu tiilikatto Forssassa' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/katto-ennen-jalkeen-maalaus-forssa.webp'), category: 'pinnoitus', title: 'Tiilikaton maalaus ennen ja jälkeen -vertailu Forssassa' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/tiilikatto-pesu-hameenlinna.webp'), category: 'puhdistus', title: 'Tiilikaton pesu ja huolto Hämeenlinnassa' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/harjatiiviste-asennus-pirkanmaa.webp'), category: 'puhdistus', title: 'Harjatiivisteen asennus tiilikattoon Pirkanmaalla' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/suojausprojekti-akaa.webp'), category: 'maalaus', title: 'Terassin suojaus ennen talon maalausta Akaassa' },
-    { type: 'single', image: getStorageUrl('Muut_referenssit/talon-suojaus-akaa.webp'), category: 'maalaus', title: 'Julkisivun suojaustyöt ennen maalausta Akaassa' },
+    // Yksittäiset kuvat
+    { type: 'single', baseName: 'puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen', category: 'pinnoitus', title: 'Puhdas tiilenpunainen tiilikatto suojakäsittelyn jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'tummanharmaa-tiilikaton-pinnoitus-ja-huolto-jalkeen', category: 'pinnoitus', title: 'Tummanharmaa tiilikaton pinnoitus ja huolto jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'tummanharmaa-kattotiili-pesu-ja-pinnoitustyo', category: 'pinnoitus', title: 'Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla' },
+    { type: 'single', baseName: 'vastamaalattu-tiilikatto-kattopinnoitus-jalkeen', category: 'pinnoitus', title: 'Vastamaalattu tiilikatto kattopinnoitus jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'tiilikaton-pesu-ja-pinnoitus-ennen-jalkeen', category: 'pinnoitus', title: 'Tiilikaton pesu ja pinnoitus ennen jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'tiilikaton-tehopesu-ja-sammaleenpoisto', category: 'puhdistus', title: 'Tiilikaton tehopesu ja sammaleenpoisto Pirkanmaalla' },
+    { type: 'single', baseName: 'tiilikaton-harjatiivisteen-asennus-kattohuolto', category: 'puhdistus', title: 'Tiilikaton harjatiivisteen asennus kattohuolto Pirkanmaalla' },
+    { type: 'single', baseName: 'huolellinen-ympariston-suojaus-ennen-maalausta', category: 'maalaus', title: 'Huolellinen ympäristön suojaus ennen maalausta Pirkanmaalla' },
+    { type: 'single', baseName: 'talon-julkisivun-ja-ikkunoiden-suojaustyot', category: 'maalaus', title: 'Talon julkisivun ja ikkunoiden suojaustyöt Pirkanmaalla' },
+    // Uudet kuvat
+    { type: 'single', baseName: 'vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen', category: 'maalaus', title: 'Vaalea kartanomainen puutalo ulkomaalaus jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'moderni-tumma-puutalo-julkisivumaalaus-valmis', category: 'maalaus', title: 'Moderni tumma puutalo julkisivumaalaus valmis Pirkanmaalla' },
+    { type: 'single', baseName: 'tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaustyot', category: 'pinnoitus', title: 'Tiilikaton pinnoitus ja aurinkopaneelien suojaustyöt Pirkanmaalla' },
+    { type: 'single', baseName: 'punainen-tiilikatto-kattopinnoitus-ja-huolto-jalkeen', category: 'pinnoitus', title: 'Punainen tiilikatto kattopinnoitus ja huolto jälkeen Pirkanmaalla' },
+    { type: 'single', baseName: 'uutta-vastaava-tiilikatto-pesu-ja-suojakasittely', category: 'pinnoitus', title: 'Uutta vastaava tiilikatto pesu ja suojakäsittely Pirkanmaalla' },
   ];
 
   const filteredProjects = activeCategory === 'all' ? projects : projects.filter((p) => p.category === activeCategory);
@@ -252,8 +261,8 @@ const Referenssit = () => {
     setCurrentImageIndex(0);
   };
 
-  const openSingleLightbox = (image: string, title: string) => {
-    setSelectedProject({ type: 'group', title, category: 'all', images: [{ src: image, label: '' }] });
+  const openSingleLightbox = (baseName: string, title: string) => {
+    setSelectedProject({ type: 'group', title, category: 'all', images: [{ baseName, label: '' }] });
     setCurrentImageIndex(0);
   };
 
@@ -279,7 +288,7 @@ const Referenssit = () => {
   return (
     <div>
       <SEO title="Referenssit – Katon pinnoitus ja talon maalaus" description="Tutustu toteuttamiimme katto- ja maalausprojekteihin Pirkanmaalla. Näe ero ennen maalausta ja maalauksen jälkeen." />
-      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getStorageUrl('Muut_referenssit/tiilikatto-pesu-hameenlinna.webp')} />
+      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto")} />
 
       <section className="section-padding bg-background">
         <div className="section-container">
@@ -332,19 +341,18 @@ const Referenssit = () => {
                   transition={{ duration: 0.3 }}
                   className="group cursor-pointer"
                   onClick={() =>
-                    project.type === 'group' ? openGroupLightbox(project) : openSingleLightbox(project.image, project.title)
+                    project.type === 'group' ? openGroupLightbox(project) : openSingleLightbox(project.baseName, project.title)
                   }
                 >
                   <div className="relative overflow-hidden rounded-xl aspect-[4/3]">
                     {project.type === 'group' && project.images.length > 1 ? (
                       <CompositeThumbnail images={project.images} />
                     ) : (
-                      <OptimizedImage
-                        src={project.type === 'group' ? project.images[0].src : project.image}
-                        srcSet={getImageSrcSet(project.type === 'group' ? project.images[0].src : project.image)}
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                      <ResponsiveSupabaseImage
+                        baseName={project.type === 'group' ? project.images[0].baseName : project.baseName}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
