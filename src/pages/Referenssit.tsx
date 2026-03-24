@@ -325,7 +325,7 @@ const Referenssit = () => {
             {categories.map((cat) => (
               <button
                 key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
+                onClick={() => { setActiveCategory(cat.key); setVisibleCount(6); }}
                 className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === cat.key ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'
                 }`}
