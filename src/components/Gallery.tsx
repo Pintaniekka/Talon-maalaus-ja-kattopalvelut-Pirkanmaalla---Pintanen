@@ -5,6 +5,26 @@ import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
 
 const images = [
   {
+    baseName: "vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen",
+    alt: "Vaalea kartanomainen puutalo ulkomaalaus jälkeen Pirkanmaalla",
+    category: "Talon maalaus",
+  },
+  {
+    baseName: "moderni-tumma-puutalo-julkisivumaalaus-valmis",
+    alt: "Moderni tumma puutalo julkisivumaalaus valmis Pirkanmaalla",
+    category: "Talon maalaus",
+  },
+  {
+    baseName: "tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaus",
+    alt: "Tiilikaton pinnoitus ja aurinkopaneelien suojaus Pirkanmaalla",
+    category: "Tiilikaton pinnoitus",
+  },
+  {
+    baseName: "puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen",
+    alt: "Puhdas tiilenpunainen tiilikatto suojakäsittelyn jälkeen Pirkanmaalla",
+    category: "Tiilikaton pinnoitus",
+  },
+  {
     baseName: "vastamaalattu-tiilikatto-kattopinnoitus-jalkeen",
     alt: "Vastamaalattu tiilikatto kattopinnoitus jälkeen Pirkanmaalla",
     category: "Tiilikaton pinnoitus",
@@ -36,7 +56,7 @@ const images = [
   },
 ];
 
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 6;
 
 const Gallery = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
