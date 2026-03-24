@@ -259,6 +259,8 @@ const Referenssit = () => {
   ];
 
   const filteredProjects = activeCategory === 'all' ? projects : projects.filter((p) => p.category === activeCategory);
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProjects.length;
 
   const openGroupLightbox = (project: GroupedProject) => {
     setSelectedProject(project);
