@@ -135,6 +135,7 @@ const Lightbox = ({
 
 const Referenssit = () => {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
+  const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState<GroupedProject | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
