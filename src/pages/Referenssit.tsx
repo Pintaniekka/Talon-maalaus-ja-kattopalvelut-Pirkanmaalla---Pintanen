@@ -337,7 +337,7 @@ const Referenssit = () => {
 
           <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
                   layout
@@ -380,6 +380,17 @@ const Referenssit = () => {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {hasMore && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setVisibleCount(filteredProjects.length)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+              >
+                Näytä lisää
+              </button>
+            </div>
+          )}
 
           {filteredProjects.length === 0 && (
             <p className="text-center text-muted-foreground py-12">Ei projekteja tässä kategoriassa.</p>
