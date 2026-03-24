@@ -249,7 +249,7 @@ const Referenssit = () => {
     // Uudet kuvat
     { type: 'single', baseName: 'vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen', category: 'maalaus', title: 'Vaalea kartanomainen puutalo ulkomaalaus jälkeen Pirkanmaalla' },
     { type: 'single', baseName: 'moderni-tumma-puutalo-julkisivumaalaus-valmis', category: 'maalaus', title: 'Moderni tumma puutalo julkisivumaalaus valmis Pirkanmaalla' },
-    { type: 'single', baseName: 'tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaustyot', category: 'pinnoitus', title: 'Tiilikaton pinnoitus ja aurinkopaneelien suojaustyöt Pirkanmaalla' },
+    { type: 'single', baseName: 'tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaus', category: 'pinnoitus', title: 'Tiilikaton pinnoitus ja aurinkopaneelien suojaus Pirkanmaalla' },
     { type: 'single', baseName: 'punainen-tiilikatto-kattopinnoitus-ja-huolto-jalkeen', category: 'pinnoitus', title: 'Punainen tiilikatto kattopinnoitus ja huolto jälkeen Pirkanmaalla' },
     { type: 'single', baseName: 'uutta-vastaava-tiilikatto-pesu-ja-suojakasittely', category: 'pinnoitus', title: 'Uutta vastaava tiilikatto pesu ja suojakäsittely Pirkanmaalla' },
   ];
