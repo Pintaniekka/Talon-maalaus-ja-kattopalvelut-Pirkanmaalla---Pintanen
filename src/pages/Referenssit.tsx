@@ -135,6 +135,7 @@ const Lightbox = ({
 
 const Referenssit = () => {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
+  const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState<GroupedProject | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -146,6 +147,15 @@ const Referenssit = () => {
   ];
 
   const projects: Project[] = [
+    // 1. Vaalea kartano
+    { type: 'single', baseName: 'vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen', category: 'maalaus', title: 'Vaalea kartanomainen puutalo ulkomaalaus jälkeen Pirkanmaalla' },
+    // 2. Moderni tumma puutalo
+    { type: 'single', baseName: 'moderni-tumma-puutalo-julkisivumaalaus-valmis', category: 'maalaus', title: 'Moderni tumma puutalo julkisivumaalaus valmis Pirkanmaalla' },
+    // 3. Aurinkopaneeli
+    { type: 'single', baseName: 'tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaus', category: 'pinnoitus', title: 'Tiilikaton pinnoitus ja aurinkopaneelien suojaus Pirkanmaalla' },
+    // 4. Puhdas tiilenpunainen
+    { type: 'single', baseName: 'puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen', category: 'pinnoitus', title: 'Puhdas tiilenpunainen tiilikatto suojakäsittelyn jälkeen Pirkanmaalla' },
+    // Loput samassa järjestyksessä
     {
       type: 'group',
       title: 'Tiilikaton pinnoitus – Valkeakoski',
@@ -236,8 +246,6 @@ const Referenssit = () => {
         { baseName: 'puutalon-ja-parvekkeen-huoltomaalaus-jalkeen', label: 'Puutalon ja parvekkeen huoltomaalaus jälkeen Ylöjärvellä' },
       ],
     },
-    // Yksittäiset kuvat
-    { type: 'single', baseName: 'puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen', category: 'pinnoitus', title: 'Puhdas tiilenpunainen tiilikatto suojakäsittelyn jälkeen Pirkanmaalla' },
     { type: 'single', baseName: 'tummanharmaa-tiilikaton-pinnoitus-ja-huolto-jalkeen', category: 'pinnoitus', title: 'Tummanharmaa tiilikaton pinnoitus ja huolto jälkeen Pirkanmaalla' },
     { type: 'single', baseName: 'tummanharmaa-kattotiili-pesu-ja-pinnoitustyo', category: 'pinnoitus', title: 'Tummanharmaa kattotiili pesu ja pinnoitustyö Pirkanmaalla' },
     { type: 'single', baseName: 'vastamaalattu-tiilikatto-kattopinnoitus-jalkeen', category: 'pinnoitus', title: 'Vastamaalattu tiilikatto kattopinnoitus jälkeen Pirkanmaalla' },
@@ -246,15 +254,13 @@ const Referenssit = () => {
     { type: 'single', baseName: 'tiilikaton-harjatiivisteen-asennus-kattohuolto', category: 'puhdistus', title: 'Tiilikaton harjatiivisteen asennus kattohuolto Pirkanmaalla' },
     { type: 'single', baseName: 'huolellinen-ympariston-suojaus-ennen-maalausta', category: 'maalaus', title: 'Huolellinen ympäristön suojaus ennen maalausta Pirkanmaalla' },
     { type: 'single', baseName: 'talon-julkisivun-ja-ikkunoiden-suojaustyot', category: 'maalaus', title: 'Talon julkisivun ja ikkunoiden suojaustyöt Pirkanmaalla' },
-    // Uudet kuvat
-    { type: 'single', baseName: 'vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen', category: 'maalaus', title: 'Vaalea kartanomainen puutalo ulkomaalaus jälkeen Pirkanmaalla' },
-    { type: 'single', baseName: 'moderni-tumma-puutalo-julkisivumaalaus-valmis', category: 'maalaus', title: 'Moderni tumma puutalo julkisivumaalaus valmis Pirkanmaalla' },
-    { type: 'single', baseName: 'tiilikaton-pinnoitus-ja-aurinkopaneelien-suojaus', category: 'pinnoitus', title: 'Tiilikaton pinnoitus ja aurinkopaneelien suojaus Pirkanmaalla' },
     { type: 'single', baseName: 'punainen-tiilikatto-kattopinnoitus-ja-huolto-jalkeen', category: 'pinnoitus', title: 'Punainen tiilikatto kattopinnoitus ja huolto jälkeen Pirkanmaalla' },
     { type: 'single', baseName: 'uutta-vastaava-tiilikatto-pesu-ja-suojakasittely', category: 'pinnoitus', title: 'Uutta vastaava tiilikatto pesu ja suojakäsittely Pirkanmaalla' },
   ];
 
   const filteredProjects = activeCategory === 'all' ? projects : projects.filter((p) => p.category === activeCategory);
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProjects.length;
 
   const openGroupLightbox = (project: GroupedProject) => {
     setSelectedProject(project);
@@ -319,7 +325,7 @@ const Referenssit = () => {
             {categories.map((cat) => (
               <button
                 key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
+                onClick={() => { setActiveCategory(cat.key); setVisibleCount(6); }}
                 className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === cat.key ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'
                 }`}
@@ -331,7 +337,7 @@ const Referenssit = () => {
 
           <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
                   layout
@@ -374,6 +380,17 @@ const Referenssit = () => {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {hasMore && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setVisibleCount(filteredProjects.length)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+              >
+                Näytä lisää
+              </button>
+            </div>
+          )}
 
           {filteredProjects.length === 0 && (
             <p className="text-center text-muted-foreground py-12">Ei projekteja tässä kategoriassa.</p>

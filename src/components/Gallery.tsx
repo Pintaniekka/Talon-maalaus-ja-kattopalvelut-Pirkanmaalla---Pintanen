@@ -30,33 +30,13 @@ const images = [
     category: "Tiilikaton pinnoitus",
   },
   {
-    baseName: "tummanharmaa-tiilikaton-pinnoitus-ja-huolto-jalkeen",
-    alt: "Tummanharmaa tiilikaton pinnoitus ja huolto jälkeen Pirkanmaalla",
-    category: "Tiilikaton pinnoitus",
-  },
-  {
-    baseName: "uudenveroinen-punainen-tiilikatto-maalaus-jalkeen",
-    alt: "Uudenveroinen punainen tiilikatto maalaus jälkeen Pirkanmaalla",
-    category: "Tiilikaton pinnoitus",
-  },
-  {
     baseName: "tummansininen-puutalo-ulkomaalaus-jalkeen",
     alt: "Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla",
     category: "Talon maalaus",
   },
-  {
-    baseName: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
-    alt: "Violetti puutalo värinvaihto peittomaalaus jälkeen Pirkanmaalla",
-    category: "Talon maalaus",
-  },
-  {
-    baseName: "harmaa-omakotitalo-varinvaihto-ulkomaalaus-jalkeen",
-    alt: "Harmaa omakotitalo värinvaihto ulkomaalaus jälkeen Pirkanmaalla",
-    category: "Talon maalaus",
-  },
 ];
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 3;
 
 const Gallery = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
