@@ -13,7 +13,7 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import MaalausFinancing from "@/components/maalaus/MaalausFinancing";
 import MaalausEntrepreneur from "@/components/maalaus/MaalausEntrepreneur";
 import FAQSection from "@/components/FAQSection";
-import ServiceContactSection from "@/components/ServiceContactSection";
+import TeamContactSection from "@/components/TeamContactSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import SEO from "@/components/SEO";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
@@ -109,7 +109,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       <MaalausFinancing cityName={cityName} />
       <MaalausEntrepreneur />
       <FAQSection items={getMaalausCityFAQ(cityName, cityData.cityGenitive, cityData.cityIn)} />
-      <ServiceContactSection variant="maalaus" cityName={cityName} cityGenitive={cityData.cityGenitive} />
+      <TeamContactSection cityName={cityName} cityGenitive={cityData.cityGenitive} />
       <ToimintaAlueetBanner />
     </div>
   );
