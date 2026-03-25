@@ -13,7 +13,7 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import MaalausFinancing from "@/components/maalaus/MaalausFinancing";
 import MaalausEntrepreneur from "@/components/maalaus/MaalausEntrepreneur";
 import FAQSection from "@/components/FAQSection";
-import ServiceContactSection from "@/components/ServiceContactSection";
+import TeamContactSection from "@/components/TeamContactSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import SEO from "@/components/SEO";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
