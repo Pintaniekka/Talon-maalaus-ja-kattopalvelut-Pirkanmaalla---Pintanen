@@ -18,7 +18,7 @@ const SEO = ({ title, description, preloadImage }: SEOProps) => {
   const pageTitle = title ? `${title} | Pintanen` : defaultTitle;
   const pageDescription = description || defaultDescription;
   const cleanPath = pathname.replace(/\/+$/, '');
-  const canonicalUrl = `https://pintanen.fi${cleanPath}`;
+  const canonicalUrl = cleanPath === '' ? 'https://pintanen.fi/' : `https://pintanen.fi${cleanPath}/`;
   const imageToPreload = preloadImage || (!title ? heroImage : undefined);
 
   return (
