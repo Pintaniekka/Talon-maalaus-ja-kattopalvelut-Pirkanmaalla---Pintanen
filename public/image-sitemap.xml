@@ -21,7 +21,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pintanen.fi/kattopalvelut/pinnoitus</loc>
+    <loc>https://pintanen.fi/kattopalvelut/pinnoitus/</loc>
     <image:image>
       <image:loc>https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Muut_referenssit/Kiiltava%20maalattu%20katto.webp</image:loc>
       <image:title>Kiiltävä tiilikatto pinnoituksen jälkeen</image:title>
@@ -32,14 +32,14 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pintanen.fi/kattopalvelut/puhdistus</loc>
+    <loc>https://pintanen.fi/kattopalvelut/puhdistus/</loc>
     <image:image>
       <image:loc>https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Muut_referenssit/Puhdistuksen%20jalkeen.webp</image:loc>
       <image:title>Tiilikatto puhdistuksen jälkeen – sammal poistettu</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://pintanen.fi/talon-maalaus</loc>
+    <loc>https://pintanen.fi/talon-maalaus/</loc>
     <image:image>
       <image:loc>https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Samaan_kohtaan_synkronoidut_kuvat_erikseen/Laivaston%20sininen%20talo%20maalauksen%20jalkeen.webp</image:loc>
       <image:title>Ammattitaitoinen ulkomaalaus – sininen puutalo</image:title>
@@ -50,7 +50,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pintanen.fi/referenssit</loc>
+    <loc>https://pintanen.fi/referenssit/</loc>
     <image:image>
       <image:loc>https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Muut_referenssit/katto%20puolet%20pesty.webp</image:loc>
       <image:title>Tiilikaton puhdistus – puolet pesty referenssikuva</image:title>
