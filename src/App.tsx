@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,24 +7,25 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import { cities as fullServiceCities, allCities, maalausCities } from "./data/cityData";
+import { lazyWithRetry } from "./lib/lazyWithRetry";
 
 // Lazy-loaded subpages
-const KattopalvelutPinnoitus = lazy(() => import("./pages/KattopalvelutPinnoitus"));
-const KattopalvelutPuhdistus = lazy(() => import("./pages/KattopalvelutPuhdistus"));
-const KattopalvelutPinnoitusCity = lazy(() => import("./pages/KattopalvelutPinnoitusCity"));
-const KattopalvelutPuhdistusCity = lazy(() => import("./pages/KattopalvelutPuhdistusCity"));
-const TalonMaalaus = lazy(() => import("./pages/TalonMaalaus"));
-const TalonMaalausCity = lazy(() => import("./pages/TalonMaalausCity"));
-const ToimintaAlueet = lazy(() => import("./pages/ToimintaAlueet"));
-const ServiceAreaPage = lazy(() => import("./pages/ServiceAreaPage"));
-const Referenssit = lazy(() => import("./pages/Referenssit"));
-const Hinnat = lazy(() => import("./pages/Hinnat"));
-const HinnatTiilikalonPinnoitus = lazy(() => import("./pages/HinnatTiilikalonPinnoitus"));
-const HinnatKatonPuhdistus = lazy(() => import("./pages/HinnatKatonPuhdistus"));
-const HinnatTalonMaalaus = lazy(() => import("./pages/HinnatTalonMaalaus"));
-const Meista = lazy(() => import("./pages/Meista"));
-const ImageTest = lazy(() => import("./pages/ImageTest"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const KattopalvelutPinnoitus = lazyWithRetry(() => import("./pages/KattopalvelutPinnoitus"));
+const KattopalvelutPuhdistus = lazyWithRetry(() => import("./pages/KattopalvelutPuhdistus"));
+const KattopalvelutPinnoitusCity = lazyWithRetry(() => import("./pages/KattopalvelutPinnoitusCity"));
+const KattopalvelutPuhdistusCity = lazyWithRetry(() => import("./pages/KattopalvelutPuhdistusCity"));
+const TalonMaalaus = lazyWithRetry(() => import("./pages/TalonMaalaus"));
+const TalonMaalausCity = lazyWithRetry(() => import("./pages/TalonMaalausCity"));
+const ToimintaAlueet = lazyWithRetry(() => import("./pages/ToimintaAlueet"));
+const ServiceAreaPage = lazyWithRetry(() => import("./pages/ServiceAreaPage"));
+const Referenssit = lazyWithRetry(() => import("./pages/Referenssit"));
+const Hinnat = lazyWithRetry(() => import("./pages/Hinnat"));
+const HinnatTiilikalonPinnoitus = lazyWithRetry(() => import("./pages/HinnatTiilikalonPinnoitus"));
+const HinnatKatonPuhdistus = lazyWithRetry(() => import("./pages/HinnatKatonPuhdistus"));
+const HinnatTalonMaalaus = lazyWithRetry(() => import("./pages/HinnatTalonMaalaus"));
+const Meista = lazyWithRetry(() => import("./pages/Meista"));
+const ImageTest = lazyWithRetry(() => import("./pages/ImageTest"));
+const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
