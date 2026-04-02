@@ -192,7 +192,7 @@ const RoofPriceCalculator = () => {
                 <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
-              <p className="text-xs text-muted-foreground">* Nimi ja puhelin tai sähköposti vaaditaan</p>
+              <p className="text-xs text-muted-foreground">* Kaikki kentät ovat pakollisia</p>
             </div>
           </motion.div>
         )}
