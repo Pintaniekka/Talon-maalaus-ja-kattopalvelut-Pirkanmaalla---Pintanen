@@ -55,8 +55,8 @@ const RoofPriceCalculator = () => {
   const roofPrice = calculateRoofPrice();
 
   const handleSubmitContact = async () => {
-    if (!contactName.trim() || (!contactPhone.trim() && !contactEmail.trim())) {
-      toast({ title: "Täytä yhteystiedot", description: "Nimi ja puhelin tai sähköposti vaaditaan.", variant: "destructive" });
+    if (!contactName.trim() || !contactPhone.trim() || !contactEmail.trim()) {
+      toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
     setIsLoading(true);
@@ -184,15 +184,15 @@ const RoofPriceCalculator = () => {
               </div>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin"
+                <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin *"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti"
+                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
-              <p className="text-xs text-muted-foreground">* Nimi ja puhelin tai sähköposti vaaditaan</p>
+              <p className="text-xs text-muted-foreground">* Kaikki kentät ovat pakollisia</p>
             </div>
           </motion.div>
         )}
