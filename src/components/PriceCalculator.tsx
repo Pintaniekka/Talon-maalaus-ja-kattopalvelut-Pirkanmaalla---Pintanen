@@ -121,8 +121,8 @@ const PriceCalculator = () => {
   const goBack = () => { if (currentStepIdx > 0) setCurrentStepIdx(currentStepIdx - 1); };
 
   const handleSubmitContact = async () => {
-    if (!contactName.trim() || (!contactPhone.trim() && !contactEmail.trim())) {
-      toast({ title: 'Täytä yhteystiedot', description: 'Nimi ja puhelin tai sähköposti vaaditaan.', variant: 'destructive' });
+    if (!contactName.trim() || !contactPhone.trim() || !contactEmail.trim()) {
+      toast({ title: 'Täytä yhteystiedot', description: 'Kaikki kentät ovat pakollisia.', variant: 'destructive' });
       return;
     }
     setIsLoading(true);
