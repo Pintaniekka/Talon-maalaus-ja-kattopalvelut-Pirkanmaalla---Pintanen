@@ -169,8 +169,8 @@ const ChatPriceCalculator = () => {
     });
   }, [scrollToBottom]);
 
-  const addUserMessage = useCallback((text: string) => {
-    setMessages(prev => [...prev, { id: `user-${Date.now()}`, from: 'user', text }]);
+  const addUserMessage = useCallback((text: string, imageBase?: string) => {
+    setMessages(prev => [...prev, { id: `user-${Date.now()}`, from: 'user', text, imageBase }]);
     scrollToBottom();
   }, [scrollToBottom]);
 
