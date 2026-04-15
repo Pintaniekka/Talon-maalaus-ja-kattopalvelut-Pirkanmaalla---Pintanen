@@ -113,7 +113,7 @@ const UserBubble = ({ text, imageBase }: { text: string; imageBase?: string }) =
   >
     <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm shadow-sm max-w-[85%] overflow-hidden">
       {imageBase && (
-        <div className="aspect-[16/10] overflow-hidden">
+        <div className="aspect-[16/9] overflow-hidden max-h-28">
           <img
             src={getResponsiveSrc(imageBase)}
             srcSet={getResponsiveSrcSet(imageBase)}
@@ -463,17 +463,17 @@ const ChatPriceCalculator = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="pl-9 mb-3"
+                  className="flex justify-end mb-3"
                 >
                   {stepUI.kind === 'image-options' && (
-                    <div className="grid grid-cols-2 gap-2.5 max-w-[85%]">
+                    <div className="grid grid-cols-2 gap-2.5 max-w-[70%]">
                       {stepUI.options.map(opt => (
                         <button
                           key={opt.value}
                           onClick={() => handleImageOption(opt)}
                           className="group flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all border border-white/80"
                         >
-                          <div className="aspect-[16/10] overflow-hidden">
+                          <div className="aspect-[16/9] overflow-hidden max-h-24">
                             <img
                               src={getResponsiveSrc(opt.imageBase)}
                               srcSet={getResponsiveSrcSet(opt.imageBase)}
@@ -491,7 +491,7 @@ const ChatPriceCalculator = () => {
                     </div>
                   )}
                   {stepUI.kind === 'options' && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-end">
                       {stepUI.options.map(opt => (
                         <button
                           key={opt.value}
