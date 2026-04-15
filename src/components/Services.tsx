@@ -2,15 +2,17 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ResponsiveSupabaseImage from "./ResponsiveSupabaseImage";
+import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "./ServiceIcons";
 
 const services = [
   {
     title: "Tiilikaton pinnoitus",
     href: "/tiilikaton-pinnoitus-pirkanmaa",
-    imageBase: "uutta-vastaava-tiilikatto-pesu-ja-suojakasittely",
+    imageBase: "kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen",
     description:
       "Tiilikaton maalauspinnoitus pidentää katon käyttöikää jopa 15-20 vuotta murto-osalla uuden katon hinnasta.",
     tag: "5v takuu",
+    Icon: RoofTileIcon,
   },
   {
     title: "Katon puhdistus",
@@ -18,6 +20,7 @@ const services = [
     imageBase: "puhdas-tiilikatto-mekaanisen-puhdistuksen-jalkeen",
     description: "Mekaaninen katon puhdistus poistaa sammaleen, estää uuden kasvun ja suojaa kattoasi.",
     tag: "Laatutakuu",
+    Icon: RoofCleanIcon,
   },
   {
     title: "Talon maalaus",
@@ -25,6 +28,7 @@ const services = [
     imageBase: "vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen",
     description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
     tag: "2v takuu",
+    Icon: PaintBrushIcon,
   },
 ];
 
@@ -65,7 +69,7 @@ const Services = () => {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") navigate(service.href);
                 }}
-                className="relative rounded-2xl overflow-hidden group cursor-pointer h-full min-h-[420px] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/5] md:aspect-[3/4] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Background image */}
                 <ResponsiveSupabaseImage
@@ -85,7 +89,10 @@ const Services = () => {
                     {service.tag}
                   </span>
 
-                  <h3 className="text-xl font-bold text-white font-heading leading-tight">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-white font-heading leading-tight flex items-center gap-2">
+                    <service.Icon className="w-6 h-6 brightness-0 invert" />
+                    {service.title}
+                  </h3>
                   <p className="text-white/85 text-sm leading-relaxed">{service.description}</p>
 
                   {/* CTA */}
