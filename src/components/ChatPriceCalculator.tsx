@@ -315,6 +315,7 @@ const ChatPriceCalculator = () => {
       if (step === 3) dataRef.current.brokenTiles = value;
       if (step === 4) dataRef.current.underlayment = value;
       if (step === 5) dataRef.current.slope = value;
+      if (step === 6) dataRef.current.utilities = value;
     }
 
     setStepUI(null);
