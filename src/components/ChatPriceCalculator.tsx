@@ -143,6 +143,8 @@ const ChatPriceCalculator = () => {
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAutoStarted = useRef(false);
   const { toast } = useToast();
 
   // Collected data
