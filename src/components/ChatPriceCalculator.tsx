@@ -278,7 +278,7 @@ const ChatPriceCalculator = () => {
 
   // ── Handlers ──────────────────────────────────────────────────────────
   const handleImageOption = useCallback(async (option: ImageOption) => {
-    addUserMessage(option.label);
+    addUserMessage(option.label, option.imageBase);
     const p = option.value as ServicePath;
     setPath(p);
     dataRef.current.service = option.value;
