@@ -54,6 +54,7 @@ interface ChatMsg {
   id: string;
   from: 'bot' | 'user';
   text: string;
+  imageBase?: string;
 }
 
 interface ImageOption {
