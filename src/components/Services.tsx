@@ -69,7 +69,7 @@ const Services = () => {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") navigate(service.href);
                 }}
-                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/3] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/5] md:aspect-[3/4] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Background image */}
                 <ResponsiveSupabaseImage
@@ -89,10 +89,8 @@ const Services = () => {
                     {service.tag}
                   </span>
 
-                  <h3 className="text-xl font-bold text-white font-heading leading-tight flex items-center gap-2.5">
-                    <span className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                      <service.Icon className="w-5 h-5 brightness-0 invert" />
-                    </span>
+                  <h3 className="text-xl font-bold text-white font-heading leading-tight flex items-center gap-2">
+                    <service.Icon className="w-6 h-6 brightness-0 invert" />
                     {service.title}
                   </h3>
                   <p className="text-white/85 text-sm leading-relaxed">{service.description}</p>
