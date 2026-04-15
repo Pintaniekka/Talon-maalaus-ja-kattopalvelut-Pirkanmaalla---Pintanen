@@ -447,33 +447,16 @@ const ChatPriceCalculator = () => {
               className="px-4 py-4 min-h-[280px] max-h-[480px] overflow-y-auto"
               style={{ backgroundColor: '#ecf7ff' }}
             >
-              {!chatStarted ? (
-                <div className="flex flex-col items-center justify-center h-[260px] gap-4">
-                  <img src={eerikImage} alt="Eerik" className="w-16 h-16 rounded-full object-cover shadow-md" />
-                  <p className="text-foreground/70 text-sm text-center max-w-xs">
-                    Tiedätkö, mitä remonttisi maksaa? Kokeile helppoa hintalaskuriamme!
-                  </p>
-                  <button
-                    onClick={startChat}
-                    className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl shadow-md hover:bg-primary/90 transition-colors text-sm"
-                  >
-                    Aloita hintalaskuri 💬
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <AnimatePresence>
-                    {messages.map(msg =>
-                      msg.from === 'bot' ? (
-                        <BotBubble key={msg.id} text={msg.text} />
-                      ) : (
-                        <UserBubble key={msg.id} text={msg.text} />
-                      )
-                    )}
-                  </AnimatePresence>
-                  {isTyping && <TypingIndicator />}
-                </>
-              )}
+              <AnimatePresence>
+                {messages.map(msg =>
+                  msg.from === 'bot' ? (
+                    <BotBubble key={msg.id} text={msg.text} />
+                  ) : (
+                    <UserBubble key={msg.id} text={msg.text} imageBase={msg.imageBase} />
+                  )
+                )}
+              </AnimatePresence>
+              {isTyping && <TypingIndicator />}
             </div>
 
             {/* Input area */}
