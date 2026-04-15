@@ -3,7 +3,7 @@ import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import Services from "@/components/Services";
 import MiksiPintanen from "@/components/MiksiPintanen";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import PriceCalculatorCTA from "@/components/PriceCalculatorCTA";
+import ChatPriceCalculator from "@/components/ChatPriceCalculator";
 import Gallery from "@/components/Gallery";
 import FAQSection from "@/components/FAQSection";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
@@ -20,7 +20,7 @@ const Index = () => {
       <Hero />
       <TestimonialsMarquee />
       <Services />
-      <PriceCalculatorCTA />
+      <ChatPriceCalculator />
       <MiksiPintanen />
       <ProcessTimeline />
       <Gallery />
