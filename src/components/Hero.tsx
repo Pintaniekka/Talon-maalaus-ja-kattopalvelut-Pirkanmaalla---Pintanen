@@ -2,9 +2,10 @@ import { ArrowRight, Star, Check } from "lucide-react";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
 const heroBaseName = "tummansininen-puutalo-ulkomaalaus-jalkeen";
-const brushBaseName = "talon-maalaus-pensseli";
 
 const Hero = () => {
+  const svgUrl = "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/maali_valuu.svg";
+
   return (
     <div className="relative">
       <section id="hero" className="hero-critical relative min-h-screen flex items-center overflow-hidden">
@@ -75,15 +76,19 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Paintbrush stroke divider */}
-      <img
-        src={getResponsiveSrc(brushBaseName)}
-        srcSet={getResponsiveSrcSet(brushBaseName)}
-        sizes="100vw"
-        alt="Maalipensselin veto"
-        className="w-full h-auto block relative z-20 -mt-[1px]"
-        loading="eager"
-        decoding="async"
+      <div
+        className="absolute left-0 top-full mt-[1px] w-full h-[110px] block md:hidden pointer-events-none z-20"
+        style={{
+          backgroundColor: '#96dafb',
+          WebkitMaskImage: `url("${svgUrl}")`,
+          maskImage: `url("${svgUrl}")`,
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskSize: '100% 100%',
+          maskSize: '100% 100%',
+          WebkitMaskPosition: 'top center',
+          maskPosition: 'top center',
+        }}
       />
     </div>
   );
