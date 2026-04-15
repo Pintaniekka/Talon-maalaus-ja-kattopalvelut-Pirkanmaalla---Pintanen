@@ -223,7 +223,11 @@ const ChatPriceCalculator = () => {
           ] });
           break;
         case 6:
-          await addBotMessage('Mahtavaa. Missä päin kohde muuten sijaitsee (kaupunki)?');
+          if (dataRef.current.utilities === 'ei') {
+            await addBotMessage('Aivan, tästä täytyy keskustella tarkemmin paikan päällä. Missä päin kohde muuten sijaitsee (kaupunki)?');
+          } else {
+            await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
+          }
           setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
           break;
         case 7:
@@ -263,10 +267,21 @@ const ChatPriceCalculator = () => {
           ] });
           break;
         case 6:
-          await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          await addBotMessage('Varmistetaan vielä pari käytännön asiaa: onhan kohteessa saatavilla vettä (vesiposti) ja sähköä (tavallinen pistorasia)?');
+          setStepUI({ kind: 'options', options: [
+            { label: 'Kyllä löytyy!', value: 'kylla' },
+            { label: 'Ei löydy', value: 'ei' },
+          ] });
           break;
         case 7:
+          if (dataRef.current.utilities === 'ei') {
+            await addBotMessage('Aivan, tästä täytyy keskustella tarkemmin paikan päällä. Missä päin kohde sijaitsee?');
+          } else {
+            await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
+          }
+          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          break;
+        case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
           setStepUI({ kind: 'contact' });
           break;
