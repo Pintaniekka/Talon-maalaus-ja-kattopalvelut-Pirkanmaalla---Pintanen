@@ -54,6 +54,7 @@ interface ChatMsg {
   id: string;
   from: 'bot' | 'user';
   text: string;
+  imageBase?: string;
 }
 
 interface ImageOption {
@@ -104,14 +105,26 @@ const BotBubble = ({ text }: { text: string }) => (
 );
 
 // ── User message bubble ───────────────────────────────────────────────────
-const UserBubble = ({ text }: { text: string }) => (
+const UserBubble = ({ text, imageBase }: { text: string; imageBase?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     className="flex justify-end mb-3"
   >
-    <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm px-4 py-3 shadow-sm max-w-[85%]">
-      <p className="text-sm leading-relaxed">{text}</p>
+    <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm shadow-sm max-w-[85%] overflow-hidden">
+      {imageBase && (
+        <div className="aspect-[16/10] overflow-hidden">
+          <img
+            src={getResponsiveSrc(imageBase)}
+            srcSet={getResponsiveSrcSet(imageBase)}
+            alt={text}
+            sizes="(max-width: 768px) 45vw, 250px"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
+      <p className="text-sm leading-relaxed px-4 py-3">{text}</p>
     </div>
   </motion.div>
 );
@@ -130,6 +143,8 @@ const ChatPriceCalculator = () => {
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAutoStarted = useRef(false);
   const { toast } = useToast();
 
   // Collected data
@@ -154,8 +169,8 @@ const ChatPriceCalculator = () => {
     });
   }, [scrollToBottom]);
 
-  const addUserMessage = useCallback((text: string) => {
-    setMessages(prev => [...prev, { id: `user-${Date.now()}`, from: 'user', text }]);
+  const addUserMessage = useCallback((text: string, imageBase?: string) => {
+    setMessages(prev => [...prev, { id: `user-${Date.now()}`, from: 'user', text, imageBase }]);
     scrollToBottom();
   }, [scrollToBottom]);
 
@@ -263,7 +278,7 @@ const ChatPriceCalculator = () => {
 
   // ── Handlers ──────────────────────────────────────────────────────────
   const handleImageOption = useCallback(async (option: ImageOption) => {
-    addUserMessage(option.label);
+    addUserMessage(option.label, option.imageBase);
     const p = option.value as ServicePath;
     setPath(p);
     dataRef.current.service = option.value;
@@ -366,12 +381,29 @@ const ChatPriceCalculator = () => {
     }
   }, [contactName, contactPhone, path, addBotMessage, toast, addUserMessage]);
 
+  // Auto-start on scroll into view
+  useEffect(() => {
+    if (!sectionRef.current || hasAutoStarted.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAutoStarted.current) {
+          hasAutoStarted.current = true;
+          startChat();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [startChat]);
+
   useEffect(() => {
     scrollToBottom();
   }, [messages, isTyping, scrollToBottom]);
 
   return (
-    <section className="section-padding" style={{ backgroundColor: '#ecf7ff' }}>
+    <section ref={sectionRef} className="section-padding" style={{ backgroundColor: '#ecf7ff' }}>
       <style>{`
         @keyframes chatBounce {
           0%, 60%, 100% { transform: translateY(0); }
@@ -415,77 +447,69 @@ const ChatPriceCalculator = () => {
               className="px-4 py-4 min-h-[280px] max-h-[480px] overflow-y-auto"
               style={{ backgroundColor: '#ecf7ff' }}
             >
-              {!chatStarted ? (
-                <div className="flex flex-col items-center justify-center h-[260px] gap-4">
-                  <img src={eerikImage} alt="Eerik" className="w-16 h-16 rounded-full object-cover shadow-md" />
-                  <p className="text-foreground/70 text-sm text-center max-w-xs">
-                    Tiedätkö, mitä remonttisi maksaa? Kokeile helppoa hintalaskuriamme!
-                  </p>
-                  <button
-                    onClick={startChat}
-                    className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl shadow-md hover:bg-primary/90 transition-colors text-sm"
-                  >
-                    Aloita hintalaskuri 💬
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <AnimatePresence>
-                    {messages.map(msg =>
-                      msg.from === 'bot' ? (
-                        <BotBubble key={msg.id} text={msg.text} />
-                      ) : (
-                        <UserBubble key={msg.id} text={msg.text} />
-                      )
-                    )}
-                  </AnimatePresence>
-                  {isTyping && <TypingIndicator />}
-                </>
+              <AnimatePresence>
+                {messages.map(msg =>
+                  msg.from === 'bot' ? (
+                    <BotBubble key={msg.id} text={msg.text} />
+                  ) : (
+                    <UserBubble key={msg.id} text={msg.text} imageBase={msg.imageBase} />
+                  )
+                )}
+              </AnimatePresence>
+              {isTyping && <TypingIndicator />}
+
+              {/* Inline bubble-style options */}
+              {!isTyping && stepUI && (stepUI.kind === 'image-options' || stepUI.kind === 'options') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="pl-9 mb-3"
+                >
+                  {stepUI.kind === 'image-options' && (
+                    <div className="grid grid-cols-2 gap-2.5 max-w-[85%]">
+                      {stepUI.options.map(opt => (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleImageOption(opt)}
+                          className="group flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all border border-white/80"
+                        >
+                          <div className="aspect-[16/10] overflow-hidden">
+                            <img
+                              src={getResponsiveSrc(opt.imageBase)}
+                              srcSet={getResponsiveSrcSet(opt.imageBase)}
+                              alt={opt.label}
+                              sizes="(max-width: 768px) 40vw, 240px"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          <span className="py-2 px-3 text-sm font-semibold text-foreground text-center">
+                            {opt.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {stepUI.kind === 'options' && (
+                    <div className="flex flex-wrap gap-2">
+                      {stepUI.options.map(opt => (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleOption(opt.label, opt.value)}
+                          className="px-4 py-2.5 rounded-2xl bg-white text-sm font-medium text-foreground shadow-sm hover:shadow-md transition-all"
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
               )}
             </div>
 
-            {/* Input area */}
-            {chatStarted && stepUI && !isTyping && (
+            {/* Input area — only for text/number/contact inputs */}
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
-                {stepUI.kind === 'image-options' && (
-                  <div className="grid grid-cols-2 gap-3">
-                    {stepUI.options.map(opt => (
-                      <button
-                        key={opt.value}
-                        onClick={() => handleImageOption(opt)}
-                        className="group flex flex-col rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-md transition-all"
-                      >
-                        <div className="aspect-[16/10] overflow-hidden">
-                          <img
-                            src={getResponsiveSrc(opt.imageBase)}
-                            srcSet={getResponsiveSrcSet(opt.imageBase)}
-                            alt={opt.label}
-                            sizes="(max-width: 768px) 45vw, 280px"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                        </div>
-                        <span className="py-2.5 px-3 text-sm font-semibold text-foreground text-center">
-                          {opt.label}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {stepUI.kind === 'options' && (
-                  <div className="flex flex-wrap gap-2">
-                    {stepUI.options.map(opt => (
-                      <button
-                        key={opt.value}
-                        onClick={() => handleOption(opt.label, opt.value)}
-                        className="px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm font-medium text-foreground hover:border-primary hover:bg-primary/5 transition-colors shadow-sm"
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
 
                 {stepUI.kind === 'number' && (
                   <form
