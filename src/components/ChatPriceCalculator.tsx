@@ -223,7 +223,11 @@ const ChatPriceCalculator = () => {
           ] });
           break;
         case 6:
-          await addBotMessage('Mahtavaa. Missä päin kohde muuten sijaitsee (kaupunki)?');
+          if (dataRef.current.utilities === 'ei') {
+            await addBotMessage('Aivan, tästä täytyy keskustella tarkemmin paikan päällä. Missä päin kohde muuten sijaitsee (kaupunki)?');
+          } else {
+            await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
+          }
           setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
           break;
         case 7:
@@ -263,10 +267,21 @@ const ChatPriceCalculator = () => {
           ] });
           break;
         case 6:
-          await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          await addBotMessage('Varmistetaan vielä pari käytännön asiaa: onhan kohteessa saatavilla vettä (vesiposti) ja sähköä (tavallinen pistorasia)?');
+          setStepUI({ kind: 'options', options: [
+            { label: 'Kyllä löytyy!', value: 'kylla' },
+            { label: 'Ei löydy', value: 'ei' },
+          ] });
           break;
         case 7:
+          if (dataRef.current.utilities === 'ei') {
+            await addBotMessage('Aivan, tästä täytyy keskustella tarkemmin paikan päällä. Missä päin kohde sijaitsee?');
+          } else {
+            await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
+          }
+          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          break;
+        case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
           setStepUI({ kind: 'contact' });
           break;
@@ -300,6 +315,7 @@ const ChatPriceCalculator = () => {
       if (step === 3) dataRef.current.brokenTiles = value;
       if (step === 4) dataRef.current.underlayment = value;
       if (step === 5) dataRef.current.slope = value;
+      if (step === 6) dataRef.current.utilities = value;
     }
 
     setStepUI(null);
@@ -356,7 +372,7 @@ const ChatPriceCalculator = () => {
       priceStr = `${p.min.toLocaleString('fi-FI')} – ${p.max.toLocaleString('fi-FI')} €`;
       const brokenLabels: Record<string, string> = { ei: 'Ei rikkinäisiä', '1-5': '1–5 rikkinäistä', '5-20': '5–20 rikkinäistä' };
       const slopeLabels: Record<string, string> = { loiva: 'Loiva', normaali: 'Normaali', jyrkka: 'Todella jyrkkä' };
-      details = `Katon koko: ${d.squareMeters} m², Rikkinäiset tiilet: ${brokenLabels[d.brokenTiles] || d.brokenTiles}, Aluskate: ${d.underlayment === 'kylla' ? 'Löytyy' : 'Epävarma'}, Jyrkkyys: ${slopeLabels[d.slope] || d.slope}, Kaupunki: ${d.city || '-'}`;
+      details = `Katon koko: ${d.squareMeters} m², Rikkinäiset tiilet: ${brokenLabels[d.brokenTiles] || d.brokenTiles}, Aluskate: ${d.underlayment === 'kylla' ? 'Löytyy' : 'Epävarma'}, Jyrkkyys: ${slopeLabels[d.slope] || d.slope}, Vesi/sähkö: ${d.utilities === 'kylla' ? 'Kyllä' : 'Ei'}, Kaupunki: ${d.city || '-'}`;
     }
 
     try {
