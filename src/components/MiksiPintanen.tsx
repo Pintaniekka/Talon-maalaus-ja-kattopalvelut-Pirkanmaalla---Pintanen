@@ -24,31 +24,31 @@ const MiksiPintanen = () => {
                 Terve, ja mukava että löysit Pintasen.
               </p>
               <p>
-                Me olemme veljekset Eerik ja Eemil. Pintanen syntyi halusta tehdä maalaustyöt
-                paremmin – ilman turhia välikäsiä tai raskasta kulurakennetta, ja ilman että
+                Me olemme veljekset <strong>Eerik</strong> ja <strong>Eemil</strong>. Pintanen syntyi halusta tehdä maalaustyöt
+                paremmin – <strong>ilman turhia välikäsiä</strong> tai raskasta kulurakennetta, ja ilman että
                 laatu kärsii.
               </p>
               <p>
-                Teemme työt itse. Tulemme paikan päälle, arvioimme kohteen ja hoidamme työn
-                alusta loppuun omalla tiimillä. Näin tiedämme, että sovitut asiat myös
+                <strong>Teemme työt itse.</strong> Tulemme paikan päälle, arvioimme kohteen ja hoidamme työn
+                alusta loppuun <strong>omalla tiimillä</strong>. Näin tiedämme, että sovitut asiat myös
                 toteutuvat.
               </p>
               <p>
-                Eerik vastaa tiilikatoista – puhdistuksista ja pinnoituksista, joilla katon
+                <strong>Eerik</strong> vastaa tiilikatoista – <strong>puhdistuksista ja pinnoituksista</strong>, joilla katon
                 käyttöikää voidaan jatkaa vuosilla.{' '}
-                Eemil keskittyy talojen seinien maalauksiin, joiden kanssa hänellä on pitkä
+                <strong>Eemil</strong> keskittyy talojen seinien <strong>maalauksiin</strong>, joiden kanssa hänellä on pitkä
                 historia.
               </p>
               <p>
                 Meille mikään kohde ei ole liian pieni tai liian suuri. Teemme töitä
-                kesämökeistä taloyhtiöihin noin tunnin säteellä Tampereelta.
+                <strong> kesämökeistä taloyhtiöihin</strong> noin <strong>tunnin säteellä Tampereelta</strong>.
               </p>
               <p>
-                Arviointi on aina maksuton.{' '}
-                Pinnoituksille annamme 5 vuoden takuun ja talon maalauksille 2 vuotta.
+                <strong>Arviointi on aina maksuton.</strong>{' '}
+                Pinnoituksille annamme <strong>5 vuoden takuun</strong> ja talon maalauksille <strong>2 vuotta</strong>.
               </p>
               <p>
-                Jos etsit tekijää, joka seisoo työnsä takana ja tekee sen minkä lupaa, ota
+                Jos etsit tekijää, joka <strong>seisoo työnsä takana</strong> ja tekee sen minkä lupaa, ota
                 yhteyttä — jutellaan rauhassa mikä olisi paras ratkaisu sinun katolle tai
                 julkisivulle.
               </p>

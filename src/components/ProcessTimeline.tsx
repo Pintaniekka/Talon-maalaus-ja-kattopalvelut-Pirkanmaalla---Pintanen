@@ -9,7 +9,7 @@ const ProcessTimeline = () => {
             Näin projekti etenee
           </h2>
           <p className="text-muted-foreground text-lg">
-            Avaimet käteen -palvelu alusta loppuun
+            <strong className="text-foreground">Avaimet käteen</strong> -palvelu alusta loppuun
           </p>
         </div>
 
