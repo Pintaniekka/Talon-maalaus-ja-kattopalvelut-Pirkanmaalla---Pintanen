@@ -8,7 +8,8 @@ const services = [
     title: "Tiilikaton pinnoitus",
     href: "/tiilikaton-pinnoitus-pirkanmaa",
     imageBase: "uutta-vastaava-tiilikatto-pesu-ja-suojakasittely",
-    description: "Tiilikaton maalauspinnoitus pidentää katon käyttöikää jopa 15-20 vuotta murto-osalla uuden katon hinnasta.",
+    description:
+      "Tiilikaton maalauspinnoitus pidentää katon käyttöikää jopa 15-20 vuotta murto-osalla uuden katon hinnasta.",
     tag: "5v takuu",
   },
   {
@@ -19,7 +20,7 @@ const services = [
     tag: "Laatutakuu",
   },
   {
-    title: "Talon ulkomaalaus – Suojaa & nosta arvoa",
+    title: "Talon ulkomaalaus",
     href: "/talon-maalaus-pirkanmaa",
     imageBase: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
     description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
@@ -31,14 +32,20 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="palvelut" className="section-padding" style={{ backgroundColor: '#e2f2ff' }}>
+    <section id="palvelut" className="section-padding" style={{ backgroundColor: "#e2f2ff" }}>
       <div className="section-container">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <h2 className="heading-style text-3xl md:text-4xl text-accent mb-5">Meidän palvelut</h2>
           <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
             Suojaamme ja uudistamme kotisi ulkopinnat fiksusti ilman turhia välikäsiä.
             <br />
-            Teemme tiilikattojen maalauspinnoitukset, pesut ja talojen ulkomaalaukset Pirkanmaalla – <strong>yrittäjät tekevät itse työn.</strong>
+            Teemme tiilikattojen maalauspinnoitukset, pesut ja talojen ulkomaalaukset Pirkanmaalla –{" "}
+            <strong>yrittäjät tekevät itse työn.</strong>
           </p>
         </motion.div>
 
@@ -55,7 +62,9 @@ const Services = () => {
                 role="link"
                 tabIndex={0}
                 onClick={() => navigate(service.href)}
-                onKeyDown={(e) => { if (e.key === 'Enter') navigate(service.href); }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") navigate(service.href);
+                }}
                 className="relative rounded-2xl overflow-hidden group cursor-pointer h-full min-h-[420px] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Background image */}
