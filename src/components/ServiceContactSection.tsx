@@ -82,7 +82,7 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
         >
           <h2 className="heading-style text-3xl md:text-4xl text-primary-foreground mb-4">{title}</h2>
           <p className="text-primary-foreground/70 text-lg">
-            Pyydä ilmainen arviokäynti tai tarjouspyyntö. Vastaamme vuorokauden sisään!
+            Pyydä <strong className="text-primary-foreground">ilmainen arviokäynti</strong> tai tarjouspyyntö. Vastaamme <strong className="text-primary-foreground">vuorokauden sisään</strong>!
           </p>
         </motion.div>
 

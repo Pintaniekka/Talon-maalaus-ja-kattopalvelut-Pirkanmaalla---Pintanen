@@ -34,9 +34,9 @@ const Hero = () => {
                 Tiilikaton pinnoitus ja talon maalaus{" "}
                 <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-sans">
-                Perheyritys, jossa yrittäjät tekevät työn itse – tiilikaton pinnoitukset ja talon maalaukset Pirkanmaalla.
-              </p>
+                <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-sans">
+                <strong className="text-white">Perheyritys</strong>, jossa <strong className="text-white">yrittäjät tekevät työn itse</strong> – <strong className="text-white">tiilikaton pinnoitukset</strong> ja <strong className="text-white">talon maalaukset</strong> Pirkanmaalla.
+                </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                 <a href="/hinnat" className="btn-hero shadow-lg">
                   Laske hinta

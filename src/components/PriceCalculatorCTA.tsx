@@ -19,7 +19,7 @@ const PriceCalculatorCTA = () => {
             Tiedätkö, mitä remonttisi maksaa?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Laske arvio projektisi hinnasta muutamassa sekunnissa. Meillä ei ole piilokuluja.
+            Laske arvio projektisi hinnasta <strong className="text-foreground">muutamassa sekunnissa</strong>. Meillä <strong className="text-foreground">ei ole piilokuluja</strong>.
           </p>
           <Link
             to="/maalauspalvelut-hinta-pirkanmaa"
