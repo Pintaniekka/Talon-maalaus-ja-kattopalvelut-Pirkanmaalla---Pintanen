@@ -90,18 +90,7 @@ const Hinnat = () => {
         </div>
       </section>
 
-      {/* Hintalaskuri */}
-      <PriceCalculator />
-
-      {/* Luottamussignaali */}
-      <div className="bg-muted/50 border-y border-border">
-        <div className="section-container py-4 text-center">
-          <p className="text-muted-foreground text-sm md:text-base">
-            Laskurin antama hinta on arvio. Tarkan ja pitävän hinnan saat aina{" "}
-            <strong className="text-foreground">ilmaisen kuntotarkastuksen</strong> yhteydessä.
-          </p>
-        </div>
-      </div>
+      <ChatPriceCalculator />
 
       {/* 2. H2 + teksti */}
       <section className="section-padding bg-background">
