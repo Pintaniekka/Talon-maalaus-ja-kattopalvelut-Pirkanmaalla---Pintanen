@@ -457,6 +457,54 @@ const ChatPriceCalculator = () => {
                 )}
               </AnimatePresence>
               {isTyping && <TypingIndicator />}
+
+              {/* Inline bubble-style options */}
+              {!isTyping && stepUI && (stepUI.kind === 'image-options' || stepUI.kind === 'options') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="pl-9 mb-3"
+                >
+                  {stepUI.kind === 'image-options' && (
+                    <div className="grid grid-cols-2 gap-2.5 max-w-[85%]">
+                      {stepUI.options.map(opt => (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleImageOption(opt)}
+                          className="group flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all border border-white/80"
+                        >
+                          <div className="aspect-[16/10] overflow-hidden">
+                            <img
+                              src={getResponsiveSrc(opt.imageBase)}
+                              srcSet={getResponsiveSrcSet(opt.imageBase)}
+                              alt={opt.label}
+                              sizes="(max-width: 768px) 40vw, 240px"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          <span className="py-2 px-3 text-sm font-semibold text-foreground text-center">
+                            {opt.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {stepUI.kind === 'options' && (
+                    <div className="flex flex-wrap gap-2">
+                      {stepUI.options.map(opt => (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleOption(opt.label, opt.value)}
+                          className="px-4 py-2.5 rounded-2xl bg-white text-sm font-medium text-foreground shadow-sm hover:shadow-md transition-all"
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              )}
             </div>
 
             {/* Input area */}
