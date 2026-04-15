@@ -64,7 +64,7 @@ const WallPriceCalculator = () => {
     const basePrice = interpolatePrice(squareMeters);
     const storyMultipliers: Record<string, number> = { "1": 1.0, "1.5": 1.225, "2": 1.475 };
     const peelingMultipliers: Record<string, number> = { none: 1.0, "1-2": 1.15, "3+": 1.275 };
-    const finalPrice = basePrice * (storyMultipliers[wallStories] || 1) * (peelingMultipliers[wallPeeling] || 1) * 0.9;
+    const finalPrice = basePrice * (storyMultipliers[wallStories] || 1) * (peelingMultipliers[wallPeeling] || 1);
     return { min: Math.round(finalPrice * 0.9), max: Math.round(finalPrice * 1.1) };
   };
 
