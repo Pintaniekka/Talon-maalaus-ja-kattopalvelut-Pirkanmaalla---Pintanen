@@ -507,48 +507,9 @@ const ChatPriceCalculator = () => {
               )}
             </div>
 
-            {/* Input area */}
-            {chatStarted && stepUI && !isTyping && (
+            {/* Input area — only for text/number/contact inputs */}
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
-                {stepUI.kind === 'image-options' && (
-                  <div className="grid grid-cols-2 gap-3">
-                    {stepUI.options.map(opt => (
-                      <button
-                        key={opt.value}
-                        onClick={() => handleImageOption(opt)}
-                        className="group flex flex-col rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-md transition-all"
-                      >
-                        <div className="aspect-[16/10] overflow-hidden">
-                          <img
-                            src={getResponsiveSrc(opt.imageBase)}
-                            srcSet={getResponsiveSrcSet(opt.imageBase)}
-                            alt={opt.label}
-                            sizes="(max-width: 768px) 45vw, 280px"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                        </div>
-                        <span className="py-2.5 px-3 text-sm font-semibold text-foreground text-center">
-                          {opt.label}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {stepUI.kind === 'options' && (
-                  <div className="flex flex-wrap gap-2">
-                    {stepUI.options.map(opt => (
-                      <button
-                        key={opt.value}
-                        onClick={() => handleOption(opt.label, opt.value)}
-                        className="px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm font-medium text-foreground hover:border-primary hover:bg-primary/5 transition-colors shadow-sm"
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
 
                 {stepUI.kind === 'number' && (
                   <form
