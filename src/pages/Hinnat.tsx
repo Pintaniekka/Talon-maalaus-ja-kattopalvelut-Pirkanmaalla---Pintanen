@@ -3,7 +3,7 @@ import { Check, ArrowRight, ShieldCheck, Wrench, FileText, ChevronRight } from "
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
-import PriceCalculator from "@/components/PriceCalculator";
+import ChatPriceCalculator from "@/components/ChatPriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
