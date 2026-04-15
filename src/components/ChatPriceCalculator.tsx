@@ -420,7 +420,7 @@ const ChatPriceCalculator = () => {
           {/* Header */}
           <div className="text-center mb-6">
             <h2 className="heading-style text-3xl md:text-4xl text-accent mb-3">
-              Laske hinta-arvio hetkessä
+              Laske tästä hinta-arvio maalaukselle
             </h2>
             <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
               Vastaa muutamaan kysymykseen ja saat <strong className="text-foreground">alustavan hinta-arvion</strong> heti.
