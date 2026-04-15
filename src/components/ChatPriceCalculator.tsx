@@ -104,14 +104,26 @@ const BotBubble = ({ text }: { text: string }) => (
 );
 
 // ── User message bubble ───────────────────────────────────────────────────
-const UserBubble = ({ text }: { text: string }) => (
+const UserBubble = ({ text, imageBase }: { text: string; imageBase?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     className="flex justify-end mb-3"
   >
-    <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm px-4 py-3 shadow-sm max-w-[85%]">
-      <p className="text-sm leading-relaxed">{text}</p>
+    <div className="bg-primary text-primary-foreground rounded-2xl rounded-br-sm shadow-sm max-w-[85%] overflow-hidden">
+      {imageBase && (
+        <div className="aspect-[16/10] overflow-hidden">
+          <img
+            src={getResponsiveSrc(imageBase)}
+            srcSet={getResponsiveSrcSet(imageBase)}
+            alt={text}
+            sizes="(max-width: 768px) 45vw, 250px"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
+      <p className="text-sm leading-relaxed px-4 py-3">{text}</p>
     </div>
   </motion.div>
 );
