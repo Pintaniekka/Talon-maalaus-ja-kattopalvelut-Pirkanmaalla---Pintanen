@@ -32,7 +32,7 @@ const calculateWallPrice = (m2: number, stories: string, peeling: string) => {
   const base = interpolateWallPrice(m2);
   const storyMul: Record<string, number> = { '1': 1.0, '1.5': 1.225, '2': 1.475 };
   const peelingMul: Record<string, number> = { none: 1.0, '1-2': 1.15, '3+': 1.275 };
-  const final = base * (storyMul[stories] || 1) * (peelingMul[peeling] || 1) * 0.9;
+  const final = base * (storyMul[stories] || 1) * (peelingMul[peeling] || 1);
   return { min: Math.round(final * 0.9), max: Math.round(final * 1.1) };
 };
 
