@@ -403,7 +403,7 @@ const ChatPriceCalculator = () => {
   }, [messages, isTyping, scrollToBottom]);
 
   return (
-    <section className="section-padding" style={{ backgroundColor: '#ecf7ff' }}>
+    <section ref={sectionRef} className="section-padding" style={{ backgroundColor: '#ecf7ff' }}>
       <style>{`
         @keyframes chatBounce {
           0%, 60%, 100% { transform: translateY(0); }
