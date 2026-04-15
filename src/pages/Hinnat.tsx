@@ -3,7 +3,7 @@ import { Check, ArrowRight, ShieldCheck, Wrench, FileText, ChevronRight } from "
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";
-import PriceCalculator from "@/components/PriceCalculator";
+import ChatPriceCalculator from "@/components/ChatPriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
@@ -90,18 +90,7 @@ const Hinnat = () => {
         </div>
       </section>
 
-      {/* Hintalaskuri */}
-      <PriceCalculator />
-
-      {/* Luottamussignaali */}
-      <div className="bg-muted/50 border-y border-border">
-        <div className="section-container py-4 text-center">
-          <p className="text-muted-foreground text-sm md:text-base">
-            Laskurin antama hinta on arvio. Tarkan ja pitävän hinnan saat aina{" "}
-            <strong className="text-foreground">ilmaisen kuntotarkastuksen</strong> yhteydessä.
-          </p>
-        </div>
-      </div>
+      <ChatPriceCalculator />
 
       {/* 2. H2 + teksti */}
       <section className="section-padding bg-background">
