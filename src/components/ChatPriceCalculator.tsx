@@ -372,7 +372,7 @@ const ChatPriceCalculator = () => {
       priceStr = `${p.min.toLocaleString('fi-FI')} – ${p.max.toLocaleString('fi-FI')} €`;
       const brokenLabels: Record<string, string> = { ei: 'Ei rikkinäisiä', '1-5': '1–5 rikkinäistä', '5-20': '5–20 rikkinäistä' };
       const slopeLabels: Record<string, string> = { loiva: 'Loiva', normaali: 'Normaali', jyrkka: 'Todella jyrkkä' };
-      details = `Katon koko: ${d.squareMeters} m², Rikkinäiset tiilet: ${brokenLabels[d.brokenTiles] || d.brokenTiles}, Aluskate: ${d.underlayment === 'kylla' ? 'Löytyy' : 'Epävarma'}, Jyrkkyys: ${slopeLabels[d.slope] || d.slope}, Kaupunki: ${d.city || '-'}`;
+      details = `Katon koko: ${d.squareMeters} m², Rikkinäiset tiilet: ${brokenLabels[d.brokenTiles] || d.brokenTiles}, Aluskate: ${d.underlayment === 'kylla' ? 'Löytyy' : 'Epävarma'}, Jyrkkyys: ${slopeLabels[d.slope] || d.slope}, Vesi/sähkö: ${d.utilities === 'kylla' ? 'Kyllä' : 'Ei'}, Kaupunki: ${d.city || '-'}`;
     }
 
     try {
