@@ -53,7 +53,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -69,7 +69,7 @@ const Services = () => {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") navigate(service.href);
                 }}
-                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/5] md:aspect-[3/4] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/5] md:aspect-[3/4] lg:aspect-[3/4] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Background image */}
                 <ResponsiveSupabaseImage
