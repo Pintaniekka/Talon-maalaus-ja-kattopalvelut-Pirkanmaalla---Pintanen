@@ -381,6 +381,23 @@ const ChatPriceCalculator = () => {
     }
   }, [contactName, contactPhone, path, addBotMessage, toast, addUserMessage]);
 
+  // Auto-start on scroll into view
+  useEffect(() => {
+    if (!sectionRef.current || hasAutoStarted.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAutoStarted.current) {
+          hasAutoStarted.current = true;
+          startChat();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [startChat]);
+
   useEffect(() => {
     scrollToBottom();
   }, [messages, isTyping, scrollToBottom]);
