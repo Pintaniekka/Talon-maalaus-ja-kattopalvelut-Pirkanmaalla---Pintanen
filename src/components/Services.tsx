@@ -69,7 +69,7 @@ const Services = () => {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") navigate(service.href);
                 }}
-                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/5] md:aspect-[3/4] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="relative rounded-xl overflow-hidden group cursor-pointer h-full aspect-[4/3] flex flex-col justify-end shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Background image */}
                 <ResponsiveSupabaseImage
