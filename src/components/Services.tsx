@@ -32,7 +32,7 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="palvelut" className="section-padding" style={{ backgroundColor: "#e2f2ff" }}>
+    <section id="palvelut" className="section-padding" style={{ backgroundColor: "#ecf7ff" }}>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

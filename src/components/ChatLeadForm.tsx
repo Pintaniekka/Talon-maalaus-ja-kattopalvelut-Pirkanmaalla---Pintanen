@@ -350,7 +350,7 @@ const ChatLeadForm = () => {
             </div>
 
             {/* Messages */}
-            <div ref={scrollRef} className="flex-1 overflow-y-auto bg-[#e2f2ff] px-3 py-4 space-y-1" style={{ minHeight: 200 }}>
+            <div ref={scrollRef} className="flex-1 overflow-y-auto bg-[#ecf7ff] px-3 py-4 space-y-1" style={{ minHeight: 200 }}>
               {messages.map((msg, i) =>
                 msg.from === 'bot' ? (
                   <div key={i} className="flex items-end gap-2 mb-3">
