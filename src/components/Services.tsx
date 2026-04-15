@@ -20,9 +20,9 @@ const services = [
     tag: "Laatutakuu",
   },
   {
-    title: "Talon ulkomaalaus",
+    title: "Talon maalaus",
     href: "/talon-maalaus-pirkanmaa",
-    imageBase: "violetti-puutalo-varinvaihto-peittomaalaus-jalkeen",
+    imageBase: "vaalea-kartanomainen-puutalo-ulkomaalaus-jalkeen",
     description: "Ammattitaitoinen ulkomaalaus laadukkailla materiaaleilla suojaa taloasi säältä ja kosteudelta.",
     tag: "2v takuu",
   },
