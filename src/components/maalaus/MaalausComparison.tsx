@@ -21,7 +21,7 @@ const MaalausComparison = ({ cityIn }: { cityIn?: string }) => {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Tämä on kysymys, jota moni vanhemman talon omistaja pohtii, kun maali hilseilee pahasti. Nyrkkisääntö on selkeä: jos alla oleva puu on vielä kovaa eikä laho, ulkoverhousremontti on usein täysin turha ja ylimitoitettu investointi.
+                  Tämä on kysymys, jota moni vanhemman talon omistaja pohtii, kun maali hilseilee pahasti. Nyrkkisääntö on selkeä: jos alla oleva puu on vielä kovaa eikä laho, <strong className="text-foreground">ulkoverhousremontti on usein täysin turha</strong> ja ylimitoitettu investointi.
                 </p>
                 <p>
                   Perusteellisilla pohjatöillä ja laadukkaalla maalauksella vanhakin paneeli saadaan pelastettua. Talon huoltomaalaus on ekologinen ja kustannustehokas vaihtoehto, joka maksaa vain <strong className="text-foreground">murto-osan uuden laudoituksen hinnasta</strong>. Kun maalaus tehdään ajoissa, vältät raskaan rakennusprojektin, pihan mylläyksen ja säästät kymmeniä tuhansia euroja.
