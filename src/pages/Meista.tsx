@@ -50,10 +50,10 @@ const Meista = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Mikä ihmeen Pintanen?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
-              <p>Pintanen on uudehko Oulusta kotoisin oleva perheyritys, jonka tekeminen nojaa vahvaan ja monipuoliseen kokemukseen. Vaikka yritys on nuori, olemme itse olleet alalla jo pitkään ja tiedämme, mikä toimii ja mikä ei. Tiedämme, mitä kestävä, siisti ja huolellisesti tehty pinta vaatii.</p>
-              <p>Me olemme veljekset Eemil ja Eerik. Vuosien varrella meille molemmille on kertynyt oma vahva osaamisalueemme: Eemilin käsissä seinäpinnat saavat laadukkaan ja viimeistellyn ilmeen, kun taas Eerik on erikoistunut kattoihin – sinne, minne harvempi katsoo, mutta mikä on itseasiassa talon tärkein elementti.</p>
-              <p>Kun seinäosaaminen ja katto-osaaminen yhdistyivät, syntyi Pintanen. Yritys, joka nimensä mukaisesti tuntee pinnat lattiasta kattoon. Homma hoidetaan niin, että kokonaisuus kestää katseet ja aikaa.</p>
-              <p>Pintanen syntyi halusta tehdä asiat paremmin ja reilummin. Ei raskasta kulurakennetta, vaan selkeää tekemistä, suoraa puhetta ja laadukasta jälkeä. Meille tärkeintä on, että asiakas voi luottaa siihen, että homma hoituu sovitusti – ja että lopputulos näyttää siltä kuin pitääkin.</p>
+              <p>Pintanen on uudehko Oulusta kotoisin oleva <strong className="text-foreground">perheyritys</strong>, jonka tekeminen nojaa vahvaan ja monipuoliseen kokemukseen. Vaikka yritys on nuori, olemme itse olleet alalla jo pitkään ja tiedämme, mikä toimii ja mikä ei. Tiedämme, mitä <strong className="text-foreground">kestävä, siisti ja huolellisesti tehty pinta</strong> vaatii.</p>
+              <p>Me olemme veljekset <strong className="text-foreground">Eemil ja Eerik</strong>. Vuosien varrella meille molemmille on kertynyt oma vahva osaamisalueemme: Eemilin käsissä seinäpinnat saavat laadukkaan ja viimeistellyn ilmeen, kun taas Eerik on erikoistunut kattoihin – sinne, minne harvempi katsoo, mutta mikä on itseasiassa talon tärkein elementti.</p>
+              <p>Kun <strong className="text-foreground">seinäosaaminen ja katto-osaaminen</strong> yhdistyivät, syntyi Pintanen. Yritys, joka nimensä mukaisesti tuntee pinnat lattiasta kattoon. Homma hoidetaan niin, että kokonaisuus kestää katseet ja aikaa.</p>
+              <p>Pintanen syntyi halusta tehdä asiat paremmin ja reilummin. Ei raskasta kulurakennetta, vaan selkeää tekemistä, <strong className="text-foreground">suoraa puhetta ja laadukasta jälkeä</strong>. Meille tärkeintä on, että asiakas voi luottaa siihen, että homma hoituu sovitusti – ja että lopputulos näyttää siltä kuin pitääkin.</p>
             </div>
           </motion.div>
         </div>
@@ -63,10 +63,10 @@ const Meista = () => {
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Kaksi veljestä, kaksi erikoisalaa</h2>
-            <p className="text-lg text-muted-foreground mb-6">Meillä molemmilla on takanamme viiden vuoden tiivis kokemus alalta, mutta olemme erikoistuneet omiin vahvuuksiimme:</p>
+            <p className="text-lg text-muted-foreground mb-6">Meillä molemmilla on takanamme <strong className="text-foreground">viiden vuoden tiivis kokemus</strong> alalta, mutta olemme erikoistuneet omiin vahvuuksiimme:</p>
             <ul className="space-y-4 text-muted-foreground text-lg list-disc list-inside">
-              <li><strong className="text-foreground">Eerik</strong> on elementissään korkeuksissa. Hänen heiniään ovat tiilikattojen pinnoitukset ja huollot, joilla jatketaan kodin tärkeimmän suojan ikää vuosikymmenillä.</li>
-              <li><strong className="text-foreground">Eemil</strong> on erikoistunut seinien maalaukseen ja pintakäsittelyyn. Hän huolehtii siitä, että julkisivut ja sisäpinnat saavat kestävän ja silmiä hivelevän lopputuloksen.</li>
+              <li><strong className="text-foreground">Eerik</strong> on elementissään korkeuksissa. Hänen heiniään ovat <strong className="text-foreground">tiilikattojen pinnoitukset ja huollot</strong>, joilla jatketaan kodin tärkeimmän suojan ikää vuosikymmenillä.</li>
+              <li><strong className="text-foreground">Eemil</strong> on erikoistunut <strong className="text-foreground">seinien maalaukseen ja pintakäsittelyyn</strong>. Hän huolehtii siitä, että julkisivut ja sisäpinnat saavat kestävän ja silmiä hivelevän lopputuloksen.</li>
             </ul>
           </motion.div>
         </div>
@@ -77,8 +77,8 @@ const Meista = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Miksi valita meidät?</h2>
             <div className="space-y-4 text-muted-foreground text-lg">
-              <p>Pintanen perustettiin, jotta asiakkaat saavat laadukasta työtä ilman turhia lisäkuluja ja ammattilaiset voivat keskittyä siihen, minkä osaavat parhaiten.</p>
-              <p>Päätimme hypätä kilpailuun eri taktiikalla: Huomasimme, kuinka raskaat kulurakenteet ja byrokratia nostavat isojen maalausyritysten hintoja – ilman, että se välttämättä näkyy itse työn jäljessä. Me karsimme kaiken turhan. Teemme jokaisen askeleen kustannustehokkaasti ja itse, jolloin voimme tarjota asiakkaillemme parasta laatua edulliseen hintaan. Kun maksat Pintasen palvelusta, maksat ammattitaidosta ja laadukkaista materiaaleista, et ison organisaation hallintokuluista.</p>
+              <p>Pintanen perustettiin, jotta asiakkaat saavat <strong className="text-foreground">laadukasta työtä ilman turhia lisäkuluja</strong> ja ammattilaiset voivat keskittyä siihen, minkä osaavat parhaiten.</p>
+              <p>Päätimme hypätä kilpailuun eri taktiikalla: Huomasimme, kuinka raskaat kulurakenteet ja byrokratia nostavat isojen maalausyritysten hintoja – ilman, että se välttämättä näkyy itse työn jäljessä. Me karsimme kaiken turhan. Teemme jokaisen askeleen <strong className="text-foreground">kustannustehokkaasti ja itse</strong>, jolloin voimme tarjota asiakkaillemme parasta laatua edulliseen hintaan. Kun maksat Pintasen palvelusta, maksat <strong className="text-foreground">ammattitaidosta ja laadukkaista materiaaleista</strong>, et ison organisaation hallintokuluista.</p>
             </div>
           </motion.div>
         </div>
@@ -88,13 +88,13 @@ const Meista = () => {
         <div className="section-container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">Leikkimökeistä taloyhtiöihin</h2>
-            <p className="text-lg text-muted-foreground mb-6">Meille mikään kohde ei ole liian pieni tai liian suuri. Olemme nähneet ja hoitaneet kaikkea mahdollista:</p>
+            <p className="text-lg text-muted-foreground mb-6">Meille <strong className="text-foreground">mikään kohde ei ole liian pieni tai liian suuri</strong>. Olemme nähneet ja hoitaneet kaikkea mahdollista:</p>
             <ul className="space-y-2 text-muted-foreground text-lg list-disc list-inside mb-6">
               <li>Pienet piharakennukset ja leikkimökit</li>
               <li>Omakotitalot ja kesähuvilat</li>
               <li>Suuret taloyhtiöt</li>
             </ul>
-            <p className="text-lg text-muted-foreground">Olipa kyseessä pienen pinnan ehostus tai suuren kiinteistön täysvaltainen huolto, Pintanen hoitaa homman kotiin – ammatilla, kunnialla ja sopivaan hintaan.</p>
+            <p className="text-lg text-muted-foreground">Olipa kyseessä pienen pinnan ehostus tai suuren kiinteistön täysvaltainen huolto, Pintanen hoitaa homman kotiin – <strong className="text-foreground">ammatilla, kunnialla ja sopivaan hintaan</strong>.</p>
           </motion.div>
         </div>
       </section>

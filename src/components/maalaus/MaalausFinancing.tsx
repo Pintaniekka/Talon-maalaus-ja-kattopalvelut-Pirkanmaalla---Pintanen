@@ -18,7 +18,7 @@ const MaalausFinancing = ({ cityName = 'Pirkanmaa' }: { cityName?: string }) => 
             </h3>
           </div>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Ulkoverhouksen huoltoa ei kannata lykätä säästöjä odotellessa, sillä vaurioitunut puurakenne tai ulkoverhousremontti on aina kalliimpi vaihtoehto. Kauttamme saat joustavan rahoituksen, jolla voit maksaa maalauksen sinulle sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
+            Ulkoverhouksen huoltoa ei kannata lykätä säästöjä odotellessa, sillä vaurioitunut puurakenne tai <strong className="text-foreground">ulkoverhousremontti on aina kalliimpi vaihtoehto</strong>. Kauttamme saat <strong className="text-foreground">joustavan rahoituksen</strong>, jolla voit maksaa maalauksen sinulle sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
           </p>
           <a
             href="#yhteystiedot"

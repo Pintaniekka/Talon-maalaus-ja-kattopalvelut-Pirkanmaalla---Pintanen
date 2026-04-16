@@ -21,7 +21,7 @@ const PinnoitusComparison = ({ cityIn }: { cityIn?: string }) => {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Monet asiakkaistamme esittää meille tämän kysymyksen, kun he tekevät hintavertailua. Yksinkertainen sääntö on, että jos katon aluskate ja puurakenteet ovat hyvässä kunnossa, täysimittainen kattoremontti on usein tarpeeton ja liian kallis.
+                  Monet asiakkaistamme esittää meille tämän kysymyksen, kun he tekevät hintavertailua. Yksinkertainen sääntö on, että jos katon aluskate ja puurakenteet ovat hyvässä kunnossa, <strong className="text-foreground">täysimittainen kattoremontti on usein tarpeeton</strong> ja liian kallis.
                 </p>
                 <p>
                   Pinnoitus on ympäristöystävällinen valinta, joka maksaa tyypillisesti vain noin <strong className="text-foreground">10–20 % uuden katon hinnasta</strong>. Tehtyäsi pinnoituksen ajoissa, voit säästää jopa 15 000 euroa, välttää pidemmän remonttimelun ja pidentää nykyisen kattosi käyttöikää jopa 15 vuodella.
