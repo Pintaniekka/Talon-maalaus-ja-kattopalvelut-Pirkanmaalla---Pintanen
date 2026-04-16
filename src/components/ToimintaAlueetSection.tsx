@@ -15,7 +15,7 @@ const ToimintaAlueetSection = () => {
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin className="w-6 h-6 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Toiminta-alueet</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-dark">Toiminta-alueet</h2>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Palvelemme Pirkanmaalla ja lähialueilla. Valitse paikkakuntasi nähdäksesi tarkemmat tiedot.

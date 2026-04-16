@@ -24,7 +24,7 @@ const ToimintaAlueetBanner = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <MapPin className="w-5 h-5 text-primary" />
-              <h2 className="text-xl md:text-2xl font-bold text-foreground font-heading">Toiminta-alueet</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-primary-dark font-heading">Toiminta-alueet</h2>
             </div>
             <p className="text-foreground/80 mb-4 text-sm">
               Palvelemme <strong className="text-foreground">koko Pirkanmaan alueella</strong> ja lähikunnissa:
