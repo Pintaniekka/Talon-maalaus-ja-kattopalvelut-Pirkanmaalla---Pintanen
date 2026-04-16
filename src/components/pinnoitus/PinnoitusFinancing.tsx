@@ -18,7 +18,7 @@ const PinnoitusFinancing = () => {
             </h3>
           </div>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Katon huoltoa ei pidä lykätä, odotellessa säästöjä. Vesivahinko tai kattoremontti on aina kalliimpi vaihtoehto. Meiltä saat joustavan rahoituksen, jolla voit maksaa pinnoituksen sinulle sopivissa kuukausierissä. Voit kysyä lisää arviokäynnin yhteydessä.
+            Katon huoltoa ei pidä lykätä, odotellessa säästöjä. <strong className="text-foreground">Vesivahinko tai kattoremontti on aina kalliimpi vaihtoehto</strong>. Meiltä saat <strong className="text-foreground">joustavan rahoituksen</strong>, jolla voit maksaa pinnoituksen sinulle sopivissa kuukausierissä. Voit kysyä lisää arviokäynnin yhteydessä.
           </p>
           <a
             href="#yhteystiedot"

@@ -53,10 +53,10 @@ const KattopalvelutPuhdistus = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">Tiilikaton mekaaninen puhdistus ja käsittely</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
-              <p>Suosittelemme tiilikaton tarkastusta vuosittain. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
+              <p>Suosittelemme <strong className="text-foreground">tiilikaton tarkastusta vuosittain</strong>. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
               <p><strong className="text-foreground">Käytämme ammattitason välineitä.</strong> Katon puhdistuksessa menetelmän valinta on erittäin tärkeää. Väärät menetelmät voivat vahingoittaa katon pintaa ja lyhentää sen käyttöikää. Siksi puhdistamme katon mekaanisesti käsityövälineillä, mikä säästää tiilen pintaa.</p>
-              <p>Puhdistuksen jälkeen levitämme sammaleentorjunta-aineen, joka estää uuden kasvuston muodostumisen. Käsittely suojaa kattoa jopa useiksi vuosiksi.</p>
-              <p>Puhdistuksen yhteydessä tarkastamme katon kunnon ja raportoimme mahdollisista korjaustarpeista. Rikkoutuneet tiilet vaihdetaan uusiin.</p>
+              <p>Puhdistuksen jälkeen levitämme <strong className="text-foreground">sammaleentorjunta-aineen</strong>, joka estää uuden kasvuston muodostumisen. Käsittely suojaa kattoa jopa useiksi vuosiksi.</p>
+              <p>Puhdistuksen yhteydessä tarkastamme katon kunnon ja raportoimme mahdollisista korjaustarpeista. <strong className="text-foreground">Rikkoutuneet tiilet vaihdetaan uusiin</strong>.</p>
             </div>
           </motion.div>
         </div>

@@ -65,7 +65,7 @@ const KattopalvelutPuhdistusCity = ({ citySlug: propSlug }: { citySlug?: string 
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 text-center">Tiilikaton mekaaninen puhdistus ja käsittely</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>{cityData.puhdistusIntro}</p>
-              <p>Suosittelemme tiilikaton tarkastusta vuosittain. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
+              <p>Suosittelemme <strong className="text-foreground">tiilikaton tarkastusta vuosittain</strong>. Sammal, jäkälä ja roskat kannattaa poistaa säännöllisesti, jotta katto pysyy hyvässä kunnossa mahdollisimman pitkään.</p>
               <p><strong className="text-foreground">Käytämme ammattitason välineitä.</strong> Puhdistamme katon mekaanisesti käsityövälineillä, mikä säästää tiilen pintaa.</p>
             </div>
           </motion.div>
