@@ -2,7 +2,7 @@ name: Deploy and Sync
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "paivitys-b-tililta"]
   workflow_dispatch:
 
 permissions:
@@ -18,8 +18,9 @@ jobs:
   # VAIHE 1: Synkronointi
   sync-to-repereetta:
     runs-on: ubuntu-latest
-    # TÄMÄ RIVI: Estetään Repereetta-tilillä
-    if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen'
+    # Synkataan takaisin Repereettaan vain oikeasta päähaarasta,
+    # ei Lovablen palautushaarasta, jotta tuotanto ei ylikirjoitu loopissa.
+    if: github.repository == 'Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
