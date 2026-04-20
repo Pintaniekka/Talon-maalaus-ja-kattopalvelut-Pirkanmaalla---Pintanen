@@ -2,7 +2,7 @@ name: Deploy and Sync
 
 on:
   push:
-    branches: ["main", "paivitys-b-tililta"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
