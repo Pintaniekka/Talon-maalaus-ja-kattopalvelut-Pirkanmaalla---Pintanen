@@ -330,6 +330,75 @@ const PriceCalculator = () => {
                   </motion.div>
                 )}
 
+                {/* LOCATION (shared) */}
+                {currentStepName === 'location' && !showPrice && (
+                  <motion.div key="location" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+                    <label className="block text-foreground font-semibold mb-1 text-lg">Paikkakunta</label>
+                    <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion?</p>
+                    <Popover open={cityPopoverOpen} onOpenChange={setCityPopoverOpen}>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          role="combobox"
+                          aria-expanded={cityPopoverOpen}
+                          className={cn(
+                            "w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border-2 transition-all bg-background text-left",
+                            selectedCity
+                              ? "border-primary bg-primary/5 text-foreground font-medium"
+                              : "border-border hover:border-primary/50 text-muted-foreground"
+                          )}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <MapPin className="w-4 h-4 shrink-0 text-primary" />
+                            <span className="truncate">
+                              {selectedCity || "Valitse paikkakunta..."}
+                            </span>
+                          </div>
+                          <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]"
+                        align="start"
+                        sideOffset={6}
+                      >
+                        <Command>
+                          <CommandInput
+                            placeholder="Hae kuntaa..."
+                            className="text-base md:text-sm"
+                          />
+                          <CommandList>
+                            <CommandEmpty>Ei tuloksia.</CommandEmpty>
+                            <CommandGroup heading="Pirkanmaa & Kanta-Häme">
+                              {PIRKANMAA_KANTAHAME_CITIES.map((city) => (
+                                <CommandItem
+                                  key={city}
+                                  value={city}
+                                  onSelect={(value) => {
+                                    const match = PIRKANMAA_KANTAHAME_CITIES.find(
+                                      (c) => c.toLowerCase() === value.toLowerCase()
+                                    );
+                                    setSelectedCity(match || city);
+                                    setCityPopoverOpen(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      selectedCity === city ? "opacity-100 text-primary" : "opacity-0"
+                                    )}
+                                  />
+                                  {city}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                  </motion.div>
+                )}
+
                 {/* CONTACT (shared) */}
                 {currentStepName === 'contact' && !showPrice && contactStepJSX}
 
