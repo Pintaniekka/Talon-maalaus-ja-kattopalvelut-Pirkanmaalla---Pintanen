@@ -237,6 +237,8 @@ const ChatPriceCalculator = () => {
           }
           setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
           break;
+        case 7:
+          await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
           setStepUI({ kind: 'contact' });
           break;
         default:
@@ -284,7 +286,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
           break;
         case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
