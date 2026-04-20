@@ -543,8 +543,8 @@ const ChatPriceCalculator = () => {
               )}
             </div>
 
-            {/* Input area — only for text/number/contact inputs */}
-            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
+            {/* Input area — only for text/number/contact/city inputs */}
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'city' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
 
                 {stepUI.kind === 'number' && (
@@ -600,6 +600,69 @@ const ChatPriceCalculator = () => {
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
+                )}
+
+                {stepUI.kind === 'city' && (
+                  <div className="flex gap-2">
+                    <Popover open={cityPopoverOpen} onOpenChange={setCityPopoverOpen}>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          role="combobox"
+                          aria-expanded={cityPopoverOpen}
+                          className={cn(
+                            "flex-1 flex items-center justify-between gap-2 px-4 py-2.5 rounded-xl border bg-white text-left text-base md:text-sm transition-colors",
+                            selectedCity
+                              ? "border-primary text-foreground font-medium"
+                              : "border-border/60 text-muted-foreground hover:border-primary/50"
+                          )}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <MapPin className="w-4 h-4 shrink-0 text-primary" />
+                            <span className="truncate">{selectedCity || stepUI.placeholder}</span>
+                          </div>
+                          <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-[--radix-popover-trigger-width] max-h-[280px] overflow-hidden rounded-xl p-0"
+                        align="start"
+                        side="top"
+                        sideOffset={6}
+                        avoidCollisions={false}
+                      >
+                        <Command>
+                          <CommandInput placeholder="Hae kuntaa..." className="h-10 py-2 text-base md:text-sm focus:ring-0 focus-visible:ring-0 focus:outline-none" />
+                          <CommandList>
+                            <CommandEmpty>Ei tuloksia.</CommandEmpty>
+                            <CommandGroup heading="Pirkanmaa & Kanta-Häme">
+                              {PIRKANMAA_KANTAHAME_CITIES.map((city) => (
+                                <CommandItem
+                                  key={city}
+                                  value={city}
+                                  onSelect={(value) => {
+                                    const match = PIRKANMAA_KANTAHAME_CITIES.find((c) => c.toLowerCase() === value.toLowerCase());
+                                    setSelectedCity(match || city);
+                                  }}
+                                >
+                                  <Check className={cn("mr-2 h-4 w-4", selectedCity === city ? "opacity-100 text-primary" : "opacity-0")} />
+                                  {city}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                    <button
+                      type="button"
+                      onClick={() => handleCitySubmit(selectedCity)}
+                      disabled={!selectedCity.trim()}
+                      className="px-4 py-2.5 bg-primary text-primary-foreground rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
                 )}
 
                 {stepUI.kind === 'contact' && (
