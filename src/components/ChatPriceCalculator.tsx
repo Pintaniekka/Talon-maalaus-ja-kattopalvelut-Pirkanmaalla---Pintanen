@@ -355,6 +355,19 @@ const ChatPriceCalculator = () => {
     await advanceFlow(nextStep, path);
   }, [textInput, addUserMessage, currentStep, path, advanceFlow]);
 
+  const handleCitySubmit = useCallback(async (city: string) => {
+    const val = city.trim();
+    if (!val) return;
+    addUserMessage(val);
+    dataRef.current.city = val;
+    setSelectedCity('');
+    setCityPopoverOpen(false);
+    setStepUI(null);
+    const nextStep = currentStep + 1;
+    setCurrentStep(nextStep);
+    await advanceFlow(nextStep, path);
+  }, [addUserMessage, currentStep, path, advanceFlow]);
+
   const handleContactSubmit = useCallback(async () => {
     if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: 'Täytä tiedot', description: 'Nimi ja puhelinnumero ovat pakollisia.', variant: 'destructive' });
