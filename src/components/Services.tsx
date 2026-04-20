@@ -44,11 +44,14 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="heading-style text-3xl md:text-4xl text-accent mb-5">Meidän palvelut</h2>
+          <h2 className="heading-style text-3xl md:text-4xl text-accent mb-5">Meidän palvelut.</h2>
           <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
-            Suojaamme ja uudistamme kotisi ulkopinnat fiksusti <strong className="text-foreground">ilman turhia välikäsiä</strong>.
+            Suojaamme ja uudistamme kotisi ulkopinnat fiksusti{" "}
+            <strong className="text-foreground">ilman turhia välikäsiä</strong>.
             <br />
-            Teemme <strong className="text-foreground">tiilikattojen maalauspinnoitukset</strong>, <strong className="text-foreground">pesut</strong> ja <strong className="text-foreground">talojen ulkomaalaukset</strong> Pirkanmaalla –{" "}
+            Teemme <strong className="text-foreground">tiilikattojen maalauspinnoitukset</strong>,{" "}
+            <strong className="text-foreground">pesut</strong> ja{" "}
+            <strong className="text-foreground">talojen ulkomaalaukset</strong> Pirkanmaalla –{" "}
             <strong className="text-foreground">yrittäjät tekevät itse työn.</strong>
           </p>
         </motion.div>
