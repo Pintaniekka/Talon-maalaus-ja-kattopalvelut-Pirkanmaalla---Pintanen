@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin, ChevronsUpDown } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { PIRKANMAA_KANTAHAME_CITIES } from "@/data/pirkanmaaKantaHameCities";
+import { cn } from "@/lib/utils";
 
 type WallStories = "1" | "1.5" | "2" | null;
 type WallPeeling = "none" | "1-2" | "3+" | null;
 
-const STEPS = ["size", "stories", "peeling", "contact"] as const;
+const STEPS = ["size", "stories", "peeling", "location", "contact"] as const;
 type Step = typeof STEPS[number];
 
 const interpolatePrice = (m2: number): number => {
