@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, MapPin, ChevronsUpDown, Check } from 'lucide-react';
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { PIRKANMAA_KANTAHAME_CITIES } from '@/data/pirkanmaaKantaHameCities';
+import { cn } from '@/lib/utils';
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
 const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
@@ -68,6 +72,7 @@ type StepUI =
   | { kind: 'options'; options: { label: string; value: string }[] }
   | { kind: 'number'; placeholder: string; suffix?: string }
   | { kind: 'text'; placeholder: string }
+  | { kind: 'city'; placeholder: string }
   | { kind: 'contact' }
   | null;
 
@@ -139,6 +144,8 @@ const ChatPriceCalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [numberInput, setNumberInput] = useState('');
   const [textInput, setTextInput] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+  const [cityPopoverOpen, setCityPopoverOpen] = useState(false);
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
@@ -228,7 +235,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
           break;
         case 7:
           await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
@@ -279,7 +286,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
           break;
         case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
@@ -347,6 +354,19 @@ const ChatPriceCalculator = () => {
     setCurrentStep(nextStep);
     await advanceFlow(nextStep, path);
   }, [textInput, addUserMessage, currentStep, path, advanceFlow]);
+
+  const handleCitySubmit = useCallback(async (city: string) => {
+    const val = city.trim();
+    if (!val) return;
+    addUserMessage(val);
+    dataRef.current.city = val;
+    setSelectedCity('');
+    setCityPopoverOpen(false);
+    setStepUI(null);
+    const nextStep = currentStep + 1;
+    setCurrentStep(nextStep);
+    await advanceFlow(nextStep, path);
+  }, [addUserMessage, currentStep, path, advanceFlow]);
 
   const handleContactSubmit = useCallback(async () => {
     if (!contactName.trim() || !contactPhone.trim()) {
@@ -523,8 +543,8 @@ const ChatPriceCalculator = () => {
               )}
             </div>
 
-            {/* Input area — only for text/number/contact inputs */}
-            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
+            {/* Input area — only for text/number/contact/city inputs */}
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'city' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
 
                 {stepUI.kind === 'number' && (
@@ -580,6 +600,69 @@ const ChatPriceCalculator = () => {
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
+                )}
+
+                {stepUI.kind === 'city' && (
+                  <div className="flex gap-2">
+                    <Popover open={cityPopoverOpen} onOpenChange={setCityPopoverOpen}>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          role="combobox"
+                          aria-expanded={cityPopoverOpen}
+                          className={cn(
+                            "flex-1 flex items-center justify-between gap-2 px-4 py-2.5 rounded-xl border bg-white text-left text-base md:text-sm transition-colors",
+                            selectedCity
+                              ? "border-primary text-foreground font-medium"
+                              : "border-border/60 text-muted-foreground hover:border-primary/50"
+                          )}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <MapPin className="w-4 h-4 shrink-0 text-primary" />
+                            <span className="truncate">{selectedCity || stepUI.placeholder}</span>
+                          </div>
+                          <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        className="w-[--radix-popover-trigger-width] max-h-[280px] overflow-hidden rounded-xl p-0"
+                        align="start"
+                        side="top"
+                        sideOffset={6}
+                        avoidCollisions={false}
+                      >
+                        <Command>
+                          <CommandInput placeholder="Hae kuntaa..." className="h-10 py-2 text-base md:text-sm focus:ring-0 focus-visible:ring-0 focus:outline-none" />
+                          <CommandList>
+                            <CommandEmpty>Ei tuloksia.</CommandEmpty>
+                            <CommandGroup heading="Pirkanmaa & Kanta-Häme">
+                              {PIRKANMAA_KANTAHAME_CITIES.map((city) => (
+                                <CommandItem
+                                  key={city}
+                                  value={city}
+                                  onSelect={(value) => {
+                                    const match = PIRKANMAA_KANTAHAME_CITIES.find((c) => c.toLowerCase() === value.toLowerCase());
+                                    setSelectedCity(match || city);
+                                  }}
+                                >
+                                  <Check className={cn("mr-2 h-4 w-4", selectedCity === city ? "opacity-100 text-primary" : "opacity-0")} />
+                                  {city}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                    <button
+                      type="button"
+                      onClick={() => handleCitySubmit(selectedCity)}
+                      disabled={!selectedCity.trim()}
+                      className="px-4 py-2.5 bg-primary text-primary-foreground rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
                 )}
 
                 {stepUI.kind === 'contact' && (
