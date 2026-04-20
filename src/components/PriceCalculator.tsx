@@ -56,6 +56,10 @@ const PriceCalculator = () => {
   const [wallStories, setWallStories] = useState<WallStories>(null);
   const [wallPeeling, setWallPeeling] = useState<WallPeeling>(null);
 
+  // Location (shared)
+  const [selectedCity, setSelectedCity] = useState<string>('');
+  const [cityPopoverOpen, setCityPopoverOpen] = useState(false);
+
   // Contact state (shared)
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
@@ -71,6 +75,7 @@ const PriceCalculator = () => {
     setSquareMeters(150);
     setWallStories(null);
     setWallPeeling(null);
+    setSelectedCity('');
     setContactName('');
     setContactPhone('');
     setContactEmail('');
@@ -113,10 +118,12 @@ const PriceCalculator = () => {
     if (calculatorType === 'roof') {
       if (currentStepName === 'size') return roofSquareMeters >= 100;
       if (currentStepName === 'slope') return roofSlope !== null;
+      if (currentStepName === 'location') return selectedCity.trim().length > 0;
     } else {
       if (currentStepName === 'size') return true;
       if (currentStepName === 'stories') return wallStories !== null;
       if (currentStepName === 'peeling') return wallPeeling !== null;
+      if (currentStepName === 'location') return selectedCity.trim().length > 0;
     }
     return false;
   };
@@ -136,15 +143,15 @@ const PriceCalculator = () => {
       let estimate = '';
       if (calculatorType === 'roof') {
         const slopeLabels: Record<string, string> = { '5-19': '5-19° (Loiva)', '20-30': '20-30° (Normaali)', '31+': '31°+ (Jyrkkä)' };
-        details = `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ''}`;
+        details = `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ''}, Paikkakunta: ${selectedCity}`;
         estimate = roofPrice ? `${roofPrice.min.toLocaleString('fi-FI')} – ${roofPrice.max.toLocaleString('fi-FI')} €` : '';
       } else {
         const storyLabels: Record<string, string> = { '1': '1 kerros', '1.5': '1,5 kerrosta', '2': '2 kerrosta' };
         const peelLabels: Record<string, string> = { none: 'Ei hilseilyä', '1-2': '1–2 seinällä', '3+': 'Yli 3 seinällä' };
-        details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}`;
+        details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}, Paikkakunta: ${selectedCity}`;
         estimate = wallPrice ? `${wallPrice.min.toLocaleString('fi-FI')} – ${wallPrice.max.toLocaleString('fi-FI')} €` : '';
       }
-      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details });
+      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: selectedCity ? `Paikkakunta: ${selectedCity}` : '', priceEstimate: estimate, calculatorDetails: details });
       setShowPrice(true);
       toast({ title: 'Kiitos!', description: 'Yhteystietosi on vastaanotettu.' });
     } catch {
@@ -165,17 +172,17 @@ const PriceCalculator = () => {
         <div className="relative">
           <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="text" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nimi *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
         <div className="relative">
           <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
       </div>
     </motion.div>
