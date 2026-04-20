@@ -226,14 +226,14 @@ const WallPriceCalculator = () => {
                 </button>
               </PopoverTrigger>
               <PopoverContent
-                className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]"
+                className="w-[--radix-popover-trigger-width] max-h-[320px] overflow-hidden rounded-xl p-0"
                 align="start"
                 side="bottom"
                 sideOffset={6}
                 avoidCollisions={false}
               >
                 <Command>
-                  <CommandInput placeholder="Hae kuntaa..." className="text-base md:text-sm focus:ring-0 focus-visible:ring-0 focus:outline-none" />
+                  <CommandInput placeholder="Hae kuntaa..." className="h-10 py-2 text-base md:text-sm focus:ring-0 focus-visible:ring-0 focus:outline-none" />
                   <CommandList>
                     <CommandEmpty>Ei tuloksia.</CommandEmpty>
                     <CommandGroup heading="Pirkanmaa & Kanta-Häme">
