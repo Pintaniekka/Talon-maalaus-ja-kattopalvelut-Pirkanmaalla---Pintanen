@@ -225,9 +225,15 @@ const WallPriceCalculator = () => {
                   <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
                 </button>
               </PopoverTrigger>
-              <PopoverContent className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]" align="start" sideOffset={6}>
+              <PopoverContent
+                className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]"
+                align="start"
+                side="bottom"
+                sideOffset={6}
+                avoidCollisions={false}
+              >
                 <Command>
-                  <CommandInput placeholder="Hae kuntaa..." className="text-base md:text-sm" />
+                  <CommandInput placeholder="Hae kuntaa..." className="text-base md:text-sm focus:ring-0 focus-visible:ring-0 focus:outline-none" />
                   <CommandList>
                     <CommandEmpty>Ei tuloksia.</CommandEmpty>
                     <CommandGroup heading="Pirkanmaa & Kanta-Häme">
