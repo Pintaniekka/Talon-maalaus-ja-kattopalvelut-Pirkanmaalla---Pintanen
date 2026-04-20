@@ -144,6 +144,8 @@ const ChatPriceCalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [numberInput, setNumberInput] = useState('');
   const [textInput, setTextInput] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+  const [cityPopoverOpen, setCityPopoverOpen] = useState(false);
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
@@ -233,10 +235,8 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
           break;
-        case 7:
-          await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
           setStepUI({ kind: 'contact' });
           break;
         default:
