@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail, MapPin, ChevronsUpDown } from 'lucide-react';
 import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
 import { toast } from '@/hooks/use-toast';
 import { submitContactForm } from '@/lib/contactForm';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { PIRKANMAA_KANTAHAME_CITIES } from '@/data/pirkanmaaKantaHameCities';
+import { cn } from '@/lib/utils';
 
 type CalculatorType = 'roof' | 'wall' | null;
 type RoofSlope = '5-19' | '20-30' | '31+' | null;
 type WallStories = '1' | '1.5' | '2' | null;
 type WallPeeling = 'none' | '1-2' | '3+' | null;
 
-const ROOF_STEPS = ['size', 'slope', 'contact'] as const;
-const WALL_STEPS = ['size', 'stories', 'peeling', 'contact'] as const;
+const ROOF_STEPS = ['size', 'slope', 'location', 'contact'] as const;
+const WALL_STEPS = ['size', 'stories', 'peeling', 'location', 'contact'] as const;
 
 const interpolatePrice = (m2: number): number => {
   const pricePoints = [
