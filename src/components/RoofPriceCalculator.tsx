@@ -97,7 +97,7 @@ const RoofPriceCalculator = () => {
   const progress = ((stepIndex + 1) / STEPS.length) * 100;
 
   return (
-    <div className="card-elevated">
+    <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border">
       {/* Progress */}
       {!showPrice && (
         <div className="mb-6">
