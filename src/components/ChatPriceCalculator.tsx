@@ -540,7 +540,7 @@ const ChatPriceCalculator = () => {
                         value={numberInput}
                         onChange={e => setNumberInput(e.target.value)}
                         placeholder={stepUI.placeholder}
-                        className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base md:text-sm focus:outline-none focus:border-primary transition-colors"
                         autoFocus
                       />
                       {stepUI.suffix && (
