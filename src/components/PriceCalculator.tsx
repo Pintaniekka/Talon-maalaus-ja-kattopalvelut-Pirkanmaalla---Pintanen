@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail, MapPin, ChevronsUpDown } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail } from 'lucide-react';
 import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
 import { toast } from '@/hooks/use-toast';
 import { submitContactForm } from '@/lib/contactForm';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
-import { PIRKANMAA_KANTAHAME_CITIES } from '@/data/pirkanmaaKantaHameCities';
-import { cn } from '@/lib/utils';
 
 type CalculatorType = 'roof' | 'wall' | null;
 type RoofSlope = '5-19' | '20-30' | '31+' | null;
 type WallStories = '1' | '1.5' | '2' | null;
 type WallPeeling = 'none' | '1-2' | '3+' | null;
 
-const ROOF_STEPS = ['size', 'slope', 'location', 'contact'] as const;
-const WALL_STEPS = ['size', 'stories', 'peeling', 'location', 'contact'] as const;
+const ROOF_STEPS = ['size', 'slope', 'contact'] as const;
+const WALL_STEPS = ['size', 'stories', 'peeling', 'contact'] as const;
 
 const interpolatePrice = (m2: number): number => {
   const pricePoints = [
@@ -56,10 +52,6 @@ const PriceCalculator = () => {
   const [wallStories, setWallStories] = useState<WallStories>(null);
   const [wallPeeling, setWallPeeling] = useState<WallPeeling>(null);
 
-  // Location (shared)
-  const [selectedCity, setSelectedCity] = useState<string>('');
-  const [cityPopoverOpen, setCityPopoverOpen] = useState(false);
-
   // Contact state (shared)
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
@@ -75,7 +67,6 @@ const PriceCalculator = () => {
     setSquareMeters(150);
     setWallStories(null);
     setWallPeeling(null);
-    setSelectedCity('');
     setContactName('');
     setContactPhone('');
     setContactEmail('');
@@ -118,12 +109,10 @@ const PriceCalculator = () => {
     if (calculatorType === 'roof') {
       if (currentStepName === 'size') return roofSquareMeters >= 100;
       if (currentStepName === 'slope') return roofSlope !== null;
-      if (currentStepName === 'location') return selectedCity.trim().length > 0;
     } else {
       if (currentStepName === 'size') return true;
       if (currentStepName === 'stories') return wallStories !== null;
       if (currentStepName === 'peeling') return wallPeeling !== null;
-      if (currentStepName === 'location') return selectedCity.trim().length > 0;
     }
     return false;
   };
@@ -143,15 +132,15 @@ const PriceCalculator = () => {
       let estimate = '';
       if (calculatorType === 'roof') {
         const slopeLabels: Record<string, string> = { '5-19': '5-19° (Loiva)', '20-30': '20-30° (Normaali)', '31+': '31°+ (Jyrkkä)' };
-        details = `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ''}, Paikkakunta: ${selectedCity}`;
+        details = `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ''}`;
         estimate = roofPrice ? `${roofPrice.min.toLocaleString('fi-FI')} – ${roofPrice.max.toLocaleString('fi-FI')} €` : '';
       } else {
         const storyLabels: Record<string, string> = { '1': '1 kerros', '1.5': '1,5 kerrosta', '2': '2 kerrosta' };
         const peelLabels: Record<string, string> = { none: 'Ei hilseilyä', '1-2': '1–2 seinällä', '3+': 'Yli 3 seinällä' };
-        details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}, Paikkakunta: ${selectedCity}`;
+        details = `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ''}, Hilseily: ${peelLabels[wallPeeling!] || ''}`;
         estimate = wallPrice ? `${wallPrice.min.toLocaleString('fi-FI')} – ${wallPrice.max.toLocaleString('fi-FI')} €` : '';
       }
-      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: selectedCity ? `Paikkakunta: ${selectedCity}` : '', priceEstimate: estimate, calculatorDetails: details });
+      await submitContactForm({ name: contactName, email: contactEmail || '', phone: contactPhone || '', service, message: '', priceEstimate: estimate, calculatorDetails: details });
       setShowPrice(true);
       toast({ title: 'Kiitos!', description: 'Yhteystietosi on vastaanotettu.' });
     } catch {
@@ -172,17 +161,17 @@ const PriceCalculator = () => {
         <div className="relative">
           <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="text" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nimi *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
         <div className="relative">
           <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
         </div>
       </div>
     </motion.div>
@@ -327,75 +316,6 @@ const PriceCalculator = () => {
                         </button>
                       ))}
                     </div>
-                  </motion.div>
-                )}
-
-                {/* LOCATION (shared) */}
-                {currentStepName === 'location' && !showPrice && (
-                  <motion.div key="location" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
-                    <label className="block text-foreground font-semibold mb-1 text-lg">Paikkakunta</label>
-                    <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion?</p>
-                    <Popover open={cityPopoverOpen} onOpenChange={setCityPopoverOpen}>
-                      <PopoverTrigger asChild>
-                        <button
-                          type="button"
-                          role="combobox"
-                          aria-expanded={cityPopoverOpen}
-                          className={cn(
-                            "w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border-2 transition-all bg-background text-left",
-                            selectedCity
-                              ? "border-primary bg-primary/5 text-foreground font-medium"
-                              : "border-border hover:border-primary/50 text-muted-foreground"
-                          )}
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <MapPin className="w-4 h-4 shrink-0 text-primary" />
-                            <span className="truncate">
-                              {selectedCity || "Valitse paikkakunta..."}
-                            </span>
-                          </div>
-                          <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent
-                        className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]"
-                        align="start"
-                        sideOffset={6}
-                      >
-                        <Command>
-                          <CommandInput
-                            placeholder="Hae kuntaa..."
-                            className="text-base md:text-sm"
-                          />
-                          <CommandList>
-                            <CommandEmpty>Ei tuloksia.</CommandEmpty>
-                            <CommandGroup heading="Pirkanmaa & Kanta-Häme">
-                              {PIRKANMAA_KANTAHAME_CITIES.map((city) => (
-                                <CommandItem
-                                  key={city}
-                                  value={city}
-                                  onSelect={(value) => {
-                                    const match = PIRKANMAA_KANTAHAME_CITIES.find(
-                                      (c) => c.toLowerCase() === value.toLowerCase()
-                                    );
-                                    setSelectedCity(match || city);
-                                    setCityPopoverOpen(false);
-                                  }}
-                                >
-                                  <Check
-                                    className={cn(
-                                      "mr-2 h-4 w-4",
-                                      selectedCity === city ? "opacity-100 text-primary" : "opacity-0"
-                                    )}
-                                  />
-                                  {city}
-                                </CommandItem>
-                              ))}
-                            </CommandGroup>
-                          </CommandList>
-                        </Command>
-                      </PopoverContent>
-                    </Popover>
                   </motion.div>
                 )}
 
