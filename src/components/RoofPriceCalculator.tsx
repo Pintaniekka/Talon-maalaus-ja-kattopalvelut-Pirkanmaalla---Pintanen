@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin, ChevronsUpDown } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { PIRKANMAA_KANTAHAME_CITIES } from "@/data/pirkanmaaKantaHameCities";
+import { cn } from "@/lib/utils";
 
 type RoofSlope = "5-19" | "20-30" | "31+" | null;
 
-const STEPS = ["size", "slope", "contact"] as const;
+const STEPS = ["size", "slope", "location", "contact"] as const;
 type Step = typeof STEPS[number];
 
 const RoofPriceCalculator = () => {
@@ -16,6 +20,8 @@ const RoofPriceCalculator = () => {
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [cityPopoverOpen, setCityPopoverOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
 
@@ -24,6 +30,7 @@ const RoofPriceCalculator = () => {
   const canGoNext = () => {
     if (currentStep === "size") return roofSquareMeters >= 100;
     if (currentStep === "slope") return roofSlope !== null;
+    if (currentStep === "location") return selectedCity.trim().length > 0;
     return false;
   };
 
@@ -67,9 +74,9 @@ const RoofPriceCalculator = () => {
         email: contactEmail || "",
         phone: contactPhone || "",
         service: "tiilikatto",
-        message: "",
+        message: selectedCity ? `Paikkakunta: ${selectedCity}` : "",
         priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
-        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
+        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}, Paikkakunta: ${selectedCity}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
@@ -171,6 +178,59 @@ const RoofPriceCalculator = () => {
           </motion.div>
         )}
 
+        {/* Step: Location */}
+        {currentStep === "location" && !showPrice && (
+          <motion.div key="location" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+            <label className="block text-foreground font-semibold mb-1 text-lg">Paikkakunta</label>
+            <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion?</p>
+            <Popover open={cityPopoverOpen} onOpenChange={setCityPopoverOpen}>
+              <PopoverTrigger asChild>
+                <button
+                  type="button"
+                  role="combobox"
+                  aria-expanded={cityPopoverOpen}
+                  className={cn(
+                    "w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl border-2 transition-all bg-background text-left",
+                    selectedCity
+                      ? "border-primary bg-primary/5 text-foreground font-medium"
+                      : "border-border hover:border-primary/50 text-muted-foreground"
+                  )}
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <MapPin className="w-4 h-4 shrink-0 text-primary" />
+                    <span className="truncate">{selectedCity || "Valitse paikkakunta..."}</span>
+                  </div>
+                  <ChevronsUpDown className="w-4 h-4 shrink-0 opacity-60" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="p-0 w-[--radix-popover-trigger-width] max-h-[320px]" align="start" sideOffset={6}>
+                <Command>
+                  <CommandInput placeholder="Hae kuntaa..." className="text-base md:text-sm" />
+                  <CommandList>
+                    <CommandEmpty>Ei tuloksia.</CommandEmpty>
+                    <CommandGroup heading="Pirkanmaa & Kanta-Häme">
+                      {PIRKANMAA_KANTAHAME_CITIES.map((city) => (
+                        <CommandItem
+                          key={city}
+                          value={city}
+                          onSelect={(value) => {
+                            const match = PIRKANMAA_KANTAHAME_CITIES.find((c) => c.toLowerCase() === value.toLowerCase());
+                            setSelectedCity(match || city);
+                            setCityPopoverOpen(false);
+                          }}
+                        >
+                          <Check className={cn("mr-2 h-4 w-4", selectedCity === city ? "opacity-100 text-primary" : "opacity-0")} />
+                          {city}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+          </motion.div>
+        )}
+
         {/* Step 3: Contact – inline JSX, not a nested component */}
         {currentStep === "contact" && !showPrice && (
           <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
@@ -180,17 +240,17 @@ const RoofPriceCalculator = () => {
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input type="text" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nimi *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
             </div>
           </motion.div>
