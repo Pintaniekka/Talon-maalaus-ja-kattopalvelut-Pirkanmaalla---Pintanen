@@ -103,7 +103,7 @@ const Header = () => {
             <WhatsAppIcon className="w-7 h-7" />
           </a>
 
-          <Link to="/" className="flex items-center shrink-0 transition-transform duration-300 hover:scale-110">
+          <Link to="/" className="flex items-center shrink-0">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"
@@ -126,7 +126,7 @@ const Header = () => {
 
         {/* Desktop layout */}
         <div className="hidden xl:flex items-center justify-between w-full h-20">
-          <Link to="/" className="flex items-center shrink-0 relative z-50 transition-transform duration-300 hover:scale-110">
+          <Link to="/" className="flex items-center shrink-0 relative z-50">
             <OptimizedImage
               src={logoUrl}
               alt="Pintanen Oy – tiilikaton pinnoitus ja ulkomaalaus Pirkanmaalla"

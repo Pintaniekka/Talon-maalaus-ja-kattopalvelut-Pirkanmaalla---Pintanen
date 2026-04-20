@@ -1,14 +1,14 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Loader2, MapPin, ChevronsUpDown, Check } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
-import { PIRKANMAA_KANTAHAME_CITIES } from '@/data/pirkanmaaKantaHameCities';
-import { cn } from '@/lib/utils';
 
+// ── Avatar ─────────────────────────────────────────────────────────────────
 const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
 
+// ── Price calculation logic (mirrors existing calculators) ─────────────────
 const interpolateWallPrice = (m2: number): number => {
   const pts = [
     { m2: 50, price: 2800 },
@@ -47,6 +47,7 @@ const calculateRoofPrice = (m2: number, slope: string) => {
   return { min: Math.max(2850, m2 * minPer), max: Math.max(2850, m2 * maxPer) };
 };
 
+// ── Types ──────────────────────────────────────────────────────────────────
 type ServicePath = 'maalaus' | 'pinnoitus' | null;
 
 interface ChatMsg {
@@ -67,10 +68,10 @@ type StepUI =
   | { kind: 'options'; options: { label: string; value: string }[] }
   | { kind: 'number'; placeholder: string; suffix?: string }
   | { kind: 'text'; placeholder: string }
-  | { kind: 'city'; placeholder: string }
   | { kind: 'contact' }
   | null;
 
+// ── Typing indicator ──────────────────────────────────────────────────────
 const TypingIndicator = () => (
   <div className="flex items-end gap-2 mb-3">
     <img src={eerikImage} alt="Eerik" className="w-7 h-7 rounded-full object-cover shrink-0" />
@@ -89,6 +90,7 @@ const TypingIndicator = () => (
   </div>
 );
 
+// ── Bot message bubble ────────────────────────────────────────────────────
 const BotBubble = ({ text }: { text: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
@@ -102,6 +104,7 @@ const BotBubble = ({ text }: { text: string }) => (
   </motion.div>
 );
 
+// ── User message bubble ───────────────────────────────────────────────────
 const UserBubble = ({ text, imageBase }: { text: string; imageBase?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
@@ -126,6 +129,7 @@ const UserBubble = ({ text, imageBase }: { text: string; imageBase?: string }) =
   </motion.div>
 );
 
+// ── Main component ────────────────────────────────────────────────────────
 const ChatPriceCalculator = () => {
   const [messages, setMessages] = useState<ChatMsg[]>([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -135,9 +139,6 @@ const ChatPriceCalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [numberInput, setNumberInput] = useState('');
   const [textInput, setTextInput] = useState('');
-  const [citySearch, setCitySearch] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
-  const [cityDropdownOpen, setCityDropdownOpen] = useState(false);
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
@@ -146,13 +147,8 @@ const ChatPriceCalculator = () => {
   const hasAutoStarted = useRef(false);
   const { toast } = useToast();
 
+  // Collected data
   const dataRef = useRef<Record<string, string>>({});
-
-  const filteredCities = useMemo(() => {
-    const query = citySearch.trim().toLocaleLowerCase('fi');
-    if (!query) return PIRKANMAA_KANTAHAME_CITIES;
-    return PIRKANMAA_KANTAHAME_CITIES.filter((city) => city.toLocaleLowerCase('fi').includes(query));
-  }, [citySearch]);
 
   const scrollToBottom = useCallback(() => {
     setTimeout(() => {
@@ -178,6 +174,7 @@ const ChatPriceCalculator = () => {
     scrollToBottom();
   }, [scrollToBottom]);
 
+  // ── Flow definitions ──────────────────────────────────────────────────
   const startChat = useCallback(async () => {
     setChatStarted(true);
     setStepUI(null);
@@ -231,10 +228,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
           }
-          setCitySearch('');
-          setSelectedCity('');
-          setCityDropdownOpen(false);
-          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
+          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
           break;
         case 7:
           await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
@@ -285,10 +279,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
           }
-          setCitySearch('');
-          setSelectedCity('');
-          setCityDropdownOpen(false);
-          setStepUI({ kind: 'city', placeholder: 'Valitse paikkakunta...' });
+          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
           break;
         case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
@@ -300,6 +291,7 @@ const ChatPriceCalculator = () => {
     }
   }, [addBotMessage]);
 
+  // ── Handlers ──────────────────────────────────────────────────────────
   const handleImageOption = useCallback(async (option: ImageOption) => {
     addUserMessage(option.label, option.imageBase);
     const p = option.value as ServicePath;
@@ -356,20 +348,6 @@ const ChatPriceCalculator = () => {
     await advanceFlow(nextStep, path);
   }, [textInput, addUserMessage, currentStep, path, advanceFlow]);
 
-  const handleCitySubmit = useCallback(async (city: string) => {
-    const val = city.trim();
-    if (!val) return;
-    addUserMessage(val);
-    dataRef.current.city = val;
-    setSelectedCity('');
-    setCitySearch('');
-    setCityDropdownOpen(false);
-    setStepUI(null);
-    const nextStep = currentStep + 1;
-    setCurrentStep(nextStep);
-    await advanceFlow(nextStep, path);
-  }, [addUserMessage, currentStep, path, advanceFlow]);
-
   const handleContactSubmit = useCallback(async () => {
     if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: 'Täytä tiedot', description: 'Nimi ja puhelinnumero ovat pakollisia.', variant: 'destructive' });
@@ -419,6 +397,7 @@ const ChatPriceCalculator = () => {
     }
   }, [contactName, contactPhone, path, addBotMessage, toast, addUserMessage]);
 
+  // Auto-start on scroll into view
   useEffect(() => {
     if (!sectionRef.current || hasAutoStarted.current) return;
     const observer = new IntersectionObserver(
@@ -454,6 +433,7 @@ const ChatPriceCalculator = () => {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
+          {/* Header */}
           <div className="text-center mb-6">
             <h2 className="heading-style text-3xl md:text-4xl text-accent mb-3">
               Laske tästä hinta-arvio maalaukselle
@@ -463,7 +443,9 @@ const ChatPriceCalculator = () => {
             </p>
           </div>
 
+          {/* Chat container */}
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/80 overflow-hidden">
+            {/* Chat header bar */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-border/30 bg-white/80">
               <div className="relative">
                 <img src={eerikImage} alt="Eerik Pitkänen" className="w-10 h-10 rounded-full object-cover" />
@@ -475,6 +457,7 @@ const ChatPriceCalculator = () => {
               </div>
             </div>
 
+            {/* Messages area */}
             <div
               ref={scrollRef}
               className="px-4 py-4 min-h-[280px] max-h-[480px] overflow-y-auto"
@@ -491,6 +474,7 @@ const ChatPriceCalculator = () => {
               </AnimatePresence>
               {isTyping && <TypingIndicator />}
 
+              {/* Inline bubble-style options */}
               {!isTyping && stepUI && (stepUI.kind === 'image-options' || stepUI.kind === 'options') && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -539,8 +523,10 @@ const ChatPriceCalculator = () => {
               )}
             </div>
 
-            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'city' || stepUI.kind === 'contact') && (
+            {/* Input area — only for text/number/contact inputs */}
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
+
                 {stepUI.kind === 'number' && (
                   <form
                     onSubmit={e => { e.preventDefault(); handleNumberSubmit(); }}
@@ -596,68 +582,6 @@ const ChatPriceCalculator = () => {
                   </form>
                 )}
 
-                {stepUI.kind === 'city' && (
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start">
-                    <div className="flex-1 space-y-2">
-                      <div className="relative">
-                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
-                        <input
-                          type="text"
-                          value={cityDropdownOpen ? citySearch : selectedCity}
-                          onFocus={() => setCityDropdownOpen(true)}
-                          onChange={(e) => {
-                            setCitySearch(e.target.value);
-                            setSelectedCity('');
-                            setCityDropdownOpen(true);
-                          }}
-                          placeholder={stepUI.placeholder}
-                          className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-border/60 bg-white text-base md:text-sm focus:outline-none focus:border-primary transition-colors"
-                          autoFocus
-                        />
-                        <ChevronsUpDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-70" />
-                      </div>
-
-                      {cityDropdownOpen && (
-                        <div className="max-h-[220px] overflow-y-auto rounded-xl border border-border/60 bg-white shadow-sm">
-                          {filteredCities.length > 0 ? (
-                            <div className="p-1">
-                              {filteredCities.map((city) => (
-                                <button
-                                  key={city}
-                                  type="button"
-                                  onClick={() => {
-                                    setSelectedCity(city);
-                                    setCitySearch(city);
-                                    setCityDropdownOpen(false);
-                                  }}
-                                  className={cn(
-                                    'w-full flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm transition-colors',
-                                    selectedCity === city ? 'bg-accent text-accent-foreground' : 'text-foreground hover:bg-muted'
-                                  )}
-                                >
-                                  <Check className={cn('h-4 w-4 shrink-0', selectedCity === city ? 'opacity-100' : 'opacity-0')} />
-                                  <span className="truncate">{city}</span>
-                                </button>
-                              ))}
-                            </div>
-                          ) : (
-                            <div className="px-4 py-5 text-center text-sm text-muted-foreground">Ei tuloksia.</div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => handleCitySubmit(selectedCity)}
-                      disabled={!selectedCity.trim()}
-                      className="self-end px-4 py-2.5 bg-primary text-primary-foreground rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors"
-                    >
-                      <Send className="w-4 h-4" />
-                    </button>
-                  </div>
-                )}
-
                 {stepUI.kind === 'contact' && (
                   <div className="space-y-2">
                     <input
@@ -704,4 +628,3 @@ const ChatPriceCalculator = () => {
 };
 
 export default ChatPriceCalculator;
-
