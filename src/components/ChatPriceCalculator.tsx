@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, MapPin, ChevronsUpDown, Check } from 'lucide-react';
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { PIRKANMAA_KANTAHAME_CITIES } from '@/data/pirkanmaaKantaHameCities';
+import { cn } from '@/lib/utils';
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
 const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
@@ -68,6 +72,7 @@ type StepUI =
   | { kind: 'options'; options: { label: string; value: string }[] }
   | { kind: 'number'; placeholder: string; suffix?: string }
   | { kind: 'text'; placeholder: string }
+  | { kind: 'city'; placeholder: string }
   | { kind: 'contact' }
   | null;
 
