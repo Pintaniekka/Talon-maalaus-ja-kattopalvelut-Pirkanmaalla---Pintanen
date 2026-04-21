@@ -39,11 +39,22 @@ const Meista = () => {
     <div>
       <SEO title="Pintanen Oy – Perheyritys katto- ja maalaustöissä" description="Pintanen on perheyritys, joka on erikoistunut katto- ja seinämaalauksiin. Teemme työt itse ja panostamme huolelliseen lopputulokseen." />
       <ServicePageHero
-        title="Tutustu Pintaseen"
-        subtitle="Tutustu meihin – olemme pirkanmaalainen perheyritys, joka on erikoistunut tiilikattojen pinnoitukseen ja talojen maalaukseen"
+        title=""
+        subtitle=""
         backgroundImage={getResponsiveSrc(heroBase)}
         backgroundSrcSet={getResponsiveSrcSet(heroBase)}
-      />
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            Tutustu{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pintaseen</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            Olemme <strong>pirkanmaalainen perheyritys</strong>, joka on erikoistunut <strong>tiilikattojen pinnoitukseen</strong> ja <strong>talojen maalaukseen</strong>. Veljekset Eemil ja Eerik tekevät työt <strong>itse alusta loppuun</strong> – ei välikäsiä, ei aliurakoitsijoita. Panostamme <strong>huolellisiin pohjatöihin</strong> ja kestävään lopputulokseen.
+          </p>
+        </div>
+      </ServicePageHero>
+
 
       <section className="section-padding bg-background">
         <div className="section-container">

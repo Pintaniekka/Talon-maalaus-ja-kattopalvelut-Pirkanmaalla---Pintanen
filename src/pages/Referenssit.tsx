@@ -294,7 +294,22 @@ const Referenssit = () => {
   return (
     <div>
       <SEO title="Referenssit – Katon pinnoitus ja talon maalaus" description="Tutustu toteuttamiimme katto- ja maalausprojekteihin Pirkanmaalla. Näe ero ennen maalausta ja maalauksen jälkeen." />
-      <ServicePageHero title="Referenssit" subtitle="Tutustu tekemiimme töihin – laatu puhuu puolestaan" backgroundImage={getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto")} backgroundSrcSet={getResponsiveSrcSet("tiilikaton-tehopesu-ja-sammaleenpoisto")} />
+      <ServicePageHero
+        title=""
+        subtitle=""
+        backgroundImage={getResponsiveSrc("tiilikaton-tehopesu-ja-sammaleenpoisto")}
+        backgroundSrcSet={getResponsiveSrcSet("tiilikaton-tehopesu-ja-sammaleenpoisto")}
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Referenssit</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            Tutustu <strong>toteuttamiimme katto- ja maalausprojekteihin</strong> Pirkanmaalla ja lähikunnissa. Näet selkeästi <strong>ennen ja jälkeen</strong> -kuvat, jotka kertovat työn jäljestä enemmän kuin sanat. <strong>Laatu puhuu puolestaan</strong> – jokainen kohde on tehty huolellisesti ja viimeistellysti.
+          </p>
+        </div>
+      </ServicePageHero>
+
 
       <section className="section-padding bg-background">
         <div className="section-container">

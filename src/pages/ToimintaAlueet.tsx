@@ -14,11 +14,21 @@ const ToimintaAlueet = () => {
     <div>
       <SEO title="Toiminta-alueet Pirkanmaa ja lähikunnat" description="Palvelemme koko Pirkanmaan alueella ja lähikunnissa. Katon pinnoitus, puhdistus ja talon maalaus noin tunnin säteellä Tampereelta." />
       <ServicePageHero
-        title="Toiminta-alueemme"
-        subtitle="Pirkanmaa ja lähialueet"
+        title=""
+        subtitle=""
         backgroundImage={getResponsiveSrc(heroBase)}
         backgroundSrcSet={getResponsiveSrcSet(heroBase)}
-      />
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Toiminta-alueemme</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            Palvelemme koko <strong>Pirkanmaan alueella</strong> ja lähikunnissa noin <strong>tunnin säteellä Tampereelta</strong>. Tarjoamme <strong>tiilikaton pinnoituksen</strong>, <strong>katon puhdistuksen</strong> ja <strong>talon maalauksen</strong> ammattitaidolla. Olemme <strong>paikallinen perheyritys</strong>, johon voit luottaa.
+          </p>
+        </div>
+      </ServicePageHero>
+
 
       <section className="section-padding bg-background">
         <div className="section-container max-w-4xl">

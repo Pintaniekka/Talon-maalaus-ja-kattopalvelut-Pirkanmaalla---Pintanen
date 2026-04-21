@@ -59,11 +59,39 @@ const HinnatKatonPuhdistus = () => {
       </Helmet>
 
       <ServicePageHero
-        title="Katon puhdistus hinta – mitä pesu maksaa?"
-        subtitle="Hintaesimerkit, sisältö ja milloin pelkkä puhdistus riittää"
+        title=""
+        subtitle=""
         backgroundImage={heroImage}
         backgroundSrcSet={heroSrcSet}
-      />
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            Katon puhdistuksen{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">hinta</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            <strong>Sammaleen poisto ja suojakäsittely</strong> pidentävät katon käyttöikää merkittävästi. Hinta määräytyy katon koon ja likaisuuden mukaan. Käytämme <strong>mekaanista puhdistusta</strong> ilman painepesua, jotta tiilet säilyvät ehjinä. Toimimme <strong>Pirkanmaalla ja Kanta-Hämeessä</strong> ja tarjoamme <strong>kotitalousvähennyskelpoisen palvelun</strong>.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#hintaesimerkit"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 text-base"
+            style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
+          >
+            Katso hintaesimerkit
+          </a>
+          <a
+            href="#yhteystiedot"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-foreground transition-all hover:brightness-95 text-base"
+            style={{ backgroundColor: 'hsl(36, 56%, 91%)' }}
+          >
+            Pyydä ilmainen tarjous
+          </a>
+        </div>
+      </ServicePageHero>
+
 
       {/* Intro */}
       <section className="section-padding bg-background">
