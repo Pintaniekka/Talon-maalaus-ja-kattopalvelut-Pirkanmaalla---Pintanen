@@ -59,8 +59,8 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
         sideOffset={6}
         avoidCollisions={false}
       >
-        <Command>
-          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 border-0" />
+        <Command className="[&_[cmdk-input-wrapper]]:border-0">
+          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base outline-none ring-0 ring-offset-0 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 border-0" />
           <CommandList>
             <CommandEmpty>Ei tuloksia.</CommandEmpty>
             <CommandGroup>
