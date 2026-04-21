@@ -75,7 +75,7 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
                     onChange(match || city);
                     setOpen(false);
                   }}
-                  className="text-base data-[selected=true]:bg-transparent data-[selected=true]:text-foreground aria-selected:bg-transparent cursor-pointer"
+                  className="text-base hover:bg-muted aria-selected:bg-muted data-[selected=true]:bg-muted cursor-pointer"
                 >
                   <Check
                     className={cn(
