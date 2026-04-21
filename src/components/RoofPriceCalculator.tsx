@@ -93,7 +93,7 @@ const RoofPriceCalculator = () => {
   const progress = ((stepIndex + 1) / STEPS.length) * 100;
 
   return (
-    <div className="card-elevated">
+    <div className="card-elevated no-hover">
       {/* Progress */}
       {!showPrice && (
         <div className="mb-6">
