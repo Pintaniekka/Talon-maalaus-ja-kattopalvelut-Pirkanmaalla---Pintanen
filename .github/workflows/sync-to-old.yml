@@ -1,0 +1,24 @@
+name: Sync to Old Repo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hae uusin koodi tästä reposta
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false 
+          fetch-depth: 0
+
+      - name: Puske koodi vanhaan repoon
+        run: |
+          # Määritetään kohderepo ja käytetään SYNC_TOKENia tunnistautumiseen
+          git remote add target https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/Pintaniekka/Talon-maalaus-ja-kattopalvelut-Pirkanmaalla---Pintanen.git
+          
+          # Pakotetaan uuden repon main-haara vanhan repon main-haaraan
+          # Tämä päivittää Cloudflaren välittömästi
+          git push target HEAD:refs/heads/main --force
