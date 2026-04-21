@@ -46,7 +46,7 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
           type="button"
           role="combobox"
           aria-expanded={open}
-          className="flex w-full items-center justify-between py-3 px-4 rounded-xl border border-border bg-background text-foreground font-normal text-base focus:outline-none focus:border-primary transition-colors"
+          className="flex w-full items-center justify-between py-3 px-4 rounded-xl border border-border bg-background text-foreground font-normal text-base outline-none focus:outline-none focus:border-primary focus-visible:outline-none focus-visible:ring-0 focus-visible:border-primary"
         >
           {value || <span className="text-muted-foreground">{placeholder}</span>}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -55,9 +55,12 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
       <PopoverContent
         className="w-[--radix-popover-trigger-width] p-0 z-50 bg-popover"
         align="start"
+        side="bottom"
+        sideOffset={4}
+        avoidCollisions={false}
       >
         <Command>
-          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base" />
+          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base focus:outline-none focus-visible:ring-0" />
           <CommandList>
             <CommandEmpty>Ei tuloksia.</CommandEmpty>
             <CommandGroup>
