@@ -60,7 +60,7 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
         avoidCollisions={false}
       >
         <Command>
-          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base focus:outline-none focus-visible:ring-0" />
+          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base border-0 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0" />
           <CommandList>
             <CommandEmpty>Ei tuloksia.</CommandEmpty>
             <CommandGroup>
@@ -75,7 +75,7 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
                     onChange(match || city);
                     setOpen(false);
                   }}
-                  className="text-base data-[selected=true]:bg-transparent data-[selected=true]:text-foreground aria-selected:bg-transparent cursor-pointer"
+                  className="text-base hover:bg-muted aria-selected:bg-muted data-[selected=true]:bg-muted cursor-pointer"
                 >
                   <Check
                     className={cn(
