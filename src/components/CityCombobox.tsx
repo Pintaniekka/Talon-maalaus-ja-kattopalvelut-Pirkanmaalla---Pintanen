@@ -42,23 +42,22 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
+        <button
           type="button"
-          variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between py-6 px-4 rounded-xl border-border bg-background text-foreground font-normal hover:bg-background"
+          className="flex w-full items-center justify-between py-3 px-4 rounded-xl border border-border bg-background text-foreground font-normal text-base focus:outline-none focus:border-primary transition-colors"
         >
           {value || <span className="text-muted-foreground">{placeholder}</span>}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
+        </button>
       </PopoverTrigger>
       <PopoverContent
         className="w-[--radix-popover-trigger-width] p-0 z-50 bg-popover"
         align="start"
       >
         <Command>
-          <CommandInput placeholder="Hae kuntaa..." className="h-11" />
+          <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base" />
           <CommandList>
             <CommandEmpty>Ei tuloksia.</CommandEmpty>
             <CommandGroup>
@@ -67,13 +66,13 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
                   key={city}
                   value={city}
                   onSelect={(currentValue) => {
-                    // cmdk lowercases values; map back to original casing
                     const match = ALL_CITY_NAMES.find(
                       (c) => c.toLowerCase() === currentValue.toLowerCase()
                     );
                     onChange(match || city);
                     setOpen(false);
                   }}
+                  className="text-base"
                 >
                   <Check
                     className={cn(
