@@ -143,6 +143,7 @@ const ChatPriceCalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [numberInput, setNumberInput] = useState('');
   const [textInput, setTextInput] = useState('');
+  const [cityInput, setCityInput] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
@@ -595,6 +596,32 @@ const ChatPriceCalculator = () => {
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
+                )}
+
+                {stepUI.kind === 'city' && (
+                  <div className="flex gap-2">
+                    <div className="flex-1">
+                      <CityCombobox
+                        value={cityInput}
+                        onChange={(v) => {
+                          setCityInput(v);
+                        }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (cityInput.trim()) {
+                          handleCitySubmit(cityInput.trim());
+                          setCityInput('');
+                        }
+                      }}
+                      disabled={!cityInput.trim()}
+                      className="px-4 py-2.5 bg-primary text-primary-foreground rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
                 )}
 
                 {stepUI.kind === 'contact' && (
