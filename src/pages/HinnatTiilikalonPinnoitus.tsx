@@ -71,11 +71,39 @@ const HinnatTiilikalonPinnoitus = () => {
 
       {/* Hero */}
       <ServicePageHero
-        title="Tiilikaton pinnoituksen hinta – laske arvio heti"
-        subtitle="Hintalaskuri ja hintaesimerkit Pirkanmaalla"
+        title=""
+        subtitle=""
         backgroundImage={heroImage}
         backgroundSrcSet={heroSrcSet}
-      />
+      >
+        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left mb-10 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            Tiilikaton pinnoituksen{' '}
+            <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">hinta</span>
+          </h1>
+          <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
+            <strong>Laske tiilikaton pinnoituksen suuntaa antava hinta laskurillamme</strong> sekunneissa. Hinta riippuu katon koosta, jyrkkyydestä ja tiilien kunnosta. Pinnoitus pidentää katon käyttöikää <strong>10–15 vuotta</strong> ja säästää tuhansia euroja kattoremontin lykkäyksellä. Toimimme <strong>Pirkanmaalla ja Kanta-Hämeessä</strong> ja annamme aina <strong>5 vuoden takuun</strong>.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#hintalaskuri"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 text-base"
+            style={{ backgroundColor: 'hsl(202, 100%, 61%)' }}
+          >
+            Laske hinta laskurilla
+          </a>
+          <a
+            href="#yhteystiedot"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-foreground transition-all hover:brightness-95 text-base"
+            style={{ backgroundColor: 'hsl(36, 56%, 91%)' }}
+          >
+            Pyydä ilmainen kuntoarvio
+          </a>
+        </div>
+      </ServicePageHero>
+
 
       {/* Intro */}
       <section className="section-padding bg-background">
