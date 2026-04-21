@@ -540,7 +540,7 @@ const ChatPriceCalculator = () => {
             </div>
 
             {/* Input area — only for text/number/contact inputs */}
-            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'city' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
 
                 {stepUI.kind === 'number' && (
