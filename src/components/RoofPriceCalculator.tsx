@@ -174,7 +174,24 @@ const RoofPriceCalculator = () => {
           </motion.div>
         )}
 
-        {/* Step 3: Contact – inline JSX, not a nested component */}
+        {/* Step 3: City */}
+        {currentStep === "city" && !showPrice && (
+          <motion.div key="city" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-accent-light flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary-dark" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Vaihe {stepIndex + 1} / {STEPS.length}</div>
+                <div className="text-lg font-bold text-foreground">Paikkakunta</div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion.</p>
+            <CityCombobox value={city} onChange={setCity} />
+          </motion.div>
+        )}
+
+        {/* Step 4: Contact – inline JSX, not a nested component */}
         {currentStep === "contact" && !showPrice && (
           <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
             <label className="block text-foreground font-semibold mb-1 text-lg">Yhteystiedot</label>
