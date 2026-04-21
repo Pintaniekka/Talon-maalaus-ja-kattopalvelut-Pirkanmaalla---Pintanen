@@ -4,6 +4,8 @@ import { Send, Loader2 } from 'lucide-react';
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
+import CityCombobox from '@/components/CityCombobox';
+
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
 const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
@@ -68,8 +70,10 @@ type StepUI =
   | { kind: 'options'; options: { label: string; value: string }[] }
   | { kind: 'number'; placeholder: string; suffix?: string }
   | { kind: 'text'; placeholder: string }
+  | { kind: 'city' }
   | { kind: 'contact' }
   | null;
+
 
 // ── Typing indicator ──────────────────────────────────────────────────────
 const TypingIndicator = () => (
@@ -228,7 +232,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city' });
           break;
         case 7:
           await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
@@ -279,7 +283,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city' });
           break;
         case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
