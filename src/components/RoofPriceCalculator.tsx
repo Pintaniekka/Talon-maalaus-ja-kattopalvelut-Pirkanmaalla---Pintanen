@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
+import CityCombobox from "@/components/CityCombobox";
 
 type RoofSlope = "5-19" | "20-30" | "31+" | null;
 
-const STEPS = ["size", "slope", "contact"] as const;
+const STEPS = ["size", "slope", "city", "contact"] as const;
 type Step = typeof STEPS[number];
 
 const RoofPriceCalculator = () => {
   const [currentStep, setCurrentStep] = useState<Step>("size");
   const [roofSquareMeters, setRoofSquareMeters] = useState<number>(200);
   const [roofSlope, setRoofSlope] = useState<RoofSlope>(null);
+  const [city, setCity] = useState("");
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -24,6 +26,7 @@ const RoofPriceCalculator = () => {
   const canGoNext = () => {
     if (currentStep === "size") return roofSquareMeters >= 100;
     if (currentStep === "slope") return roofSlope !== null;
+    if (currentStep === "city") return city.trim().length > 0;
     return false;
   };
 
@@ -69,7 +72,7 @@ const RoofPriceCalculator = () => {
         service: "tiilikatto",
         message: "",
         priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
-        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
+        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}, Paikkakunta: ${city}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
