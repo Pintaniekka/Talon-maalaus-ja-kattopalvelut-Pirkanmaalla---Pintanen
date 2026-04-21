@@ -189,7 +189,7 @@ const ChatPriceCalculator = () => {
       kind: 'image-options',
       options: [
         { label: 'Talon maalaus', value: 'maalaus', imageBase: 'moderni-tumma-puutalo-julkisivumaalaus-valmis' },
-        { label: 'Tiilikaton pinnoitus', value: 'pinnoitus', imageBase: 'puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen' },
+        { label: 'Tiilikaton pinnoitus', value: 'pinnoitus', imageBase: 'kirkkaan-punainen-tiilikatto-pinnoituksen-jalkeen' },
       ],
     });
     setCurrentStep(1);
