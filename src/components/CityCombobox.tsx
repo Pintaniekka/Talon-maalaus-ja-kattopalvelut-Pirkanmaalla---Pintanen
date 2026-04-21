@@ -46,7 +46,7 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
           type="button"
           role="combobox"
           aria-expanded={open}
-          className="flex w-full items-center justify-between py-3 px-4 rounded-xl border border-border bg-background text-foreground font-normal text-base focus:outline-none focus:border-primary transition-colors"
+          className="flex w-full items-center justify-between py-3 px-4 rounded-xl border border-border bg-background text-foreground font-normal text-base outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
         >
           {value || <span className="text-muted-foreground">{placeholder}</span>}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
