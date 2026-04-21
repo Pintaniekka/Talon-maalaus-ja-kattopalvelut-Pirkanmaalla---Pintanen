@@ -352,6 +352,17 @@ const ChatPriceCalculator = () => {
     await advanceFlow(nextStep, path);
   }, [textInput, addUserMessage, currentStep, path, advanceFlow]);
 
+  const handleCitySubmit = useCallback(async (cityValue: string) => {
+    if (!cityValue) return;
+    addUserMessage(cityValue);
+    dataRef.current.city = cityValue;
+    setStepUI(null);
+    const nextStep = currentStep + 1;
+    setCurrentStep(nextStep);
+    await advanceFlow(nextStep, path);
+  }, [addUserMessage, currentStep, path, advanceFlow]);
+
+
   const handleContactSubmit = useCallback(async () => {
     if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: 'Täytä tiedot', description: 'Nimi ja puhelinnumero ovat pakollisia.', variant: 'destructive' });
