@@ -161,7 +161,7 @@ const RoofPriceCalculator = () => {
                   className={`p-4 rounded-xl border-2 transition-all ${
                     roofSlope === option.value
                       ? "border-primary bg-primary/5"
-                      : "border-border hover:border-primary/50"
+                      : "border-border"
                   }`}
                 >
                   <div className="text-2xl mb-1">🏠</div>
