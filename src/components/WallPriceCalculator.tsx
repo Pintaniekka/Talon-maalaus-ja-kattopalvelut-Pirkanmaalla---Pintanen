@@ -162,7 +162,7 @@ const WallPriceCalculator = () => {
                 <button
                   key={option.value}
                   onClick={() => setWallStories(option.value as WallStories)}
-                  className={`p-4 rounded-xl border-2 transition-all ${wallStories === option.value ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}
+                  className={`p-4 rounded-xl border-2 transition-all ${wallStories === option.value ? "border-primary bg-primary/5" : "border-border"}`}
                 >
                   <div className="text-2xl mb-1">🏡</div>
                   <div className="font-bold text-foreground">{option.label}</div>
