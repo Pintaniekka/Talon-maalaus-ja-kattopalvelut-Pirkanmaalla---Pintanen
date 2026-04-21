@@ -540,7 +540,7 @@ const ChatPriceCalculator = () => {
                         value={numberInput}
                         onChange={e => setNumberInput(e.target.value)}
                         placeholder={stepUI.placeholder}
-                        className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                         autoFocus
                       />
                       {stepUI.suffix && (
@@ -569,7 +569,7 @@ const ChatPriceCalculator = () => {
                       value={textInput}
                       onChange={e => setTextInput(e.target.value)}
                       placeholder={stepUI.placeholder}
-                      className="flex-1 px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="flex-1 px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                       autoFocus
                     />
                     <button
@@ -589,7 +589,7 @@ const ChatPriceCalculator = () => {
                       value={contactName}
                       onChange={e => setContactName(e.target.value)}
                       placeholder="Nimi *"
-                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                       autoFocus
                     />
                     <input
@@ -597,7 +597,7 @@ const ChatPriceCalculator = () => {
                       value={contactPhone}
                       onChange={e => setContactPhone(e.target.value)}
                       placeholder="Puhelinnumero *"
-                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                     />
                     <button
                       onClick={handleContactSubmit}
