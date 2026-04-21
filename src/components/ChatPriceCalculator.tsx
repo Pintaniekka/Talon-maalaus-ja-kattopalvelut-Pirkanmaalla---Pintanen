@@ -4,6 +4,8 @@ import { Send, Loader2 } from 'lucide-react';
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
+import CityCombobox from '@/components/CityCombobox';
+
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
 const eerikImage = getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp');
@@ -68,8 +70,10 @@ type StepUI =
   | { kind: 'options'; options: { label: string; value: string }[] }
   | { kind: 'number'; placeholder: string; suffix?: string }
   | { kind: 'text'; placeholder: string }
+  | { kind: 'city' }
   | { kind: 'contact' }
   | null;
+
 
 // ── Typing indicator ──────────────────────────────────────────────────────
 const TypingIndicator = () => (
@@ -139,6 +143,7 @@ const ChatPriceCalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [numberInput, setNumberInput] = useState('');
   const [textInput, setTextInput] = useState('');
+  const [cityInput, setCityInput] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [chatStarted, setChatStarted] = useState(false);
@@ -228,7 +233,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Mahtavaa! Missä päin kohde muuten sijaitsee (kaupunki)?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city' });
           break;
         case 7:
           await addBotMessage('Kiitos tiedoista! Laitan laskimen raksuttamaan... 🔢 Saisinko tähän väliin nimesi ja puhelinnumerosi, niin voimme palata asiaan tarkemmin?');
@@ -279,7 +284,7 @@ const ChatPriceCalculator = () => {
           } else {
             await addBotMessage('Selvä juttu! Missä päin kohde sijaitsee?');
           }
-          setStepUI({ kind: 'text', placeholder: 'esim. Tampere' });
+          setStepUI({ kind: 'city' });
           break;
         case 8:
           await addBotMessage('Kiitos! Laitan laskimen raksuttamaan... 🔢 Saisinko vielä nimesi ja puhelinnumerosi?');
@@ -347,6 +352,17 @@ const ChatPriceCalculator = () => {
     setCurrentStep(nextStep);
     await advanceFlow(nextStep, path);
   }, [textInput, addUserMessage, currentStep, path, advanceFlow]);
+
+  const handleCitySubmit = useCallback(async (cityValue: string) => {
+    if (!cityValue) return;
+    addUserMessage(cityValue);
+    dataRef.current.city = cityValue;
+    setStepUI(null);
+    const nextStep = currentStep + 1;
+    setCurrentStep(nextStep);
+    await advanceFlow(nextStep, path);
+  }, [addUserMessage, currentStep, path, advanceFlow]);
+
 
   const handleContactSubmit = useCallback(async () => {
     if (!contactName.trim() || !contactPhone.trim()) {
@@ -524,7 +540,7 @@ const ChatPriceCalculator = () => {
             </div>
 
             {/* Input area — only for text/number/contact inputs */}
-            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'contact') && (
+            {chatStarted && stepUI && !isTyping && (stepUI.kind === 'number' || stepUI.kind === 'text' || stepUI.kind === 'city' || stepUI.kind === 'contact') && (
               <div className="px-4 py-3 border-t border-border/30 bg-white/80">
 
                 {stepUI.kind === 'number' && (
@@ -580,6 +596,32 @@ const ChatPriceCalculator = () => {
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
+                )}
+
+                {stepUI.kind === 'city' && (
+                  <div className="flex gap-2">
+                    <div className="flex-1">
+                      <CityCombobox
+                        value={cityInput}
+                        onChange={(v) => {
+                          setCityInput(v);
+                        }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (cityInput.trim()) {
+                          handleCitySubmit(cityInput.trim());
+                          setCityInput('');
+                        }
+                      }}
+                      disabled={!cityInput.trim()}
+                      className="px-4 py-2.5 bg-primary text-primary-foreground rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
                 )}
 
                 {stepUI.kind === 'contact' && (
