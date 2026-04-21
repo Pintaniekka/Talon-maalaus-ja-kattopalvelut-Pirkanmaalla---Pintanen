@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
+import CityCombobox from "@/components/CityCombobox";
 
 type WallStories = "1" | "1.5" | "2" | null;
 type WallPeeling = "none" | "1-2" | "3+" | null;
 
-const STEPS = ["size", "stories", "peeling", "contact"] as const;
+const STEPS = ["size", "stories", "peeling", "city", "contact"] as const;
 type Step = typeof STEPS[number];
 
 const interpolatePrice = (m2: number): number => {
@@ -37,6 +38,7 @@ const WallPriceCalculator = () => {
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
+  const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
 
@@ -46,6 +48,7 @@ const WallPriceCalculator = () => {
     if (currentStep === "size") return true;
     if (currentStep === "stories") return wallStories !== null;
     if (currentStep === "peeling") return wallPeeling !== null;
+    if (currentStep === "city") return city.trim().length > 0;
     return false;
   };
 
@@ -86,7 +89,7 @@ const WallPriceCalculator = () => {
         service: "ulkomaalaus",
         message: "",
         priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
-        calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}`,
+        calculatorDetails: `Pohjapinta-ala: ${squareMeters} m², Kerrokset: ${storyLabels[wallStories!] || ""}, Hilseily: ${peelingLabels[wallPeeling!] || ""}, Paikkakunta: ${city}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
@@ -193,7 +196,24 @@ const WallPriceCalculator = () => {
           </motion.div>
         )}
 
-        {/* Step 4: Contact */}
+        {/* Step 4: City */}
+        {currentStep === "city" && !showPrice && (
+          <motion.div key="city" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-accent-light flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary-dark" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Vaihe {stepIndex + 1} / {STEPS.length}</div>
+                <div className="text-lg font-bold text-foreground">Paikkakunta</div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion.</p>
+            <CityCombobox value={city} onChange={setCity} />
+          </motion.div>
+        )}
+
+        {/* Step 5: Contact */}
         {currentStep === "contact" && !showPrice && (
           <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
             <label className="block text-foreground font-semibold mb-1 text-lg">Yhteystiedot</label>

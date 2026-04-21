@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
+import CityCombobox from "@/components/CityCombobox";
 
 type RoofSlope = "5-19" | "20-30" | "31+" | null;
 
-const STEPS = ["size", "slope", "contact"] as const;
+const STEPS = ["size", "slope", "city", "contact"] as const;
 type Step = typeof STEPS[number];
 
 const RoofPriceCalculator = () => {
   const [currentStep, setCurrentStep] = useState<Step>("size");
   const [roofSquareMeters, setRoofSquareMeters] = useState<number>(200);
   const [roofSlope, setRoofSlope] = useState<RoofSlope>(null);
+  const [city, setCity] = useState("");
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -24,6 +26,7 @@ const RoofPriceCalculator = () => {
   const canGoNext = () => {
     if (currentStep === "size") return roofSquareMeters >= 100;
     if (currentStep === "slope") return roofSlope !== null;
+    if (currentStep === "city") return city.trim().length > 0;
     return false;
   };
 
@@ -69,7 +72,7 @@ const RoofPriceCalculator = () => {
         service: "tiilikatto",
         message: "",
         priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
-        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}`,
+        calculatorDetails: `Katon koko: ${roofSquareMeters} m², Kaltevuus: ${slopeLabels[roofSlope!] || ""}, Paikkakunta: ${city}`,
       });
       setShowPrice(true);
       toast({ title: "Kiitos!", description: "Yhteystietosi on vastaanotettu." });
@@ -171,7 +174,24 @@ const RoofPriceCalculator = () => {
           </motion.div>
         )}
 
-        {/* Step 3: Contact – inline JSX, not a nested component */}
+        {/* Step 3: City */}
+        {currentStep === "city" && !showPrice && (
+          <motion.div key="city" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-accent-light flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary-dark" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">Vaihe {stepIndex + 1} / {STEPS.length}</div>
+                <div className="text-lg font-bold text-foreground">Paikkakunta</div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">Miltä alueelta haluat hinta-arvion.</p>
+            <CityCombobox value={city} onChange={setCity} />
+          </motion.div>
+        )}
+
+        {/* Step 4: Contact – inline JSX, not a nested component */}
         {currentStep === "contact" && !showPrice && (
           <motion.div key="contact" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
             <label className="block text-foreground font-semibold mb-1 text-lg">Yhteystiedot</label>
