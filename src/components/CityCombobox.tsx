@@ -55,6 +55,9 @@ const CityCombobox = ({ value, onChange, placeholder = "Valitse kunta..." }: Cit
       <PopoverContent
         className="w-[--radix-popover-trigger-width] p-0 z-50 bg-popover"
         align="start"
+        side="bottom"
+        sideOffset={6}
+        avoidCollisions={false}
       >
         <Command>
           <CommandInput placeholder="Hae kuntaa..." className="h-11 text-base" />
