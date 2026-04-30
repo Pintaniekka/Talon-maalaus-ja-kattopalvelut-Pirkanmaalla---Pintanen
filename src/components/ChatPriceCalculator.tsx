@@ -5,6 +5,13 @@ import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/stor
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
 import CityCombobox from '@/components/CityCombobox';
+import PhoneInput from '@/components/PhoneInput';
+import {
+  isValidFinnishMobile,
+  formatToInternational,
+  PHONE_ERROR_MESSAGE,
+  PHONE_CHECKING_LABEL,
+} from '@/lib/phoneValidation';
 
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
