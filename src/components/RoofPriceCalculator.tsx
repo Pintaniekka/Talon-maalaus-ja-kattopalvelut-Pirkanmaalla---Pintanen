@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Mail, MapPin } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 import CityCombobox from "@/components/CityCombobox";
@@ -24,7 +24,6 @@ const RoofPriceCalculator = () => {
   const [city, setCity] = useState("");
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [isCheckingPhone, setIsCheckingPhone] = useState(false);
@@ -67,7 +66,7 @@ const RoofPriceCalculator = () => {
   const roofPrice = calculateRoofPrice();
 
   const handleSubmitContact = async () => {
-    if (!contactName.trim() || !contactPhone.trim() || !contactEmail.trim()) {
+    if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
@@ -88,7 +87,7 @@ const RoofPriceCalculator = () => {
       const slopeLabels: Record<string, string> = { "5-19": "5-19° (Loiva)", "20-30": "20-30° (Normaali)", "31+": "31°+ (Jyrkkä)" };
       await submitContactForm({
         name: contactName,
-        email: contactEmail || "",
+        email: "",
         phone: formatToInternational(contactPhone),
         service: "tiilikatto",
         message: "",
@@ -233,11 +232,6 @@ const RoofPriceCalculator = () => {
                 hasError={phoneError}
                 errorMessage={PHONE_ERROR_MESSAGE}
               />
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
-              </div>
             </div>
           </motion.div>
         )}
