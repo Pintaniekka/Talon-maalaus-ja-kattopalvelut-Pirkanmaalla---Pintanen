@@ -71,13 +71,25 @@ const RoofPriceCalculator = () => {
       toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
+
+    if (!isValidFinnishMobile(contactPhone)) {
+      setPhoneError(false);
+      setIsCheckingPhone(true);
+      setTimeout(() => {
+        setIsCheckingPhone(false);
+        setPhoneError(true);
+      }, 2000);
+      return;
+    }
+
+    setPhoneError(false);
     setIsLoading(true);
     try {
       const slopeLabels: Record<string, string> = { "5-19": "5-19° (Loiva)", "20-30": "20-30° (Normaali)", "31+": "31°+ (Jyrkkä)" };
       await submitContactForm({
         name: contactName,
         email: contactEmail || "",
-        phone: contactPhone || "",
+        phone: formatToInternational(contactPhone),
         service: "tiilikatto",
         message: "",
         priceEstimate: roofPrice ? `${roofPrice.min.toLocaleString("fi-FI")} – ${roofPrice.max.toLocaleString("fi-FI")} €` : "",
