@@ -87,6 +87,18 @@ const WallPriceCalculator = () => {
       toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
+
+    if (!isValidFinnishMobile(contactPhone)) {
+      setPhoneError(false);
+      setIsCheckingPhone(true);
+      setTimeout(() => {
+        setIsCheckingPhone(false);
+        setPhoneError(true);
+      }, 2000);
+      return;
+    }
+
+    setPhoneError(false);
     setIsLoading(true);
     try {
       const storyLabels: Record<string, string> = { "1": "1 kerros", "1.5": "1,5 kerrosta", "2": "2 kerrosta" };
@@ -94,7 +106,7 @@ const WallPriceCalculator = () => {
       await submitContactForm({
         name: contactName,
         email: contactEmail || "",
-        phone: contactPhone || "",
+        phone: formatToInternational(contactPhone),
         service: "ulkomaalaus",
         message: "",
         priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
