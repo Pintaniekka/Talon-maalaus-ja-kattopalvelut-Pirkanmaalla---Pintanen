@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, Mail, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 import CityCombobox from "@/components/CityCombobox";
+import PhoneInput from "@/components/PhoneInput";
+import {
+  isValidFinnishMobile,
+  formatToInternational,
+  PHONE_ERROR_MESSAGE,
+  PHONE_CHECKING_LABEL,
+} from "@/lib/phoneValidation";
 
 type RoofSlope = "5-19" | "20-30" | "31+" | null;
 
