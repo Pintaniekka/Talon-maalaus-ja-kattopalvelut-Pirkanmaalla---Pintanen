@@ -83,7 +83,7 @@ const WallPriceCalculator = () => {
   const price = calculatePrice();
 
   const handleSubmitContact = async () => {
-    if (!contactName.trim() || !contactPhone.trim() || !contactEmail.trim()) {
+    if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
