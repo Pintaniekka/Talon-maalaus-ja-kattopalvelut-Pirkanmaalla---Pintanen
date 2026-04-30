@@ -47,6 +47,8 @@ const WallPriceCalculator = () => {
   const [contactEmail, setContactEmail] = useState("");
   const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [isCheckingPhone, setIsCheckingPhone] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
 
   const stepIndex = STEPS.indexOf(currentStep);
