@@ -420,7 +420,7 @@ const ChatPriceCalculator = () => {
     try {
       await submitContactForm({
         name: contactName,
-        phone: contactPhone,
+        phone: internationalPhone,
         service: path === 'maalaus' ? 'ulkomaalaus' : 'tiilikatto',
         message: `Chat-hintalaskuri: ${details}`,
         priceEstimate: priceStr,
