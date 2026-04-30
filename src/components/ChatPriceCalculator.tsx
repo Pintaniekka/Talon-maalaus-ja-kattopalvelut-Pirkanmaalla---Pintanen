@@ -660,22 +660,30 @@ const ChatPriceCalculator = () => {
                       className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                       autoFocus
                     />
-                    <input
-                      type="tel"
+                    <PhoneInput
                       value={contactPhone}
-                      onChange={e => setContactPhone(e.target.value)}
-                      placeholder="Puhelinnumero *"
-                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
+                      onChange={(v) => {
+                        setContactPhone(v);
+                        if (phoneError) setPhoneError(false);
+                      }}
+                      disabled={isCheckingPhone || isSubmitting}
+                      hasError={phoneError}
+                      errorMessage={PHONE_ERROR_MESSAGE}
                     />
                     <button
                       onClick={handleContactSubmit}
-                      disabled={isSubmitting || !contactName.trim() || !contactPhone.trim()}
+                      disabled={isSubmitting || isCheckingPhone || !contactName.trim() || !contactPhone.trim()}
                       className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground font-semibold rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors text-sm"
                     >
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
                           Lasketaan...
+                        </>
+                      ) : isCheckingPhone ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          {PHONE_CHECKING_LABEL}
                         </>
                       ) : (
                         <>
