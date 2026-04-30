@@ -105,7 +105,7 @@ const WallPriceCalculator = () => {
       const peelingLabels: Record<string, string> = { none: "Ei hilseilyä", "1-2": "1–2 seinällä", "3+": "Yli 3 seinällä" };
       await submitContactForm({
         name: contactName,
-        email: contactEmail || "",
+        email: "",
         phone: formatToInternational(contactPhone),
         service: "ulkomaalaus",
         message: "",
