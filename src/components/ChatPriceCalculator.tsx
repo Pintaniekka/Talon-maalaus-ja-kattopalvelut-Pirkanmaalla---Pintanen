@@ -379,7 +379,23 @@ const ChatPriceCalculator = () => {
       toast({ title: 'Täytä tiedot', description: 'Nimi ja puhelinnumero ovat pakollisia.', variant: 'destructive' });
       return;
     }
-    addUserMessage(`${contactName}, ${contactPhone}`);
+
+    // Strict phone validation with a 2s "checking" delay on failure.
+    if (!isValidFinnishMobile(contactPhone)) {
+      setPhoneError(false);
+      setIsCheckingPhone(true);
+      if (phoneCheckTimer.current) clearTimeout(phoneCheckTimer.current);
+      phoneCheckTimer.current = setTimeout(() => {
+        setIsCheckingPhone(false);
+        setPhoneError(true);
+      }, 2000);
+      return;
+    }
+
+    setPhoneError(false);
+    const internationalPhone = formatToInternational(contactPhone);
+
+    addUserMessage(`${contactName}, ${internationalPhone}`);
     setStepUI(null);
     setIsSubmitting(true);
 
