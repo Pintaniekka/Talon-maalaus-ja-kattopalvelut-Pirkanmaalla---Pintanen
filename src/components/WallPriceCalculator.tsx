@@ -301,11 +301,13 @@ const WallPriceCalculator = () => {
           ) : (
             <button
               onClick={handleSubmitContact}
-              disabled={isLoading}
+              disabled={isLoading || isCheckingPhone}
               className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all disabled:opacity-70"
             >
               {isLoading ? (
                 <><Loader2 className="w-5 h-5 animate-spin" /> Lähetetään...</>
+              ) : isCheckingPhone ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> {PHONE_CHECKING_LABEL}</>
               ) : (
                 <><ArrowRight className="w-5 h-5" /> Näytä hinta-arvio</>
               )}
