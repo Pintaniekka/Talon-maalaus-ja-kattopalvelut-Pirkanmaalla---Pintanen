@@ -153,6 +153,9 @@ const ChatPriceCalculator = () => {
   const [cityInput, setCityInput] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
+  const [phoneError, setPhoneError] = useState(false);
+  const [isCheckingPhone, setIsCheckingPhone] = useState(false);
+  const phoneCheckTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [chatStarted, setChatStarted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
