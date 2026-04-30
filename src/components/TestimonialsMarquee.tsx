@@ -125,6 +125,8 @@ const TestimonialsMarquee = () => {
         onMouseLeave={() => setPaused(false)}
         onTouchStart={() => setPaused(true)}
         onTouchEnd={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
       >
         <div ref={trackRef} className="flex will-change-transform" style={{ width: "max-content" }}>
           {items.map((t, i) => (
