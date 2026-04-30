@@ -6,9 +6,11 @@ const testimonials = [
   { name: "Mauri Rajuvaara", stars: 5, text: "Excellent quality of work within agreed budget and time frame" },
   { name: "Juuso Heimonen", stars: 5, text: "Erittäin hyvää palvelua. Urakka valmistui juuri niin kuin sovittiin ja työn jälki oli erinomaista. Suosittelen!" },
   { name: "Timo Leppänen", stars: 5, text: "Erittäin toimiva palvelu; hyvä yhteydenpito, siisti työnjälki ja ripeää toimintaa! Suosittelen!" },
-  { name: "Timo Piilonen", stars: 5, text: "Eerik Pitkänen teki hyvän tarjouksen kattomaalauksesta ja -pinnoituksesta. Tarjous piti hyvin, työn laatu oli loistava ja itse työ sujui aikataulun mukaisesti." },
+  { name: "Timo Piilonen", stars: 5, text: "Eerik Pitkänen teki hyvän tarjouksen kattomaalauksesta ja -pinnoituksesta. Tarjous piti hyvin, työn laatu oli loistava ja itse työ sujui aikataulun mukaisesti. Erityisesti jäivät mieleen työn jälkien siistiminen ja maalarin hyvä raportointi tehdyistä toimista. Suosittelen lämpimästi." },
   { name: "Terttu Anneli", stars: 4, text: "Olemme tyytyväisiä työhön. Katollammme oli runsaasti sammalta jonka puhdistus ja käsittely tuli tarpeeseen." },
 ];
+
+const LONG_TEXT_THRESHOLD = 180;
 
 const getInitials = (name: string) => {
   const parts = name.trim().split(/\s+/);
@@ -31,26 +33,47 @@ const GoogleIcon = () => (
   </svg>
 );
 
-const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; text: string }) => (
-  <div className="flex-shrink-0 w-[300px] sm:w-[340px] bg-card rounded-xl p-5 shadow-sm border border-border/50 mx-2">
-    <div className="flex items-center gap-3 mb-3">
-      <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold font-heading">
-        {getInitials(name)}
+const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; text: string }) => {
+  const isLong = text.length > LONG_TEXT_THRESHOLD;
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="flex-shrink-0 w-[300px] sm:w-[340px] self-start bg-card rounded-xl p-5 shadow-sm border border-border/50 mx-2">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold font-heading">
+          {getInitials(name)}
+        </div>
+        <span className="font-medium text-sm text-foreground">{name}</span>
       </div>
-      <span className="font-medium text-sm text-foreground">{name}</span>
+      <div className="flex gap-0.5 mb-2" role="img" aria-label={`${stars} tähteä viidestä`}>
+        {Array.from({ length: 5 }, (_, i) => (
+          <StarIcon key={i} filled={i < stars} />
+        ))}
+      </div>
+      <p
+        className={`text-sm text-muted-foreground leading-relaxed mb-2 ${
+          isLong && !expanded ? "line-clamp-4" : ""
+        }`}
+      >
+        "{text}"
+      </p>
+      {isLong && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="mb-3 text-xs font-medium text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 rounded"
+        >
+          {expanded ? "Näytä vähemmän" : "Lue lisää"}
+        </button>
+      )}
+      <div className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
+        <GoogleIcon />
+        <span>Google-arvostelu</span>
+      </div>
     </div>
-    <div className="flex gap-0.5 mb-2" role="img" aria-label={`${stars} tähteä viidestä`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <StarIcon key={i} filled={i < stars} />
-      ))}
-    </div>
-    <p className="text-sm text-muted-foreground leading-relaxed mb-3">"{text}"</p>
-    <div className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
-      <GoogleIcon />
-      <span>Google-arvostelu</span>
-    </div>
-  </div>
-);
+  );
+};
 
 const TestimonialsMarquee = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -102,6 +125,8 @@ const TestimonialsMarquee = () => {
         onMouseLeave={() => setPaused(false)}
         onTouchStart={() => setPaused(true)}
         onTouchEnd={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
       >
         <div ref={trackRef} className="flex will-change-transform" style={{ width: "max-content" }}>
           {items.map((t, i) => (

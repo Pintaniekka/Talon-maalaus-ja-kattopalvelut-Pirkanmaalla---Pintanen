@@ -5,6 +5,13 @@ import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from '@/lib/stor
 import { submitContactForm } from '@/lib/contactForm';
 import { useToast } from '@/hooks/use-toast';
 import CityCombobox from '@/components/CityCombobox';
+import PhoneInput from '@/components/PhoneInput';
+import {
+  isValidFinnishMobile,
+  formatToInternational,
+  PHONE_ERROR_MESSAGE,
+  PHONE_CHECKING_LABEL,
+} from '@/lib/phoneValidation';
 
 
 // ── Avatar ─────────────────────────────────────────────────────────────────
@@ -146,6 +153,9 @@ const ChatPriceCalculator = () => {
   const [cityInput, setCityInput] = useState('');
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
+  const [phoneError, setPhoneError] = useState(false);
+  const [isCheckingPhone, setIsCheckingPhone] = useState(false);
+  const phoneCheckTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [chatStarted, setChatStarted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -369,7 +379,23 @@ const ChatPriceCalculator = () => {
       toast({ title: 'Täytä tiedot', description: 'Nimi ja puhelinnumero ovat pakollisia.', variant: 'destructive' });
       return;
     }
-    addUserMessage(`${contactName}, ${contactPhone}`);
+
+    // Strict phone validation with a 2s "checking" delay on failure.
+    if (!isValidFinnishMobile(contactPhone)) {
+      setPhoneError(false);
+      setIsCheckingPhone(true);
+      if (phoneCheckTimer.current) clearTimeout(phoneCheckTimer.current);
+      phoneCheckTimer.current = setTimeout(() => {
+        setIsCheckingPhone(false);
+        setPhoneError(true);
+      }, 2000);
+      return;
+    }
+
+    setPhoneError(false);
+    const internationalPhone = formatToInternational(contactPhone);
+
+    addUserMessage(`${contactName}, ${internationalPhone}`);
     setStepUI(null);
     setIsSubmitting(true);
 
@@ -394,7 +420,7 @@ const ChatPriceCalculator = () => {
     try {
       await submitContactForm({
         name: contactName,
-        phone: contactPhone,
+        phone: internationalPhone,
         service: path === 'maalaus' ? 'ulkomaalaus' : 'tiilikatto',
         message: `Chat-hintalaskuri: ${details}`,
         priceEstimate: priceStr,
@@ -634,22 +660,30 @@ const ChatPriceCalculator = () => {
                       className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
                       autoFocus
                     />
-                    <input
-                      type="tel"
+                    <PhoneInput
                       value={contactPhone}
-                      onChange={e => setContactPhone(e.target.value)}
-                      placeholder="Puhelinnumero *"
-                      className="w-full px-4 py-2.5 rounded-xl border border-border/60 bg-white text-base focus:outline-none focus:border-primary transition-colors"
+                      onChange={(v) => {
+                        setContactPhone(v);
+                        if (phoneError) setPhoneError(false);
+                      }}
+                      disabled={isCheckingPhone || isSubmitting}
+                      hasError={phoneError}
+                      errorMessage={PHONE_ERROR_MESSAGE}
                     />
                     <button
                       onClick={handleContactSubmit}
-                      disabled={isSubmitting || !contactName.trim() || !contactPhone.trim()}
+                      disabled={isSubmitting || isCheckingPhone || !contactName.trim() || !contactPhone.trim()}
                       className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground font-semibold rounded-xl disabled:opacity-40 hover:bg-primary/90 transition-colors text-sm"
                     >
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
                           Lasketaan...
+                        </>
+                      ) : isCheckingPhone ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          {PHONE_CHECKING_LABEL}
                         </>
                       ) : (
                         <>

@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, Phone, Mail, MapPin } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2, User, MapPin } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 import CityCombobox from "@/components/CityCombobox";
+import PhoneInput from "@/components/PhoneInput";
+import {
+  isValidFinnishMobile,
+  formatToInternational,
+  PHONE_ERROR_MESSAGE,
+  PHONE_CHECKING_LABEL,
+} from "@/lib/phoneValidation";
 
 type WallStories = "1" | "1.5" | "2" | null;
 type WallPeeling = "none" | "1-2" | "3+" | null;
@@ -37,9 +44,11 @@ const WallPriceCalculator = () => {
   const [wallPeeling, setWallPeeling] = useState<WallPeeling>(null);
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
+  
   const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [isCheckingPhone, setIsCheckingPhone] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
 
   const stepIndex = STEPS.indexOf(currentStep);
@@ -74,18 +83,30 @@ const WallPriceCalculator = () => {
   const price = calculatePrice();
 
   const handleSubmitContact = async () => {
-    if (!contactName.trim() || !contactPhone.trim() || !contactEmail.trim()) {
+    if (!contactName.trim() || !contactPhone.trim()) {
       toast({ title: "Täytä yhteystiedot", description: "Kaikki kentät ovat pakollisia.", variant: "destructive" });
       return;
     }
+
+    if (!isValidFinnishMobile(contactPhone)) {
+      setPhoneError(false);
+      setIsCheckingPhone(true);
+      setTimeout(() => {
+        setIsCheckingPhone(false);
+        setPhoneError(true);
+      }, 2000);
+      return;
+    }
+
+    setPhoneError(false);
     setIsLoading(true);
     try {
       const storyLabels: Record<string, string> = { "1": "1 kerros", "1.5": "1,5 kerrosta", "2": "2 kerrosta" };
       const peelingLabels: Record<string, string> = { none: "Ei hilseilyä", "1-2": "1–2 seinällä", "3+": "Yli 3 seinällä" };
       await submitContactForm({
         name: contactName,
-        email: contactEmail || "",
-        phone: contactPhone || "",
+        email: "",
+        phone: formatToInternational(contactPhone),
         service: "ulkomaalaus",
         message: "",
         priceEstimate: price ? `${price.min.toLocaleString("fi-FI")} – ${price.max.toLocaleString("fi-FI")} €` : "",
@@ -224,16 +245,16 @@ const WallPriceCalculator = () => {
                 <input type="text" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Nimi *"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
               </div>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="tel" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} placeholder="Puhelin *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
-              </div>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
-              </div>
+              <PhoneInput
+                value={contactPhone}
+                onChange={(v) => {
+                  setContactPhone(v);
+                  if (phoneError) setPhoneError(false);
+                }}
+                disabled={isCheckingPhone || isLoading}
+                hasError={phoneError}
+                errorMessage={PHONE_ERROR_MESSAGE}
+              />
             </div>
           </motion.div>
         )}
@@ -275,11 +296,13 @@ const WallPriceCalculator = () => {
           ) : (
             <button
               onClick={handleSubmitContact}
-              disabled={isLoading}
+              disabled={isLoading || isCheckingPhone}
               className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all disabled:opacity-70"
             >
               {isLoading ? (
                 <><Loader2 className="w-5 h-5 animate-spin" /> Lähetetään...</>
+              ) : isCheckingPhone ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> {PHONE_CHECKING_LABEL}</>
               ) : (
                 <><ArrowRight className="w-5 h-5" /> Näytä hinta-arvio</>
               )}
