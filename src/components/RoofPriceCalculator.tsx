@@ -24,7 +24,6 @@ const RoofPriceCalculator = () => {
   const [city, setCity] = useState("");
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [isCheckingPhone, setIsCheckingPhone] = useState(false);
