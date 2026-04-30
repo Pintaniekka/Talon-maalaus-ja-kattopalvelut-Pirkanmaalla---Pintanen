@@ -232,11 +232,6 @@ const RoofPriceCalculator = () => {
                 hasError={phoneError}
                 errorMessage={PHONE_ERROR_MESSAGE}
               />
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="Sähköposti *"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" />
-              </div>
             </div>
           </motion.div>
         )}
