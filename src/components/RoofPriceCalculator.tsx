@@ -87,7 +87,7 @@ const RoofPriceCalculator = () => {
       const slopeLabels: Record<string, string> = { "5-19": "5-19° (Loiva)", "20-30": "20-30° (Normaali)", "31+": "31°+ (Jyrkkä)" };
       await submitContactForm({
         name: contactName,
-        email: contactEmail || "",
+        email: "",
         phone: formatToInternational(contactPhone),
         service: "tiilikatto",
         message: "",
