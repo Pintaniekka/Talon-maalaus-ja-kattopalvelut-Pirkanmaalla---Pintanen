@@ -44,7 +44,7 @@ const WallPriceCalculator = () => {
   const [wallPeeling, setWallPeeling] = useState<WallPeeling>(null);
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
+  
   const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
