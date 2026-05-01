@@ -393,7 +393,7 @@ const Referenssit = () => {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {hasMore && (
             <div className="text-center mt-8">
