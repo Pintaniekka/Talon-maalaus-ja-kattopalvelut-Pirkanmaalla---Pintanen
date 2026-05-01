@@ -66,7 +66,7 @@ const Gallery = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
+              className="group relative w-full aspect-[4/3] min-h-[260px] sm:min-h-0 rounded-2xl overflow-hidden bg-muted"
             >
               <ResponsiveSupabaseImage
                 baseName={image.baseName}
