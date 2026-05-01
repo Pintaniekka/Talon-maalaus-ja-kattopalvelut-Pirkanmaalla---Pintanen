@@ -373,7 +373,7 @@ const Referenssit = () => {
                     project.type === 'group' ? openGroupLightbox(project) : openSingleLightbox(project.baseName, project.title)
                   }
                 >
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3]">
+                  <div className={`relative overflow-hidden rounded-xl ${project.type === 'group' && project.images.length > 1 ? 'aspect-[4/5] sm:aspect-[4/3]' : 'aspect-[4/3]'}`}>
                     {project.type === 'group' && project.images.length > 1 ? (
                       <CompositeThumbnail images={project.images} />
                     ) : (
