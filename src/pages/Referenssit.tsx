@@ -31,27 +31,19 @@ interface SingleProject {
 type Project = GroupedProject | SingleProject;
 
 const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
-  <div className="relative w-full h-full flex flex-col sm:flex-row overflow-hidden">
+  <div className="relative w-full h-full flex overflow-hidden">
     {images.map((img, idx) => (
-      <div
-        key={idx}
-        className="w-full sm:h-full overflow-hidden"
-        style={{
-          height: `${100 / images.length}%`,
-        }}
-      >
+      <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
         <img
           src={getResponsiveSrc(img.baseName)}
           srcSet={getResponsiveSrcSet(img.baseName)}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 33vw"
           alt={img.label}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 sm:[object-position:var(--pos-desktop)]"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
           decoding="async"
           style={{
-            objectPosition: 'center center',
-            ['--pos-desktop' as any]:
-              idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
+            objectPosition: idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
           }}
         />
       </div>
@@ -358,22 +350,21 @@ const Referenssit = () => {
             ))}
           </motion.div>
 
-          <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
-                  layout
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer w-full"
                   onClick={() =>
                     project.type === 'group' ? openGroupLightbox(project) : openSingleLightbox(project.baseName, project.title)
                   }
                 >
-                  <div className={`relative overflow-hidden rounded-xl ${project.type === 'group' && project.images.length > 1 ? 'aspect-[4/5] sm:aspect-[4/3]' : 'aspect-[4/3]'}`}>
+                  <div className="relative w-full overflow-hidden rounded-xl aspect-[4/3] min-h-[260px] sm:min-h-0 bg-muted">
                     {project.type === 'group' && project.images.length > 1 ? (
                       <CompositeThumbnail images={project.images} />
                     ) : (
@@ -402,7 +393,7 @@ const Referenssit = () => {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {hasMore && (
             <div className="text-center mt-8">
