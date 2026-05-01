@@ -350,22 +350,21 @@ const Referenssit = () => {
             ))}
           </motion.div>
 
-          <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
-                  layout
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer w-full"
                   onClick={() =>
                     project.type === 'group' ? openGroupLightbox(project) : openSingleLightbox(project.baseName, project.title)
                   }
                 >
-                  <div className="relative overflow-hidden rounded-xl aspect-[4/3]">
+                  <div className="relative w-full overflow-hidden rounded-xl aspect-[4/3] min-h-[260px] sm:min-h-0 bg-muted">
                     {project.type === 'group' && project.images.length > 1 ? (
                       <CompositeThumbnail images={project.images} />
                     ) : (
@@ -394,7 +393,7 @@ const Referenssit = () => {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {hasMore && (
             <div className="text-center mt-8">

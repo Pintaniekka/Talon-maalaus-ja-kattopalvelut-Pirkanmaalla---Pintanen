@@ -40,7 +40,7 @@ const BeforeAfter = () => {
           className="max-w-4xl mx-auto"
         >
           <div
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-xl touch-pan-y"
+            className="relative w-full aspect-[4/3] min-h-[280px] sm:min-h-0 rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-xl touch-pan-y bg-muted"
             onMouseDown={() => setIsDragging(true)}
             onMouseUp={() => setIsDragging(false)}
             onMouseLeave={() => setIsDragging(false)}
