@@ -31,19 +31,27 @@ interface SingleProject {
 type Project = GroupedProject | SingleProject;
 
 const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
-  <div className="relative w-full h-full flex overflow-hidden">
+  <div className="relative w-full h-full flex flex-col sm:flex-row overflow-hidden">
     {images.map((img, idx) => (
-      <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
+      <div
+        key={idx}
+        className="w-full sm:h-full overflow-hidden"
+        style={{
+          height: `${100 / images.length}%`,
+        }}
+      >
         <img
           src={getResponsiveSrc(img.baseName)}
           srcSet={getResponsiveSrcSet(img.baseName)}
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           alt={img.label}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 sm:[object-position:var(--pos-desktop)]"
           loading="lazy"
           decoding="async"
           style={{
-            objectPosition: idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
+            objectPosition: 'center center',
+            ['--pos-desktop' as any]:
+              idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
           }}
         />
       </div>
