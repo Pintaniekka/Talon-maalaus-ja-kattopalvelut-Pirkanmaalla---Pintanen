@@ -53,7 +53,7 @@ const BeforeAfterSlider = ({
 
   return (
     <div
-      className="relative rounded-xl overflow-hidden cursor-ew-resize select-none touch-pan-y"
+      className="relative w-full rounded-xl overflow-hidden cursor-ew-resize select-none touch-pan-y bg-muted min-h-[260px] sm:min-h-0"
       style={{ aspectRatio }}
       onMouseDown={handlePointerDown}
       onMouseUp={handlePointerUp}
