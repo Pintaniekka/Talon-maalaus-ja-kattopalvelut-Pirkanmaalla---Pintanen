@@ -2,10 +2,9 @@ import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Check, Clock, ChevronRight, CreditCard } from "lucide-react";
+import { ChevronRight, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
-import KotitalousVahennys from "@/components/KotitalousVahennys";
 import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import TeamContactSection from "@/components/TeamContactSection";
@@ -15,126 +14,66 @@ import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/Servic
 import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
 import { getAreaCityContent } from "@/data/areaCityContent";
+import { getCityNeighborhoods } from "@/data/cityNeighborhoods";
+import { getTestimonialsForCity } from "@/data/testimonialsData";
 
 const heroImage = getResponsiveSrc("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla");
 
 const eerikImage = getStorageUrl("Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp");
 const eemilImage = getStorageUrl("Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp");
 
-/* ── Trust Stats ── */
-const trustStats = [
-  { value: "4,9 / 5", label: "Google-arvostelut", sub: (<><strong className="text-foreground">Pirkanmaan tyytyväisimmät asiakkaat.</strong></>) },
-  { value: "Yli 200", label: "Onnistunutta urakkaa", sub: (<>Olemme tehneet <strong className="text-foreground">jokaisen työn itse</strong>.</>) },
-  { value: "+5 vuotta", label: "Kokemusta alalta", sub: "Ei enää arvailua." },
-  { value: "2–5 vuotta", label: "Takuu työlle", sub: (<><strong className="text-foreground">Takaamme itse tekemämme työn.</strong></>) },
+/* ── Trust Stats (spekin mukaiset tekstit, cityIn-muuttujalla) ── */
+const getTrustStats = (cityIn: string) => [
+  {
+    value: "4,9 / 5",
+    label: "Google-arvostelut",
+    sub: "Pirkanmaan tyytyväisimmät asiakkaat.",
+  },
+  {
+    value: "Yli 200",
+    label: "Onnistunutta urakkaa",
+    sub: (<>Olemme tehneet <strong className="text-foreground">jokaisen työn itse</strong>.</>),
+  },
+  {
+    value: "+5 vuotta",
+    label: "Kokemusta alalta",
+    sub: "Ei enää arvailua.",
+  },
+  {
+    value: "2–5 vuotta",
+    label: "Takuu työlle",
+    sub: (<>Annamme työlle <strong className="text-foreground">kirjallisen takuun</strong>.</>),
+  },
 ];
 
-/* ── Pinnoitus Pricing ── */
-const pinnoitusCards = [
-  { size: "150–180 m²", label: "Pieni/keskisuuri koti", duration: "2 työpäivää", normalPrice: "2 850 € – 3 200 €", afterPrice: "alk. 2 150 €", featured: false },
-  { size: "190–240 m²", label: "Yleisin kattokoko", duration: "2–3 työpäivää", normalPrice: "3 300 € – 3 700 €", afterPrice: "alk. 2 480 €", featured: true },
-  { size: "250–300 m²", label: "Suuri omakotitalo", duration: "2–4 työpäivää", normalPrice: "3 750 € – 4 880 €", afterPrice: "alk. 2 800 €", featured: false },
-];
-const pinnoitusIncludes = ["Syväpuhdistava pesu", "Kasvustonestokäsittely", "Tiilien vaihto & huolto", "2x Maalaus / Pinnoitus"];
-
-/* ── Maalaus Pricing ── */
-const maalausCards = [
-  { size: "1-kerroksinen omakotitalo", label: "Pieni tai keskisuuri koti", duration: "2–4 työpäivää", normalPrice: "3 500 € – 6 000 €", afterPrice: "alk. 2 520 €", featured: false },
-  { size: "1,5-kerroksinen talo", label: "Yleisin talon koko", duration: "3–5 työpäivää", normalPrice: "5 000 € – 8 000 €", afterPrice: "alk. 3 600 €", featured: true },
-  { size: "2-kerroksinen talo", label: "Suuret omakotitalot", duration: "4–8 työpäivää", normalPrice: "7 000 € – 11 000 €", afterPrice: "alk. 5 040 €", featured: false },
-];
-const maalausIncludes = ["Huolellinen suojaus", "Homepesu ja kaavinta", "Puupuhtaiden pintojen pohjamaalaus", "Pintamaalaus"];
-
-/* ── FAQ (dynaaminen per kaupunki) ── */
+/* ── FAQ (spekin mukaiset 5 kysymystä, dynaamiset {cityIn}/{cityGenitive}) ── */
 const getAreaFAQ = (cityName: string, cityIn: string, cityGenitive: string) => [
   {
-    question: `Saako talon maalauksesta ja tiilikaton pinnoituksesta kotitalousvähennystä ${cityIn}?`,
-    answer: `Kyllä saa! Sekä talon maalaus että tiilikaton pinnoitus oikeuttavat kotitalousvähennykseen ${cityIn}. Voit vähentää <strong>35 % työn osuudesta</strong> henkilökohtaisessa verotuksessasi. Koska urakoissamme työn osuus on tyypillisesti jopa 80 % kokonaishinnasta, säästö on usein tuhat euroa. Puolisoiden yhteinen maksimietu on jopa <strong>3 200 euroa vuodessa</strong>. Erittelemme työn osuuden suoraan laskulle, joten vähennyksen hakeminen on sinulle täysin vaivatonta.`,
+    question: `Paljonko talon maalaus tai katon pinnoitus maksaa ${cityIn}?`,
+    answer: `Hinta riippuu aina kohteen koosta, jyrkkyydestä ja pohjatöiden tarpeesta ${cityGenitive} alueella. Esimerkiksi omakotitalon maalaus tai tiilikaton pinnoitus maksaa tyypillisesti <strong>muutamasta tuhannesta eurosta ylöspäin</strong>. 👉 <a href="/talon-maalaus-hinta-pirkanmaa/" class="text-accent underline">Katso tarkat hintaesimerkit talon maalauksesta</a> 👉 <a href="/tiilikaton-pinnoitus-hinta-pirkanmaa/" class="text-accent underline">Katso tiilikaton pinnoituksen hintalaskuri</a>`,
   },
   {
-    question: `Mitä omakotitalon julkisivun maalaus tai tiilikaton pinnoitus maksaa ${cityIn}?`,
-    answer: `Jokainen kohde on yksilöllinen, mutta olemme hinnoittelussamme täysin avoimia. Keskikokoisen omakotitalon tiilikaton pesu ja pinnoitus ${cityGenitive} alueella asettuu tyypillisesti noin <strong>2 800–5 800 euron</strong> välille. Puuverhouksen huoltomaalaus perusteellisine pohjatöineen maksaa talon koosta riippuen noin <strong>3 000 – 10 000 euroa</strong>. Muistathan, että lopullinen summa on kotitalousvähennyksen jälkeen sinulle huomattavasti edullisempi. Pyydä meidät ilmaiselle arviokäynnille, niin saat tarkan, kiinteän avaimet käteen -tarjouksen ilman piilokuluja.`,
+    question: `Kuinka kauan maalaus- tai kattotyö kestää ${cityIn}?`,
+    answer: `Useimmat pientalojen huoltourakat valmistuvat <strong>2–5 työpäivässä</strong>. Aikataulu riippuu sääolosuhteista ja erityisesti pohjatöiden (kuten homepesun ja kaavinnan) laajuudesta.`,
   },
   {
-    question: `Voiko katto- tai maalausurakan maksaa osissa ${cityIn}?`,
-    answer: `Ehdottomasti. Katon tai julkisivun rapautumista ei kannata jäädä seuraamaan säästöjä odotellessa, sillä pitkittyessään vauriot vaativat aina kalliimman remontin. Tarjoamme ${cityGenitive} alueen asiakkaillemme <strong>joustavan rahoitusvaihtoehdon</strong>, jonka avulla voit jakaa tiilikaton huollon tai talon maalauksen kustannukset sinulle sopiviin kuukausieriin. Näin kiinteistösi arvo ja kunto turvataan välittömästi, mutta taloutesi pysyy tasapainossa.`,
+    question: `Ketkä tekevät varsinaisen työn kohteessa ${cityIn}?`,
+    answer: `Pintasella työn tekevät aina <strong>yrittäjät itse</strong>. Emme käytä alihankkijoita tai kokemattomia kesätyöntekijöitä. Tämän ansiosta tiedät aina kuka pihallasi liikkuu, ja voimme myöntää työllemme jopa <strong>5 vuoden takuun</strong>.`,
   },
   {
-    question: `Kuinka kauan katon tai talon huoltourakka kestää ${cityGenitive} alueella?`,
-    answer: `Tyypillisen omakotitalon tiilikaton pesu, kasvustonestokäsittely ja kaksinkertainen pinnoitus kestävät noin <strong>2–4 työpäivää</strong>, riippuen katon kunnosta ja säästä. Talon ulkomaalaus on hieman monivaiheisempi prosessi, johon kuluu tyypillisesti <strong>3–7 työpäivää</strong>. Maalauksessa tärkeää on antaa rakenteiden kuivua perusteellisen homepesun jälkeen ennen pintakäsittelyä. Varmistamme aina, että työ etenee sujuvasti, mutta emme koskaan tingi pohjatöiden vaatimasta ajasta.`,
+    question: `Kannattaako talon maalaus tai katon pinnoitus tehdä itse ${cityIn}?`,
+    answer: `Pienet paikkamaalaukset onnistuvat helposti itse, mutta kokonaisvaltainen ulkomaalaus ja varsinkin tiilikaton pinnoitus vaativat <strong>ammattitason painepesurit</strong>, oikeat kasvustontorjunta-aineet sekä <strong>huolelliset pohjatyöt</strong>. Väärin tehtynä maali hilseilee nopeasti pois ja työ joudutaan uusimaan.`,
   },
   {
-    question: `Mistä tiedän, onko aika maalata talo tai pinnoittaa katto ${cityIn}?`,
-    answer: `Nyrkkisääntö on, että puuverhous ja betonitiilikatto vaativat ammattilaisen huoltoa noin <strong>10–15 vuoden</strong> välein. Hälytysmerkkejä tiilikatolla ovat alkuperäisen värin haalistuminen, tiilen pinnan muuttuminen karheaksi ja huokoiseksi sekä kiihtyvä sammaleen kasvu. Julkisivussa huoltotarpeen paljastavat maalin liituuntuminen, hilseily, paneelien halkeamat tai mustat homepilkut. Jos huomaat näitä merkkejä, suojakerros on pettänyt ja rakenteet altistuvat kosteusvaurioille.`,
-  },
-  {
-    question: `Kannattaako katon pesu tai talon maalaus tehdä itse ${cityIn}?`,
-    answer: `Teknisesti työn voi tehdä itse, mutta kestävän ja turvallisen lopputuloksen saavuttaminen on ilman ammattitason välineitä erittäin riski- ja aikaavievää. Esimerkiksi tiilikaton vääränlainen korkeapainepesu voi rikkoa tiilen rakenteen lopullisesti, ja ilman kunnollista biosidikäsittelyä sammal tunkee nopeasti uuden maalin läpi. Ulkomaalauksessa puutteellisesti tehdyt pohjatyöt johtavat uuden maalin nopeaan irtoamiseen. Lisäksi, kun me teemme työn, saat <strong>kotitalousvähennyksen</strong> sekä <strong>5 vuoden takuun katoille</strong> ja <strong>2 vuoden takuun maalaustöille</strong>.`,
+    question: `Oikeuttaako työnne kotitalousvähennykseen ${cityIn}?`,
+    answer: `Kyllä. Kaikki tekemämme huolto- ja maalaustyöt ${cityGenitive} alueella oikeuttavat kotitalousvähennykseen. Voit vähentää <strong>35 % työn osuudesta</strong> henkilökohtaisessa verotuksessasi.`,
   },
 ];
-
-/* ── Pricing Card Renderer ── */
-const PricingGrid = ({
-  cards,
-  includes,
-}: {
-  cards: typeof pinnoitusCards;
-  includes: string[];
-}) => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-    {cards.map((card, i) => (
-      <motion.div
-        key={i}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.1 }}
-        className={`relative bg-card rounded-2xl shadow-sm flex flex-col overflow-hidden ${
-          card.featured ? "border-2 border-accent md:scale-105 md:shadow-lg" : "border border-border/50"
-        }`}
-      >
-        {card.featured && (
-          <div className="bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider text-center py-1.5">
-            {cards[0].size.includes("m²") ? "Yleisin kattokoko" : "Yleisin talon koko"}
-          </div>
-        )}
-        <div className="p-5 md:p-6 flex flex-col flex-1">
-          <p className="text-xl md:text-2xl font-bold text-foreground">{card.size}</p>
-          <p className="text-sm text-muted-foreground mb-4">{card.label}</p>
-          <div className="mb-5">
-            <p className="text-sm line-through text-muted-foreground/60 mb-1">Norm. {card.normalPrice}</p>
-            <p className="text-3xl md:text-4xl font-bold text-accent"><strong>{card.afterPrice}</strong></p>
-            <p className="text-xs text-muted-foreground mt-1"><strong>kotitalousvähennyksen jälkeen</strong></p>
-          </div>
-          <ul className="space-y-2.5 mb-5 flex-1">
-            {includes.map((item) => (
-              <li key={item} className="flex items-center gap-2.5 text-sm text-foreground">
-                <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-5">
-            <Clock className="w-4 h-4" />
-            Kesto: {card.duration}
-          </div>
-          <a
-            href="#yhteystiedot"
-            className={`inline-flex items-center justify-center w-full py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-sm ${
-              card.featured ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
-            }`}
-          >
-            Pyydä tarjous tästä
-          </a>
-        </div>
-      </motion.div>
-    ))}
-  </div>
-);
 
 const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
   const cityData = getCityBySlug(citySlug);
   const areaContent = getAreaCityContent(citySlug);
+  const neighborhoods = getCityNeighborhoods(citySlug);
 
   if (!cityData || !areaContent) return <Navigate to="/toiminta-alueet" replace />;
 
@@ -170,6 +109,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
     },
   ];
 
+  const trustStats = getTrustStats(cityIn);
   const dynamicFAQ = getAreaFAQ(cityName, cityIn, cityGenitive);
   const shuffledFAQ = [...dynamicFAQ].sort((a, b) => {
     const seedA = (citySlug.length * 7 + a.question.length) % 13;
@@ -198,26 +138,31 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       </Helmet>
 
       {/* ══════════════════ HERO ══════════════════ */}
-      <ServicePageHero title="" subtitle="" backgroundImage={heroImage} backgroundSrcSet={getResponsiveSrcSet("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla")}>
+      <ServicePageHero
+        title=""
+        subtitle=""
+        backgroundImage={heroImage}
+        backgroundSrcSet={getResponsiveSrcSet("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla")}
+      >
         <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
             Tiilikaton pinnoitus ja talon maalaus{' '}
             <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">{cityName}</span>
           </h1>
           <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed max-w-3xl mx-auto">
-            Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta. Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityIn} ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
+            <strong className="text-primary-foreground">Suojaa kotisi arvokkaimmat rakenteet säänvaihteluilta.</strong> Pintanen tarjoaa ammattimaiset tiilikattojen pinnoitukset, kattojen puhdistukset sekä talojen ulkomaalaukset {cityIn} ja koko Pirkanmaalla. <strong className="text-primary-foreground">Yrittäjät tekevät itse työn.</strong>
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#yhteystiedot"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-accent-foreground transition-colors"
-            style={{ backgroundColor: "hsl(202, 100%, 61%)" }}
+            style={{ backgroundColor: "#38b6ff" }}
           >
             Pyydä maksuton kuntotarkastus
           </a>
           <Link
-            to="/maalauspalvelut-hinta-pirkanmaa"
+            to="/hinnat"
             className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
             style={{ backgroundColor: "hsla(30, 52%, 90%, 0.15)" }}
           >
@@ -248,7 +193,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      {/* ══════════════════ LOCAL HOOK ══════════════════ */}
+      {/* ══════════════════ LOCAL HOOK / PAIKALLINEN SEO-TEKSTI ══════════════════ */}
       <section className="section-padding bg-card">
         <div className="section-container">
           <motion.div
@@ -268,7 +213,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      {/* ══════════════════ PALVELUKORTIT ══════════════════ */}
+      {/* ══════════════════ PALVELUSIILOT ══════════════════ */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
           <motion.div
@@ -328,163 +273,64 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      {/* ══════════════════ TESTIMONIALS ══════════════════ */}
-      <TestimonialsMarquee />
-
-      {/* ══════════════════ ONGELMANRATKAISU: KATTO ══════════════════ */}
-      <section className="section-padding bg-background">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
-              Tiilikaton ennakoiva huolto on kiinteistösi tärkein vakuutus
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Suomen sääolot vaihtelevat paljon ja vuosikymmenien aikana lumikuormat vaikuttavat betonitiilen pinnan heikkenemiseen. Tämä aiheuttaa sen, että kosteus ja sammal pääsevät vahingoittamaan kattoa <strong className="text-foreground">pakkasrapautumisen</strong> myötä. Pintasella kattotöistä vastaava yrittäjä Eerik varmistaa, että ajoissa tehty perusteellinen pesu ja ammattitason tiilikaton pinnoitus palauttavat tiilen vedenhylkivyyden ja rakenteellisen lujuuden. Tämä ennakoiva huolto on paras tapa <strong className="text-foreground">estää katon rapautuminen</strong> ja siirtää kattoremontin tarve kauas tulevaisuuteen.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════════════════ ONGELMANRATKAISU: MAALAUS ══════════════════ */}
-      <section className="section-padding bg-secondary">
-        <div className="section-container max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 font-heading">
-              Kestävä ulkomaalaus suojaa kotisi puurakenteita
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Talon julkisivu joutuu jatkuvasti rasitukseen, ja haalistunut tai halkeileva ulkoverhous on merkki siitä, että suojakerros on pettänyt. Tämä avaa tien rakenteiden <strong className="text-foreground">kosteuselämiselle</strong> ja pysyville <strong className="text-foreground">lahovaurioille</strong>. Pintasen maalauspalveluista vastaava yrittäjä Eemil korostaa, että säännöllinen ja oikein tehty huoltomaalaus on paras tapa turvata puurakenteiden terveys. Kun urakka aloitetaan huolellisella <strong className="text-foreground">homepesulla</strong> ja viimeistellään laadukkailla maaleilla, julkisivu saa uuden suojakilven. Tämä säilyttää kotisi arvon ja estää kalliit korjaukset – kiitos yrittäjän tarkkuudesta.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-
-      {/* ══════════════════ PINNOITUS HINTAKORTIT ══════════════════ */}
-      <section className="section-padding bg-background">
-        <div className="section-container max-w-6xl mx-auto">
-          {/* Split-screen: text LEFT, image RIGHT */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
+      {/* ══════════════════ PALVELEMME KOKO ALUEELLA – oma visuaalinen blokki ══════════════════ */}
+      {neighborhoods && (
+        <section className="section-padding bg-background">
+          <div className="section-container">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-4xl mx-auto text-center"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
-                Paljonko maksaa tiilikaton pinnoitus {cityIn}?
+                Palvelemme koko {cityGenitive} alueella
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Haluamme olla hinnoittelussamme täysin avoimia. Katon lopullinen hinta määräytyy pinta-alan, katon jyrkkyyden ja lähtökunnon perusteella.
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+                Olemme paikallinen kumppanisi koko {neighborhoods.regionGenitive} alueella. Tutuiksi ovat tulleet muun muassa:
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-last"
-            >
-              <ResponsiveSupabaseImage
-                baseName="puhdas-tiilenpunainen-tiilikatto-suojakasittelyn-jalkeen"
-                alt={`Tiilikaton pesu ja pinnoitus ${cityIn}`}
-                className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </motion.div>
-          </div>
 
-          <PricingGrid cards={pinnoitusCards} includes={pinnoitusIncludes} />
+              <div className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border/50 mb-10">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                    Kaupunginosat ja kylät
+                  </span>
+                </div>
+                <p className="text-base md:text-lg text-foreground leading-relaxed flex items-center justify-center flex-wrap gap-x-3 gap-y-2">
+                  {neighborhoods.neighborhoods.map((n, idx) => (
+                    <span key={n} className="inline-flex items-center gap-3">
+                      <span className="font-medium">{n}</span>
+                      {idx < neighborhoods.neighborhoods.length - 1 && (
+                        <span className="text-accent/60">•</span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
 
-          <div className="text-center mt-10">
-            <Link
-              to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
-            >
-              Laske hinta: tiilikaton pinnoitus {cityName}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════ MAALAUS HINTAKORTIT ══════════════════ */}
-      <section className="section-padding bg-secondary">
-        <div className="section-container max-w-6xl mx-auto">
-          {/* Split-screen: image LEFT, text RIGHT */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-last lg:order-first"
-            >
-              <ResponsiveSupabaseImage
-                baseName="keltainen-omakotitalo-julkisivumaalaus-jalkeen"
-                alt={`Talon ulkomaalaus perusteellisilla pohjatöillä ${cityIn}`}
-                className="w-full rounded-2xl shadow-lg object-cover aspect-[4/3]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
-                Paljonko maksaa talon maalaus {cityIn}?
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Haluamme olla hinnoittelussamme täysin avoimia. Lopullinen hinta määräytyy maalattavan pinta-alan, kohteen korkeuden ja erityisesti pohjatöiden vaativuuden perusteella.
-              </p>
+              <Link
+                to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
+              >
+                Laske hinta: tiilikaton pinnoitus {cityName}
+              </Link>
             </motion.div>
           </div>
+        </section>
+      )}
 
-          <PricingGrid cards={maalausCards} includes={maalausIncludes} />
+      {/* ══════════════════ ASIAKASPALAUTTEET – yksi kaupunkikohtainen karuselli ══════════════════ */}
+      <TestimonialsMarquee
+        title="Mitä asiakkaat sanovat meistä?"
+        testimonials={getTestimonialsForCity(citySlug, 4)}
+      />
 
-          <div className="text-center mt-10">
-            <Link
-              to="/talon-maalaus-hinta-pirkanmaa"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
-            >
-              Laske hinta: Talon maalaus {cityName}
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* ══════════════════ KOTITALOUSVÄHENNYS ══════════════════ */}
-      <KotitalousVahennys />
 
-      {/* ══════════════════ RAHOITUS ══════════════════ */}
-      <section className="py-10 md:py-14 bg-background">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto card-elevated p-6 md:p-8"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <CreditCard className="w-6 h-6 text-primary" />
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                Joustava rahoitus – Talon maalaus kätevästi kuukausimaksulla
-              </h3>
-            </div>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Ulkoverhouksen huoltoa ei kannata lykätä säästöjä odotellessa, sillä vaurioitunut puurakenne tai ulkoverhousremontti on aina kalliimpi vaihtoehto. Kauttamme saat joustavan rahoituksen, jolla voit maksaa maalauksen sinulle sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
-            </p>
-            <a
-              href="#yhteystiedot"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110"
-              style={{ backgroundColor: "hsl(202, 100%, 61%)" }}
-            >
-              Kysy tarjous
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════════════════ YRITTÄJÄESITTELY ══════════════════ */}
+      {/* ══════════════════ KEITÄ ME OLEMME? ══════════════════ */}
       <section className="section-padding bg-secondary">
         <div className="section-container max-w-4xl mx-auto">
           <motion.div
@@ -492,9 +338,10 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-8 text-center font-heading">
-              Kuka huolehtii kodistasi? Terveisiä meiltä yrittäjiltä
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-3 text-center font-heading">
+              Keitä me olemme?
             </h2>
+            <p className="text-center text-muted-foreground mb-8 italic">Terveisiä meiltä yrittäjiltä</p>
 
             <div className="flex justify-center gap-6 mb-8">
               <img
@@ -513,27 +360,22 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
               />
             </div>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                "Hei! Olemme Eerik ja Eemil, Pintasen yrittäjät. Toisin kuin suurissa alan liikkeissä, te et ole meillä vain yksi tilausnumero muiden joukossa. Me emme lähetä pihallesi kokemattomia työntekijöitä. <strong className="text-foreground">Hoidamme talojen maalaukset ja tiilikattojen pinnoitukset Pirkanmaalla itse alusta loppuun saakka.</strong>
-              </p>
-              <p>
-                Molemmilla meillä on alalta jo viiden vuoden vankka kokemus. Olemme toteuttaneet onnistuneesti yhteensä <strong className="text-foreground">yli 200 urakkaa</strong>. Eerik osaa tiilikattojen säärasitukset ja ratkaisut rapautumiseen, kun taas Eemil tietää, että kestävän julkisivun salaisuus on <strong className="text-foreground">tinkimättömästi tehdyissä pohjatöissä</strong>.
-              </p>
-              <p>
-                Kun te tilaatte urakan meiltä, tiedätte aina tismalleen, ketkä teidän pihallanne työskentelevät ja ketkä vastaavat työn laadusta. Me olemme ylpeitä omasta työstämme, ja siksi me myönnämme tiilikattojen pinnoituksille <strong className="text-foreground">5 vuoden takuun</strong> ja talojen maalauksille <strong className="text-foreground">2 vuoden takuun</strong>."
-              </p>
-            </div>
-            <p className="mt-4 font-semibold text-foreground">— Eerik & Eemil, Pintanen Oy</p>
+            <p className="text-muted-foreground leading-relaxed text-center text-base md:text-lg">
+              Hei! Olemme Eerik ja Eemil, Pintasen yrittäjät. Toisin kuin suurissa alan liikkeissä, et ole meillä vain yksi tilausnumero muiden joukossa. <strong className="text-foreground">Hoidamme talojen maalaukset ja tiilikattojen pinnoitukset itse alusta loppuun saakka.</strong> Viiden vuoden kokemuksella ja yli 200 urakan myötä tiedämme, miten kestävät tulokset tehdään.
+            </p>
+            <p className="mt-4 font-semibold text-foreground text-center">— Eerik & Eemil, Pintanen Oy</p>
           </motion.div>
         </div>
       </section>
 
-      {/* ══════════════════ FAQ ══════════════════ */}
-      <FAQSection items={shuffledFAQ} />
-
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
       <TeamContactSection cityName={cityName} cityGenitive={cityGenitive} />
+
+      {/* ══════════════════ FAQ ══════════════════ */}
+      <FAQSection
+        items={shuffledFAQ}
+        title={`Usein kysyttyä maalaus- ja kattotöistä ${cityGenitive} alueella`}
+      />
 
       {/* ══════════════════ TOIMINTA-ALUEET ══════════════════ */}
       <ToimintaAlueetBanner />
