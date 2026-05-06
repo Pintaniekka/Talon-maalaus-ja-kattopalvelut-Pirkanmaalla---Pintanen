@@ -233,8 +233,10 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
                 <button
                   type="submit"
                   disabled={isSubmitted || isLoading}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all ${
-                    isSubmitted ? 'bg-green-500 text-white' : 'bg-foreground text-background hover:opacity-90'
+                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all border-2 ${
+                    isSubmitted
+                      ? 'bg-green-500 border-green-500 text-white'
+                      : 'bg-transparent border-white text-white hover:bg-white/10'
                   }`}
                 >
                   {isSubmitted ? (
@@ -249,12 +251,12 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
             </form>
           </motion.div>
 
-          {/* Persons (right) */}
+          {/* Persons (right) — stacked, top & bottom edges align with form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`grid gap-6 ${persons.length > 1 ? 'sm:grid-cols-2' : ''}`}
+            className={`flex flex-col gap-6 h-full ${persons.length > 1 ? 'lg:justify-between' : 'lg:justify-center'}`}
           >
             {persons.map((person) => (
               <PersonCard key={person.name} person={person} />
