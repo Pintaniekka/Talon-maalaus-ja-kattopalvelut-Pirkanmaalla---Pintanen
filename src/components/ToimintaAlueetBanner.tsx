@@ -74,8 +74,8 @@ const ToimintaAlueetBanner = () => {
           {/* Vasen: otsikko + accordion */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-5 h-5" style={{ color: "#38b6ff" }} />
-              <h2 className="text-xl md:text-2xl font-bold font-heading" style={{ color: "#38b6ff" }}>
+              <MapPin className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl md:text-2xl font-bold font-heading text-foreground">
                 Toiminta-alueet
               </h2>
             </div>
