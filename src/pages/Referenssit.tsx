@@ -136,6 +136,11 @@ const Lightbox = ({
         loading="eager"
         decoding="async"
         onClick={(e) => e.stopPropagation()}
+        onError={(e) => {
+          const img = e.currentTarget as HTMLImageElement;
+          const fallback = `https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Pictures-1500/${encodeURI(project.images[currentIndex].baseName)}-1500.webp`;
+          if (img.src !== fallback) img.src = fallback;
+        }}
       />
 
       {project.images.length > 1 && (
@@ -151,7 +156,7 @@ const Lightbox = ({
                 onClick={(e) => { e.stopPropagation(); onSelectIndex(idx); }}
                 className={`relative w-16 h-12 rounded overflow-hidden border-2 transition-all ${idx === currentIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={getResponsiveSrc(img.baseName)} alt={img.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                <LightboxImage baseName={img.baseName} alt={img.label} className="w-full h-full object-cover" thumbnail />
               </button>
             ))}
           </div>
