@@ -74,8 +74,8 @@ const ToimintaAlueetBanner = () => {
           {/* Vasen: otsikko + accordion */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-5 h-5" style={{ color: "#38b6ff" }} />
-              <h2 className="text-xl md:text-2xl font-bold font-heading" style={{ color: "#38b6ff" }}>
+              <MapPin className="w-5 h-5 text-foreground" />
+              <h2 className="text-xl md:text-2xl font-bold font-heading text-foreground">
                 Toiminta-alueet
               </h2>
             </div>
@@ -116,26 +116,26 @@ const ToimintaAlueetBanner = () => {
               ))}
             </Accordion>
 
-            <Link
-              to="/toiminta-alueet"
-              className="inline-block mt-5 text-sm text-primary font-medium hover:underline"
-            >
-              Katso kaikki alueet →
-            </Link>
           </div>
 
-          {/* Oikea: kartta */}
+          {/* Oikea: kartta linkkinä */}
           <div className="flex justify-center lg:justify-end order-first lg:order-last">
-            <img
-              src={mapImage}
-              sizes="280px"
-              alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
-              className="w-full max-w-[280px] rounded-2xl object-contain"
-              width={280}
-              height={350}
-              loading="lazy"
-              decoding="async"
-            />
+            <Link
+              to="/toiminta-alueet"
+              aria-label="Katso kaikki toiminta-alueet"
+              className="group block rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              <img
+                src={mapImage}
+                sizes="280px"
+                alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
+                className="w-full max-w-[280px] rounded-2xl object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                width={280}
+                height={350}
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
           </div>
         </div>
       </div>
