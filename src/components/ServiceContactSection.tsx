@@ -139,7 +139,7 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto lg:items-stretch">
           {/* Form (left) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
