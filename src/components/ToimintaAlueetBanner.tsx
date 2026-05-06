@@ -74,8 +74,8 @@ const ToimintaAlueetBanner = () => {
           {/* Vasen: otsikko + accordion */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-5 h-5 text-primary" />
-              <h2 className="text-xl md:text-2xl font-bold text-primary-dark font-heading">
+              <MapPin className="w-5 h-5" style={{ color: "#38b6ff" }} />
+              <h2 className="text-xl md:text-2xl font-bold font-heading" style={{ color: "#38b6ff" }}>
                 Toiminta-alueet
               </h2>
             </div>
@@ -87,7 +87,10 @@ const ToimintaAlueetBanner = () => {
                   value={region.id}
                   className="border-0 bg-card rounded-xl shadow-sm overflow-hidden"
                 >
-                  <AccordionTrigger className="px-5 py-4 hover:no-underline text-primary-dark font-heading text-lg md:text-xl font-extrabold italic tracking-wide">
+                  <AccordionTrigger
+                    className="px-5 py-4 hover:no-underline font-heading text-lg md:text-xl font-extrabold italic tracking-wide"
+                    style={{ color: "#38b6ff" }}
+                  >
                     {region.title}
                   </AccordionTrigger>
                   <AccordionContent className="px-5 pb-5 pt-0">
