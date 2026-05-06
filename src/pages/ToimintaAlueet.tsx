@@ -1,11 +1,42 @@
 import { motion } from 'framer-motion';
-import { MapPin, ChevronRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import SEO from '@/components/SEO';
-import { allCities } from '@/data/cityData';
-import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+import { getCityBySlug } from '@/data/cityData';
+import { getResponsiveSrc, getResponsiveSrcSet, getStorageUrl } from '@/lib/storage';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
+const regions: { id: string; name: string; citySlugs: string[] }[] = [
+  {
+    id: 'pirkanmaa',
+    name: 'PIRKANMAA',
+    citySlugs: [
+      'tampere', 'akaa', 'hameenkyro', 'ikaalinen', 'juupajoki', 'kangasala',
+      'kihnio', 'lempaala', 'mantta-vilppula', 'nokia', 'orivesi', 'parkano',
+      'pirkkala', 'palkane', 'ruovesi', 'sastamala', 'urjala', 'valkeakoski',
+      'vesilahti', 'virrat', 'ylojarvi',
+    ],
+  },
+  {
+    id: 'kanta-hame',
+    name: 'KANTA-HÄME',
+    citySlugs: ['forssa', 'hameenlinna'],
+  },
+  {
+    id: 'satakunta',
+    name: 'SATAKUNTA',
+    citySlugs: ['huittinen'],
+  },
+];
+
+const mapImage = getStorageUrl('Toiminta-alue-kartta-pirkanmaa-kantahame.png');
 
 const heroBase = "keltainen-omakotitalo-julkisivumaalaus-jalkeen";
 
