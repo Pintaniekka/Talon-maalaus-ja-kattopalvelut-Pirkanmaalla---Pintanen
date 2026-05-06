@@ -166,7 +166,7 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
                 Kutsu meidät maksuttomalle arviokäynnille!
               </h3>
 
-              <div className="space-y-3">
+              <div className="space-y-4 flex flex-col flex-1">
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                   <input
