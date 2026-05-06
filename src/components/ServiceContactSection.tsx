@@ -20,7 +20,7 @@ const logoUrl = getStorageUrl('Pintanen-logo.png');
 const contactPersons = {
   katto: {
     name: 'Eerik Pitkänen',
-    role: 'Yrittäjä – Kattopalvelut',
+    role: 'Kattomaalari',
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'eerik@pintanen.fi',
@@ -29,10 +29,10 @@ const contactPersons = {
   },
   maalaus: {
     name: 'Eemil Pitkänen',
-    role: 'Yrittäjä – Maalauspalvelut',
+    role: 'Seinämaalari',
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
-    email: 'myynti@pintanen.fi',
+    email: 'eemil@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp'),
     whatsapp: 'https://wa.me/358401642233',
   },
