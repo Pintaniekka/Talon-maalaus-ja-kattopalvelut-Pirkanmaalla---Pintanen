@@ -146,10 +146,11 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="h-full flex justify-center"
           >
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl p-6 md:p-8 shadow-xl text-white"
+              className="rounded-2xl p-8 md:p-10 shadow-xl text-white w-full max-w-md h-full flex flex-col"
               style={{ backgroundColor: FORM_BG }}
             >
               <div className="flex justify-center mb-4">
