@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Send, Check, Loader2 } from 'lucide-react';
+import { Phone, Mail, Send, Check, Loader2, User } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { getStorageUrl } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';
@@ -14,13 +14,16 @@ interface ServiceContactSectionProps {
   cityGenitive?: string;
 }
 
+const FORM_BG = '#006ead';
+const logoUrl = getStorageUrl('Pintanen-logo.png');
+
 const contactPersons = {
   katto: {
     name: 'Eerik Pitkänen',
     role: 'Yrittäjä – Kattopalvelut',
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
-    email: 'myynti@pintanen.fi',
+    email: 'eerik@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eerik-Pitkanen-tiilikaton-pinnoitus-pintanen.webp'),
     whatsapp: 'https://wa.me/358409640066',
   },
@@ -34,6 +37,54 @@ const contactPersons = {
     whatsapp: 'https://wa.me/358401642233',
   },
 };
+
+const PersonCard = ({ person }: { person: typeof contactPersons.katto }) => (
+  <div className="bg-card rounded-2xl p-6 shadow-md border border-border flex flex-col items-center text-center">
+    <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden bg-muted mb-4 ring-4 ring-background shadow-sm">
+      <img
+        src={person.image}
+        alt={person.name}
+        className="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+        width={144}
+        height={144}
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+        }}
+      />
+    </div>
+    <h3 className="text-xl font-bold text-foreground font-heading">{person.name}</h3>
+    <p className="text-sm text-muted-foreground mb-5">{person.role}</p>
+
+    <div className="w-full space-y-2.5">
+      <a
+        href={person.phoneHref}
+        className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-foreground text-background font-medium hover:opacity-90 transition-opacity text-sm"
+      >
+        <Phone className="w-4 h-4" />
+        {person.phone}
+      </a>
+      <a
+        href={`mailto:${person.email}`}
+        className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-muted text-foreground font-medium hover:bg-muted/80 transition-colors text-sm"
+      >
+        <Mail className="w-4 h-4" />
+        {person.email}
+      </a>
+      <a
+        href={person.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl font-medium text-white transition-opacity hover:opacity-90 text-sm"
+        style={{ backgroundColor: '#5ddb79' }}
+      >
+        <WhatsAppIcon className="w-5 h-5" color="white" />
+        WhatsApp
+      </a>
+    </div>
+  </div>
+);
 
 const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: ServiceContactSectionProps) => {
   const [formState, setFormState] = useState({
@@ -66,13 +117,15 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
 
   const title = cityGenitive ? `Yhteystiedot ${cityGenitive} alueella` : cityName ? `Yhteystiedot – ${cityName}` : 'Ota yhteyttä';
 
-  // On homepage (general), show only Eerik. On service pages, show relevant person.
+  // General → both Eerik & Eemil. Service-specific → only relevant person.
   const persons = variant === 'general'
-    ? [contactPersons.katto]
+    ? [contactPersons.katto, contactPersons.maalaus]
     : [contactPersons[variant]];
 
+  const inputClass = 'w-full px-4 py-3 rounded-xl bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-white/60 border-0';
+
   return (
-    <section id="yhteystiedot" className="section-padding bg-primary">
+    <section id="yhteystiedot" className="section-padding bg-background">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -80,146 +133,108 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
           viewport={{ once: true }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="heading-style text-3xl md:text-4xl text-primary-foreground mb-4">{title}</h2>
-          <p className="text-primary-foreground/70 text-lg">
-            Pyydä <strong className="text-primary-foreground">ilmainen arviokäynti</strong> tai tarjouspyyntö. Vastaamme <strong className="text-primary-foreground">vuorokauden sisään</strong>!
+          <h2 className="heading-style text-3xl md:text-4xl text-foreground mb-4">{title}</h2>
+          <p className="text-muted-foreground text-lg">
+            Pyydä <strong className="text-foreground">ilmainen arviokäynti</strong> tai tarjouspyyntö. Vastaamme <strong className="text-foreground">vuorokauden sisään</strong>!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Person Card(s) */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+          {/* Form (left) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
           >
-            {persons.map((person) => (
-              <div key={person.name} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                    <img
-                      src={person.image}
-                      alt={person.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width={64}
-                      height={64}
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-foreground/70"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-primary-foreground">{person.name}</h3>
-                    <p className="text-sm text-primary-foreground/60">{person.role}</p>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <a
-                    href={person.phoneHref}
-                    className="flex items-center gap-3 py-3 px-4 rounded-xl bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors text-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    {person.phone}
-                  </a>
-                  <a
-                    href={`mailto:${person.email}`}
-                    className="flex items-center gap-3 py-3 px-4 rounded-xl bg-white/10 text-primary-foreground font-medium hover:bg-white/15 transition-colors text-sm"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {person.email}
-                  </a>
-                  <a
-                    href={person.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 mt-4 px-6 py-2 rounded-full font-medium text-white transition-colors hover:opacity-90 text-sm"
-                    style={{ backgroundColor: '#5ddb79' }}
-                  >
-                    <WhatsAppIcon className="w-5 h-5" color="white" />
-                    WhatsApp
-                  </a>
-                </div>
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-2xl p-6 md:p-8 shadow-xl text-white"
+              style={{ backgroundColor: FORM_BG }}
+            >
+              <div className="flex justify-center mb-4">
+                <img
+                  src={logoUrl}
+                  alt="Pintanen"
+                  className="h-14 md:h-16 w-auto"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-            ))}
-          </motion.div>
+              <h3 className="text-2xl md:text-3xl font-bold text-center mb-6 font-heading">
+                Kutsu meidät maksuttomalle arviokäynnille!
+              </h3>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-6 md:p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-card-foreground mb-6 font-heading">Pyydä tarjous</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Nimi *</label>
+              <div className="space-y-3">
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                   <input
                     type="text"
                     required
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                    placeholder="Matti Meikäläinen"
+                    className={`${inputClass} pl-10`}
+                    placeholder="Nimi"
                   />
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Sähköposti *</label>
-                    <input
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                      placeholder="matti@esimerkki.fi"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Puhelin</label>
-                    <input
-                      type="tel"
-                      value={formState.phone}
-                      onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                      placeholder="040 123 4567"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="contact-service" className="block text-sm font-medium text-foreground mb-2">Palvelu</label>
-                  <select
-                    id="contact-service"
-                    value={formState.service}
-                    onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  >
-                    <option value="">Valitse palvelu</option>
-                    <option value="tiilikatto">Tiilikaton pinnoitus</option>
-                    <option value="ulkomaalaus">Ulkomaalaus</option>
-                    <option value="puhdistus">Katon puhdistus</option>
-                    <option value="muu">Muu</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Viesti</label>
-                  <textarea
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 resize-none"
-                    placeholder="Kerro projektistasi..."
+
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  <input
+                    type="tel"
+                    value={formState.phone}
+                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                    className={`${inputClass} pl-10`}
+                    placeholder="Puhelinnumero"
                   />
                 </div>
+
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                  <input
+                    type="email"
+                    value={formState.email}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                    className={`${inputClass} pl-10`}
+                    placeholder="Sähköposti"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 mt-2">Haluan tarjouksen:</label>
+                  <div className="space-y-2">
+                    {[
+                      { value: 'tiilikatto', label: 'Tiilikaton pinnoitus' },
+                      { value: 'puhdistus', label: 'Katon puhdistus' },
+                      { value: 'ulkomaalaus', label: 'Talon maalaus' },
+                    ].map((opt) => (
+                      <label key={opt.value} className="flex items-center gap-3 cursor-pointer text-sm">
+                        <input
+                          type="checkbox"
+                          checked={formState.service === opt.value}
+                          onChange={() =>
+                            setFormState({ ...formState, service: formState.service === opt.value ? '' : opt.value })
+                          }
+                          className="w-4 h-4 rounded border-white/40 accent-white"
+                        />
+                        <span>{opt.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <textarea
+                  value={formState.message}
+                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  rows={3}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Lisätiedot (vapaaehtoinen)"
+                />
+
                 <button
                   type="submit"
                   disabled={isSubmitted || isLoading}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold transition-all ${
-                    isSubmitted ? 'bg-green-500 text-white' : 'bg-accent text-accent-foreground hover:bg-accent/90'
+                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all ${
+                    isSubmitted ? 'bg-green-500 text-white' : 'bg-foreground text-background hover:opacity-90'
                   }`}
                 >
                   {isSubmitted ? (
@@ -227,11 +242,23 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
                   ) : isLoading ? (
                     <><Loader2 className="w-5 h-5 animate-spin" /> Lähetetään...</>
                   ) : (
-                    <><Send className="w-5 h-5" /> Lähetä tarjouspyyntö</>
+                    <><Send className="w-5 h-5" /> Kutsu arviokäynnille</>
                   )}
                 </button>
               </div>
             </form>
+          </motion.div>
+
+          {/* Persons (right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className={`grid gap-6 ${persons.length > 1 ? 'sm:grid-cols-2' : ''}`}
+          >
+            {persons.map((person) => (
+              <PersonCard key={person.name} person={person} />
+            ))}
           </motion.div>
         </div>
       </div>
