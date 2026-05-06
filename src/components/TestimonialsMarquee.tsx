@@ -68,10 +68,21 @@ const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; t
   );
 };
 
-const TestimonialsMarquee = () => {
+interface TestimonialsMarqueeProps {
+  /** Arvostelut, jotka näytetään karusellissa. Jos puuttuu, käytetään master-listaa. */
+  testimonials?: Testimonial[];
+  /** Otsikko karusellin yläpuolelle. Jos `null`, otsikko piilotetaan. */
+  title?: string | null;
+}
+
+const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps = {}) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
-  const items = [...testimonials, ...testimonials];
+  const data = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  // Duplicoidaan riittävä määrä, jotta marquee toimii myös pienellä setillä (esim. 4 korttia)
+  const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
+  const items = Array.from({ length: minLoopCount }, () => data).flat();
+  const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
 
   const pausedRef = useRef(false);
   const offsetRef = useRef(0);
@@ -103,14 +114,16 @@ const TestimonialsMarquee = () => {
 
   return (
     <section
-      className="section-padding pt-28 md:pt-16 overflow-hidden bg-background"
+      className={`overflow-hidden bg-background ${headingText ? "section-padding pt-28 md:pt-16" : "py-8"}`}
       aria-label="Asiakasarvostelut"
     >
-      <div className="section-container mb-8 text-center">
-        <h2 className="heading-style text-2xl md:text-3xl text-accent">
-          Mitä asiakkaat sanovat meistä?
-        </h2>
-      </div>
+      {headingText && (
+        <div className="section-container mb-8 text-center">
+          <h2 className="heading-style text-2xl md:text-3xl text-accent">
+            {headingText}
+          </h2>
+        </div>
+      )}
 
       <div
         className="relative"
@@ -132,3 +145,4 @@ const TestimonialsMarquee = () => {
 };
 
 export default TestimonialsMarquee;
+
