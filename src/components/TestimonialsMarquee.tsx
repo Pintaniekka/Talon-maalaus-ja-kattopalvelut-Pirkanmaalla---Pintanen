@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { allTestimonials, type Testimonial } from "@/data/testimonialsData";
 
-const testimonials = [
-  { name: "Anna-Riitta Taipale", stars: 5, text: "Katon pesu ja maalaus hoitui aikataulussa. Työnjälki on hyvä ja ammattitaidolla tehty. Olemme olleet tyytyväisiä." },
-  { name: "J S", stars: 5, text: "Reipas nuorimies joka tuli sovittuna ajankohtana.Korjasi,pesi ja maalasi tiilikaton sovitun hinnan mukaan.Hyvin tehty työ." },
-  { name: "Mauri Rajuvaara", stars: 5, text: "Excellent quality of work within agreed budget and time frame" },
-  { name: "Juuso Heimonen", stars: 5, text: "Erittäin hyvää palvelua. Urakka valmistui juuri niin kuin sovittiin ja työn jälki oli erinomaista. Suosittelen!" },
-  { name: "Timo Leppänen", stars: 5, text: "Erittäin toimiva palvelu; hyvä yhteydenpito, siisti työnjälki ja ripeää toimintaa! Suosittelen!" },
-  { name: "Timo Piilonen", stars: 5, text: "Eerik Pitkänen teki hyvän tarjouksen kattomaalauksesta ja -pinnoituksesta. Tarjous piti hyvin, työn laatu oli loistava ja itse työ sujui aikataulun mukaisesti. Erityisesti jäivät mieleen työn jälkien siistiminen ja maalarin hyvä raportointi tehdyistä toimista. Suosittelen lämpimästi." },
-  { name: "Terttu Anneli", stars: 4, text: "Olemme tyytyväisiä työhön. Katollammme oli runsaasti sammalta jonka puhdistus ja käsittely tuli tarpeeseen." },
-];
+const defaultTestimonials: Testimonial[] = allTestimonials;
 
 const LONG_TEXT_THRESHOLD = 180;
 
@@ -75,10 +68,21 @@ const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; t
   );
 };
 
-const TestimonialsMarquee = () => {
+interface TestimonialsMarqueeProps {
+  /** Arvostelut, jotka näytetään karusellissa. Jos puuttuu, käytetään master-listaa. */
+  testimonials?: Testimonial[];
+  /** Otsikko karusellin yläpuolelle. Jos `null`, otsikko piilotetaan. */
+  title?: string | null;
+}
+
+const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps = {}) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
-  const items = [...testimonials, ...testimonials];
+  const data = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  // Duplicoidaan riittävä määrä, jotta marquee toimii myös pienellä setillä (esim. 4 korttia)
+  const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
+  const items = Array.from({ length: minLoopCount }, () => data).flat();
+  const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
 
   const pausedRef = useRef(false);
   const offsetRef = useRef(0);
@@ -110,14 +114,16 @@ const TestimonialsMarquee = () => {
 
   return (
     <section
-      className="section-padding pt-28 md:pt-16 overflow-hidden bg-background"
+      className={`overflow-hidden bg-background ${headingText ? "section-padding pt-28 md:pt-16" : "py-8"}`}
       aria-label="Asiakasarvostelut"
     >
-      <div className="section-container mb-8 text-center">
-        <h2 className="heading-style text-2xl md:text-3xl text-accent">
-          Mitä asiakkaat sanovat meistä?
-        </h2>
-      </div>
+      {headingText && (
+        <div className="section-container mb-8 text-center">
+          <h2 className="heading-style text-2xl md:text-3xl text-accent">
+            {headingText}
+          </h2>
+        </div>
+      )}
 
       <div
         className="relative"
@@ -139,3 +145,4 @@ const TestimonialsMarquee = () => {
 };
 
 export default TestimonialsMarquee;
+
