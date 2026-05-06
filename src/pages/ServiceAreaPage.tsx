@@ -2,10 +2,9 @@ import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronRight, CreditCard, MapPin } from "lucide-react";
+import { ChevronRight, MapPin } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
-import KotitalousVahennys from "@/components/KotitalousVahennys";
 import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import TeamContactSection from "@/components/TeamContactSection";
@@ -330,37 +329,6 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       />
 
 
-      {/* ══════════════════ KOTITALOUSVÄHENNYS ══════════════════ */}
-      <KotitalousVahennys />
-
-      {/* ══════════════════ RAHOITUS ══════════════════ */}
-      <section className="py-10 md:py-14 bg-background">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto card-elevated p-6 md:p-8"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <CreditCard className="w-6 h-6 text-primary" />
-              <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                Joustava rahoitus – Talon maalaus kätevästi kuukausimaksulla
-              </h3>
-            </div>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Ulkoverhouksen huoltoa ei kannata lykätä säästöjä odotellessa, sillä vaurioitunut puurakenne tai ulkoverhousremontti on aina kalliimpi vaihtoehto. Kauttamme saat joustavan rahoituksen, jolla voit maksaa maalauksen sinulle sopivissa kuukausierissä. Kysy lisää arviokäynnin yhteydessä!
-            </p>
-            <a
-              href="#yhteystiedot"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110"
-              style={{ backgroundColor: "#38b6ff" }}
-            >
-              Kysy tarjous
-            </a>
-          </motion.div>
-        </div>
-      </section>
 
       {/* ══════════════════ KEITÄ ME OLEMME? ══════════════════ */}
       <section className="section-padding bg-secondary">
