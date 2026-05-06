@@ -214,16 +214,6 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      {/* ══════════════════ TESTIMONIALS – Kokemuksia kattopalveluista ══════════════════ */}
-      <section className="pt-12 pb-2 bg-background">
-        <div className="section-container">
-          <h2 className="text-3xl md:text-4xl font-bold text-accent text-center font-heading">
-            Kokemuksia Pintasen kattopalveluista
-          </h2>
-        </div>
-      </section>
-      <TestimonialsMarquee />
-
       {/* ══════════════════ PALVELUSIILOT ══════════════════ */}
       <section className="section-padding bg-secondary">
         <div className="section-container">
@@ -281,57 +271,64 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Kaupunginosat / kylät */}
-          {neighborhoods && (
+      {/* ══════════════════ PALVELEMME KOKO ALUEELLA – oma visuaalinen blokki ══════════════════ */}
+      {neighborhoods && (
+        <section className="section-padding bg-background">
+          <div className="section-container">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto mt-14 text-center"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-4xl mx-auto text-center"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 font-heading">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
                 Palvelemme koko {cityGenitive} alueella
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
                 Olemme paikallinen kumppanisi koko {neighborhoods.regionGenitive} alueella. Tutuiksi ovat tulleet muun muassa:
               </p>
-              <p className="text-base md:text-lg text-foreground leading-relaxed flex items-center justify-center flex-wrap gap-x-2 gap-y-1">
-                <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
-                {neighborhoods.neighborhoods.map((n, idx) => (
-                  <span key={n} className="inline-flex items-center gap-2">
-                    <span>{n}</span>
-                    {idx < neighborhoods.neighborhoods.length - 1 && (
-                      <span className="text-muted-foreground/60">•</span>
-                    )}
+
+              <div className="bg-card rounded-2xl p-6 md:p-8 shadow-sm border border-border/50 mb-10">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                    Kaupunginosat ja kylät
                   </span>
-                ))}
-              </p>
+                </div>
+                <p className="text-base md:text-lg text-foreground leading-relaxed flex items-center justify-center flex-wrap gap-x-3 gap-y-2">
+                  {neighborhoods.neighborhoods.map((n, idx) => (
+                    <span key={n} className="inline-flex items-center gap-3">
+                      <span className="font-medium">{n}</span>
+                      {idx < neighborhoods.neighborhoods.length - 1 && (
+                        <span className="text-accent/60">•</span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
+
+              <Link
+                to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
+              >
+                Laske hinta: tiilikaton pinnoitus {cityName}
+              </Link>
             </motion.div>
-          )}
-
-          {/* Keltakultainen CTA-painike */}
-          <div className="text-center mt-10">
-            <Link
-              to="/tiilikaton-pinnoitus-hinta-pirkanmaa"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: "hsl(38, 60%, 65%)", color: "hsl(215, 25%, 15%)" }}
-            >
-              Laske hinta: tiilikaton pinnoitus {cityName}
-            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* ══════════════════ TESTIMONIALS – Mitä asiakkaat sanovat? ══════════════════ */}
-      <section className="pt-12 pb-2 bg-background">
-        <div className="section-container">
-          <h2 className="text-3xl md:text-4xl font-bold text-accent text-center font-heading">
-            Mitä asiakkaat sanovat meistä?
-          </h2>
-        </div>
-      </section>
-      <TestimonialsMarquee />
+      {/* ══════════════════ ASIAKASPALAUTTEET – yksi kaupunkikohtainen karuselli ══════════════════ */}
+      <TestimonialsMarquee
+        title="Mitä asiakkaat sanovat meistä?"
+        testimonials={getTestimonialsForCity(citySlug, 4)}
+      />
+
 
       {/* ══════════════════ KOTITALOUSVÄHENNYS ══════════════════ */}
       <KotitalousVahennys />
