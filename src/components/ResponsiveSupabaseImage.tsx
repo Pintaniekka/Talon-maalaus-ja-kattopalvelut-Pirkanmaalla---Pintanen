@@ -1,4 +1,5 @@
-import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+import { useState, useCallback } from 'react';
+import { getResponsiveSrc, getResponsiveSrcSet, getResponsiveUrl } from '@/lib/storage';
 
 interface ResponsiveSupabaseImageProps {
   baseName: string;
@@ -16,7 +17,6 @@ interface ResponsiveSupabaseImageProps {
 
 /**
  * Converts a hyphenated baseName to a human-readable Finnish alt text.
- * E.g. "vihrea-puutalo-ulkomaalaus-jalkeen" → "Vihreä puutalo ulkomaalaus jälkeen"
  */
 const baseNameToAlt = (baseName: string): string => {
   const text = baseName.replace(/-/g, ' ');
@@ -39,19 +39,49 @@ const ResponsiveSupabaseImage = ({
   const location = cityIn || 'Pirkanmaalla';
   const resolvedAlt = alt || `${baseNameToAlt(baseName)} ${location}`;
 
+  // Fallback chain: responsive srcSet → 1500w only → 1200w only → give up
+  const [fallbackLevel, setFallbackLevel] = useState(0);
+
+  const handleError = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement>) => {
+      setFallbackLevel((lvl) => (lvl < 2 ? lvl + 1 : lvl));
+      onError?.(e);
+    },
+    [onError]
+  );
+
+  let src: string;
+  let srcSet: string | undefined;
+  let resolvedSizes: string | undefined = sizes;
+
+  if (fallbackLevel === 0) {
+    src = getResponsiveSrc(baseName);
+    srcSet = getResponsiveSrcSet(baseName);
+  } else if (fallbackLevel === 1) {
+    // Strip srcSet entirely, force the largest existing size
+    src = getResponsiveUrl(baseName, 1500);
+    srcSet = undefined;
+    resolvedSizes = undefined;
+  } else {
+    // Last resort: 1200w without srcSet
+    src = getResponsiveUrl(baseName, 1200);
+    srcSet = undefined;
+    resolvedSizes = undefined;
+  }
+
   return (
     <img
-      src={getResponsiveSrc(baseName)}
-      srcSet={getResponsiveSrcSet(baseName)}
+      src={src}
+      srcSet={srcSet}
       alt={resolvedAlt}
       className={className}
       loading={priority ? undefined : 'lazy'}
       decoding={priority ? 'sync' : 'async'}
       fetchPriority={priority ? 'high' : 'low'}
-      sizes={sizes}
+      sizes={resolvedSizes}
       draggable={draggable}
       style={style}
-      onError={onError}
+      onError={handleError}
       width={width}
       height={height}
     />

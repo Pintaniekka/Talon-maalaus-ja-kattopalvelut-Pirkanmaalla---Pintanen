@@ -33,15 +33,12 @@ type Project = GroupedProject | SingleProject;
 const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
   <div className="relative w-full h-full flex overflow-hidden">
     {images.map((img, idx) => (
-      <div key={idx} className="h-full overflow-hidden" style={{ width: `${100 / images.length}%` }}>
-        <img
-          src={getResponsiveSrc(img.baseName)}
-          srcSet={getResponsiveSrcSet(img.baseName)}
-          sizes="(max-width: 768px) 100vw, 33vw"
+      <div key={idx} className="h-full overflow-hidden bg-muted/40" style={{ width: `${100 / images.length}%` }}>
+        <ResponsiveSupabaseImage
+          baseName={img.baseName}
           alt={img.label}
+          sizes="(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-          decoding="async"
           style={{
             objectPosition: idx === 0 ? 'left center' : idx === images.length - 1 ? 'right center' : 'center center',
           }}
@@ -50,6 +47,37 @@ const CompositeThumbnail = ({ images }: { images: ProjectImage[] }) => (
     ))}
   </div>
 );
+
+// Lightbox image with onError fallback to the largest existing variant.
+const LightboxImage = ({
+  baseName,
+  alt,
+  className,
+  thumbnail = false,
+  onClick,
+}: {
+  baseName: string;
+  alt: string;
+  className?: string;
+  thumbnail?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
+}) => {
+  const [errored, setErrored] = useState(false);
+  const src = errored
+    ? `https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Pictures-1500/${encodeURI(baseName)}-1500.webp`
+    : getResponsiveSrc(baseName);
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      loading={thumbnail ? 'lazy' : 'eager'}
+      decoding="async"
+      onClick={onClick}
+      onError={() => setErrored(true)}
+    />
+  );
+};
 
 const Lightbox = ({
   project,
@@ -108,6 +136,11 @@ const Lightbox = ({
         loading="eager"
         decoding="async"
         onClick={(e) => e.stopPropagation()}
+        onError={(e) => {
+          const img = e.currentTarget as HTMLImageElement;
+          const fallback = `https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Pictures-1500/${encodeURI(project.images[currentIndex].baseName)}-1500.webp`;
+          if (img.src !== fallback) img.src = fallback;
+        }}
       />
 
       {project.images.length > 1 && (
@@ -123,7 +156,7 @@ const Lightbox = ({
                 onClick={(e) => { e.stopPropagation(); onSelectIndex(idx); }}
                 className={`relative w-16 h-12 rounded overflow-hidden border-2 transition-all ${idx === currentIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={getResponsiveSrc(img.baseName)} alt={img.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                <LightboxImage baseName={img.baseName} alt={img.label} className="w-full h-full object-cover" thumbnail />
               </button>
             ))}
           </div>
@@ -372,7 +405,7 @@ const Referenssit = () => {
                         baseName={project.type === 'group' ? project.images[0].baseName : project.baseName}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

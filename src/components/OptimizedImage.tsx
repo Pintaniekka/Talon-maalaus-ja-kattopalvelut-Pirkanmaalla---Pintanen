@@ -1,3 +1,5 @@
+import { useState, useCallback, useMemo } from "react";
+
 interface OptimizedImageProps {
   src: string;
   alt: string;
@@ -12,7 +14,31 @@ interface OptimizedImageProps {
   height?: number;
 }
 
-// No image transformations – use plain public URLs
+/**
+ * Strips known transformation parameters and any "Pictures-XXX/" path segment
+ * from a Supabase storage URL, returning the largest known fallback URL.
+ * If src already points at the largest variant, returns it unchanged.
+ */
+const buildFallbackUrl = (src: string): string => {
+  try {
+    const url = new URL(src);
+    // Drop any query params (Supabase image transforms etc.)
+    url.search = '';
+    // If URL points to a Pictures-<n>/ folder with -<n>.webp suffix, swap to 1500.
+    const path = url.pathname;
+    const m = path.match(/\/Pictures-(\d+)\/([^/]+)-(\d+)\.webp$/);
+    if (m) {
+      const baseName = m[2];
+      url.pathname = path.replace(
+        /\/Pictures-\d+\/[^/]+-\d+\.webp$/,
+        `/Pictures-1500/${baseName}-1500.webp`
+      );
+    }
+    return url.toString();
+  } catch {
+    return src;
+  }
+};
 
 const OptimizedImage = ({
   src,
@@ -27,19 +53,34 @@ const OptimizedImage = ({
   width,
   height,
 }: OptimizedImageProps) => {
+  const [errored, setErrored] = useState(false);
+  const fallbackSrc = useMemo(() => buildFallbackUrl(src), [src]);
+
+  const handleError = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement>) => {
+      if (!errored) setErrored(true);
+      onError?.(e);
+    },
+    [errored, onError]
+  );
+
+  const finalSrc = errored ? fallbackSrc : src;
+  const finalSrcSet = errored ? undefined : srcSet;
+  const finalSizes = errored ? undefined : (sizes ?? "(max-width: 768px) 100vw, 600px");
+
   return (
     <img
-      src={src}
-      srcSet={srcSet}
+      src={finalSrc}
+      srcSet={finalSrcSet}
       alt={alt}
       className={className}
       loading={priority ? undefined : "lazy"}
       decoding="async"
       fetchPriority={priority ? "high" : "low"}
-      sizes={sizes ?? "(max-width: 768px) 100vw, 600px"}
+      sizes={finalSizes}
       draggable={draggable}
       style={style}
-      onError={onError}
+      onError={handleError}
       width={width}
       height={height}
     />
