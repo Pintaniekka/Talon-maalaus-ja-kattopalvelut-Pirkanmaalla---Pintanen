@@ -20,7 +20,7 @@ const logoUrl = getStorageUrl('Pintanen-logo.png');
 const contactPersons = {
   katto: {
     name: 'Eerik Pitkänen',
-    role: 'Yrittäjä – Kattopalvelut',
+    role: 'Kattomaalari',
     phone: '040 964 0066',
     phoneHref: 'tel:+358409640066',
     email: 'eerik@pintanen.fi',
@@ -29,10 +29,10 @@ const contactPersons = {
   },
   maalaus: {
     name: 'Eemil Pitkänen',
-    role: 'Yrittäjä – Maalauspalvelut',
+    role: 'Seinämaalari',
     phone: '040 164 2233',
     phoneHref: 'tel:+358401642233',
-    email: 'myynti@pintanen.fi',
+    email: 'eemil@pintanen.fi',
     image: getStorageUrl('Pictures-200/Eemil-Pitkanen-talon-maalaus-pintanen.webp'),
     whatsapp: 'https://wa.me/358401642233',
   },
@@ -139,7 +139,7 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto lg:items-stretch">
           {/* Form (left) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -233,8 +233,10 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
                 <button
                   type="submit"
                   disabled={isSubmitted || isLoading}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all ${
-                    isSubmitted ? 'bg-green-500 text-white' : 'bg-foreground text-background hover:opacity-90'
+                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all border-2 ${
+                    isSubmitted
+                      ? 'bg-green-500 border-green-500 text-white'
+                      : 'bg-transparent border-white text-white hover:bg-white/10'
                   }`}
                 >
                   {isSubmitted ? (
@@ -249,12 +251,12 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
             </form>
           </motion.div>
 
-          {/* Persons (right) */}
+          {/* Persons (right) — stacked, top & bottom edges align with form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`grid gap-6 ${persons.length > 1 ? 'sm:grid-cols-2' : ''}`}
+            className={`flex flex-col gap-6 h-full ${persons.length > 1 ? 'lg:justify-between' : 'lg:justify-center'}`}
           >
             {persons.map((person) => (
               <PersonCard key={person.name} person={person} />
