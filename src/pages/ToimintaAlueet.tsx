@@ -62,8 +62,8 @@ const ToimintaAlueet = () => {
 
 
       <section className="section-padding bg-background">
-        <div className="section-container max-w-4xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-base text-muted-foreground mb-12 space-y-4">
+        <div className="section-container max-w-6xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-base text-muted-foreground mb-12 space-y-4 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 text-center">Missä toimimme?</h2>
             <p>Meidän toiminta-alueemme on <strong className="text-foreground">Pirkanmaa</strong> ja sen lähialueet. Pintanen Oy suorittaa <strong className="text-foreground">tiilikattojen pinnoitukset</strong>, <strong className="text-foreground">katon puhdistukset</strong> ja <strong className="text-foreground">talojen ulkomaalaukset</strong> pääasiassa Pirkanmaan alueella. Suurin osa asiakkaistamme on Tampereella ja sen ympäristökunnissa, mutta me palvelemme myös muualla Pirkanmaalla ja valituilla lähialueilla.</p>
             <p>Me toimimme yleensä noin <strong className="text-foreground">tunnin ajomatkan säteellä Tampereelta</strong>. Tämä mahdollistaa sujuvan työskentelyn ja kohtuulliset matkakulut asiakkaillemme. Me teemme vuosittain projekteja useissa Pirkanmaan kunnissa, ja kohteita löytyy sekä kaupunkialueilta että maaseudulta.</p>
@@ -71,20 +71,59 @@ const ToimintaAlueet = () => {
             <p>Jos et ole varma, kuuluuko paikkakuntasi toiminta-alueeseemme, kannattaa silti ottaa yhteyttä. Me kerromme nopeasti, onnistuuko kohteesi toteutus, ja voimme tarvittaessa sopia <strong className="text-foreground">maksuttoman arviokäynnin</strong>.</p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="mb-4">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-accent">
               <MapPin className="w-6 h-6 text-primary" />
               Palvelualueet
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-              {allCities.map((city, index) => (
-                <motion.div key={city.slug} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.02 }}>
-                  <Link to={`/maalauspalvelut-${city.slug}`} className="flex items-center justify-between gap-1 bg-secondary text-secondary-foreground px-4 py-3 rounded-full text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors group">
-                    <span>{city.name}</span>
-                    <ChevronRight className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                  </Link>
-                </motion.div>
-              ))}
+
+            <div className="grid lg:grid-cols-[1fr_320px] gap-8 items-start">
+              <Accordion type="multiple" defaultValue={['pirkanmaa']} className="space-y-3">
+                {regions.map((region) => (
+                  <AccordionItem
+                    key={region.id}
+                    value={region.id}
+                    className="border-0 bg-card rounded-2xl shadow-sm overflow-hidden"
+                  >
+                    <AccordionTrigger className="px-5 md:px-6 py-4 md:py-5 hover:no-underline hover:bg-secondary/40 transition-colors">
+                      <span className="text-xl md:text-2xl font-extrabold italic tracking-wide text-primary font-heading">
+                        {region.name}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-5 md:px-6 pb-5 pt-0">
+                      <p className="text-base leading-relaxed text-foreground/90">
+                        {region.citySlugs.map((slug, idx) => {
+                          const city = getCityBySlug(slug);
+                          if (!city) return null;
+                          return (
+                            <span key={slug}>
+                              <Link
+                                to={`/maalauspalvelut-${city.slug}`}
+                                className="text-foreground hover:text-primary underline-offset-4 hover:underline transition-colors"
+                              >
+                                {city.name}
+                              </Link>
+                              {idx < region.citySlugs.length - 1 ? ', ' : ''}
+                            </span>
+                          );
+                        })}
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <div className="flex justify-center lg:justify-end order-first lg:order-last">
+                <img
+                  src={mapImage}
+                  alt="Toimialuekartta: Pirkanmaa, Kanta-Häme ja Satakunta"
+                  className="w-full max-w-[280px] lg:max-w-[320px] rounded-2xl object-contain"
+                  width={320}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
