@@ -16,6 +16,7 @@ import { getStorageUrl, getResponsiveSrc, getResponsiveSrcSet } from "@/lib/stor
 import { getCityBySlug, cityHasServicePages } from "@/data/cityData";
 import { getAreaCityContent } from "@/data/areaCityContent";
 import { getCityNeighborhoods } from "@/data/cityNeighborhoods";
+import { getTestimonialsForCity } from "@/data/testimonialsData";
 
 const heroImage = getResponsiveSrc("ammattilainen-maalaa-talon-ulkoverhousta-pensselilla");
 
