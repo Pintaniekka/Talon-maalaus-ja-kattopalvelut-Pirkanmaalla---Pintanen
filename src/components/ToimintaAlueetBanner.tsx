@@ -123,13 +123,13 @@ const ToimintaAlueetBanner = () => {
             <Link
               to="/toiminta-alueet"
               aria-label="Katso kaikki toiminta-alueet"
-              className="group block rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="group block focus-visible:outline-none"
             >
               <img
                 src={mapImage}
                 sizes="280px"
                 alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
-                className="w-full max-w-[280px] rounded-2xl object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                className="w-full max-w-[280px] object-contain transition-transform duration-300 ease-out group-hover:scale-105"
                 width={280}
                 height={350}
                 loading="lazy"
