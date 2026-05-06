@@ -57,14 +57,15 @@ const PersonCard = ({ person }: { person: typeof contactPersons.katto }) => (
     <h3 className="text-xl font-bold text-foreground font-heading">{person.name}</h3>
     <p className="text-sm text-muted-foreground mb-5">{person.role}</p>
 
+    <a
+      href={person.phoneHref}
+      className="flex items-center justify-center gap-2 text-2xl md:text-3xl font-bold text-foreground tracking-tight hover:text-primary transition-colors mb-4"
+    >
+      <Phone className="w-5 h-5" strokeWidth={2.5} />
+      {person.phone}
+    </a>
+
     <div className="w-full space-y-2.5">
-      <a
-        href={person.phoneHref}
-        className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-foreground text-background font-medium hover:opacity-90 transition-opacity text-sm"
-      >
-        <Phone className="w-4 h-4" />
-        {person.phone}
-      </a>
       <a
         href={`mailto:${person.email}`}
         className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-muted text-foreground font-medium hover:bg-muted/80 transition-colors text-sm"
