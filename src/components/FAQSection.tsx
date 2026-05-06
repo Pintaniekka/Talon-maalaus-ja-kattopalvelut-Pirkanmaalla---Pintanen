@@ -14,9 +14,10 @@ interface FAQItem {
 
 interface FAQSectionProps {
   items: FAQItem[];
+  title?: string;
 }
 
-const FAQSection = ({ items }: FAQSectionProps) => {
+const FAQSection = ({ items, title }: FAQSectionProps) => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -43,7 +44,7 @@ const FAQSection = ({ items }: FAQSectionProps) => {
             viewport={{ once: true }}
           >
             <h2 className="heading-style text-3xl md:text-4xl mb-10 text-center tracking-wide" style={{ color: 'hsl(var(--heading-navy))' }}>
-              Usein kysytyt kysymykset
+              {title || 'Usein kysytyt kysymykset'}
             </h2>
             <Accordion type="single" collapsible className="space-y-3.5">
               {items.map((item, index) => (
