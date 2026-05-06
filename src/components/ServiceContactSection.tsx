@@ -235,7 +235,7 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
                 <button
                   type="submit"
                   disabled={isSubmitted || isLoading}
-                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all border-2 ${
+                  className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide uppercase transition-all border-2 mt-auto ${
                     isSubmitted
                       ? 'bg-green-500 border-green-500 text-white'
                       : 'bg-transparent border-white text-white hover:bg-white/10'
