@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { allTestimonials, type Testimonial } from "@/data/testimonialsData";
 
-const testimonials = [
-  { name: "Anna-Riitta Taipale", stars: 5, text: "Katon pesu ja maalaus hoitui aikataulussa. Työnjälki on hyvä ja ammattitaidolla tehty. Olemme olleet tyytyväisiä." },
-  { name: "J S", stars: 5, text: "Reipas nuorimies joka tuli sovittuna ajankohtana.Korjasi,pesi ja maalasi tiilikaton sovitun hinnan mukaan.Hyvin tehty työ." },
-  { name: "Mauri Rajuvaara", stars: 5, text: "Excellent quality of work within agreed budget and time frame" },
-  { name: "Juuso Heimonen", stars: 5, text: "Erittäin hyvää palvelua. Urakka valmistui juuri niin kuin sovittiin ja työn jälki oli erinomaista. Suosittelen!" },
-  { name: "Timo Leppänen", stars: 5, text: "Erittäin toimiva palvelu; hyvä yhteydenpito, siisti työnjälki ja ripeää toimintaa! Suosittelen!" },
-  { name: "Timo Piilonen", stars: 5, text: "Eerik Pitkänen teki hyvän tarjouksen kattomaalauksesta ja -pinnoituksesta. Tarjous piti hyvin, työn laatu oli loistava ja itse työ sujui aikataulun mukaisesti. Erityisesti jäivät mieleen työn jälkien siistiminen ja maalarin hyvä raportointi tehdyistä toimista. Suosittelen lämpimästi." },
-  { name: "Terttu Anneli", stars: 4, text: "Olemme tyytyväisiä työhön. Katollammme oli runsaasti sammalta jonka puhdistus ja käsittely tuli tarpeeseen." },
-];
+const defaultTestimonials: Testimonial[] = allTestimonials;
 
 const LONG_TEXT_THRESHOLD = 180;
 
