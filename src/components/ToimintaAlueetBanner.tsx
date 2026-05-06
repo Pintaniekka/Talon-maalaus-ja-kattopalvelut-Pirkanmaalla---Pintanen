@@ -87,7 +87,10 @@ const ToimintaAlueetBanner = () => {
                   value={region.id}
                   className="border-0 bg-card rounded-xl shadow-sm overflow-hidden"
                 >
-                  <AccordionTrigger className="px-5 py-4 hover:no-underline text-primary-dark font-heading text-lg md:text-xl font-extrabold italic tracking-wide">
+                  <AccordionTrigger
+                    className="px-5 py-4 hover:no-underline font-heading text-lg md:text-xl font-extrabold italic tracking-wide"
+                    style={{ color: "#38b6ff" }}
+                  >
                     {region.title}
                   </AccordionTrigger>
                   <AccordionContent className="px-5 pb-5 pt-0">
