@@ -229,10 +229,8 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive, ci
                       <label key={opt.value} className="flex items-center gap-3 cursor-pointer text-sm">
                         <input
                           type="checkbox"
-                          checked={formState.service === opt.value}
-                          onChange={() =>
-                            setFormState({ ...formState, service: formState.service === opt.value ? '' : opt.value })
-                          }
+                          checked={formState.services.includes(opt.value)}
+                          onChange={() => toggleService(opt.value)}
                           className="w-4 h-4 rounded border-white/40 accent-white"
                         />
                         <span>{opt.label}</span>
