@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
+import ToimintaAlueetBanner from '@/components/ToimintaAlueetBanner';
 import SEO from '@/components/SEO';
 import ResponsiveSupabaseImage from '@/components/ResponsiveSupabaseImage';
 import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
@@ -459,6 +460,7 @@ const Referenssit = () => {
       </AnimatePresence>
 
       <ServiceContactSection variant="general" />
+      <ToimintaAlueetBanner />
     </div>
   );
 };
