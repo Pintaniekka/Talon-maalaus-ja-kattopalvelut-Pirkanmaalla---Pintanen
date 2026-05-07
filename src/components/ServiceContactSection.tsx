@@ -12,6 +12,7 @@ interface ServiceContactSectionProps {
   variant?: ContactVariant;
   cityName?: string;
   cityGenitive?: string;
+  cityIn?: string;
 }
 
 const FORM_BG = '#006ead';
@@ -87,14 +88,23 @@ const PersonCard = ({ person }: { person: typeof contactPersons.katto }) => (
   </div>
 );
 
-const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: ServiceContactSectionProps) => {
+const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive, cityIn }: ServiceContactSectionProps) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    services: [] as string[],
     message: '',
   });
+
+  const toggleService = (value: string) => {
+    setFormState((s) => ({
+      ...s,
+      services: s.services.includes(value)
+        ? s.services.filter((v) => v !== value)
+        : [...s.services, value],
+    }));
+  };
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -103,9 +113,10 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
     if (isLoading) return;
     setIsLoading(true);
     try {
-      await submitContactForm(formState);
+      const { services, ...rest } = formState;
+      await submitContactForm({ ...rest, service: services.join(', ') });
       setIsSubmitted(true);
-      setFormState({ name: '', email: '', phone: '', service: '', message: '' });
+      setFormState({ name: '', email: '', phone: '', services: [], message: '' });
       toast({ title: 'Tarjouspyyntö lähetetty!', description: 'Vastaamme mahdollisimman pian.' });
       setTimeout(() => setIsSubmitted(false), 3000);
     } catch (err: unknown) {
@@ -116,7 +127,13 @@ const ServiceContactSection = ({ variant = 'general', cityName, cityGenitive }: 
     }
   };
 
-  const title = cityGenitive ? `Yhteystiedot ${cityGenitive} alueella` : cityName ? `Yhteystiedot – ${cityName}` : 'Ota yhteyttä';
+  const title = cityIn
+    ? `Ota yhteyttä ${cityIn}`
+    : cityGenitive
+    ? `Yhteystiedot ${cityGenitive} alueella`
+    : cityName
+    ? `Yhteystiedot – ${cityName}`
+    : 'Ota yhteyttä';
 
   // General → both Eerik & Eemil. Service-specific → only relevant person.
   const persons = variant === 'general'
