@@ -396,15 +396,8 @@ const KattopalvelutPinnoitus = () => {
       {/* ═══ CONTACT ═══ */}
       <ServiceContactSection variant="katto" />
 
-      {/* ═══ LOCAL SEO / TOIMINTA-ALUEET ═══ */}
-      <section className="section-padding bg-background">
-        <div className="section-container text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
-            Palvelemme joustavasti koko Pirkanmaan alueella
-          </h2>
-        </div>
-        <ToimintaAlueetBanner />
-      </section>
+      {/* ═══ TOIMINTA-ALUEET ═══ */}
+      <ToimintaAlueetBanner />
     </div>
   );
 };
