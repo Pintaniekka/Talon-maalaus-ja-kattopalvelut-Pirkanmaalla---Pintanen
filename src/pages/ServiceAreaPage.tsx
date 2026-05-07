@@ -7,7 +7,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import FAQSection from "@/components/FAQSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
-import TeamContactSection from "@/components/TeamContactSection";
+import ServiceContactSection from "@/components/ServiceContactSection";
 import SEO from "@/components/SEO";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
@@ -369,7 +369,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       </section>
 
       {/* ══════════════════ YHTEYSTIEDOT ══════════════════ */}
-      <TeamContactSection cityName={cityName} cityGenitive={cityGenitive} />
+      <ServiceContactSection variant="general" cityIn={cityIn} />
 
       {/* ══════════════════ FAQ ══════════════════ */}
       <FAQSection

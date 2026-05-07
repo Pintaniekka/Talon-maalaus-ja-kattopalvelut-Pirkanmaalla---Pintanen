@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, Award, Users, Target } from "lucide-react";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import FAQSection from "@/components/FAQSection";
 import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
@@ -174,6 +175,7 @@ const Meista = () => {
 
       <FAQSection items={generalFAQ} />
       <ServiceContactSection variant="general" />
+      <ToimintaAlueetBanner />
     </div>
   );
 };

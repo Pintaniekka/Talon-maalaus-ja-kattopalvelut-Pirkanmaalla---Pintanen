@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import FAQSection from "@/components/FAQSection";
 import { puhdistusFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
@@ -129,6 +130,7 @@ const KattopalvelutPuhdistus = () => {
       <FAQSection items={puhdistusFAQ} />
       <ServiceContactSection variant="katto" />
       <KotitalousVahennys />
+      <ToimintaAlueetBanner />
     </div>
   );
 };
