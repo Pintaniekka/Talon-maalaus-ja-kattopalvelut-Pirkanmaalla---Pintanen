@@ -6,6 +6,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ChatPriceCalculator from "@/components/ChatPriceCalculator";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
+import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { RoofTileIcon, RoofCleanIcon, PaintBrushIcon } from "@/components/ServiceIcons";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
@@ -216,6 +217,7 @@ const Hinnat = () => {
 
       {/* 6. Yhteystiedot */}
       <ServiceContactSection variant="general" />
+      <ToimintaAlueetBanner />
     </>
   );
 };
