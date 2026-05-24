@@ -49,8 +49,17 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const shouldBeScrolled = window.scrollY > 50;
+        setIsScrolled((prev) => (prev === shouldBeScrolled ? prev : shouldBeScrolled));
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -88,7 +97,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-primary/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ${isScrolled ? "bg-primary shadow-lg" : "bg-transparent"}`}
     >
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Mobile: 3-column layout */}

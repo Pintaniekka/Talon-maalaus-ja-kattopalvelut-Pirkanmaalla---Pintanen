@@ -95,9 +95,14 @@ const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps =
     const track = trackRef.current;
     if (!track) return;
 
-    let animationId: number;
+    // Respect reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    let animationId: number | null = null;
+    let isVisible = false;
     const speed = 0.4;
-    const halfWidth = track.scrollWidth / 2;
+    let halfWidth = track.scrollWidth / 2;
 
     const animate = () => {
       if (!pausedRef.current) {
@@ -108,8 +113,30 @@ const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps =
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    // Only animate when component is in viewport — saves CPU on every other page section
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries[0]?.isIntersecting ?? false;
+        if (visible && !isVisible) {
+          isVisible = true;
+          halfWidth = track.scrollWidth / 2;
+          animationId = requestAnimationFrame(animate);
+        } else if (!visible && isVisible) {
+          isVisible = false;
+          if (animationId !== null) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+          }
+        }
+      },
+      { rootMargin: '100px 0px' }
+    );
+    io.observe(track);
+
+    return () => {
+      io.disconnect();
+      if (animationId !== null) cancelAnimationFrame(animationId);
+    };
   }, []);
 
   return (

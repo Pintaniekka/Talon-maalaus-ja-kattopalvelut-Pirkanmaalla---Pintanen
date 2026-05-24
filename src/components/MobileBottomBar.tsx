@@ -4,7 +4,7 @@ import { openQuoteDrawer } from "@/components/DesktopQuoteDrawer";
 const MobileBottomBar = () => {
   return (
     <nav aria-label="Mobiilitoiminnot" className="fixed bottom-0 left-0 right-0 z-50 lg:hidden">
-      <div className="backdrop-blur-md bg-white/70 dark:bg-black/70 border-t border-white/20 dark:border-black/10 px-4 py-3 flex items-center justify-between gap-3">
+      <div className="bg-white/95 dark:bg-black/90 border-t border-white/20 dark:border-black/10 px-4 py-3 flex items-center justify-between gap-3">
         <a
           href="tel:+358409640066"
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-accent text-accent-foreground font-semibold text-sm transition-all hover:scale-105"
