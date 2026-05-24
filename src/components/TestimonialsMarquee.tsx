@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { allTestimonials, type Testimonial } from "@/data/testimonialsData";
 
 const defaultTestimonials: Testimonial[] = allTestimonials;
@@ -76,68 +76,15 @@ interface TestimonialsMarqueeProps {
 }
 
 const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps = {}) => {
-  const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
-  const data = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  const data = useMemo(
+    () => (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials),
+    [testimonials]
+  );
   // Duplicoidaan riittävä määrä, jotta marquee toimii myös pienellä setillä (esim. 4 korttia)
   const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
-  const items = Array.from({ length: minLoopCount }, () => data).flat();
+  const items = useMemo(() => Array.from({ length: minLoopCount }, () => data).flat(), [data, minLoopCount]);
   const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
-
-  const pausedRef = useRef(false);
-  const offsetRef = useRef(0);
-
-  useEffect(() => {
-    pausedRef.current = paused;
-  }, [paused]);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    // Respect reduced motion
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    let animationId: number | null = null;
-    let isVisible = false;
-    const speed = 0.4;
-    let halfWidth = track.scrollWidth / 2;
-
-    const animate = () => {
-      if (!pausedRef.current) {
-        offsetRef.current -= speed;
-        if (Math.abs(offsetRef.current) >= halfWidth) offsetRef.current = 0;
-        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-
-    // Only animate when component is in viewport — saves CPU on every other page section
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries[0]?.isIntersecting ?? false;
-        if (visible && !isVisible) {
-          isVisible = true;
-          halfWidth = track.scrollWidth / 2;
-          animationId = requestAnimationFrame(animate);
-        } else if (!visible && isVisible) {
-          isVisible = false;
-          if (animationId !== null) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-          }
-        }
-      },
-      { rootMargin: '100px 0px' }
-    );
-    io.observe(track);
-
-    return () => {
-      io.disconnect();
-      if (animationId !== null) cancelAnimationFrame(animationId);
-    };
-  }, []);
 
   return (
     <section
@@ -161,10 +108,12 @@ const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps =
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
       >
-        <div ref={trackRef} className="flex will-change-transform" style={{ width: "max-content" }}>
-          {items.map((t, i) => (
-            <TestimonialCard key={i} {...t} />
-          ))}
+        <div className="overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className={`flex w-max ${paused ? "" : ""}`}>
+            {items.map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

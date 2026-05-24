@@ -486,7 +486,7 @@ const ChatPriceCalculator = () => {
           </div>
 
           {/* Chat container */}
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/80 overflow-hidden">
+          <div className="bg-card rounded-2xl shadow-lg border border-border/40 overflow-hidden">
             {/* Chat header bar */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-border/30 bg-white/80">
               <div className="relative">
