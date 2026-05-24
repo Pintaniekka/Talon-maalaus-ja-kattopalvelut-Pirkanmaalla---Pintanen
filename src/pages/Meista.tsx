@@ -40,8 +40,8 @@ const Meista = () => {
     <div>
       <SEO title="Pintanen Oy – Perheyritys katto- ja maalaustöissä" description="Pintanen on perheyritys, joka on erikoistunut katto- ja seinämaalauksiin. Teemme työt itse ja panostamme huolelliseen lopputulokseen." />
       <ServicePageHero
-        title="Meistä"
-        subtitle="Kotimainen ja luotettava maalausliike Pirkanmaalla"
+        title=""
+        subtitle=""
         backgroundImage={getResponsiveSrc(heroBase)}
         backgroundSrcSet={getResponsiveSrcSet(heroBase)}
       >
