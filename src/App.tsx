@@ -24,7 +24,6 @@ const HinnatTiilikalonPinnoitus = lazyWithRetry(() => import("./pages/HinnatTiil
 const HinnatKatonPuhdistus = lazyWithRetry(() => import("./pages/HinnatKatonPuhdistus"));
 const HinnatTalonMaalaus = lazyWithRetry(() => import("./pages/HinnatTalonMaalaus"));
 const Meista = lazyWithRetry(() => import("./pages/Meista"));
-const ImageTest = lazyWithRetry(() => import("./pages/ImageTest"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -51,7 +50,6 @@ const App = () => (
               <Route path="/toiminta-alueet" element={<ToimintaAlueet />} />
               <Route path="/referenssit" element={<Referenssit />} />
               <Route path="/meista" element={<Meista />} />
-              <Route path="/image-test" element={<ImageTest />} />
 
               {/* ── City service pages (8 full-service cities × 3 services) ── */}
               {fullServiceCities.map(city => (
