@@ -6,7 +6,7 @@ import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import ToimintaAlueetBanner from '@/components/ToimintaAlueetBanner';
 import FAQSection from '@/components/FAQSection';
-import { TestimonialCard } from '@/components/TestimonialsMarquee';
+
 import { getResponsiveSrc, getResponsiveSrcSet, type ResponsiveWidth } from '@/lib/storage';
 
 const ARTICLE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200];
