@@ -49,7 +49,7 @@ const Meista = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
             Tutustu{' '}
             <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pintaseen</span>
-          </h2>
+          </h1>
           <p className="text-base md:text-lg text-primary-foreground/90 leading-relaxed">
             Olemme <strong>pirkanmaalainen perheyritys</strong>, joka on erikoistunut <strong>tiilikattojen pinnoitukseen</strong> ja <strong>talojen maalaukseen</strong>. Veljekset Eemil ja Eerik tekevät työt <strong>itse alusta loppuun</strong> – ei välikäsiä, ei aliurakoitsijoita. Panostamme <strong>huolellisiin pohjatöihin</strong> ja kestävään lopputulokseen.
           </p>
