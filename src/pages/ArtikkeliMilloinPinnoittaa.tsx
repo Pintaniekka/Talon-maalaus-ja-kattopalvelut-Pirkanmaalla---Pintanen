@@ -353,42 +353,55 @@ const ArtikkeliMilloinPinnoittaa = () => {
         </div>
       </section>
 
-      {/* Mitä pinnoitus tarkoittaa + wide image */}
+      {/* Mitä pinnoitus tarkoittaa + side image */}
       <section className="section-padding bg-secondary">
-        <div className="section-container max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
-              Mitä pinnoitus käytännössä tarkoittaa?
-            </h2>
-            <div className="rounded-2xl overflow-hidden shadow-md mb-8">
+        <div className="section-container">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden shadow-md order-2 md:order-1"
+            >
               <img
                 src={getResponsiveSrc(imgWide)}
                 srcSet={srcSet(imgWide)}
-                sizes="100vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 alt="Ammattimaisesti pinnoitettu tummanharmaa tiilikatto Pirkanmaalla"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover block"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <ul className="space-y-3 text-lg text-foreground list-disc list-inside mb-6">
-              <li>Tiilikaton huolellinen pesu ja huuhtelu.</li>
-              <li>Kasvustonestokäsittely, joka tuhoaa sammalen juuret syvältä tiilestä.</li>
-              <li>Rikkinäisten tiilien vaihto uusiin.</li>
-              <li>Kaksi kerrosta laadukasta pinnoitusmaalia ruiskutettuna.</li>
-            </ul>
-            <p className="text-lg text-muted-foreground mb-6">
-              Työ kestää <strong className="text-foreground">2–4 työpäivää</strong>. <strong className="text-foreground">5 vuoden kirjallinen takuu</strong>. Kotitalousvähennys.
-            </p>
-            <Link
-              to="/tiilikaton-pinnoitus-pirkanmaa"
-              className="inline-block bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity"
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="order-1 md:order-2"
             >
-              Tiilikaton pinnoitus →
-            </Link>
-          </motion.div>
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
+                Mitä pinnoitus käytännössä tarkoittaa?
+              </h2>
+              <ul className="space-y-3 text-lg text-foreground list-disc list-inside mb-6">
+                <li>Tiilikaton huolellinen pesu ja huuhtelu.</li>
+                <li>Kasvustonestokäsittely, joka tuhoaa sammalen juuret syvältä tiilestä.</li>
+                <li>Rikkinäisten tiilien vaihto uusiin.</li>
+                <li>Kaksi kerrosta laadukasta pinnoitusmaalia ruiskutettuna.</li>
+              </ul>
+              <p className="text-lg text-muted-foreground mb-6">
+                Työ kestää <strong className="text-foreground">2–4 työpäivää</strong>. <strong className="text-foreground">5 vuoden kirjallinen takuu</strong>. Kotitalousvähennys.
+              </p>
+              <Link
+                to="/tiilikaton-pinnoitus-pirkanmaa"
+                className="inline-block bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity"
+              >
+                Tiilikaton pinnoitus →
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
+
 
       {/* Closing CTA intro */}
       <section className="section-padding bg-background">
