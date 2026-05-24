@@ -55,7 +55,7 @@ export function getImageSrcSet(desktopUrl: string): string {
  *  Tiedostonimet: [perusnimi]-[leveys]w.webp
  * ═══════════════════════════════════════════════════════ */
 
-type ResponsiveWidth = 400 | 800 | 1200 | 1500;
+export type ResponsiveWidth = 400 | 800 | 1200 | 1500;
 
 const RESPONSIVE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200, 1500];
 
