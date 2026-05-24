@@ -138,7 +138,7 @@ const ArtikkeliMilloinPinnoittaa = () => {
         title=""
         subtitle=""
         backgroundImage={getResponsiveSrc(heroBase)}
-        backgroundSrcSet={getResponsiveSrcSet(heroBase)}
+        backgroundSrcSet={srcSet(heroBase)}
       >
         <div className="bg-black/45 rounded-2xl p-6 max-w-3xl mx-auto text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
