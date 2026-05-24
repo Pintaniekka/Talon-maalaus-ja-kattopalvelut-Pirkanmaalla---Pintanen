@@ -318,7 +318,7 @@ const ArtikkeliMilloinPinnoittaa = () => {
             <div className="rounded-2xl overflow-hidden shadow-md mb-8">
               <img
                 src={getResponsiveSrc(imgWide)}
-                srcSet={getResponsiveSrcSet(imgWide)}
+                srcSet={srcSet(imgWide)}
                 sizes="100vw"
                 alt="Ammattimaisesti pinnoitettu tummanharmaa tiilikatto Pirkanmaalla"
                 className="w-full h-auto object-cover"
