@@ -26,7 +26,7 @@ const GoogleIcon = () => (
   </svg>
 );
 
-const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; text: string }) => {
+export const TestimonialCard = ({ name, stars, text }: { name: string; stars: number; text: string }) => {
   const isLong = text.length > LONG_TEXT_THRESHOLD;
   const [expanded, setExpanded] = useState(false);
 
