@@ -65,7 +65,7 @@ const KattopalvelutPinnoitus = () => {
         backgroundSrcSet={heroSrcSet}
       >
         {/* Glassmorphism container for H1 + body text */}
-        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
+        <div className="bg-black/45 rounded-2xl p-4 md:p-8 max-w-4xl mx-auto mb-10 md:mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 md:mb-6 font-heading">
             Tiilikaton pinnoitus{' '}
             <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaa</span>

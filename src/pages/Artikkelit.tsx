@@ -31,7 +31,7 @@ const Artikkelit = () => {
         backgroundImage={getResponsiveSrc(heroBase)}
         backgroundSrcSet={getResponsiveSrcSet(heroBase)}
       >
-        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left">
+        <div className="bg-black/45 rounded-2xl p-4 md:p-8 max-w-4xl mx-auto text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
             Artikkelit ja{' '}
             <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">oppaat</span>

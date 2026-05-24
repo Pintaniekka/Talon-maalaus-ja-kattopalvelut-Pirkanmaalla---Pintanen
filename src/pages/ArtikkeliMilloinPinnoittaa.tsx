@@ -137,7 +137,7 @@ const ArtikkeliMilloinPinnoittaa = () => {
         backgroundImage={getResponsiveSrc(heroBase)}
         backgroundSrcSet={getResponsiveSrcSet(heroBase)}
       >
-        <div className="bg-black/25 backdrop-blur-md rounded-2xl p-6 max-w-3xl mx-auto text-left">
+        <div className="bg-black/45 rounded-2xl p-6 max-w-3xl mx-auto text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
             Milloin tiilikatto pitää pinnoittaa? —{' '}
             <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">5 merkkiä</span>, että aika on nyt
