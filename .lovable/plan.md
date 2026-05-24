@@ -1,19 +1,29 @@
-## Ongelma
-Referenssit-sivulla osa thumbnail-kuvista jää tyhjäksi tietyillä ikkunaleveyksillä (n. 700–900 px). Vain pikkutarra "2 kuvaa" ja overlay-teksti näkyvät. Lightbox toimii, koska se lataa täysikokoisen kuvan.
+## 1. Poista käyttämättömät raskaat assetit
 
-## Syy
-- `Referenssit.tsx`:n sisäinen `CompositeThumbnail` käyttää suoraa `<img>`-elementtiä **ilman onError-fallbackia** (toisin kuin yleinen `ResponsiveSupabaseImage`, johon edellisellä kierroksella lisättiin fallback).
-- `sizes="(max-width: 768px) 100vw, 33vw"` antaa selaimelle väärän vihjeen kompositin puolikkaalle ruudulle, jolloin selain saattaa valita variantin joka epäonnistuu välimuistissa eikä koskaan korvaudu.
-- Sama puute koskee Lightboxin pää- ja pikkukuvia.
+Tarkistettu: `src/assets/` ei ole yhtään koodiviittausta. Turvallisesti poistetaan kaikki vanhat PNG/JPG/MP4 -tiedostot:
+- `Taustavideo.mp4`
+- `logo.png` (~2.1MB)
+- Kaikki `katto_*.png`, `seina_*.jpeg`, `kiiltava_katto*.jpeg`, `pensselikuva.png`, `puhdistus_ennen_jalkeen.png`, `harjatiiviste.jpg`
 
-## Muutokset
+Samoin `public/` -kansiossa olevat `Keltainen_seina_ennen.jpg`, `Keltainen_seina_jalkeen.jpg`, `Punainen_katto_ennen.jpg`, `Punainen_katto_jalkeen.jpg` – koodissa ei viittauksia, poistetaan.
 
-### `src/pages/Referenssit.tsx`
-1. **`CompositeThumbnail`**: korvaa sisempi `<img>` `ResponsiveSupabaseImage`-komponentilla (saa onError-fallbackin 1500w → 1200w). Korjaa `sizes` puolikasta ruutua varten: `(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw`. Lisää `bg-muted/40` puolikkaaseen säiliöön kosmeettiseksi varmistukseksi.
-2. **Yksittäisen gallerian kortin `sizes`**: korjaa rivin 375 vihje vastaamaan todellista ruudukkoa (sm: 2 saraketta, lg: 3 saraketta): `(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw`.
-3. **Lightbox-kuvat**: tee pieni `LightboxImage`-apukomponentti, jossa on `onError`-fallback 1500w-versioon. Käytä sekä päänäkymässä (rivit 100–111) että pikkukuvissa (rivi 126).
+## 2. Poista testireitti ja -komponentti
 
-## Lopputulos
-- Thumbnailit eivät jää tyhjiksi millään ruutuleveydellä — jos optimoitu variantti epäonnistuu, kuva vaihtuu automaattisesti suurimpaan olemassa olevaan versioon.
-- Lightboxin sisältö suojataan samalla tavalla.
-- Ei vaikutusta SEO:hon, reitteihin tai sisältöteksteihin.
+- Poista `<Route path="/image-test" ...>` `App.tsx`:stä.
+- Poista koko tiedosto `src/pages/ImageTest.tsx`.
+
+## 3. Korjaa Meistä-sivun Hero (SEO)
+
+`src/pages/Meista.tsx`: `ServicePageHero` saa tällä hetkellä `title=""` ja `subtitle=""`.
+- Täytetään propit: `title="Meistä"` ja `subtitle="Kotimainen ja luotettava maalausliike Pirkanmaalla"`.
+- Koska childrenissä on jo oma glassmorphism-laatikko ja `<h1>Tutustu Pintaseen</h1>`, otetaan childrenin `<h1>` pois ja muutetaan se muotoon joka ei luo tupla-h1:tä. Tai siirretään glassmorphism-laatikon teksti integroiduksi osaksi hero-komponenttia. **Toteutus:** Muutetaan childrenin `<h1>` → `<h2>` tai rikastetaan `ServicePageHero`:n title/subtitle niin, että glassmorphism-laatikko toimii koriste-elementtinä. Lopputuloksessa sivulla on yksi selkeä `<h1>`.
+
+## 4. Poista legacy SPA-hack
+
+`index.html` `<body>`-osion alusta poistetaan:
+```html
+<script type="text/javascript">
+  (function(l) { ... }(window.location))
+</script>
+```
+Käyttäjä vahvistanut: Cloudflare hoitaa tämän nyt.
