@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Star } from 'lucide-react';
 import SEO from '@/components/SEO';
 import ServicePageHero from '@/components/ServicePageHero';
@@ -125,7 +126,9 @@ const ArtikkeliMilloinPinnoittaa = () => {
         description="Epäiletkö, onko kattosi pinnoituksen aika? Lue 5 selkeää merkkiä, jotka kertovat milloin tiilikaton pinnoitus on välttämätön. Ilmainen arvio Pirkanmaalla."
         ogImage={getResponsiveSrc(heroBase)}
       />
-      <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      </Helmet>
 
       {/* HERO */}
       <ServicePageHero
