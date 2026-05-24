@@ -87,7 +87,7 @@ const SectionImage = ({
             srcSet={getResponsiveSrcSet(base)}
             sizes="(min-width: 768px) 50vw, 100vw"
             alt={alt}
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-cover block"
             loading="lazy"
             decoding="async"
           />
