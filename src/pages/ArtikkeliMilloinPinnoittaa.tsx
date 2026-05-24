@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star } from 'lucide-react';
 import SEO from '@/components/SEO';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import ToimintaAlueetBanner from '@/components/ToimintaAlueetBanner';
 import FAQSection from '@/components/FAQSection';
-import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+import { TestimonialCard } from '@/components/TestimonialsMarquee';
+import { getResponsiveSrc, getResponsiveSrcSet, type ResponsiveWidth } from '@/lib/storage';
+
+const ARTICLE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200];
+const srcSet = (base: string) => getResponsiveSrcSet(base, ARTICLE_WIDTHS);
 
 const heroBase = 'punainen-tiilikatto-kattopinnoitus-ja-huolto-jalkeen';
 const img1 = 'haalistunut-punainen-tiilikatto-ennen-pinnoitusta';
@@ -84,7 +87,7 @@ const SectionImage = ({
         >
           <img
             src={getResponsiveSrc(base)}
-            srcSet={getResponsiveSrcSet(base)}
+            srcSet={srcSet(base)}
             sizes="(min-width: 768px) 50vw, 100vw"
             alt={alt}
             className="w-full h-auto object-cover block"
@@ -135,7 +138,7 @@ const ArtikkeliMilloinPinnoittaa = () => {
         title=""
         subtitle=""
         backgroundImage={getResponsiveSrc(heroBase)}
-        backgroundSrcSet={getResponsiveSrcSet(heroBase)}
+        backgroundSrcSet={srcSet(heroBase)}
       >
         <div className="bg-black/45 rounded-2xl p-6 max-w-3xl mx-auto text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
@@ -243,22 +246,17 @@ const ArtikkeliMilloinPinnoittaa = () => {
 
       {/* Review card + CTA */}
       <section className="py-12 bg-background">
-        <div className="section-container max-w-2xl mx-auto">
+        <div className="section-container max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-card rounded-2xl p-6 md:p-8 shadow-md border border-border"
           >
-            <div className="flex items-center gap-1 mb-3" aria-label="5 tähteä">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <p className="text-lg text-foreground italic mb-4">
-              "Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"
-            </p>
-            <p className="font-semibold text-foreground">— Jukka Jukarainen</p>
+            <TestimonialCard
+              name="Jukka Jukarainen"
+              stars={5}
+              text="Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"
+            />
           </motion.div>
           <div className="text-center mt-8">
             <CTAButton>Pyydä Pintasen ilmainen arvio tiilikaton pinnoituksesta</CTAButton>
@@ -315,7 +313,7 @@ const ArtikkeliMilloinPinnoittaa = () => {
             <div className="rounded-2xl overflow-hidden shadow-md mb-8">
               <img
                 src={getResponsiveSrc(imgWide)}
-                srcSet={getResponsiveSrcSet(imgWide)}
+                srcSet={srcSet(imgWide)}
                 sizes="100vw"
                 alt="Ammattimaisesti pinnoitettu tummanharmaa tiilikatto Pirkanmaalla"
                 className="w-full h-auto object-cover"

@@ -1,72 +1,34 @@
-## Ongelma
-Scrollin pieni nykiminen näyttää olevan aidosti globaali, ei vain yhdellä sivulla.
+## Korjaukset sivulle `/artikkelit/milloin-pinnoittaa-tiilikatto`
 
-## Mitä löytyi
+### 1. Hero- ja sisältökuvat eivät näy
 
-### 1. Header tekee työtä joka scroll-tikillä
-`Header.tsx` kuuntelee `scroll`-eventtiä ja ajaa `setIsScrolled(window.scrollY > 50)` jokaisella scroll-liikkeellä.
+**Syy:** `getResponsiveSrcSet` rakentaa srcsetin neljälle leveydelle (400/800/1200/**1500**w). Artikkelin viidellä kuvalla 400/800/1200 löytyvät Supabase-bucketista, mutta **1500w-versio puuttuu** (kaikki palauttavat 400). Desktopilla selain valitsee 1500w-version → 400-vastaus → Chrome estää sen `ERR_BLOCKED_BY_ORB` -virheellä → kuva näkyy rikkinäisenä. Pienemmillä viewporteilla 1200w riittää, joten ongelma on lähinnä desktopilla.
 
-Lisäksi header käyttää scrollatun tilan aikana:
-- `backdrop-blur-md`
-- `transition-all`
-- fixed-position yläpalkkia
+**Korjaus:** Lisätään `src/lib/storage.ts`:ään valinnainen widths-parametri:
 
-Tämä yhdistelmä on juuri sellainen, joka aiheuttaa pientä “tahmaisuutta” lähes kaikilla sivuilla.
+```ts
+export function getResponsiveSrcSet(baseName: string, widths: ResponsiveWidth[] = RESPONSIVE_WIDTHS): string
+```
 
-### 2. Jatkuva marquee-animaatio pyörii requestAnimationFramella
-`TestimonialsMarquee.tsx` käyttää jatkuvaa `requestAnimationFrame`-silmukkaa (`animate`) liikuttamaan arvosteluriviä.
+Ei muuta nykyistä käyttäytymistä missään muualla (default = kaikki 4 leveyttä). `ArtikkeliMilloinPinnoittaa.tsx`:ssä kutsutaan `getResponsiveSrcSet(base, [400, 800, 1200])` kaikille viidelle kuvalle (hero + 3 sectionia + leveä alakuva), jolloin selain ei enää yritä ladata olematonta 1500w-tiedostoa. `src`-attribuutiksi jää nykyinen 1200w `getResponsiveSrc(base)`.
 
-CPU-profiloinnissa tämä nousi suoraan näkyviin scrollin aikana. Vaikka se ei yksin selitä kaikkea, se lisää jatkuvaa render-kuormaa niillä sivuilla joilla komponentti on mukana.
+### 2. Google-arviokortti samannäköiseksi kuin etusivun karusellissa
 
-### 3. Backdrop blur esiintyy myös muissa globaaleissa UI-osissa
-Ainakin:
-- `Header.tsx`
-- `MobileBottomBar.tsx`
-- useiden sivujen hero-laatikot
+Etusivun `TestimonialsMarquee.tsx`:n `TestimonialCard` -tyyli:
+- Pyöreä alkukirjain-avatar (`bg-primary/10 text-primary`, `w-9 h-9`) + nimi rivillä
+- Tähdet (16px keltaiset SVG-tähdet)
+- Lainattu teksti `text-muted-foreground` (ei kursiivia)
+- Alarivi: pieni värillinen Google-SVG-ikoni + teksti "Google-arvostelu"
+- Kortti: `bg-card rounded-xl p-5 shadow-sm border border-border/50`
 
-`backdrop-blur` on kallis efekti etenkin silloin, kun sen alla liikkuu sisältöä scrollatessa.
+**Korjaus:** Artikkelin "Review card + CTA" -osiossa (rivit 245–267) korvataan nykyinen kortti samalla rakenteella. Käytännössä tuodaan `TestimonialCard` uudelleenkäytettäväksi:
 
-## Korjaussuunnitelma
+- Eksportataan nimettynä `export const TestimonialCard` `TestimonialsMarquee.tsx`:stä (sekä `StarIcon`/`GoogleIcon` jäävät sisäisiksi).
+- `ArtikkeliMilloinPinnoittaa.tsx` importtaa `TestimonialCard`in ja renderöi sen yhden kortin osioon keskitettynä (`max-w-sm mx-auto`) Jukan arviolla (`name: "Jukka Jukarainen"`, `stars: 5`, `text: "Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"`). Lucide `Star` -import ja paikallinen tähtirivi poistetaan, koska kortti hoitaa sen.
+- CTA-painike (`Pyydä Pintasen ilmainen arvio...`) jää kortin alle samaan tapaan kuin nyt.
 
-### 1. Kevennetään header globaalisti
-`Header.tsx`:
-- muutetaan scroll-listener passiiviseksi
-- vältetään state-päivitys, jos `isScrolled`-arvo ei oikeasti muutu thresholdin yli/ali
-- vaihdetaan `transition-all` tarkempiin transitioneihin (`background-color`, `box-shadow`)
-- poistetaan `backdrop-blur-md` headerista ja korvataan se kiinteällä/semi-transparentilla taustalla
+### Muutettavat tiedostot
 
-Tämä on tärkein korjaus, koska header on jokaisella sivulla.
-
-### 2. Poistetaan blur myös mobiilin alabarista
-`MobileBottomBar.tsx`:
-- korvataan `backdrop-blur-md` tavallisella läpikuultavalla taustalla
-
-Tämä keventää mobiilia globaalisti, mutta samalla pitää ilmeen lähes samana.
-
-### 3. Hidastetaan / optimoidaan testimonials-marquee
-`TestimonialsMarquee.tsx`:
-- vähennetään jatkuvaa `requestAnimationFrame`-kuormaa
-- vaihtoehdot:
-  - vaihto CSS-pohjaiseen animaatioon, tai
-  - rAF vain silloin kun komponentti on näkyvissä viewportissa, tai
-  - pysäytetään animaatio kokonaan `prefers-reduced-motion`-tilassa
-
-Suosittelen viewport-pohjaista käynnistystä + reduced motion -tukea.
-
-### 4. Heroiden blur-laatikot pois niiltä sivuilta, joilla niitä käytetään paljon
-Sivuilla olevat `bg-black/25 backdrop-blur-md` hero-laatikot korvataan kevyemmällä ratkaisulla:
-- tummempi läpinäkyvä tausta ilman bluria
-- tarvittaessa `text-shadow` tekstin luettavuuteen
-
-Tämä ei ole yhtä kriittinen kuin header, mutta vähentää scroll-paint-kuormaa sivuston laajuisesti.
-
-## Lopputulos
-Näillä muutoksilla scrollin pitäisi tuntua selvästi vakaammalta koko sivustolla ilman että ulkoasu muuttuu radikaalisti.
-
-## Tekninen toteutus
-- `src/components/Header.tsx`
-- `src/components/MobileBottomBar.tsx`
-- `src/components/TestimonialsMarquee.tsx`
-- tarvittaessa hero-blur-luokat niissä sivuissa, joissa käytetään lasilaatikkoa
-
-Ensimmäisessä kierroksessa tekisin varmasti kohdat 1–3. Kohta 4 lisätään samaan toteutukseen, jos halutaan poistaa jankki mahdollisimman laajasti koko sivustolta.
+- `src/lib/storage.ts` — `getResponsiveSrcSet`-signature laajennetaan valinnaisella `widths`-listalla (taaksepäin yhteensopiva).
+- `src/components/TestimonialsMarquee.tsx` — `TestimonialCard` nimettynä exporttina (muu logiikka ennallaan).
+- `src/pages/ArtikkeliMilloinPinnoittaa.tsx` — kaikki 5 kuvaa käyttämään `[400, 800, 1200]`-srcsettiä; arviokortin korvaus jaetulla komponentilla; `Star`-import pois.
