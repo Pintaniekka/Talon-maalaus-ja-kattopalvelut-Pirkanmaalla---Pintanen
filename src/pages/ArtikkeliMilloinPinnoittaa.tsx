@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star } from 'lucide-react';
 import SEO from '@/components/SEO';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';
 import ToimintaAlueetBanner from '@/components/ToimintaAlueetBanner';
 import FAQSection from '@/components/FAQSection';
-import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
+import { TestimonialCard } from '@/components/TestimonialsMarquee';
+import { getResponsiveSrc, getResponsiveSrcSet, type ResponsiveWidth } from '@/lib/storage';
+
+const ARTICLE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200];
+const srcSet = (base: string) => getResponsiveSrcSet(base, ARTICLE_WIDTHS);
 
 const heroBase = 'punainen-tiilikatto-kattopinnoitus-ja-huolto-jalkeen';
 const img1 = 'haalistunut-punainen-tiilikatto-ennen-pinnoitusta';
