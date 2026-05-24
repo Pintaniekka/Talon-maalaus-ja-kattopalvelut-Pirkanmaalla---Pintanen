@@ -1,19 +1,34 @@
-## Ongelma
-Referenssit-sivulla osa thumbnail-kuvista jää tyhjäksi tietyillä ikkunaleveyksillä (n. 700–900 px). Vain pikkutarra "2 kuvaa" ja overlay-teksti näkyvät. Lightbox toimii, koska se lataa täysikokoisen kuvan.
+## Korjaukset sivulle `/artikkelit/milloin-pinnoittaa-tiilikatto`
 
-## Syy
-- `Referenssit.tsx`:n sisäinen `CompositeThumbnail` käyttää suoraa `<img>`-elementtiä **ilman onError-fallbackia** (toisin kuin yleinen `ResponsiveSupabaseImage`, johon edellisellä kierroksella lisättiin fallback).
-- `sizes="(max-width: 768px) 100vw, 33vw"` antaa selaimelle väärän vihjeen kompositin puolikkaalle ruudulle, jolloin selain saattaa valita variantin joka epäonnistuu välimuistissa eikä koskaan korvaudu.
-- Sama puute koskee Lightboxin pää- ja pikkukuvia.
+### 1. Hero- ja sisältökuvat eivät näy
 
-## Muutokset
+**Syy:** `getResponsiveSrcSet` rakentaa srcsetin neljälle leveydelle (400/800/1200/**1500**w). Artikkelin viidellä kuvalla 400/800/1200 löytyvät Supabase-bucketista, mutta **1500w-versio puuttuu** (kaikki palauttavat 400). Desktopilla selain valitsee 1500w-version → 400-vastaus → Chrome estää sen `ERR_BLOCKED_BY_ORB` -virheellä → kuva näkyy rikkinäisenä. Pienemmillä viewporteilla 1200w riittää, joten ongelma on lähinnä desktopilla.
 
-### `src/pages/Referenssit.tsx`
-1. **`CompositeThumbnail`**: korvaa sisempi `<img>` `ResponsiveSupabaseImage`-komponentilla (saa onError-fallbackin 1500w → 1200w). Korjaa `sizes` puolikasta ruutua varten: `(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw`. Lisää `bg-muted/40` puolikkaaseen säiliöön kosmeettiseksi varmistukseksi.
-2. **Yksittäisen gallerian kortin `sizes`**: korjaa rivin 375 vihje vastaamaan todellista ruudukkoa (sm: 2 saraketta, lg: 3 saraketta): `(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw`.
-3. **Lightbox-kuvat**: tee pieni `LightboxImage`-apukomponentti, jossa on `onError`-fallback 1500w-versioon. Käytä sekä päänäkymässä (rivit 100–111) että pikkukuvissa (rivi 126).
+**Korjaus:** Lisätään `src/lib/storage.ts`:ään valinnainen widths-parametri:
 
-## Lopputulos
-- Thumbnailit eivät jää tyhjiksi millään ruutuleveydellä — jos optimoitu variantti epäonnistuu, kuva vaihtuu automaattisesti suurimpaan olemassa olevaan versioon.
-- Lightboxin sisältö suojataan samalla tavalla.
-- Ei vaikutusta SEO:hon, reitteihin tai sisältöteksteihin.
+```ts
+export function getResponsiveSrcSet(baseName: string, widths: ResponsiveWidth[] = RESPONSIVE_WIDTHS): string
+```
+
+Ei muuta nykyistä käyttäytymistä missään muualla (default = kaikki 4 leveyttä). `ArtikkeliMilloinPinnoittaa.tsx`:ssä kutsutaan `getResponsiveSrcSet(base, [400, 800, 1200])` kaikille viidelle kuvalle (hero + 3 sectionia + leveä alakuva), jolloin selain ei enää yritä ladata olematonta 1500w-tiedostoa. `src`-attribuutiksi jää nykyinen 1200w `getResponsiveSrc(base)`.
+
+### 2. Google-arviokortti samannäköiseksi kuin etusivun karusellissa
+
+Etusivun `TestimonialsMarquee.tsx`:n `TestimonialCard` -tyyli:
+- Pyöreä alkukirjain-avatar (`bg-primary/10 text-primary`, `w-9 h-9`) + nimi rivillä
+- Tähdet (16px keltaiset SVG-tähdet)
+- Lainattu teksti `text-muted-foreground` (ei kursiivia)
+- Alarivi: pieni värillinen Google-SVG-ikoni + teksti "Google-arvostelu"
+- Kortti: `bg-card rounded-xl p-5 shadow-sm border border-border/50`
+
+**Korjaus:** Artikkelin "Review card + CTA" -osiossa (rivit 245–267) korvataan nykyinen kortti samalla rakenteella. Käytännössä tuodaan `TestimonialCard` uudelleenkäytettäväksi:
+
+- Eksportataan nimettynä `export const TestimonialCard` `TestimonialsMarquee.tsx`:stä (sekä `StarIcon`/`GoogleIcon` jäävät sisäisiksi).
+- `ArtikkeliMilloinPinnoittaa.tsx` importtaa `TestimonialCard`in ja renderöi sen yhden kortin osioon keskitettynä (`max-w-sm mx-auto`) Jukan arviolla (`name: "Jukka Jukarainen"`, `stars: 5`, `text: "Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"`). Lucide `Star` -import ja paikallinen tähtirivi poistetaan, koska kortti hoitaa sen.
+- CTA-painike (`Pyydä Pintasen ilmainen arvio...`) jää kortin alle samaan tapaan kuin nyt.
+
+### Muutettavat tiedostot
+
+- `src/lib/storage.ts` — `getResponsiveSrcSet`-signature laajennetaan valinnaisella `widths`-listalla (taaksepäin yhteensopiva).
+- `src/components/TestimonialsMarquee.tsx` — `TestimonialCard` nimettynä exporttina (muu logiikka ennallaan).
+- `src/pages/ArtikkeliMilloinPinnoittaa.tsx` — kaikki 5 kuvaa käyttämään `[400, 800, 1200]`-srcsettiä; arviokortin korvaus jaetulla komponentilla; `Star`-import pois.

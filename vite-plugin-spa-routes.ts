@@ -31,7 +31,6 @@ function getAllRoutes(): string[] {
     "/tiilikaton-pinnoitus-hinta-pirkanmaa",
     "/katon-puhdistus-hinta-pirkanmaa",
     "/talon-maalaus-hinta-pirkanmaa",
-    "/image-test",
   ];
 
   for (const slug of allCitySlugs) {

@@ -55,7 +55,7 @@ export function getImageSrcSet(desktopUrl: string): string {
  *  Tiedostonimet: [perusnimi]-[leveys]w.webp
  * ═══════════════════════════════════════════════════════ */
 
-type ResponsiveWidth = 400 | 800 | 1200 | 1500;
+export type ResponsiveWidth = 400 | 800 | 1200 | 1500;
 
 const RESPONSIVE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200, 1500];
 
@@ -72,8 +72,11 @@ export function getResponsiveUrl(baseName: string, width: ResponsiveWidth): stri
  * Palauttaa täydellisen neliportaisen srcSet-merkkijonon.
  * Esim: ".../Pictures-400/nimi-400w.webp 400w, .../Pictures-800/nimi-800w.webp 800w, ..."
  */
-export function getResponsiveSrcSet(baseName: string): string {
-  return RESPONSIVE_WIDTHS
+export function getResponsiveSrcSet(
+  baseName: string,
+  widths: ResponsiveWidth[] = RESPONSIVE_WIDTHS
+): string {
+  return widths
     .map(w => `${getResponsiveUrl(baseName, w)} ${w}w`)
     .join(', ');
 }

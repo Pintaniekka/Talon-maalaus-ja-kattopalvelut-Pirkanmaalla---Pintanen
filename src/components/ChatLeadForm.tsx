@@ -63,17 +63,26 @@ const ChatLeadForm = () => {
 
   // Trigger bubble after 5s (initial) or 40s (after dismiss)
   const bubbleDelay = useRef(5000);
+  const bubbleTimerRef = useRef<number | null>(null);
   useEffect(() => {
-    const t = setTimeout(() => { if (!open) setBubbleVisible(true); }, bubbleDelay.current);
-    return () => clearTimeout(t);
+    bubbleTimerRef.current = window.setTimeout(() => { if (!open) setBubbleVisible(true); }, bubbleDelay.current);
+    return () => {
+      if (bubbleTimerRef.current !== null) {
+        window.clearTimeout(bubbleTimerRef.current);
+      }
+    };
   }, [open]);
 
   const dismissBubble = (e: React.MouseEvent) => {
     e.stopPropagation();
     setBubbleVisible(false);
     bubbleDelay.current = 40000;
-    // re-trigger after 40s
-    setTimeout(() => { setBubbleVisible(true); }, 40000);
+    if (bubbleTimerRef.current !== null) {
+      window.clearTimeout(bubbleTimerRef.current);
+    }
+    bubbleTimerRef.current = window.setTimeout(() => {
+      setBubbleVisible(true);
+    }, 40000);
   };
 
   // Helper: add bot message with typing delay

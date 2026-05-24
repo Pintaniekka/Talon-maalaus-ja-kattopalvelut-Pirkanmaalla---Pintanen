@@ -1,17 +1,20 @@
+import { Suspense } from "react";
 import Hero from "@/components/Hero";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import Services from "@/components/Services";
 import MiksiPintanen from "@/components/MiksiPintanen";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import ChatPriceCalculator from "@/components/ChatPriceCalculator";
-import Gallery from "@/components/Gallery";
+import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import FAQSection from "@/components/FAQSection";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
-import SEOTextSection from "@/components/SEOTextSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
+
+const ProcessTimeline = lazyWithRetry(() => import("@/components/ProcessTimeline"));
+const ChatPriceCalculator = lazyWithRetry(() => import("@/components/ChatPriceCalculator"));
+const Gallery = lazyWithRetry(() => import("@/components/Gallery"));
+const SEOTextSection = lazyWithRetry(() => import("@/components/SEOTextSection"));
 
 const Index = () => {
   return (
@@ -20,14 +23,22 @@ const Index = () => {
       <Hero />
       <TestimonialsMarquee />
       <Services />
-      <ChatPriceCalculator />
+      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+        <ChatPriceCalculator />
+      </Suspense>
       <MiksiPintanen />
-      <ProcessTimeline />
-      <Gallery />
+      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+        <ProcessTimeline />
+      </Suspense>
+      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+        <Gallery />
+      </Suspense>
       <FAQSection items={generalFAQ} />
       <KotitalousVahennys />
       <ServiceContactSection variant="general" />
-      <SEOTextSection />
+      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+        <SEOTextSection />
+      </Suspense>
       <ToimintaAlueetBanner />
     </>
   );
