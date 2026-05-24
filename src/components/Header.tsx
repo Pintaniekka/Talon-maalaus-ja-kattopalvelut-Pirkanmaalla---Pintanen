@@ -36,6 +36,7 @@ const Header = () => {
       ],
     },
     { label: "Referenssit", href: "/referenssit" },
+    { label: "Artikkelit", href: "/artikkelit" },
     { label: "Tutustu meihin", href: "/meista" },
   ];
 
