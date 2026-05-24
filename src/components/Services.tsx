@@ -88,7 +88,7 @@ const Services = () => {
                 {/* Content */}
                 <div className="relative p-6 flex flex-col gap-3">
                   {/* Tag */}
-                  <span className="self-start bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
+                  <span className="self-start bg-black/35 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
                     {service.tag}
                   </span>
 
