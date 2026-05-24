@@ -246,22 +246,17 @@ const ArtikkeliMilloinPinnoittaa = () => {
 
       {/* Review card + CTA */}
       <section className="py-12 bg-background">
-        <div className="section-container max-w-2xl mx-auto">
+        <div className="section-container max-w-md mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-card rounded-2xl p-6 md:p-8 shadow-md border border-border"
           >
-            <div className="flex items-center gap-1 mb-3" aria-label="5 tähteä">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <p className="text-lg text-foreground italic mb-4">
-              "Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"
-            </p>
-            <p className="font-semibold text-foreground">— Jukka Jukarainen</p>
+            <TestimonialCard
+              name="Jukka Jukarainen"
+              stars={5}
+              text="Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"
+            />
           </motion.div>
           <div className="text-center mt-8">
             <CTAButton>Pyydä Pintasen ilmainen arvio tiilikaton pinnoituksesta</CTAButton>
