@@ -73,18 +73,25 @@ interface TestimonialsMarqueeProps {
   testimonials?: Testimonial[];
   /** Otsikko karusellin yläpuolelle. Jos `null`, otsikko piilotetaan. */
   title?: string | null;
+  /** Animaation kesto sekunteina (oletus skaalautuu korttien määrästä). */
+  durationSec?: number;
 }
 
-const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps = {}) => {
-  const [paused, setPaused] = useState(false);
+const TestimonialsMarquee = ({ testimonials, title, durationSec }: TestimonialsMarqueeProps = {}) => {
   const data = useMemo(
     () => (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials),
     [testimonials]
   );
-  // Duplicoidaan riittävä määrä, jotta marquee toimii myös pienellä setillä (esim. 4 korttia)
+  // Duplicoidaan riittävästi, jotta marquee toimii myös pienellä setillä
   const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
-  const items = useMemo(() => Array.from({ length: minLoopCount }, () => data).flat(), [data, minLoopCount]);
+  const baseItems = useMemo(
+    () => Array.from({ length: minLoopCount }, () => data).flat(),
+    [data, minLoopCount]
+  );
+  // Tuplaa jotta -50% translate luuppaa saumattomasti
+  const items = useMemo(() => [...baseItems, ...baseItems], [baseItems]);
   const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
+  const duration = durationSec ?? Math.max(30, baseItems.length * 5);
 
   return (
     <section
@@ -99,21 +106,14 @@ const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps =
         </div>
       )}
 
-      <div
-        className="relative"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onTouchStart={() => setPaused(true)}
-        onTouchEnd={() => setPaused(false)}
-        onFocus={() => setPaused(true)}
-        onBlur={() => setPaused(false)}
-      >
-        <div className="overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <div className={`flex w-max ${paused ? "" : ""}`}>
-            {items.map((t, i) => (
-              <TestimonialCard key={i} {...t} />
-            ))}
-          </div>
+      <div className="relative overflow-hidden">
+        <div
+          className="flex w-max animate-marquee"
+          style={{ animationDuration: `${duration}s` }}
+        >
+          {items.map((t, i) => (
+            <TestimonialCard key={i} {...t} />
+          ))}
         </div>
       </div>
     </section>
@@ -121,4 +121,5 @@ const TestimonialsMarquee = ({ testimonials, title }: TestimonialsMarqueeProps =
 };
 
 export default TestimonialsMarquee;
+
 
