@@ -9,6 +9,7 @@ import PinnoitusPricingCards from "@/components/pinnoitus/PinnoitusPricingCards"
 import PinnoitusFinancing from "@/components/pinnoitus/PinnoitusFinancing";
 import PinnoitusEntrepreneur from "@/components/pinnoitus/PinnoitusEntrepreneur";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import { roofTestimonials } from "@/data/testimonialsData";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
@@ -51,7 +52,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
         />
       )}
 
-      <TestimonialsMarquee />
+      <TestimonialsMarquee testimonials={roofTestimonials} title="Mitä kattoasiakkaat sanovat meistä?" />
 
       <PinnoitusProblemSection cityName={cityData.name} cityIn={cityData.cityIn} cityGenitive={cityData.cityGenitive} />
       <PinnoitusCityProcess cityName={cityData.name} />
