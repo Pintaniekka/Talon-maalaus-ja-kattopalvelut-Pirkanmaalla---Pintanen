@@ -91,7 +91,7 @@ const TalonMaalaus = () => {
       </ServicePageHero>
 
       <MaalausTrustStats />
-      <TestimonialsMarquee />
+      <TestimonialsMarquee testimonials={wallTestimonials} title="Mitä maalausasiakkaat sanovat meistä?" />
       <MaalausProblemSection />
       <MaalausProcessAccordion />
       <MaalausComparison />
