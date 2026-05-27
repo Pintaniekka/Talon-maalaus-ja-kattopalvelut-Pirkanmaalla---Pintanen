@@ -1,6 +1,7 @@
 import ServicePageHero from "@/components/ServicePageHero";
 import MaalausTrustStats from "@/components/maalaus/MaalausTrustStats";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import { wallTestimonials } from "@/data/testimonialsData";
 import MaalausProblemSection from "@/components/maalaus/MaalausProblemSection";
 import MaalausProcessAccordion from "@/components/maalaus/MaalausProcessAccordion";
 import MaalausComparison from "@/components/maalaus/MaalausComparison";
