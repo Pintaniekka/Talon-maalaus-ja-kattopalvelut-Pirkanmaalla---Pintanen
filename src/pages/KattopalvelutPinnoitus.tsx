@@ -9,6 +9,7 @@ import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import { roofTestimonials } from "@/data/testimonialsData";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 import { pinnoitusFAQ } from "@/data/faqData";
