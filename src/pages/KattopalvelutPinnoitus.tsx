@@ -118,7 +118,7 @@ const KattopalvelutPinnoitus = () => {
       </section>
 
       {/* ═══ TESTIMONIALS ═══ */}
-      <TestimonialsMarquee />
+      <TestimonialsMarquee testimonials={roofTestimonials} title="Mitä kattoasiakkaat sanovat meistä?" />
 
       {/* ═══ SPLIT SCREEN: Problem + Before/After ═══ */}
       <section className="section-padding bg-accent-light">
