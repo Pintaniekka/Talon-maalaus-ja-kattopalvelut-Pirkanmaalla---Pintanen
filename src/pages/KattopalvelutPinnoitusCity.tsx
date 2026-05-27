@@ -9,6 +9,7 @@ import PinnoitusPricingCards from "@/components/pinnoitus/PinnoitusPricingCards"
 import PinnoitusFinancing from "@/components/pinnoitus/PinnoitusFinancing";
 import PinnoitusEntrepreneur from "@/components/pinnoitus/PinnoitusEntrepreneur";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import { roofTestimonials } from "@/data/testimonialsData";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import FAQSection from "@/components/FAQSection";
