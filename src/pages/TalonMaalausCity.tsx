@@ -101,7 +101,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
-      <TestimonialsMarquee />
+      <TestimonialsMarquee testimonials={wallTestimonials} title="Mitä maalausasiakkaat sanovat meistä?" />
       <MaalausProblemSection cityName={cityName} />
       <MaalausProcessAccordion cityName={cityName} />
       <MaalausComparison cityIn={cityData.cityIn} />
