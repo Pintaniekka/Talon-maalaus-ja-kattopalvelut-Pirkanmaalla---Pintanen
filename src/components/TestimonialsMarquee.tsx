@@ -31,7 +31,7 @@ export const TestimonialCard = ({ name, stars, text }: { name: string; stars: nu
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="flex-shrink-0 w-[300px] sm:w-[340px] self-start bg-card rounded-xl p-5 shadow-sm border border-border/50 mx-2">
+    <div className="flex-shrink-0 w-[300px] sm:w-[340px] self-start bg-card rounded-xl p-5 shadow-sm border border-border/50 mx-2 [scroll-snap-align:center]">
       <div className="flex items-center gap-3 mb-3">
         <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold font-heading">
           {getInitials(name)}
@@ -78,6 +78,102 @@ interface TestimonialsMarqueeProps {
 }
 
 const TestimonialsMarquee = ({ testimonials, title, durationSec }: TestimonialsMarqueeProps = {}) => {
+  const data = useMemo(
+    () => (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials),
+    [testimonials]
+  );
+  // Duplicoidaan riittävästi, jotta marquee toimii myös pienellä setillä
+  const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
+  const baseItems = useMemo(
+    () => Array.from({ length: minLoopCount }, () => data).flat(),
+    [data, minLoopCount]
+  );
+
+  // Reduced-motion detection (live)
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  // Reduced-motion: 3× kopiota saumatonta loop-scrollia varten. Normaalisti 2× riittää CSS-translaatiolle.
+  const items = useMemo(
+    () => (reducedMotion ? [...baseItems, ...baseItems, ...baseItems] : [...baseItems, ...baseItems]),
+    [baseItems, reducedMotion]
+  );
+
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const isWrappingRef = useRef(false);
+
+  // Aseta alkuscroll keskimmäiseen kolmannekseen reduced-motion -tilassa
+  useEffect(() => {
+    if (!reducedMotion) return;
+    const el = viewportRef.current;
+    if (!el) return;
+    const setStart = () => {
+      el.scrollLeft = el.scrollWidth / 3;
+    };
+    // Odota layoutin valmistumista
+    const raf = requestAnimationFrame(setStart);
+    return () => cancelAnimationFrame(raf);
+  }, [reducedMotion, items.length]);
+
+  const handleScroll = () => {
+    if (!reducedMotion) return;
+    const el = viewportRef.current;
+    if (!el || isWrappingRef.current) return;
+    const third = el.scrollWidth / 3;
+    if (el.scrollLeft < third * 0.5) {
+      isWrappingRef.current = true;
+      el.scrollLeft += third;
+      requestAnimationFrame(() => { isWrappingRef.current = false; });
+    } else if (el.scrollLeft > third * 2.5) {
+      isWrappingRef.current = true;
+      el.scrollLeft -= third;
+      requestAnimationFrame(() => { isWrappingRef.current = false; });
+    }
+  };
+
+  const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
+  const duration = durationSec ?? Math.max(30, baseItems.length * 5);
+
+  return (
+    <section
+      className={`overflow-hidden bg-background ${headingText ? "section-padding pt-28 md:pt-16" : "py-8"}`}
+      aria-label="Asiakasarvostelut"
+    >
+      {headingText && (
+        <div className="section-container mb-8 text-center">
+          <h2 className="heading-style text-2xl md:text-3xl text-accent">
+            {headingText}
+          </h2>
+        </div>
+      )}
+
+      <div
+        ref={viewportRef}
+        onScroll={handleScroll}
+        className="marquee-viewport relative overflow-hidden"
+        style={reducedMotion ? { scrollSnapType: "x proximity" } : undefined}
+      >
+        <div
+          className={reducedMotion ? "flex w-max" : "flex w-max animate-marquee"}
+          style={reducedMotion ? undefined : { animationDuration: `${duration}s` }}
+        >
+          {items.map((t, i) => (
+            <TestimonialCard key={i} {...t} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsMarquee;
   const data = useMemo(
     () => (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials),
     [testimonials]
