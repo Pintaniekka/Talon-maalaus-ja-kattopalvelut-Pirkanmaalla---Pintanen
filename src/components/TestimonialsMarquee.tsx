@@ -106,7 +106,7 @@ const TestimonialsMarquee = ({ testimonials, title, durationSec }: TestimonialsM
         </div>
       )}
 
-      <div className="relative overflow-hidden">
+      <div className="marquee-viewport relative overflow-hidden">
         <div
           className="flex w-max animate-marquee"
           style={{ animationDuration: `${duration}s` }}
