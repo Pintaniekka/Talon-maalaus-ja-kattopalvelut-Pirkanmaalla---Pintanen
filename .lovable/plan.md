@@ -1,34 +1,56 @@
-## Korjaukset sivulle `/artikkelit/milloin-pinnoittaa-tiilikatto`
+## Tavoite
 
-### 1. Hero- ja sisältökuvat eivät näy
+Kun käyttäjällä on **"vähennä liikettä"** päällä, TestimonialsMarquee:
+1. Latautuu **keskelle** (näkyvissä arvio molemmin puolin).
+2. Käyttäjä voi **scrollata vaakaan loputtomasti** kumpaankin suuntaan ilman, että tulee päätyseinä.
 
-**Syy:** `getResponsiveSrcSet` rakentaa srcsetin neljälle leveydelle (400/800/1200/**1500**w). Artikkelin viidellä kuvalla 400/800/1200 löytyvät Supabase-bucketista, mutta **1500w-versio puuttuu** (kaikki palauttavat 400). Desktopilla selain valitsee 1500w-version → 400-vastaus → Chrome estää sen `ERR_BLOCKED_BY_ORB` -virheellä → kuva näkyy rikkinäisenä. Pienemmillä viewporteilla 1200w riittää, joten ongelma on lähinnä desktopilla.
+Normaalitilan (CSS-animaatio) käyttäytymistä ei muuteta.
 
-**Korjaus:** Lisätään `src/lib/storage.ts`:ään valinnainen widths-parametri:
+## Toteutus
+
+Vain `src/components/TestimonialsMarquee.tsx` muuttuu. `index.css` pysyy ennallaan (reduced-motion-säännöt jo paikallaan: `animation: none` + `overflow-x: auto`).
+
+### 1. Tunnista reduced-motion Reactissa
+
+Lisätään `useEffect` + `useState`, joka kuuntelee `window.matchMedia('(prefers-reduced-motion: reduce)')` ja päivittyy live (kun käyttäjä vaihtaa OS-asetusta).
+
+### 2. Duplikoi sisältö 3× (vain reduced-motion -tilassa)
+
+Nykyisin `items = [...baseItems, ...baseItems]` (2×) toimii hyvin CSS-translaatiolle (-50% loop). Reduced-motion-loopille tarvitaan vähintään **3 kopiota**, jotta voimme aina pitää käyttäjän keskimmäisessä kolmanneksessa ja "teleportata" hänet takaisin keskelle huomaamattomasti reunoja lähestyessä.
 
 ```ts
-export function getResponsiveSrcSet(baseName: string, widths: ResponsiveWidth[] = RESPONSIVE_WIDTHS): string
+const loopItems = reducedMotion
+  ? [...baseItems, ...baseItems, ...baseItems]
+  : [...baseItems, ...baseItems];
 ```
 
-Ei muuta nykyistä käyttäytymistä missään muualla (default = kaikki 4 leveyttä). `ArtikkeliMilloinPinnoittaa.tsx`:ssä kutsutaan `getResponsiveSrcSet(base, [400, 800, 1200])` kaikille viidelle kuvalle (hero + 3 sectionia + leveä alakuva), jolloin selain ei enää yritä ladata olematonta 1500w-tiedostoa. `src`-attribuutiksi jää nykyinen 1200w `getResponsiveSrc(base)`.
+### 3. Aseta alkuscroll keskelle
 
-### 2. Google-arviokortti samannäköiseksi kuin etusivun karusellissa
+Mount-efektissä (reduced-motion = true):
+```ts
+viewportRef.current.scrollLeft = viewportRef.current.scrollWidth / 3;
+```
+Tämä asettaa näkymän keskikolmanneksen alkuun, jolloin molemmin puolin on identtinen kopio arvioista.
 
-Etusivun `TestimonialsMarquee.tsx`:n `TestimonialCard` -tyyli:
-- Pyöreä alkukirjain-avatar (`bg-primary/10 text-primary`, `w-9 h-9`) + nimi rivillä
-- Tähdet (16px keltaiset SVG-tähdet)
-- Lainattu teksti `text-muted-foreground` (ei kursiivia)
-- Alarivi: pieni värillinen Google-SVG-ikoni + teksti "Google-arvostelu"
-- Kortti: `bg-card rounded-xl p-5 shadow-sm border border-border/50`
+### 4. Saumaton wrap scrollatessa
 
-**Korjaus:** Artikkelin "Review card + CTA" -osiossa (rivit 245–267) korvataan nykyinen kortti samalla rakenteella. Käytännössä tuodaan `TestimonialCard` uudelleenkäytettäväksi:
+`onScroll`-handler:
+- Kun `scrollLeft < scrollWidth / 3 * 0.5` → hyppää `scrollLeft += scrollWidth / 3`
+- Kun `scrollLeft > scrollWidth / 3 * 2.5` → hyppää `scrollLeft -= scrollWidth / 3`
 
-- Eksportataan nimettynä `export const TestimonialCard` `TestimonialsMarquee.tsx`:stä (sekä `StarIcon`/`GoogleIcon` jäävät sisäisiksi).
-- `ArtikkeliMilloinPinnoittaa.tsx` importtaa `TestimonialCard`in ja renderöi sen yhden kortin osioon keskitettynä (`max-w-sm mx-auto`) Jukan arviolla (`name: "Jukka Jukarainen"`, `stars: 5`, `text: "Työt hoitui sovitusti ja työn jälki siistiä. Iso suositus kaikille kattohuoltoa tarvitseville!"`). Lucide `Star` -import ja paikallinen tähtirivi poistetaan, koska kortti hoitaa sen.
-- CTA-painike (`Pyydä Pintasen ilmainen arvio...`) jää kortin alle samaan tapaan kuin nyt.
+Hyppy tehdään ilman smooth-behavioria, joten käyttäjä ei näe sitä — sisältö on identtistä.
 
-### Muutettavat tiedostot
+### 5. Pieni UX-detalji
 
-- `src/lib/storage.ts` — `getResponsiveSrcSet`-signature laajennetaan valinnaisella `widths`-listalla (taaksepäin yhteensopiva).
-- `src/components/TestimonialsMarquee.tsx` — `TestimonialCard` nimettynä exporttina (muu logiikka ennallaan).
-- `src/pages/ArtikkeliMilloinPinnoittaa.tsx` — kaikki 5 kuvaa käyttämään `[400, 800, 1200]`-srcsettiä; arviokortin korvaus jaetulla komponentilla; `Star`-import pois.
+Reduced-motion-tilassa lisätään `scroll-snap-type: x proximity` ja korteille `scroll-snap-align: center`, jotta selaaminen tuntuu jouhevalta sormella mobiilissa. (Tämä tehdään inline-tyylillä komponentissa, ei globaalisti, jotta normaalitila ei muutu.)
+
+## Tiedostot
+
+- `src/components/TestimonialsMarquee.tsx` — lisätään reduced-motion-tunnistus, kolminkertainen duplikointi tässä tilassa, viewport-ref, alkuscroll keskelle, onScroll-wrap-logiikka, snap-tyylit inline reduced-motion-haarassa.
+
+## Mitä EI muuteta
+
+- Normaalin CSS-animaation toiminta (kun reduced-motion off).
+- `src/index.css` (reduced-motion-säännöt ovat jo oikein).
+- Sivut, jotka käyttävät komponenttia.
+- Arviodatat.
