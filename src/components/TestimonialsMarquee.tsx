@@ -174,48 +174,6 @@ const TestimonialsMarquee = ({ testimonials, title, durationSec }: TestimonialsM
 };
 
 export default TestimonialsMarquee;
-  const data = useMemo(
-    () => (testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials),
-    [testimonials]
-  );
-  // Duplicoidaan riittävästi, jotta marquee toimii myös pienellä setillä
-  const minLoopCount = Math.max(2, Math.ceil(8 / data.length));
-  const baseItems = useMemo(
-    () => Array.from({ length: minLoopCount }, () => data).flat(),
-    [data, minLoopCount]
-  );
-  // Tuplaa jotta -50% translate luuppaa saumattomasti
-  const items = useMemo(() => [...baseItems, ...baseItems], [baseItems]);
-  const headingText = title === undefined ? "Mitä asiakkaat sanovat meistä?" : title;
-  const duration = durationSec ?? Math.max(30, baseItems.length * 5);
 
-  return (
-    <section
-      className={`overflow-hidden bg-background ${headingText ? "section-padding pt-28 md:pt-16" : "py-8"}`}
-      aria-label="Asiakasarvostelut"
-    >
-      {headingText && (
-        <div className="section-container mb-8 text-center">
-          <h2 className="heading-style text-2xl md:text-3xl text-accent">
-            {headingText}
-          </h2>
-        </div>
-      )}
-
-      <div className="marquee-viewport relative overflow-hidden">
-        <div
-          className="flex w-max animate-marquee"
-          style={{ animationDuration: `${duration}s` }}
-        >
-          {items.map((t, i) => (
-            <TestimonialCard key={i} {...t} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default TestimonialsMarquee;
 
 
