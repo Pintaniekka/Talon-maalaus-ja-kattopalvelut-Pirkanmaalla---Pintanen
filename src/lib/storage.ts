@@ -57,7 +57,10 @@ export function getImageSrcSet(desktopUrl: string): string {
 
 export type ResponsiveWidth = 400 | 800 | 1200 | 1500;
 
-const RESPONSIVE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200, 1500];
+// Vain 400/800/1200 ovat aina saatavilla bucketissa; 1500 puuttuu osasta
+// kuvia, joten oletus-srcSet ei käytä sitä. Tämä estää tilanteen, jossa
+// selain valitsee 1500w-version, saa 400-virheen eikä näytä kuvaa lainkaan.
+const RESPONSIVE_WIDTHS: ResponsiveWidth[] = [400, 800, 1200];
 
 /**
  * Palauttaa URL:n yksittäiselle responsiiviselle kuvaversiolle.
