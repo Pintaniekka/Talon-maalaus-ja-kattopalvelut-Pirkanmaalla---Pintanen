@@ -24,14 +24,15 @@ const buildFallbackUrl = (src: string): string => {
     const url = new URL(src);
     // Drop any query params (Supabase image transforms etc.)
     url.search = '';
-    // If URL points to a Pictures-<n>/ folder with -<n>.webp suffix, swap to 1500.
+    // If URL points to a Pictures-<n>/ folder with -<n>.webp suffix, swap to 1200
+    // (1200 on aina saatavilla; 1500 puuttuu osasta kuvia).
     const path = url.pathname;
     const m = path.match(/\/Pictures-(\d+)\/([^/]+)-(\d+)\.webp$/);
     if (m) {
       const baseName = m[2];
       url.pathname = path.replace(
         /\/Pictures-\d+\/[^/]+-\d+\.webp$/,
-        `/Pictures-1500/${baseName}-1500.webp`
+        `/Pictures-1200/${baseName}-1200.webp`
       );
     }
     return url.toString();
