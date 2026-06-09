@@ -58,13 +58,13 @@ const ResponsiveSupabaseImage = ({
     src = getResponsiveSrc(baseName);
     srcSet = getResponsiveSrcSet(baseName);
   } else if (fallbackLevel === 1) {
-    // Strip srcSet entirely, force the largest existing size
-    src = getResponsiveUrl(baseName, 1500);
+    // Strip srcSet entirely, force 1200 (aina saatavilla)
+    src = getResponsiveUrl(baseName, 1200);
     srcSet = undefined;
     resolvedSizes = undefined;
   } else {
-    // Last resort: 1200w without srcSet
-    src = getResponsiveUrl(baseName, 1200);
+    // Last resort: 800w
+    src = getResponsiveUrl(baseName, 800);
     srcSet = undefined;
     resolvedSizes = undefined;
   }
