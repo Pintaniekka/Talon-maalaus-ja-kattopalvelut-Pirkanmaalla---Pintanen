@@ -94,6 +94,60 @@ export const allTestimonials: Testimonial[] = [
     text: "Eerik Pitkänen, Pintanen Oy teki meille tiilikaton puhdistuksen, sammaleenestokäsittelyn sekä pinnoituksen. Asiointi, yhteydenpito, työn suunnittelu ja itse työn jälki oli huippuluokkaa. Jälkitöistä siivouksineen ei jäänyt myöskään vaimollakaan moitittavaa. Vahva suositus.",
     category: "katto",
   },
+  {
+    name: "Teemu",
+    stars: 5,
+    text: "Maalarit tekivät töitä tehokkaasti ja työn jälki oli erinomaista! Voin suositella muillekin!",
+    category: "seina",
+  },
+  {
+    name: "Tapio Kivistö",
+    stars: 5,
+    text: "Hyvä työn jälki ja ahkera työnteko. Suosittelen!",
+    category: "yleinen",
+  },
+  {
+    name: "Ari Reunanen",
+    stars: 5,
+    text: "Talon ulkomaalaus tehtiin sovittua nopeammin, mutta myös tarkasti - todella hyvä työnjälki. Yhteydenpito oli sujuvaa ja herrojen kanssa oli mukava asioida. Suosittelen!",
+    category: "seina",
+  },
+  {
+    name: "Jari Sandelin",
+    stars: 5,
+    text: "Kattava tarjouksen tekeminen ja yksityiskohtien selvittäminen etukäteen. Lisäkysymyksiin vastattiin heti. Itse toteutus hoitui todella asiantuntevasti ja ripeästi. Työn jälki erinomaista ja kaikki sopimuksen kohdat hoidettiin esimerkillisesti. Ei mitään huomautettavaa. Kommunikointi selkeästi paikan päällä mitä suunnitteilla milloinkin ja Whatsappilla tavoitti myös jos oli kysyttävää. Täydet suosittelut kaikin puolin!",
+    category: "yleinen",
+  },
+  {
+    name: "Pirjo Raittila",
+    stars: 5,
+    text: "Omakotitalon ulkomaalaus sujui ongelmitta. Jälki on siisti. Aikataulukin piti niinkuin oltiin sovittu. Vahva suositus.",
+    category: "seina",
+  },
+  {
+    name: "Lotta Härkönen",
+    stars: 5,
+    text: "Talon maalaus sujui sovitusti, työn jälki erittäin hyvää. Kaikki meni kuten pitikin, maalarit kohteliaita ja viestivät suunnitelmista hyvissä ajoin. Toivat tarvikkeensa tullessaan ja veivät mennessään, meille ei jäänyt mitään siivottavaa tai kaatopaikalle vietävää.",
+    category: "seina",
+  },
+  {
+    name: "Teppo Annila",
+    stars: 5,
+    text: "Tilattiin tiilikaton pinnoituskäsittely ja harjatiivisteen asennus. Urakka sujui sovitusti aikataulussa ja kommunikointi oli kaikin puolin sujuvaa. Ja mikä tärkeintä, työn jälki oli erinomaista! Kiitos! Kuvat ennen ja jälkeen.",
+    category: "katto",
+  },
+  {
+    name: "Saarinen Seppo",
+    stars: 5,
+    text: "Eerik Pitkänen Pintanen oy pesi ja maalasi tiilikaton työn jälki loistava. Aikataulut pitivät sovitusti paikkansa, jälkisiivous hyvä. Erittäin ripeä ja kohtelias nuorimies. Suosittelen kattomaalausta harkitsevalle.",
+    category: "katto",
+  },
+  {
+    name: "Ilpo Lehto",
+    stars: 5,
+    text: "Asiallinen kaveri tämä Eerik Pitkänen 👍",
+    category: "yleinen",
+  },
 ];
 
 /** Vain kattoon liittyvät arviot. */
