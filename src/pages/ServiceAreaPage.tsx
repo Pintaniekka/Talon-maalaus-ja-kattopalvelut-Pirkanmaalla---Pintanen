@@ -25,7 +25,7 @@ const eemilImage = getStorageUrl("Pictures-200/Eemil-Pitkanen-talon-maalaus-pint
 /* ── Trust Stats (spekin mukaiset tekstit, cityIn-muuttujalla) ── */
 const getTrustStats = (cityIn: string) => [
   {
-    value: "4,9 / 5",
+    value: "5,0 / 5",
     label: "Google-arvostelut",
     sub: "Pirkanmaan tyytyväisimmät asiakkaat.",
   },

@@ -49,7 +49,7 @@ const Hero = () => {
               <div className="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-white/10">
                 <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
                   <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  <span className="text-white font-bold">4,9 / 5</span>
+                  <span className="text-white font-bold">5,0 / 5</span>
                   <span className="text-white/70 hidden sm:inline">Google</span>
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">

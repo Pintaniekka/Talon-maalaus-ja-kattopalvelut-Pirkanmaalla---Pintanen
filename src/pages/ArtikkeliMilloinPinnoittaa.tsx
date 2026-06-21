@@ -19,7 +19,7 @@ const img3 = 'uutta-vastaava-tiilikatto-pesu-ja-suojakasittely';
 const imgWide = 'tummanharmaa-tiilikaton-pinnoitus-ja-huolto-jalkeen';
 
 const trustStats = [
-  { value: '4,9 / 5', label: 'Google-arvostelut' },
+  { value: '5,0 / 5', label: 'Google-arvostelut' },
   { value: 'Yli 100', label: 'Pinnoitettua kattoa' },
   { value: '5 vuotta', label: 'Kirjallinen takuu' },
 ];
