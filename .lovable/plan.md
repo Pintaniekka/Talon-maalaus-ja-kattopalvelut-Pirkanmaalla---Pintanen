@@ -1,87 +1,58 @@
-# Kehityssuunnitelma: Pintanen.fi
+# Toiminta-alueet -palkin uudistus
 
-## Tavoite
+Palkki on jokaisen sivun alaosassa (13 sivua/sivupohjaa). Nykyisellään se on suurin osa ajasta puolityhjä: vasemmalla kolme suljettua accordion-riviä, oikealla iso Suomen kartta ja väliin jää leveä tyhjä alue. Käyttäjä ei näe yhtään paikkakuntaa ilman klikkausta.
 
-Vahvistaa brändiä ja luotettavuutta käyttämällä olemassa olevaa sisältöä (kuvia, tekstejä, videoita, arvosteluja) tehokkaammin. Ei chatbottia nyt. Hyödynnetään sekä nopeita pikavoittoja että isompia kokonaisuuksia.
+## Havainnot nykytilasta
 
-## Nykytila (tiivistelmä)
+Visuaaliset
+- Kaksipalstainen asettelu jättää keskelle noin kolmanneksen tyhjää tilaa; palkin korkeus on n. 527 px vaikka sisältöä on kolme riviä.
+- Kartta on koko Suomen kuva, jossa toiminta-alue on pieni tumma läiskä alalaidassa — viesti "palvelemme Pirkanmaalla" ei välity nopeasti.
+- Accordion-otsikot (kursivoitu, kirkas sininen) eivät noudata muun sivuston otsikkotyyliä, ja auki avattuna kaupungit ovat pelkkä pilkulla eroteltu tekstimassa.
+- Osio toistuu identtisenä jokaisella sivulla ilman mitään paikkakuntakohtaista kontekstia.
 
-- Sivusto: React + Vite + TypeScript + Tailwind, 24 kaupungin aluesivut, palvelusivut, hinnat, artikkelit, referenssigalleria, laskurit, yhteydenottolomake.
-- Backend: Supabase/Lovable Cloud käytössä vain kuvien CDN:nä ja yhden Edge Functionin (sähköpostin lähetys Resendillä) kautta. Ei tietokantatauluja, ei authia, ei leadien tallennusta.
-- Sisältö on käyttäjän mukaan valmiina lisäystä varten.
+Tekniset
+- Suljettu accordion-paneeli ei renderöi sisältöään, joten 24 sisäistä kaupunkilinkkiä puuttuvat oletuksena DOM:sta — sisäinen linkitys ja sen SEO-hyöty menetetään sivuilla, joilla palkki on ainoa aluelinkkien lähde.
+- Linkit osoittavat aina vain `/maalauspalvelut-[kaupunki]`-sivulle, vaikka kaupungeille on myös `/tiilikaton-pinnoitus-[kaupunki]`-sivut.
+- Kaupunkilista on kovakoodattu komponenttiin, vaikka projektissa on jo `allCities` (`src/data/cityData.ts`). Kaksi totuuden lähdettä eriytyy ajan myötä.
+- Rinnalla on toinen, käyttämätön/päällekkäinen `ToimintaAlueetSection.tsx` samaan tarkoitukseen.
+- Kartta on kiinteä 280x350 PNG (12 kt, ok) mutta ilman aspect-ratio-varausta ja ilman virhefallbackia.
 
----
+## Ehdotettu lopputulos
 
-## Vaihe 1: Pikavoitot (1–2 päivityskierrosta)
+Kompakti, aina avoin "aluepalkki", joka näyttää heti kaikki paikkakunnat:
 
-### 1.1 Lisää 2–4 uutta referenssitapausta etusivulle ja referenssisivulle
-- **Miksi:** Ennen/jälkeen -kuvat ovat vahvin luottamusta rakentava sisältö. Nykyinen galleria on hyvä, mutta yksittäiset projektitarinat jäävät vajaaksi.
-- **Toteutus:** Luodaan uusi `ProjectCaseCard`-komponentti (tai laajennetaan `Referenssit.tsx`), jossa on: ennen/jälkeen -vertailu, asiakkaan nimi/kaupunki, tehty työ, kesto ja lyhyt sitaatti. Käytetään olemassa olevia `BeforeAfterSlider`- ja `ResponsiveSupabaseImage`-komponentteja.
-- **Tiedostot:** `src/pages/Referenssit.tsx`, mahdollisesti uusi `src/components/ProjectCaseCard.tsx`.
+```text
+┌───────────────────────────────────────────────────────────┐
+│  [kartta]   TOIMINTA-ALUEET                               │
+│   pieni     Pirkanmaa, Kanta-Häme ja Satakunta            │
+│             ─────────────────────────────────────────     │
+│   PIRKANMAA                                               │
+│   (Tampere)(Nokia)(Ylöjärvi)(Kangasala)(Lempäälä)...      │
+│   KANTA-HÄME            SATAKUNTA                         │
+│   (Forssa)(Hämeenlinna) (Huittinen)                       │
+│             ─────────────────────────────────────────     │
+│   Katso kaikki toiminta-alueet →                          │
+└───────────────────────────────────────────────────────────┘
+```
 
-### 1.2 Julkaise 2–4 uutta artikkelia valmiista sisällöstä
-- **Miksi:** Artikkelit tuovat orgaanista liikennettä ja vahvistavat asiantuntija-asemaa. Nyt vain yksi artikkeli on julki.
-- **Toteutus:** Luodaan uudet sivut `src/pages/Artikkeli*.tsx`, lisätään reitit `App.tsx`:ään ja linkit `src/pages/Artikkelit.tsx`-listaukseen. Käytetään samaa editorial-tyyliä kuin `ArtikkeliMilloinPinnoittaa.tsx`:ssä.
-- **Tiedostot:** `src/pages/Artikkelit.tsx`, `src/App.tsx`, uudet artikkelisivut.
+- Accordion pois; kaupungit näkyvät chip-linkkeinä (sama pyöreä chip-tyyli kuin muualla sivustolla), ryhmiteltynä maakuntaotsikoiden alle. Kaikki 24 linkkiä ovat aina DOM:ssa.
+- Maakuntaotsikot sivuston omalla heading-tyylillä ja semanttisilla väreillä (ei inline `#38b6ff`).
+- Kartta pienenee sivuelementiksi (n. 160–200 px) vasempaan reunaan / mobiilissa otsikon viereen, jotta tyhjä tila katoaa ja palkin korkeus putoaa selvästi.
+- Nykyinen paikkakunta korostuu (aktiivinen chip) aluesivuilla, kun `activeCity` annetaan propsina — muilla sivuilla käytös ennallaan.
+- Valinnainen `service`-prop (`maalaus` | `pinnoitus`): kattopinnoitussivuilla chipit linkittävät `/tiilikaton-pinnoitus-[kaupunki]`-sivuille, muualla maalaussivuille. Oletus säilyttää nykyisen käytöksen.
+- Mobiilissa chipit kääntyvät luonnollisesti usealle riville; ei vaakascrollia.
 
-### 1.3 Vahvista "Miksi Pintanen" -osiota konkreettisemmilla takuu- ja prosessilupauksilla
-- **Miksi:** Nykyinen osio on hyvä, mutta lupaukset kannattaa näyttää visuaalisina kortteina (esim. 2 v maalitakuu, 5 v kattotakuu, kotitalousvähennys, 24 h vastaus).
-- **Toteutus:** Muokataan `src/components/MiksiPintanen.tsx` lisäämällä 4 ikonikorttia, jotka toistavat muualla sivustolla olevat luottamussignaalit.
-- **Tiedostot:** `src/components/MiksiPintanen.tsx`.
+## Tekninen toteutus
 
-### 1.4 Lisää videoita, jos valmista materiaalia on
-- **Miksi:** Lyhyet projektivideot (esim. TikTok/Reels-tyyliset ennen/jälkeen -klipit) nostavat luotettavuutta ja sitoutumista.
-- **Toteutus:** Lisätään videoelementti `Referenssit.tsx`-sivulle tai etusivulle. Käytetään `<video>`-tagia ilmeisellä fallback-kuvalla. Hosting: Supabase Storage (jos videoita sinne on ladattu) tai ulkoinen alusta.
-- **Tiedostot:** `src/pages/Referenssit.tsx` tai `src/pages/Index.tsx`.
+- `src/components/ToimintaAlueetBanner.tsx` kirjoitetaan uusiksi: pois `Accordion`, sisään chip-grid. Kaupunkidata luetaan `allCities`-listasta (`src/data/cityData.ts`) ja ryhmitellään maakunnan mukaan; jos `cityData` ei sisällä maakuntakenttää, lisätään komponenttiin kevyt slug→maakunta-mappaus yhdessä paikassa.
+- Uudet valinnaiset propsit: `activeCity?: string`, `service?: 'maalaus' | 'pinnoitus'`. Kaikki nykyiset käyttöpaikat toimivat ilman muutoksia; aluesivuilla (`ServiceAreaPage`, `KattopalvelutPinnoitusCity`, `TalonMaalausCity`) välitetään propsit.
+- Kartalle kiinteä `aspect-ratio`-varaus (ei layout shiftiä) ja `onError`-fallback, joka piilottaa kuvan siististi jos lataus epäonnistuu.
+- Värit ja varjot vain semanttisilla tokeneilla, inline-hexit pois.
+- Käyttämätön `ToimintaAlueetSection.tsx` poistetaan, jos mikään sivu ei importoi sitä (tarkistetaan ennen poistoa).
+- Tekstisisällöt (kaupunkien nimet, "Toiminta-alueet", CTA-teksti) säilyvät sanatarkasti nykyisinä; vain rakenne ja tyyli muuttuvat.
 
----
+## Ei muutu
 
-## Vaihe 2: Keskipitkän ajan kokonaisuudet (2–4 viikon työ)
-
-### 2.1 Tietokantaan perustuva artikkeli- ja referenssihallinta
-- **Miksi:** Nyt artikkelit ja referenssit ovat kovakoodattuja React-komponentteja. Julkaisutahti hidastuu, kun jokainen uusi sisältö vaatii koodimuutoksen ja uudelleenbuildauksen.
-- **Toteutus:** Luodaan Supabase-taulut `posts` (artikkelit) ja `projects` (referenssit), joissa on slug, otsikko, sisältö, meta-kuvaus, kuvat, kategoria ja julkaisupäivä. Rakennetaan `Artikkelit.tsx` ja `Referenssit.tsx` hakemaan sisältö dynaamisesti. Lisätään RLS + GRANT (anon read, authenticated write).
-- **Tiedostot:** `supabase/migrations/...`, `src/pages/Artikkelit.tsx`, `src/pages/Artikkeli*.tsx`, `src/pages/Referenssit.tsx`, `src/lib/storage.ts` (kuvien käsittely).
-
-### 2.2 Leadien tallennus tietokantaan (CRM-light)
-- **Miksi:** Nyt yhteydenotot menevät vain sähköpostiin. Jos viesti hukkuu tai asiakas soittaa myöhemmin, ei ole historiaa.
-- **Toteutus:** Luodaan taulu `leads`, johon tallennetaan lomakkeiden ja laskureiden kautta tulleet yhteydenotot. Edge Function `send-contact-email` päivitetään tallentamaan lead ennen lähetystä. Lisätään yksinkertainen admin-näkymä (suojattu RLS:llä service_role / tulevaisuudessa auth) tarkastelemaan ja merkitsemään käsiteltyjä.
-- **Tiedostot:** `supabase/migrations/...`, `supabase/functions/send-contact-email/index.ts`, mahdollisesti uusi `src/pages/AdminLeads.tsx`.
-
-### 2.3 Spämisuojaus yhteydenottolomakkeisiin
-- **Miksi:** Edge Function on avoin CORS-ei-rajoituksin, eikä lomakkeissa ole CAPTCHAa tai honeypotia. Tämä on riski, kun liidien määrä kasvaa.
-- **Toteutus:** Lisätään honeypot-kenttä lomakkeisiin ja yksinkertainen rate-limiting Edge Functioniin (esim. saman IP:n väliin vähintään 10 s). Harkitaan myöhemmin Cloudflare Turnstilea, jos tarvetta.
-- **Tiedostot:** `src/components/Contact.tsx`, `src/components/ChatLeadForm.tsx`, `src/lib/contactForm.ts`, `supabase/functions/send-contact-email/index.ts`.
-
-### 2.4 Projektikohtaiset tarinat (Case Study -sivut)
-- **Miksi:** Yksittäiset projektitarinat konvertoivat paremmin kuin pelkkä galleria. Ne myös toimivat mainosmateriaalina ja some-sisältönä.
-- **Toteutus:** Laajennetaan `projects`-taulua (vaihe 2.1) niin, että jokaisella referenssillä on oma alisivunsa `/referenssit/[slug]`. Sivulla on kuvagalleria, asiakkaan sitaatti, tehdyt työt, kesto ja lopputulos.
-- **Tiedostot:** `src/pages/ReferenssiDetail.tsx`, `src/App.tsx`.
-
----
-
-## Vaihe 3: Myöhemmät kokonaisuudet (ei kiireellisiä)
-
-### 3.1 Asiakasportaali / työn seuranta
-- Mahdollisuus kirjautua sisään ja nähdä oman kohteen status, aikataulu ja laskutiedot. Vaatii authin ja tauluja `customers` + `projects`.
-
-### 3.2 Online-ajanvaraus arviokäynnille
-- Kalenteriintegraatio (esim. Cal.com tai Google Calendar) suoraan sivustolle, jotta asiakas voi varata arviokäynnin ilman soittoa.
-
-### 3.3 Sisällönhallintapaneeli (CMS)
-- Yksinkertainen admin-käyttöliittymä artikkelien, referenssien ja leadien hallintaan. Vaatii autentikaation ja roolit.
-
-### 3.4 Monikielisyys (ruotsi/englanti)
-- Jos asiakaskunta laajenee, i18n-tuki (react-i18next) ja käännökset avaavat markkinoita.
-
----
-
-## Suositeltu aloitus
-
-Aloitetaan **vaiheen 1.1 + 1.2 + 1.3** samalla kierroksella: ne ovat nopeita, käyttävät valmista sisältöäsi ja vahvistavat brändiä välittömästi. Sen jälkeen siirrytään vaiheeseen 2.1 (tietokantapohjainen sisällönhallinta), jotta julkaisutahti nopeutuu pysyvästi.
-
-## Mitä tarvitsen sinulta
-
-- Haluatko aloittaa heti vaiheen 1.1–1.3 kanssa?
-- Onko sinulla valmiina uusia ennen/jälkeen -kuvia, artikkelitekstejä tai videoita, jotka haluat julkaista ensin?
-- Haluatko, että teen vaiheessa 2.1 myös referenssien ja artikkelien tietokantamallit, vai keskitytäänkö ensin pelkästään artikkeleihin?
+- Reitit, URL-rakenne ja trailing slash -käytännöt.
+- Palkin sijainti sivuilla eikä sen esiintyminen millään sivulla.
+- Muut osiot tai niiden sisällöt.
