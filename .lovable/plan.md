@@ -1,58 +1,45 @@
-# Toiminta-alueet -palkin uudistus
+# Toiminta-alueet -palkin uudistus (Premium service grid -suunta)
 
-Palkki on jokaisen sivun alaosassa (13 sivua/sivupohjaa). Nykyisellään se on suurin osa ajasta puolityhjä: vasemmalla kolme suljettua accordion-riviä, oikealla iso Suomen kartta ja väliin jää leveä tyhjä alue. Käyttäjä ei näe yhtään paikkakuntaa ilman klikkausta.
+Palkki (13 sivua/sivupohjaa) uudistetaan käyttäjän valitseman design-suunnan mukaisesti: premium-tyylinen kortti, jossa maakunnat ovat laajennettavia rivikohtaisia kortteja ja oikealla koristeellinen sininen karttasarake.
 
-## Havainnot nykytilasta
+## Visuaalinen toteutus
 
-Visuaaliset
-- Kaksipalstainen asettelu jättää keskelle noin kolmanneksen tyhjää tilaa; palkin korkeus on n. 527 px vaikka sisältöä on kolme riviä.
-- Kartta on koko Suomen kuva, jossa toiminta-alue on pieni tumma läiskä alalaidassa — viesti "palvelemme Pirkanmaalla" ei välity nopeasti.
-- Accordion-otsikot (kursivoitu, kirkas sininen) eivät noudata muun sivuston otsikkotyyliä, ja auki avattuna kaupungit ovat pelkkä pilkulla eroteltu tekstimassa.
-- Osio toistuu identtisenä jokaisella sivulla ilman mitään paikkakuntakohtaista kontekstia.
-
-Tekniset
-- Suljettu accordion-paneeli ei renderöi sisältöään, joten 24 sisäistä kaupunkilinkkiä puuttuvat oletuksena DOM:sta — sisäinen linkitys ja sen SEO-hyöty menetetään sivuilla, joilla palkki on ainoa aluelinkkien lähde.
-- Linkit osoittavat aina vain `/maalauspalvelut-[kaupunki]`-sivulle, vaikka kaupungeille on myös `/tiilikaton-pinnoitus-[kaupunki]`-sivut.
-- Kaupunkilista on kovakoodattu komponenttiin, vaikka projektissa on jo `allCities` (`src/data/cityData.ts`). Kaksi totuuden lähdettä eriytyy ajan myötä.
-- Rinnalla on toinen, käyttämätön/päällekkäinen `ToimintaAlueetSection.tsx` samaan tarkoitukseen.
-- Kartta on kiinteä 280x350 PNG (12 kt, ok) mutta ilman aspect-ratio-varausta ja ilman virhefallbackia.
-
-## Ehdotettu lopputulos
-
-Kompakti, aina avoin "aluepalkki", joka näyttää heti kaikki paikkakunnat:
-
-```text
-┌───────────────────────────────────────────────────────────┐
-│  [kartta]   TOIMINTA-ALUEET                               │
-│   pieni     Pirkanmaa, Kanta-Häme ja Satakunta            │
-│             ─────────────────────────────────────────     │
-│   PIRKANMAA                                               │
-│   (Tampere)(Nokia)(Ylöjärvi)(Kangasala)(Lempäälä)...      │
-│   KANTA-HÄME            SATAKUNTA                         │
-│   (Forssa)(Hämeenlinna) (Huittinen)                       │
-│             ─────────────────────────────────────────     │
-│   Katso kaikki toiminta-alueet →                          │
-└───────────────────────────────────────────────────────────┘
-```
-
-- Accordion pois; kaupungit näkyvät chip-linkkeinä (sama pyöreä chip-tyyli kuin muualla sivustolla), ryhmiteltynä maakuntaotsikoiden alle. Kaikki 24 linkkiä ovat aina DOM:ssa.
-- Maakuntaotsikot sivuston omalla heading-tyylillä ja semanttisilla väreillä (ei inline `#38b6ff`).
-- Kartta pienenee sivuelementiksi (n. 160–200 px) vasempaan reunaan / mobiilissa otsikon viereen, jotta tyhjä tila katoaa ja palkin korkeus putoaa selvästi.
-- Nykyinen paikkakunta korostuu (aktiivinen chip) aluesivuilla, kun `activeCity` annetaan propsina — muilla sivuilla käytös ennallaan.
-- Valinnainen `service`-prop (`maalaus` | `pinnoitus`): kattopinnoitussivuilla chipit linkittävät `/tiilikaton-pinnoitus-[kaupunki]`-sivuille, muualla maalaussivuille. Oletus säilyttää nykyisen käytöksen.
-- Mobiilissa chipit kääntyvät luonnollisesti usealle riville; ei vaakascrollia.
+- **Kortti:** valkoinen, pyöristetyt kulmat (n. 2.5rem), hienovarainen sininen reuna ja pehmeä sininen varjo. Kokonaisuus kelluu nykyisellä `bg-accent-light`-taustalla.
+- **Otsikkoalue:** iso "Toiminta-alueet" -H2 (font-heading, bold) ja sen alle lyhyt brändin sininen (#38b6ff → primary-token) viiva.
+- **Maakuntakortit** (Pirkanmaa / Kanta-Häme / Satakunta), jokaisessa:
+  - Sininen ikonilaatikko (MapPin-ikoni valkoisella, sininen varjo)
+  - Maakunnan nimi bold-otsikkona
+  - Alasnuoli, joka kääntyy avattaessa
+  - Sisällössä kaupungit chip-linkkeinä (vaalea tausta, hienovarainen reuna; hoverissa sininen reuna + tekstiväri). Pirkanmaa oletuksena auki, muut suljettuna.
+- **Karttasarake (oikea):** primary-sininen pohja, hienovarainen valkoinen ruudukkokuvio taustalla, todellinen karttakuva lasimaista korttia vasten (white/10 tausta, border white/30) sekä alla tekstilohko:
+  - Chip: "Paikallinen Palvelu"
+  - Otsikko: "Kaikki palvelut aina lähelläsi"
+  - Lisäksi linkki "Katso kaikki toiminta-alueet →" osoitteeseen `/toiminta-alueet` (säilyttää nykyisen CTA:n funktion).
+- **Mobiili:** karttasarake pinoutuu sisällön alle pienempänä (tai otsikon yhteyteen), chipit kääntyvät riveille, ei vaakascrollia.
 
 ## Tekninen toteutus
 
-- `src/components/ToimintaAlueetBanner.tsx` kirjoitetaan uusiksi: pois `Accordion`, sisään chip-grid. Kaupunkidata luetaan `allCities`-listasta (`src/data/cityData.ts`) ja ryhmitellään maakunnan mukaan; jos `cityData` ei sisällä maakuntakenttää, lisätään komponenttiin kevyt slug→maakunta-mappaus yhdessä paikassa.
-- Uudet valinnaiset propsit: `activeCity?: string`, `service?: 'maalaus' | 'pinnoitus'`. Kaikki nykyiset käyttöpaikat toimivat ilman muutoksia; aluesivuilla (`ServiceAreaPage`, `KattopalvelutPinnoitusCity`, `TalonMaalausCity`) välitetään propsit.
-- Kartalle kiinteä `aspect-ratio`-varaus (ei layout shiftiä) ja `onError`-fallback, joka piilottaa kuvan siististi jos lataus epäonnistuu.
-- Värit ja varjot vain semanttisilla tokeneilla, inline-hexit pois.
-- Käyttämätön `ToimintaAlueetSection.tsx` poistetaan, jos mikään sivu ei importoi sitä (tarkistetaan ennen poistoa).
-- Tekstisisällöt (kaupunkien nimet, "Toiminta-alueet", CTA-teksti) säilyvät sanatarkasti nykyisinä; vain rakenne ja tyyli muuttuvat.
+- `src/components/ToimintaAlueetBanner.tsx` kirjoitetaan uusiksi.
+- Avattavuus toteutetaan Radix-accordionilla (olemassa oleva `ui/accordion`) mutta paneelien sisältö pakotetaan aina DOM:iin (`forceMount` / vastaava) — näin kaikki 24 sisäistä kaupunkilinkkiä pysyvät crawlattavina myös suljettuna. Nykyisessä toteutuksessa linkit puuttuvat DOM:sta suljetussa tilassa.
+- Kaupunkidata tulee `allCities`-listasta (`src/data/cityData.ts`); komponenttiin lisätään slug→maakunta-mappaus (Pirkanmaa 21 / Kanta-Häme 2 / Satakunta 1). Ei kovakoodattua duplikaattilistaa.
+- Uudet valinnaiset propsit:
+  - `activeCity?: string` — nykyinen paikkakunta korostetaan aluesivuilla (aktiivinen chip).
+  - `service?: 'maalaus' | 'pinnoitus'` — kattopinnoitussivuilla chipit linkittävät `/tiilikaton-pinnoitus-[kaupunki]`-sivuille, oletuksena `/maalauspalvelut-[kaupunki]`.
+  - Kaikki 13 nykyistä käyttöpaikkaa toimivat ilman muutoksia; aluesivuille (`ServiceAreaPage`, `KattopalvelutPinnoitusCity`, `TalonMaalausCity`) välitetään propsit.
+- Kartta: sama Supabase-PNG kuin nyt, `aspect-ratio`-varausta vasten (ei layout shiftiä) ja `onError`-fallback piilottaa kuvan siististi virhetilanteessa.
+- Värit, varjot ja pyöristykset semanttisilla tokeneilla mahdollisuuksien mukaan; tarvittaessa lisätään muutama token (esim. pehmeä sininen varjo) `index.css`:ään. Inline-hext poistetaan.
+- Ruudukkokuvio toteutetaan puhtaalla CSS:llä (linear-gradient -tausta), ei SVG-patternia.
+- Käyttämätön `ToimintaAlueetSection.tsx` poistetaan, ellei mikään sivu importoi sitä (tarkistetaan ensin).
+- `prefers-reduced-motion`: ei pulssianimaatioita eikä isoja siirtymiä.
 
-## Ei muutu
+## Säilyy ennallaan
 
-- Reitit, URL-rakenne ja trailing slash -käytännöt.
-- Palkin sijainti sivuilla eikä sen esiintyminen millään sivulla.
-- Muut osiot tai niiden sisällöt.
+- Tekstit: "Toiminta-alueet", maakuntien nimet, kaikki kaupunkien nimet sanatarkasti nykyisistä lähteistä (`cityData`).
+- Reitit, URL-rakenne ja trailing slash -käytännöt. Ei uusia reittejä.
+- Palkin sijainti ja esiintyminen kaikilla sivuilla.
+- SEO: H2-taso säilyy ("Toiminta-alueet"), maakunnat H3-tasolla.
+
+## Varmistus
+
+- Build ilman virheitä.
+- Playwright-tarkistus: etusivun palkki näyttää valitun suunnan mukaiselta desktopilla ja mobiililla; DOM:sta löytyvät kaikki 24 kaupunkilinkkiä myös suljetuissa paneeleissa; kartta latautuu tai fallback toimii.
