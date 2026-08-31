@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Check, Clock } from 'lucide-react';
+import { Check } from "lucide-react";
+import { Clock } from "@/components/icons/BrandIcons";
 import { Link } from 'react-router-dom';
 
 const cards = [

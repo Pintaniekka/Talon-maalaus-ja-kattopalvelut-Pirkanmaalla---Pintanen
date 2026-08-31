@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Paintbrush, Ruler, Building2, Layers, Droplets } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import { Paintbrush, Ruler, Building2, Layers, Droplets } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SEO from "@/components/SEO";

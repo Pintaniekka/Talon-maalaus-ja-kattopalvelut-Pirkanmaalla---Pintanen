@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calculator } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Calculator } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 
 const PriceCalculatorCTA = () => {

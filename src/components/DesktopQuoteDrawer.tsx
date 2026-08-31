@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { X, UserRound, Phone, MapPin, Mail, Building, MessageSquare } from "lucide-react";
+import { X } from "lucide-react";
+import { UserRound, Phone, MapPin, Mail, Building, MessageSquare } from "@/components/icons/BrandIcons";
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 

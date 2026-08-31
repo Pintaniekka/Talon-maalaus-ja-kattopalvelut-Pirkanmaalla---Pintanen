@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Check, Loader2, User, Phone, Mail } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, Loader2 } from "lucide-react";
+import { User, Phone, Mail } from "@/components/icons/BrandIcons";
 import { RoofTileIcon, PaintBrushIcon } from './ServiceIcons';
 import { toast } from '@/hooks/use-toast';
 import { submitContactForm } from '@/lib/contactForm';
