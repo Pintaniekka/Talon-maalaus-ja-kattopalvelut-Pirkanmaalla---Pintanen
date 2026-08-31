@@ -152,7 +152,7 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
           </div>
 
           {/* Oikea: karttasarake */}
-          <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-6 text-accent-foreground md:p-8 lg:w-[380px]">
+           <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-4 text-accent-foreground md:p-5 lg:w-[380px]">
             {/* Hienovarainen ruudukkokuvio */}
             <div
               aria-hidden="true"
@@ -168,7 +168,7 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
             <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent-foreground/10 blur-3xl" />
 
             {!mapFailed && (
-              <div className="relative z-10 w-full max-w-[280px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-5 shadow-2xl">
+               <div className="relative z-10 w-full max-w-[280px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-4 shadow-2xl">
                 <img
                   src={mapImage}
                   alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
@@ -182,9 +182,9 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
               </div>
             )}
 
-            <div className="relative z-10 mt-6 text-center">
+             <div className="relative z-10 mt-4 text-center">
               <span className="mb-2 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
-                 PALVELEMME LÄHELLÄSI
+                 SUOMALAISET TEKIJÄT
               </span>
               <h3 className="text-xl font-bold leading-tight font-heading">
                  Maalaamme taloja ja kattoja alueellasi!
