@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { MapPin, ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { MapPin } from "@/components/icons/BrandIcons";
 import { Link } from 'react-router-dom';
 import { allCities } from '@/data/cityData';
 import { getStorageUrl } from '@/lib/storage';

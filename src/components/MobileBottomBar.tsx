@@ -1,4 +1,4 @@
-import { Phone, FileText } from "lucide-react";
+import { Phone, FileText } from "@/components/icons/BrandIcons";
 import { openQuoteDrawer } from "@/components/DesktopQuoteDrawer";
 
 const MobileBottomBar = () => {

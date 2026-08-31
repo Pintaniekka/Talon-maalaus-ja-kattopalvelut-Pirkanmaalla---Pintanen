@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Search } from "@/components/icons/BrandIcons";
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import { getResponsiveSrc, getResponsiveSrcSet } from '@/lib/storage';
 

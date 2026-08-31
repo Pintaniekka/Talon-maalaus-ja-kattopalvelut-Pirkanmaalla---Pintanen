@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Droplets, Shield, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import { Droplets, Shield, Sparkles, Clock } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";

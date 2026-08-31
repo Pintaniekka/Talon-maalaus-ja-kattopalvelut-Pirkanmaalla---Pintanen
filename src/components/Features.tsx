@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin } from "@/components/icons/BrandIcons";
 import { Link } from 'react-router-dom';
 
 const Features = () => {

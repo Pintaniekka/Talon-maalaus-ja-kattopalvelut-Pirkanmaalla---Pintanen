@@ -1,4 +1,5 @@
-import { ArrowRight, Star, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
+import { Star } from "@/components/icons/BrandIcons";
 import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
 
 const heroBaseName = "tummansininen-puutalo-ulkomaalaus-jalkeen";
