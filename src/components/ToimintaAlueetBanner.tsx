@@ -70,20 +70,20 @@ const RegionCard = ({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-4 p-5 md:p-6 text-left"
+        className="flex w-full items-center justify-between gap-4 p-4 md:p-5 text-left"
       >
-        <span className="flex items-center gap-4">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg shadow-accent/30">
-            <MapPin className="h-5 w-5" aria-hidden="true" />
+        <span className="flex items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground shadow-lg shadow-accent/30">
+            <MapPin className="h-4.5 w-4.5" aria-hidden="true" />
           </span>
-          <span className="text-xl font-bold tracking-tight text-foreground font-heading">
+          <span className="text-lg font-bold tracking-tight text-foreground font-heading">
             {title}
           </span>
         </span>
         <ChevronDown
           aria-hidden="true"
           className={cn(
-            'h-6 w-6 shrink-0 text-accent transition-transform duration-300 motion-reduce:transition-none',
+            'h-5 w-5 shrink-0 text-accent transition-transform duration-300 motion-reduce:transition-none',
             open && 'rotate-180'
           )}
         />
