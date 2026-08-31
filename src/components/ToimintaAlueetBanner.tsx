@@ -99,7 +99,7 @@ const RegionCard = ({
         aria-hidden={!open}
       >
         <div className="overflow-hidden">
-          <div className="flex flex-wrap gap-2 px-5 pb-6 pt-1 md:px-6 md:pb-8">
+          <div className="flex flex-wrap gap-2 px-4 pb-5 pt-1 md:px-5 md:pb-6">
             {cities.map((city) => {
               const isActive = activeCity === city.slug;
               return (
