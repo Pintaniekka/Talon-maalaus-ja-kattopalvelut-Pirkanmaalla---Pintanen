@@ -125,19 +125,19 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
   const [mapFailed, setMapFailed] = useState(false);
 
   return (
-    <section className="py-10 md:py-14 bg-accent-light">
+    <section className="py-8 md:py-10 bg-accent-light">
       <div className="section-container">
-        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] border border-accent/20 bg-card shadow-[0_32px_64px_-16px_hsl(var(--accent)/0.15)] md:rounded-[2.5rem] lg:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] border border-accent/20 bg-card shadow-[0_24px_48px_-12px_hsl(var(--accent)/0.15)] md:rounded-[2.5rem] lg:flex-row">
           {/* Vasen: otsikko + maakunnat */}
-          <div className="flex-1 p-6 md:p-12 lg:p-14">
-            <header className="mb-8 md:mb-10">
-              <h2 className="mb-4 font-heading text-3xl font-black tracking-tight text-foreground md:text-4xl">
+          <div className="flex-1 p-5 md:p-8 lg:p-10">
+            <header className="mb-5 md:mb-6">
+              <h2 className="mb-3 font-heading text-2xl font-black tracking-tight text-foreground md:text-3xl">
                 Toiminta-alueet
               </h2>
-              <div className="h-2 w-20 rounded-full bg-accent" aria-hidden="true" />
+              <div className="h-1.5 w-16 rounded-full bg-accent" aria-hidden="true" />
             </header>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {regions.map((region, idx) => (
                 <RegionCard
                   key={region.title}
@@ -152,7 +152,7 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
           </div>
 
           {/* Oikea: karttasarake */}
-          <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-8 text-accent-foreground md:p-10 lg:w-[400px]">
+          <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-6 text-accent-foreground md:p-8 lg:w-[380px]">
             {/* Hienovarainen ruudukkokuvio */}
             <div
               aria-hidden="true"
@@ -164,17 +164,17 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
               }}
             />
             {/* Pehmeät valopallot */}
-            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-accent-foreground/10 blur-3xl" />
-            <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent-foreground/10 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -bottom-24 h-64 w-64 rounded-full bg-accent-foreground/10 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent-foreground/10 blur-3xl" />
 
             {!mapFailed && (
-              <div className="relative z-10 w-full max-w-[240px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-6 shadow-2xl">
+              <div className="relative z-10 w-full max-w-[280px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-5 shadow-2xl">
                 <img
                   src={mapImage}
                   alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
                   className="h-auto w-full object-contain"
-                  width={280}
-                  height={350}
+                  width={320}
+                  height={400}
                   loading="lazy"
                   decoding="async"
                   onError={() => setMapFailed(true)}
@@ -182,16 +182,16 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
               </div>
             )}
 
-            <div className="relative z-10 mt-8 text-center">
-              <span className="mb-3 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
+            <div className="relative z-10 mt-6 text-center">
+              <span className="mb-2 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
                 Paikallinen palvelu
               </span>
-              <h3 className="text-2xl font-bold leading-tight font-heading">
+              <h3 className="text-xl font-bold leading-tight font-heading">
                 Kaikki palvelut aina lähelläsi
               </h3>
               <Link
                 to="/toiminta-alueet"
-                className="group mt-4 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
+                className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
               >
                 Katso kaikki toiminta-alueet
                 <ArrowRight
