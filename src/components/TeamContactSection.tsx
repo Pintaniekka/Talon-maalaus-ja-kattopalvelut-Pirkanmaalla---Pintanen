@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, User, MapPin, Map, MessageSquare } from 'lucide-react';
+import { Map } from "lucide-react";
+import { Phone, Mail, User, MapPin, MessageSquare } from "@/components/icons/BrandIcons";
 import { getStorageUrl } from '@/lib/storage';
 import { useToast } from '@/hooks/use-toast';
 import { submitContactForm } from '@/lib/contactForm';

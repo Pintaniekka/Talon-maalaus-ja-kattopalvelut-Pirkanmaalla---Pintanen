@@ -1,141 +1,206 @@
-import { MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { MapPin } from "@/components/icons/BrandIcons";
 import { Link } from 'react-router-dom';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import { allCities } from '@/data/cityData';
 import { getStorageUrl } from '@/lib/storage';
+import { cn } from '@/lib/utils';
 
 const mapImage = getStorageUrl("Toiminta-alue-kartta-pirkanmaa-kantahame.png");
 
-interface CityLink {
-  name: string;
-  slug?: string; // jos puuttuu, näytetään pelkkänä tekstinä
+type Service = 'maalaus' | 'pinnoitus';
+
+interface ToimintaAlueetBannerProps {
+  /** Nykyisen sivun paikkakunnan slug — korostetaan aktiivisena chippinä */
+  activeCity?: string;
+  /** Mihin chipit linkittävät: maalaussivuille (oletus) tai pinnoitussivuille */
+  service?: Service;
 }
 
-interface Region {
-  id: string;
+const regionSlugs: Record<string, string[]> = {
+  Pirkanmaa: [
+    'tampere', 'akaa', 'hameenkyro', 'ikaalinen', 'juupajoki', 'kangasala',
+    'kihnio', 'lempaala', 'mantta-vilppula', 'nokia', 'orivesi', 'parkano',
+    'pirkkala', 'palkane', 'ruovesi', 'sastamala', 'urjala', 'valkeakoski',
+    'vesilahti', 'virrat', 'ylojarvi',
+  ],
+  'Kanta-Häme': ['forssa', 'hameenlinna'],
+  Satakunta: ['huittinen'],
+};
+
+const regions = Object.entries(regionSlugs).map(([title, slugs]) => ({
+  title,
+  cities: slugs
+    .map((slug) => allCities.find((c) => c.slug === slug))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c)),
+}));
+
+const cityHref = (slug: string, service: Service) =>
+  service === 'pinnoitus' ? `/tiilikaton-pinnoitus-${slug}` : `/maalauspalvelut-${slug}`;
+
+const chipBase =
+  'px-4 py-2 bg-secondary/60 border border-border rounded-xl text-sm font-semibold transition-colors';
+const chipIdle = 'text-muted-foreground hover:border-accent hover:text-accent';
+const chipActive = 'bg-accent border-accent text-accent-foreground hover:border-accent';
+
+const RegionCard = ({
+  title,
+  cities,
+  defaultOpen,
+  activeCity,
+  service,
+}: {
   title: string;
-  cities: CityLink[];
-}
+  cities: (typeof allCities)[number][];
+  defaultOpen: boolean;
+  activeCity?: string;
+  service: Service;
+}) => {
+  const [open, setOpen] = useState(defaultOpen);
 
-const regions: Region[] = [
-  {
-    id: "pirkanmaa",
-    title: "PIRKANMAA",
-    cities: [
-      { name: "Tampere", slug: "tampere" },
-      { name: "Akaa", slug: "akaa" },
-      { name: "Hämeenkyrö", slug: "hameenkyro" },
-      { name: "Ikaalinen", slug: "ikaalinen" },
-      { name: "Juupajoki", slug: "juupajoki" },
-      { name: "Kangasala", slug: "kangasala" },
-      { name: "Kihniö", slug: "kihnio" },
-      { name: "Lempäälä", slug: "lempaala" },
-      { name: "Mänttä-Vilppula", slug: "mantta-vilppula" },
-      { name: "Nokia", slug: "nokia" },
-      { name: "Orivesi", slug: "orivesi" },
-      { name: "Parkano", slug: "parkano" },
-      { name: "Pirkkala", slug: "pirkkala" },
-      { name: "Pälkäne", slug: "palkane" },
-      { name: "Ruovesi", slug: "ruovesi" },
-      { name: "Sastamala", slug: "sastamala" },
-      { name: "Urjala", slug: "urjala" },
-      { name: "Valkeakoski", slug: "valkeakoski" },
-      { name: "Vesilahti", slug: "vesilahti" },
-      { name: "Virrat", slug: "virrat" },
-      { name: "Ylöjärvi", slug: "ylojarvi" },
-    ],
-  },
-  {
-    id: "kanta-hame",
-    title: "KANTA-HÄME",
-    cities: [
-      { name: "Forssa", slug: "forssa" },
-      { name: "Hämeenlinna", slug: "hameenlinna" },
-    ],
-  },
-  {
-    id: "satakunta",
-    title: "SATAKUNTA",
-    cities: [
-      { name: "Huittinen", slug: "huittinen" },
-    ],
-  },
-];
-
-const ToimintaAlueetBanner = () => {
   return (
-    <section className="py-10 md:py-14 bg-accent-light">
+    <div
+      className={cn(
+        'overflow-hidden rounded-2xl border transition-shadow duration-300',
+        open
+          ? 'border-border bg-card shadow-xl shadow-accent/5'
+          : 'border-border/60 bg-accent-light/50'
+      )}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-4 p-4 md:p-5 text-left"
+      >
+        <span className="flex items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground shadow-lg shadow-accent/30">
+            <MapPin className="h-4 w-4" aria-hidden="true" />
+          </span>
+          <span className="text-lg font-bold tracking-tight text-foreground font-heading">
+            {title}
+          </span>
+        </span>
+        <ChevronDown
+          aria-hidden="true"
+          className={cn(
+            'h-5 w-5 shrink-0 text-accent transition-transform duration-300 motion-reduce:transition-none',
+            open && 'rotate-180'
+          )}
+        />
+      </button>
+
+      {/* Sisältö pidetään aina DOM:ssa (SEO: sisäiset linkit crawlattavissa),
+          piilotetaan vain visuaalisesti kun paneeli on kiinni. */}
+      <div
+        className={cn(
+          'grid transition-[grid-template-rows,opacity] duration-300 motion-reduce:transition-none',
+          open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        )}
+        aria-hidden={!open}
+      >
+        <div className="overflow-hidden">
+          <div className="flex flex-wrap gap-2 px-4 pb-5 pt-1 md:px-5 md:pb-6">
+            {cities.map((city) => {
+              const isActive = activeCity === city.slug;
+              return (
+                <Link
+                  key={city.slug}
+                  to={cityHref(city.slug, service)}
+                  tabIndex={open ? undefined : -1}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={cn(chipBase, isActive ? chipActive : chipIdle)}
+                >
+                  {city.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAlueetBannerProps) => {
+  const [mapFailed, setMapFailed] = useState(false);
+
+  return (
+    <section className="py-8 md:py-10 bg-accent-light">
       <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start max-w-5xl mx-auto">
-          {/* Vasen: otsikko + accordion */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-5 h-5 text-foreground" />
-              <h2 className="text-xl md:text-2xl font-bold font-heading text-foreground">
+        <div className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-[2rem] border border-accent/20 bg-card shadow-[0_24px_48px_-12px_hsl(var(--accent)/0.15)] md:rounded-[2.5rem] lg:flex-row">
+          {/* Vasen: otsikko + maakunnat */}
+          <div className="flex-1 p-5 md:p-8 lg:p-10">
+            <header className="mb-5 md:mb-6">
+              <h2 className="mb-3 font-heading text-2xl font-black tracking-tight text-foreground md:text-3xl">
                 Toiminta-alueet
               </h2>
-            </div>
+              <div className="h-1.5 w-16 rounded-full bg-accent" aria-hidden="true" />
+            </header>
 
-            <Accordion type="single" collapsible className="w-full space-y-3">
-              {regions.map((region) => (
-                <AccordionItem
-                  key={region.id}
-                  value={region.id}
-                  className="border-0 bg-card rounded-xl shadow-sm overflow-hidden"
-                >
-                  <AccordionTrigger
-                    className="px-5 py-4 hover:no-underline font-heading text-lg md:text-xl font-extrabold italic tracking-wide"
-                    style={{ color: "#38b6ff" }}
-                  >
-                    {region.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-5 pt-0">
-                    <p className="text-foreground/85 leading-relaxed text-sm md:text-base">
-                      {region.cities.map((city, idx) => (
-                        <span key={city.name}>
-                          {city.slug ? (
-                            <Link
-                              to={`/maalauspalvelut-${city.slug}`}
-                              className="underline decoration-transparent hover:decoration-primary underline-offset-4 transition-colors hover:text-primary"
-                            >
-                              {city.name}
-                            </Link>
-                          ) : (
-                            <span>{city.name}</span>
-                          )}
-                          {idx < region.cities.length - 1 ? ", " : ""}
-                        </span>
-                      ))}
-                    </p>
-                  </AccordionContent>
-                </AccordionItem>
+            <div className="space-y-3">
+              {regions.map((region, idx) => (
+                <RegionCard
+                  key={region.title}
+                  title={region.title}
+                  cities={region.cities}
+                  defaultOpen={idx === 0}
+                  activeCity={activeCity}
+                  service={service}
+                />
               ))}
-            </Accordion>
-
+            </div>
           </div>
 
-          {/* Oikea: kartta linkkinä */}
-          <div className="flex justify-center lg:justify-end order-first lg:order-last">
-            <Link
-              to="/toiminta-alueet"
-              aria-label="Katso kaikki toiminta-alueet"
-              className="group block focus-visible:outline-none"
-            >
-              <img
-                src={mapImage}
-                sizes="280px"
-                alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
-                className="w-full max-w-[280px] object-contain transition-transform duration-300 ease-out group-hover:scale-105"
-                width={280}
-                height={350}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
+          {/* Oikea: karttasarake */}
+           <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-4 text-accent-foreground md:p-5 lg:w-[380px]">
+            {/* Hienovarainen ruudukkokuvio */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  'linear-gradient(to right, hsl(var(--accent-foreground) / 0.5) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--accent-foreground) / 0.5) 1px, transparent 1px)',
+                backgroundSize: '40px 40px',
+              }}
+            />
+            {/* Pehmeät valopallot */}
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -bottom-24 h-64 w-64 rounded-full bg-accent-foreground/10 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-accent-foreground/10 blur-3xl" />
+
+            {!mapFailed && (
+               <div className="relative z-10 w-full max-w-[280px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-4 shadow-2xl">
+                <img
+                  src={mapImage}
+                  alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
+                  className="h-auto w-full object-contain"
+                  width={320}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setMapFailed(true)}
+                />
+              </div>
+            )}
+
+             <div className="relative z-10 mt-4 text-center">
+              <span className="mb-2 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
+                 SUOMALAISET TEKIJÄT
+              </span>
+              <h3 className="text-xl font-bold leading-tight font-heading">
+                 Maalaamme taloja ja kattoja alueellasi!
+              </h3>
+              <Link
+                to="/toiminta-alueet"
+                className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
+              >
+                 Katso, missä palvelemme
+                <ArrowRight
+                  aria-hidden="true"
+                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

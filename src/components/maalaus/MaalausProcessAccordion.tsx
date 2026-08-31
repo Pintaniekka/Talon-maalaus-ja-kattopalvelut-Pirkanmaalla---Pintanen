@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, ShieldCheck, Droplets, Paintbrush, Layers, CheckCircle } from 'lucide-react';
+import { ClipboardCheck, ShieldCheck, Droplets, Paintbrush, Layers, CheckCircle } from "@/components/icons/BrandIcons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 interface Step {

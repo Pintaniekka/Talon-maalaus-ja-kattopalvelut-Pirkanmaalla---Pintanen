@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 import ServicePageHero from "@/components/ServicePageHero";
 import MaalausTrustStats from "@/components/maalaus/MaalausTrustStats";
@@ -111,7 +111,7 @@ const TalonMaalausCity = ({ citySlug }: { citySlug: string }) => {
       <MaalausEntrepreneur />
       <FAQSection items={getMaalausCityFAQ(cityName, cityData.cityGenitive, cityData.cityIn)} />
       <TeamContactSection cityName={cityName} cityGenitive={cityData.cityGenitive} />
-      <ToimintaAlueetBanner />
+      <ToimintaAlueetBanner activeCity={citySlug} />
     </div>
   );
 };

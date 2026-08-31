@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ShieldCheck, Wrench, FileText, ChevronRight } from "lucide-react";
+import { Check, ArrowRight, ChevronRight } from "lucide-react";
+import { ShieldCheck, Wrench, FileText } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ServicePageHero from "@/components/ServicePageHero";

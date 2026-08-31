@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Send, Check, Loader2, User } from 'lucide-react';
+import { Send, Check, Loader2 } from "lucide-react";
+import { Phone, Mail, User } from "@/components/icons/BrandIcons";
 import { toast } from '@/hooks/use-toast';
 import { getStorageUrl } from '@/lib/storage';
 import { submitContactForm } from '@/lib/contactForm';

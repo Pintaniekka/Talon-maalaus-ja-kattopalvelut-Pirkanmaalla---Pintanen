@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft, Loader2, User, MapPin } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
+import { User, MapPin } from "@/components/icons/BrandIcons";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/contactForm";
 import CityCombobox from "@/components/CityCombobox";

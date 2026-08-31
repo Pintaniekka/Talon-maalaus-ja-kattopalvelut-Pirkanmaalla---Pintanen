@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Search, Check, Clock } from "lucide-react";
+import { Check } from "lucide-react";
+import { Search, Clock } from "@/components/icons/BrandIcons";
 import { Badge } from "@/components/ui/badge";
 import ServicePageHero from "@/components/ServicePageHero";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Award, Users, Target } from "lucide-react";
+import { Check } from "lucide-react";
+import { Award, Users, Target } from "@/components/icons/BrandIcons";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceContactSection from "@/components/ServiceContactSection";
 import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";

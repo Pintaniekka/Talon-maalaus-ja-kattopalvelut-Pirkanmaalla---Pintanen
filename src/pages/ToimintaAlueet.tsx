@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { MapPin, ChevronRight } from 'lucide-react';
+import { ChevronRight } from "lucide-react";
+import { MapPin } from "@/components/icons/BrandIcons";
 import { Link } from 'react-router-dom';
 import ServicePageHero from '@/components/ServicePageHero';
 import ServiceContactSection from '@/components/ServiceContactSection';

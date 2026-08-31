@@ -1,6 +1,7 @@
 import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, Droplets, Shield, Sparkles, Clock, MapPin } from "lucide-react";
+import { Check } from "lucide-react";
+import { Droplets, Shield, Sparkles, Clock, MapPin } from "@/components/icons/BrandIcons";
 import ServicePageHero from "@/components/ServicePageHero";
 import KotitalousVahennys from "@/components/KotitalousVahennys";
 import CityServices from "@/components/CityServices";

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calculator, Euro } from "lucide-react";
+import { Calculator, Euro } from "@/components/icons/BrandIcons";
 
 const KotitalousVahennys = () => {
   return (

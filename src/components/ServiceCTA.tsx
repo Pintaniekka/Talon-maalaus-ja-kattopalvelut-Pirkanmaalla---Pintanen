@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Phone, Mail } from "@/components/icons/BrandIcons";
 import { Link } from "react-router-dom";
 
 interface ServiceCTAProps {
