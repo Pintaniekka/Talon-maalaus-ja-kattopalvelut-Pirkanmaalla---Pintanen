@@ -152,19 +152,29 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
           </div>
 
           {/* Oikea: karttasarake */}
-          <div className="relative flex flex-col items-center justify-between overflow-hidden bg-accent p-6 text-accent-foreground md:p-10 lg:w-[45%]">
-            <span className="relative z-10 w-fit self-start rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
-              Paikallinen yrittäjä
-            </span>
+          <div className="relative flex flex-col items-center justify-center overflow-hidden bg-accent p-8 text-accent-foreground md:p-10 lg:w-[400px]">
+            {/* Hienovarainen ruudukkokuvio */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  'linear-gradient(to right, hsl(var(--accent-foreground) / 0.5) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--accent-foreground) / 0.5) 1px, transparent 1px)',
+                backgroundSize: '40px 40px',
+              }}
+            />
+            {/* Pehmeät valopallot */}
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-accent-foreground/10 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent-foreground/10 blur-3xl" />
 
             {!mapFailed && (
-              <div className="relative z-10 flex w-full flex-1 items-center justify-center py-6">
+              <div className="relative z-10 w-full max-w-[240px] rounded-3xl border border-accent-foreground/30 bg-accent-foreground/10 p-6 shadow-2xl">
                 <img
                   src={mapImage}
                   alt="Toimialuekartta: Pirkanmaa ja Kanta-Häme"
-                  className="h-auto w-full max-w-[420px] object-contain"
-                  width={420}
-                  height={525}
+                  className="h-auto w-full object-contain"
+                  width={280}
+                  height={350}
                   loading="lazy"
                   decoding="async"
                   onError={() => setMapFailed(true)}
@@ -172,16 +182,24 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
               </div>
             )}
 
-            <Link
-              to="/toiminta-alueet"
-              className="group relative z-10 mt-auto inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
-            >
-              Katso kaikki toiminta-alueet
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
-              />
-            </Link>
+            <div className="relative z-10 mt-8 text-center">
+              <span className="mb-3 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
+                Paikallinen palvelu
+              </span>
+              <h3 className="text-2xl font-bold leading-tight font-heading">
+                Kaikki palvelut aina lähelläsi
+              </h3>
+              <Link
+                to="/toiminta-alueet"
+                className="group mt-4 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
+              >
+                Katso kaikki toiminta-alueet
+                <ArrowRight
+                  aria-hidden="true"
+                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
