@@ -64,7 +64,7 @@ const KattopalvelutPinnoitusCity = ({ citySlug: propSlug }: { citySlug?: string 
 
       <FAQSection items={getPinnoitusCityFAQ(cityData.name)} />
       <ServiceContactSection variant="katto" cityName={cityData.name} cityGenitive={cityData.cityGenitive} />
-      <ToimintaAlueetBanner />
+      <ToimintaAlueetBanner activeCity={citySlug} service="pinnoitus" />
     </div>
   );
 };

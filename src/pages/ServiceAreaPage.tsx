@@ -378,7 +378,7 @@ const ServiceAreaPage = ({ citySlug }: { citySlug: string }) => {
       />
 
       {/* ══════════════════ TOIMINTA-ALUEET ══════════════════ */}
-      <ToimintaAlueetBanner />
+      <ToimintaAlueetBanner activeCity={citySlug} />
     </div>
   );
 };
