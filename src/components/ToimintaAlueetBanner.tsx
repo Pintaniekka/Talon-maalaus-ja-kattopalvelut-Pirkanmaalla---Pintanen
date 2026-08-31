@@ -184,16 +184,16 @@ const ToimintaAlueetBanner = ({ activeCity, service = 'maalaus' }: ToimintaAluee
 
             <div className="relative z-10 mt-6 text-center">
               <span className="mb-2 inline-block rounded-full bg-accent-foreground/20 px-3 py-1 text-[10px] font-black uppercase tracking-[0.25em]">
-                Paikallinen palvelu
+                 PALVELEMME LÄHELLÄSI
               </span>
               <h3 className="text-xl font-bold leading-tight font-heading">
-                Kaikki palvelut aina lähelläsi
+                 Maalaamme taloja ja kattoja alueellasi!
               </h3>
               <Link
                 to="/toiminta-alueet"
                 className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 transition-colors hover:underline"
               >
-                Katso kaikki toiminta-alueet
+                 Katso, missä palvelemme
                 <ArrowRight
                   aria-hidden="true"
                   className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
