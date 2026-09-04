@@ -25,7 +25,7 @@ const Hero = () => {
             <span className="text-accent">Pirkanmaalla</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-sans">
+          <p className="hero-lead text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-sans">
             <strong className="text-foreground">Perheyritys</strong>, jossa{" "}
             <strong className="text-foreground">yrittäjät tekevät työn itse</strong> –{" "}
             <strong className="text-foreground">tiilikaton pinnoitukset</strong> ja{" "}
@@ -94,19 +94,19 @@ const Hero = () => {
           />
 
           {/* Floating badge */}
-          <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 bg-roof-red text-roof-red-foreground p-5 lg:p-6 rounded-3xl shadow-2xl rotate-2 max-w-[260px]">
+          <div className="absolute bottom-4 right-4 lg:bottom-10 lg:right-10 bg-roof-red text-roof-red-foreground p-4 lg:p-6 rounded-2xl lg:rounded-3xl shadow-2xl rotate-2 max-w-[210px] lg:max-w-[260px]">
             <div className="flex items-start gap-3">
-              <div className="w-11 h-11 bg-white/20 rounded-full shrink-0 flex items-center justify-center">
-                <Building2 className="w-6 h-6" />
+              <div className="w-9 h-9 lg:w-11 lg:h-11 bg-white/20 rounded-full shrink-0 flex items-center justify-center">
+                <Building2 className="w-5 h-5 lg:w-6 lg:h-6" />
               </div>
               <div>
                 <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-white/70 mb-1">
                   Yrittäjät itse paikalla
                 </p>
-                <p className="text-base font-heading font-extrabold leading-tight mb-1">
+                <p className="text-sm lg:text-base font-heading font-extrabold leading-tight mb-1">
                   Eemil &amp; Eerik vastaavat jäljestä.
                 </p>
-                <p className="text-xs text-white/80 font-sans">
+                <p className="hidden sm:block text-xs text-white/80 font-sans">
                   Ei aliurakoitsijoita, vain puhdasta perheyrityksen laatua.
                 </p>
               </div>
