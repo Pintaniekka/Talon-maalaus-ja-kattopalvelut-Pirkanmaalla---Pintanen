@@ -46,6 +46,15 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
         },
+        "paint-yellow": {
+          DEFAULT: "hsl(var(--paint-yellow))",
+          foreground: "hsl(var(--paint-yellow-foreground))",
+          hover: "hsl(var(--paint-yellow-hover))",
+        },
+        "roof-red": {
+          DEFAULT: "hsl(var(--roof-red))",
+          foreground: "hsl(var(--roof-red-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
