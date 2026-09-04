@@ -155,7 +155,7 @@ const Header = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-lg text-primary-foreground"
+            className="p-2 rounded-lg text-foreground"
             aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -187,7 +187,7 @@ const Header = () => {
                     key={item.href}
                     to={item.href}
                     onClick={handleNavigationLinkClick}
-                    className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
+                    className={`font-semibold transition-colors duration-200 text-foreground hover:text-accent ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
                   </Link>
@@ -205,12 +205,12 @@ const Header = () => {
                     <Link
                       to={item.href}
                       onClick={handleNavigationLinkClick}
-                      className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
+                      className="font-semibold transition-colors duration-200 text-foreground hover:text-accent"
                     >
                       {item.label}
                     </Link>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`}
+                      className={`w-4 h-4 transition-transform duration-200 text-foreground ${openDropdown === item.label ? "rotate-180" : ""}`}
                     />
                   </div>
 
