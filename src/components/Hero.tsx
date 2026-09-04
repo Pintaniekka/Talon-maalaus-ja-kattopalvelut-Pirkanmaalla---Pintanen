@@ -21,6 +21,8 @@ const Hero = () => {
   return (
     <div className="relative">
       <section id="hero" className="hero-critical relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-background">
+        {/* Top scrim so the fixed light header stays legible over the light hero */}
+        <div className="absolute top-0 inset-x-0 h-28 md:h-32 z-[5] pointer-events-none bg-gradient-to-b from-primary/90 via-primary/55 to-transparent" />
         {/* Left: Content */}
         <div className="relative z-10 w-full lg:w-[52%] flex flex-col justify-center px-6 sm:px-10 lg:pl-12 lg:pr-8 xl:pl-20 xl:pr-14 pt-28 lg:pt-32 pb-16">
           <div className="max-w-xl">
