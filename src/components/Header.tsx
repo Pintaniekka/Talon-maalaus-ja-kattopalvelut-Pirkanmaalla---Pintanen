@@ -3,6 +3,7 @@ import { flushSync } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Phone } from "@/components/icons/BrandIcons";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 import WhatsAppIcon from "./WhatsAppIcon";
@@ -98,8 +99,35 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ${isScrolled ? "bg-primary shadow-lg" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${isScrolled ? "shadow-lg" : ""}`}
     >
+      {/* Desktop utility bar — collapses on scroll */}
+      <div
+        className={`hidden xl:block bg-primary text-primary-foreground overflow-hidden transition-[max-height] duration-300 ${isScrolled ? "max-h-0" : "max-h-12"}`}
+      >
+        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full h-9 flex items-center justify-between text-sm font-semibold">
+          <a href="tel:+358409640066" className="flex items-center gap-2 hover:text-paint-yellow transition-colors">
+            <Phone className="w-4 h-4" />
+            040 964 0066
+          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://wa.me/358409640066"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-paint-yellow transition-colors"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              WhatsApp
+            </a>
+            <a href="#yhteystiedot" className="hover:text-paint-yellow transition-colors">
+              Ilmainen arviokäynti
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-card/95 backdrop-blur-md border-b border-border">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Mobile: 3-column layout */}
         <div className="flex xl:hidden items-center justify-between w-full h-20">
