@@ -8,31 +8,31 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="hero-critical relative bg-background px-4 pt-24 pb-8 md:px-8 md:pt-28 md:pb-12 flex items-center justify-center"
+      className="hero-critical relative bg-background px-4 pt-28 pb-12 md:px-8 md:pt-32 md:pb-16 flex items-center justify-center"
     >
-      <div className="relative w-full max-w-7xl overflow-hidden rounded-[2.5rem] bg-card shadow-2xl flex flex-col-reverse lg:flex-row">
+      <div className="relative w-full max-w-7xl overflow-hidden rounded-[2.5rem] bg-card shadow-2xl flex flex-col lg:flex-row">
         {/* Content Side */}
-        <div className="relative z-10 w-full lg:w-3/5 p-8 md:p-14 lg:p-20 flex flex-col justify-center bg-card">
-          <div className="inline-flex items-center gap-3 mb-6">
+        <div className="relative z-10 w-full lg:w-3/5 p-8 md:p-16 lg:p-24 flex flex-col justify-center bg-card">
+          <div className="inline-flex items-center gap-3 mb-8 md:mb-10">
             <span className="h-1 w-12 bg-accent rounded-full" aria-hidden="true" />
             <span className="text-accent font-heading font-extrabold uppercase tracking-[0.2em] text-xs md:text-sm">
               Pirkanmaan paikallinen perheyritys
             </span>
           </div>
 
-          <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05] mb-6">
+          <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-10 md:mb-12">
             Tiilikaton pinnoitus ja talon maalaus{" "}
             <span className="text-accent">Pirkanmaalla</span>
           </h1>
 
-          <p className="hero-lead text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-sans">
+          <p className="hero-lead text-lg md:text-xl text-muted-foreground mb-14 md:mb-16 max-w-xl leading-relaxed font-sans">
             <strong className="text-foreground">Perheyritys</strong>, jossa{" "}
             <strong className="text-foreground">yrittäjät tekevät työn itse</strong> –{" "}
             <strong className="text-foreground">tiilikaton pinnoitukset</strong> ja{" "}
             <strong className="text-foreground">talon maalaukset</strong> Pirkanmaalla.
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mb-16 md:mb-20">
             <a
               href="/hinnat"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-paint-yellow hover:bg-paint-yellow-hover text-paint-yellow-foreground font-heading font-extrabold rounded-2xl transition-all hover:scale-[1.03] shadow-xl shadow-paint-yellow/40 text-lg group"
@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
 
           {/* Trust row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 gap-y-8 pt-10 border-t border-border">
             <div className="flex flex-col">
               <span className="text-roof-red font-heading font-extrabold text-2xl">5,0 / 5</span>
               <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
