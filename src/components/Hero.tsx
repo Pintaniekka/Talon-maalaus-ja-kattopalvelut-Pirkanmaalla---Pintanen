@@ -104,10 +104,10 @@ const Hero = () => {
                   Yrittäjät itse paikalla
                 </p>
                 <p className="text-sm lg:text-base font-heading font-extrabold leading-tight mb-1">
-                  Eemil &amp; Eerik vastaavat jäljestä.
+                  Eerik &amp; Eemil vastaavat jäljestä.
                 </p>
                 <p className="hidden sm:block text-xs text-white/80 font-sans">
-                  Ei aliurakoitsijoita, vain puhdasta perheyrityksen laatua.
+                  Ei välikäsiä, vain luotettavaa perheyrityksen laatua.
                 </p>
               </div>
             </div>
