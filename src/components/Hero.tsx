@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="relative w-full max-w-7xl overflow-hidden rounded-[2.5rem] bg-card shadow-2xl flex flex-col lg:flex-row">
         {/* Content Side */}
         <div className="relative z-10 w-full lg:w-3/5 p-8 md:p-14 lg:p-20 flex flex-col justify-center bg-card">
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-7 md:mb-9">
             <span className="h-1 w-12 bg-accent rounded-full" aria-hidden="true" />
             <span className="text-accent font-heading font-extrabold uppercase tracking-[0.2em] text-xs md:text-sm">
               Pirkanmaan paikallinen perheyritys
