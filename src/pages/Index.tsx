@@ -27,10 +27,8 @@ const Index = () => {
         <ChatPriceCalculator />
       </Suspense>
       <MiksiPintanen />
-      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
-        <ProcessTimeline />
-      </Suspense>
-      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+  <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+
         <Gallery />
       </Suspense>
       <FAQSection items={generalFAQ} />
