@@ -57,19 +57,19 @@ const Hero = () => {
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-foreground font-heading font-extrabold text-2xl">200+</span>
+              <span className="text-foreground font-heading font-extrabold text-2xl md:text-3xl">200+</span>
               <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
                 Projektia
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-foreground font-heading font-extrabold text-2xl">5+ v</span>
+              <span className="text-foreground font-heading font-extrabold text-2xl md:text-3xl">5+ v</span>
               <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
                 Kokemusta
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-accent font-heading font-extrabold text-2xl">0 €</span>
+              <span className="text-accent font-heading font-extrabold text-2xl md:text-3xl">0 €</span>
               <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
                 Kartoituskäynti
               </span>
