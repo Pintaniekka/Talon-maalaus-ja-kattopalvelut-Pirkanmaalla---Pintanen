@@ -1,97 +1,120 @@
-import { ArrowRight, Check } from "lucide-react";
-import { Star } from "@/components/icons/BrandIcons";
-import { getResponsiveSrc, getResponsiveSrcSet } from "@/lib/storage";
+import { ArrowRight } from "lucide-react";
+import { Building2 } from "@/components/icons/BrandIcons";
+import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 
 const heroBaseName = "tummansininen-puutalo-ulkomaalaus-jalkeen";
 
 const Hero = () => {
-  const svgUrl = "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/maali_valuu.svg";
-
   return (
-    <div className="relative">
-      <section id="hero" className="hero-critical relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={getResponsiveSrc(heroBaseName)}
-            srcSet={getResponsiveSrcSet(heroBaseName)}
-            sizes="100vw"
-            alt="Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla"
-            className="w-full h-full object-cover"
-            loading={undefined}
-            decoding="async"
-            fetchPriority="high"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-primary/55" />
-        </div>
+    <section
+      id="hero"
+      className="hero-critical relative bg-background px-4 pt-24 pb-8 md:px-8 md:pt-28 md:pb-12 flex items-center justify-center"
+    >
+      <div className="relative w-full max-w-7xl overflow-hidden rounded-[2.5rem] bg-card shadow-2xl flex flex-col-reverse lg:flex-row">
+        {/* Content Side */}
+        <div className="relative z-10 w-full lg:w-3/5 p-8 md:p-14 lg:p-20 flex flex-col justify-center bg-card">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="h-1 w-12 bg-accent rounded-full" aria-hidden="true" />
+            <span className="text-accent font-heading font-extrabold uppercase tracking-[0.2em] text-xs md:text-sm">
+              Pirkanmaan paikallinen perheyritys
+            </span>
+          </div>
 
-        {/* Content */}
-        <div className="relative z-10 section-container py-32">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="space-y-6">
-              <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-lg">
-                Tiilikaton pinnoitus ja talon maalaus{" "}
-                <span className="text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">Pirkanmaalla</span>
-              </h1>
-                <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-sans">
-                <strong className="text-white">Perheyritys</strong>, jossa <strong className="text-white">yrittäjät tekevät työn itse</strong> – <strong className="text-white">tiilikaton pinnoitukset</strong> ja <strong className="text-white">talon maalaukset</strong> Pirkanmaalla.
-                </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                <a href="/hinnat" className="btn-hero shadow-lg">
-                  Laske hinta
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="#yhteystiedot" className="btn-hero-outline">
-                  Ilmainen arviokäynti
-                </a>
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-white/10">
-                <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
-                  <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  <span className="text-white font-bold">5,0 / 5</span>
-                  <span className="text-white/70 hidden sm:inline">Google</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
-                  <Check className="w-4 h-4 text-accent" />
-                  <span className="text-white">200+ projektia</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
-                  <Check className="w-4 h-4 text-accent" />
-                  <span className="text-white">5+ vuotta</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-black/25 text-sm">
-                  <Check className="w-4 h-4 text-accent" />
-                  <span className="text-white">Maksuton arvio</span>
-                </div>
-              </div>
+          <h1 className="heading-style text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05] mb-6">
+            Tiilikaton pinnoitus ja talon maalaus{" "}
+            <span className="text-accent">Pirkanmaalla</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-sans">
+            <strong className="text-foreground">Perheyritys</strong>, jossa{" "}
+            <strong className="text-foreground">yrittäjät tekevät työn itse</strong> –{" "}
+            <strong className="text-foreground">tiilikaton pinnoitukset</strong> ja{" "}
+            <strong className="text-foreground">talon maalaukset</strong> Pirkanmaalla.
+          </p>
+
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12">
+            <a
+              href="/hinnat"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-paint-yellow hover:bg-paint-yellow-hover text-paint-yellow-foreground font-heading font-extrabold rounded-2xl transition-all hover:scale-[1.03] shadow-xl shadow-paint-yellow/40 text-lg group"
+            >
+              Laske hinta
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#yhteystiedot"
+              className="inline-flex items-center justify-center px-8 py-4 bg-card border-2 border-accent text-accent font-heading font-extrabold rounded-2xl hover:bg-accent hover:text-accent-foreground transition-all text-lg"
+            >
+              Ilmainen arviokäynti
+            </a>
+          </div>
+
+          {/* Trust row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-border">
+            <div className="flex flex-col">
+              <span className="text-roof-red font-heading font-extrabold text-2xl">5,0 / 5</span>
+              <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
+                Google-arviot
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-foreground font-heading font-extrabold text-2xl">200+</span>
+              <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
+                Projektia
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-foreground font-heading font-extrabold text-2xl">5+ v</span>
+              <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
+                Kokemusta
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-accent font-heading font-extrabold text-2xl">0 €</span>
+              <span className="text-[10px] md:text-xs text-muted-foreground uppercase font-bold tracking-widest">
+                Kartoituskäynti
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-[fadeIn_0.6s_1s_both] z-10">
-          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-[scrollBounce_1.5s_infinite]" />
+        {/* Image Side */}
+        <div className="relative w-full lg:w-2/5 min-h-[280px] md:min-h-[360px] lg:min-h-full overflow-hidden">
+          <ResponsiveSupabaseImage
+            baseName={heroBaseName}
+            alt="Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla"
+            priority
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Skewed white transition (desktop only) */}
+          <div
+            className="hidden lg:block absolute -left-16 inset-y-0 w-32 bg-card skew-x-[-7deg] shadow-[-15px_0_40px_rgba(0,0,0,0.08)]"
+            aria-hidden="true"
+          />
+
+          {/* Floating badge */}
+          <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 bg-roof-red text-roof-red-foreground p-5 lg:p-6 rounded-3xl shadow-2xl rotate-2 max-w-[260px]">
+            <div className="flex items-start gap-3">
+              <div className="w-11 h-11 bg-white/20 rounded-full shrink-0 flex items-center justify-center">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-white/70 mb-1">
+                  Yrittäjät itse paikalla
+                </p>
+                <p className="text-base font-heading font-extrabold leading-tight mb-1">
+                  Eemil &amp; Eerik vastaavat jäljestä.
+                </p>
+                <p className="text-xs text-white/80 font-sans">
+                  Ei aliurakoitsijoita, vain puhdasta perheyrityksen laatua.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-
-      <div
-        className="absolute left-0 top-full mt-[1px] w-full h-[110px] block md:hidden pointer-events-none z-20"
-        style={{
-          backgroundColor: '#96dafb',
-          WebkitMaskImage: `url("${svgUrl}")`,
-          maskImage: `url("${svgUrl}")`,
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat',
-          WebkitMaskSize: '100% 100%',
-          maskSize: '100% 100%',
-          WebkitMaskPosition: 'top center',
-          maskPosition: 'top center',
-        }}
-      />
-    </div>
+      </div>
+    </section>
   );
 };
 
