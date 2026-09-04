@@ -3,6 +3,7 @@ import { flushSync } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Phone } from "@/components/icons/BrandIcons";
 import { getStorageUrl } from "@/lib/storage";
 import OptimizedImage from "./OptimizedImage";
 import WhatsAppIcon from "./WhatsAppIcon";
@@ -98,8 +99,35 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300 ${isScrolled ? "bg-primary shadow-lg" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${isScrolled ? "shadow-lg" : ""}`}
     >
+      {/* Desktop utility bar — collapses on scroll */}
+      <div
+        className={`hidden xl:block bg-primary text-primary-foreground overflow-hidden transition-[max-height] duration-300 ${isScrolled ? "max-h-0" : "max-h-12"}`}
+      >
+        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full h-9 flex items-center justify-between text-sm font-semibold">
+          <a href="tel:+358409640066" className="flex items-center gap-2 hover:text-paint-yellow transition-colors">
+            <Phone className="w-4 h-4" />
+            040 964 0066
+          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://wa.me/358409640066"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-paint-yellow transition-colors"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              WhatsApp
+            </a>
+            <a href="#yhteystiedot" className="hover:text-paint-yellow transition-colors">
+              Ilmainen arviokäynti
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-card/95 backdrop-blur-md border-b border-border">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Mobile: 3-column layout */}
         <div className="flex xl:hidden items-center justify-between w-full h-20">
@@ -127,7 +155,7 @@ const Header = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-lg text-primary-foreground"
+            className="p-2 rounded-lg text-foreground"
             aria-label={isMobileMenuOpen ? "Sulje valikko" : "Avaa päävalikko"}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -159,7 +187,7 @@ const Header = () => {
                     key={item.href}
                     to={item.href}
                     onClick={handleNavigationLinkClick}
-                    className={`font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80 ${location.pathname === item.href ? "text-accent" : ""}`}
+                    className={`font-semibold transition-colors duration-200 text-foreground hover:text-accent ${location.pathname === item.href ? "text-accent" : ""}`}
                   >
                     {item.label}
                   </Link>
@@ -177,12 +205,12 @@ const Header = () => {
                     <Link
                       to={item.href}
                       onClick={handleNavigationLinkClick}
-                      className="font-medium transition-colors duration-200 text-primary-foreground hover:text-primary-foreground/80"
+                      className="font-semibold transition-colors duration-200 text-foreground hover:text-accent"
                     >
                       {item.label}
                     </Link>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 text-primary-foreground ${openDropdown === item.label ? "rotate-180" : ""}`}
+                      className={`w-4 h-4 transition-transform duration-200 text-foreground ${openDropdown === item.label ? "rotate-180" : ""}`}
                     />
                   </div>
 
@@ -224,13 +252,14 @@ const Header = () => {
               <WhatsAppIcon className="w-7 h-7" />
             </a>
             <a
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 text-base bg-accent text-white shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 bg-roof-red text-roof-red-foreground shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-roof-red focus-visible:ring-offset-2"
               href="#yhteystiedot"
             >
               Pyydä tarjous
             </a>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Mobile Menu */}
