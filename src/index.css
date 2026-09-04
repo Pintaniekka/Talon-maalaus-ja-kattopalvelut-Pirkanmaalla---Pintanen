@@ -54,6 +54,15 @@
     --accent-foreground: 0 0% 100%;
     --accent-light: 205 100% 96%; /* #ecf7ff */
 
+    /* Paint yellow #ffec4e */
+    --paint-yellow: 54 100% 65%;
+    --paint-yellow-foreground: 215 25% 15%;
+    --paint-yellow-hover: 51 100% 61%; /* #f7d900 */
+
+    /* Roof red #B71C1C */
+    --roof-red: 0 73% 41%;
+    --roof-red-foreground: 0 0% 100%;
+
     /* FAQ warm beige #f2e8d8 */
     --faq-bg: 30 52% 90%;
     --faq-hover: 35 33% 95%;
