@@ -264,6 +264,18 @@ const Header = () => {
       </div>
       </div>
 
+      {/* Gradient accent strip */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-accent via-paint-yellow to-accent" aria-hidden="true" />
+
+      {/* Mobile CTA strip */}
+      <a
+        href="#yhteystiedot"
+        onClick={closeNavigationMenus}
+        className="xl:hidden block w-full bg-deep-blue text-deep-blue-foreground text-center font-bold text-xs uppercase tracking-[0.2em] py-3 border-t border-white/5 active:bg-deep-blue-hover transition-colors"
+      >
+        Pyydä tarjous
+      </a>
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -271,7 +283,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-card border-t border-border"
+            className="xl:hidden bg-navy border-t border-white/10"
           >
             <nav aria-label="Mobiilinavigaatio" className="section-container py-4 flex flex-col gap-2">
               {navItems.map((item) => {
@@ -281,7 +293,7 @@ const Header = () => {
                       key={item.href}
                       to={item.href}
                       onClick={closeNavigationMenus}
-                      className="py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+                      className="py-3 px-4 text-white/90 font-medium hover:bg-white/5 hover:text-accent rounded-lg transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -294,13 +306,13 @@ const Header = () => {
                       <Link
                         to={item.href}
                         onClick={closeNavigationMenus}
-                        className="flex-1 py-3 px-4 text-foreground font-medium hover:bg-muted rounded-lg transition-colors"
+                        className="flex-1 py-3 px-4 text-white/90 font-medium hover:bg-white/5 hover:text-accent rounded-lg transition-colors"
                       >
                         {item.label}
                       </Link>
                       <button
                         onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                        className="py-3 px-4 text-foreground hover:bg-muted rounded-lg transition-colors"
+                        className="py-3 px-4 text-white/70 hover:bg-white/5 hover:text-accent rounded-lg transition-colors"
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`}
@@ -313,14 +325,14 @@ const Header = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="ml-4 border-l-2 border-primary/30"
+                          className="ml-4 border-l-2 border-accent/40"
                         >
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.href}
                               to={subItem.href}
                               onClick={closeNavigationMenus}
-                              className="block py-2 px-4 text-foreground/80 hover:text-primary transition-colors"
+                              className="block py-2 px-4 text-white/70 hover:text-accent transition-colors"
                             >
                               {subItem.label}
                             </Link>
@@ -334,7 +346,7 @@ const Header = () => {
               <a
                 href="#yhteystiedot"
                 onClick={closeNavigationMenus}
-                className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-primary text-primary-foreground rounded-xl font-semibold"
+                className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-deep-blue text-deep-blue-foreground rounded-xl font-bold uppercase text-sm tracking-wider"
               >
                 Pyydä tarjous
               </a>
