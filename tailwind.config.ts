@@ -46,6 +46,15 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
         },
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          foreground: "hsl(var(--navy-foreground))",
+        },
+        "deep-blue": {
+          DEFAULT: "hsl(var(--deep-blue))",
+          foreground: "hsl(var(--deep-blue-foreground))",
+          hover: "hsl(var(--deep-blue-hover))",
+        },
         "paint-yellow": {
           DEFAULT: "hsl(var(--paint-yellow))",
           foreground: "hsl(var(--paint-yellow-foreground))",

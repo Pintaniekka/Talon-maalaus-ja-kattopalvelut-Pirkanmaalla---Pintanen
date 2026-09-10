@@ -54,6 +54,13 @@
     --accent-foreground: 0 0% 100%;
     --accent-light: 205 100% 96%; /* #ecf7ff */
 
+    /* Header navy #0A192F & deep blue CTA #0038A8 */
+    --navy: 222 64% 11%;
+    --navy-foreground: 0 0% 100%;
+    --deep-blue: 220 100% 33%;
+    --deep-blue-foreground: 0 0% 100%;
+    --deep-blue-hover: 220 100% 26%; /* #002B80 */
+
     /* Paint yellow #ffec4e */
     --paint-yellow: 54 100% 65%;
     --paint-yellow-foreground: 215 25% 15%;
