@@ -113,15 +113,6 @@ const Header = () => {
             <span className="font-bold tracking-tight text-white/90 group-hover:text-paint-yellow transition-colors">040 964 0066</span>
           </a>
           <div className="flex items-center gap-6">
-            <a
-              href="https://wa.me/358409640066"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors font-semibold"
-            >
-              <WhatsAppIcon className="w-4 h-4" />
-              WhatsApp
-            </a>
             <span className="italic font-medium text-white/70">
               Pirkanmaan luotettava perheyritys – Laatua kotiisi
             </span>
