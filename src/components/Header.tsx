@@ -267,15 +267,6 @@ const Header = () => {
       {/* Gradient accent strip */}
       <div className="h-1.5 w-full bg-gradient-to-r from-accent via-paint-yellow to-accent" aria-hidden="true" />
 
-      {/* Mobile CTA strip */}
-      <a
-        href="#yhteystiedot"
-        onClick={closeNavigationMenus}
-        className="xl:hidden block w-full bg-deep-blue text-deep-blue-foreground text-center font-bold text-xs uppercase tracking-[0.2em] py-3 border-t border-white/5 active:bg-deep-blue-hover transition-colors"
-      >
-        Pyydä tarjous
-      </a>
-
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
