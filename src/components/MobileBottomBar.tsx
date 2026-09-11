@@ -5,9 +5,9 @@ const MobileBottomBar = () => {
   return (
     <nav
       aria-label="Mobiilitoiminnot"
-      className="fixed bottom-0 left-0 right-0 z-50 lg:hidden px-3 pb-[env(safe-area-inset-bottom)] pt-0"
+      className="fixed bottom-0 left-0 right-0 z-50 lg:hidden rounded-t-2xl border-t border-white/40 bg-card/85 px-3 pb-[env(safe-area-inset-bottom)] backdrop-blur-md"
     >
-      <div className="flex items-center gap-3 rounded-t-2xl border border-b-0 border-white/40 bg-card/85 p-3 shadow-[0_-8px_32px_hsl(var(--navy)/0.18)] backdrop-blur-md">
+      <div className="flex items-center gap-3 p-3 shadow-[0_-8px_32px_hsl(var(--navy)/0.18)]">
         <a
           href="tel:+358409640066"
           className="flex-1 flex items-center justify-center gap-2 px-4 py-3.5 min-h-[48px] rounded-xl bg-accent text-accent-foreground font-semibold text-sm tracking-tight transition-all duration-200 active:scale-[0.98]"
