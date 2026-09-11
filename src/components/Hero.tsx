@@ -1,8 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { Building2 } from "@/components/icons/BrandIcons";
-import ResponsiveSupabaseImage from "@/components/ResponsiveSupabaseImage";
 
-const heroBaseName = "tummansininen-puutalo-ulkomaalaus-jalkeen";
+const heroBase =
+  "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Eerik-maalaa/Eerik-maalaa-kattoa";
+const heroSrc = `${heroBase}-1200.avif`;
+const heroSrcSet = [400, 800, 1200, 1500]
+  .map((w) => `${heroBase}-${w}.avif ${w}w`)
+  .join(", ");
 
 const Hero = () => {
   return (
@@ -79,12 +83,14 @@ const Hero = () => {
 
         {/* Image Side */}
         <div className="relative w-full lg:w-1/3 min-h-[280px] md:min-h-[360px] lg:min-h-full overflow-hidden">
-          <ResponsiveSupabaseImage
-            baseName={heroBaseName}
-            alt="Tummansininen puutalo ulkomaalaus jälkeen Pirkanmaalla"
-            priority
+          <img
+            src={heroSrc}
+            srcSet={heroSrcSet}
+            alt="Eerik maalaa kattoa Pirkanmaalla"
             sizes="(max-width: 1024px) 100vw, 34vw"
             className="absolute inset-0 w-full h-full object-cover"
+            decoding="sync"
+            fetchPriority="high"
           />
 
           {/* Skewed white transition (desktop only) */}
