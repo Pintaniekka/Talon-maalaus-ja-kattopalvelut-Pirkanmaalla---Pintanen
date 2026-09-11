@@ -245,7 +245,7 @@ const Header = () => {
               <WhatsAppIcon className="w-5 h-5" />
             </a>
             <a
-              className="flex items-center gap-2 px-7 py-3 rounded-full font-extrabold text-xs uppercase tracking-[0.1em] transition-all duration-300 bg-deep-blue text-deep-blue-foreground shadow-lg shadow-blue-900/40 hover:bg-deep-blue-hover hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+              className="flex items-center gap-2 px-7 py-3 rounded-full font-extrabold text-xs uppercase tracking-[0.1em] transition-all duration-300 bg-accent text-accent-foreground shadow-lg shadow-accent/40 hover:bg-accent/90 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
               href="#yhteystiedot"
             >
               Pyydä tarjous
@@ -328,7 +328,7 @@ const Header = () => {
               <a
                 href="#yhteystiedot"
                 onClick={closeNavigationMenus}
-                className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-deep-blue text-deep-blue-foreground rounded-xl font-bold uppercase text-sm tracking-wider"
+                className="mt-2 flex items-center justify-center gap-2 py-3 px-4 bg-accent text-accent-foreground rounded-xl font-bold uppercase text-sm tracking-wider"
               >
                 Pyydä tarjous
               </a>

@@ -44,6 +44,14 @@ const ChatLeadForm = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [currentStep, setCurrentStep] = useState<Step>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Hide chat while the quote drawer is open
+  useEffect(() => {
+    const onToggle = (e: Event) => setDrawerOpen(Boolean((e as CustomEvent<boolean>).detail));
+    window.addEventListener('quote-drawer-toggle', onToggle);
+    return () => window.removeEventListener('quote-drawer-toggle', onToggle);
+  }, []);
 
   // Lead data
   const [selectedPath, setSelectedPath] = useState<Path | null>(null);
@@ -288,10 +296,12 @@ const ChatLeadForm = () => {
   };
 
   // ── Render ───────────────────────────────────────────────────────────────
+  if (drawerOpen) return null;
+
   return (
     <>
       {/* Floating button + bubble */}
-      <div className="fixed bottom-20 lg:bottom-4 right-4 z-[9998] flex flex-col items-end gap-2">
+      <div className="fixed bottom-28 lg:bottom-4 right-4 z-[9998] flex flex-col items-end gap-2">
         <AnimatePresence>
           {bubbleVisible && !open && (
             <motion.div
@@ -336,7 +346,7 @@ const ChatLeadForm = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-20 lg:bottom-4 right-4 z-[9999] w-[min(380px,calc(100vw-2rem))] rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-28 lg:bottom-4 right-4 z-[9999] w-[min(380px,calc(100vw-2rem))] rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             style={{ maxHeight: 'min(600px, calc(100vh - 120px))' }}
           >
             {/* Header */}

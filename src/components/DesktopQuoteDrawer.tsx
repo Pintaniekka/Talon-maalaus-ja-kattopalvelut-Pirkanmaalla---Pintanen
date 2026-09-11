@@ -53,6 +53,11 @@ const DesktopQuoteDrawer = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, handleClose]);
 
+  // Notify other floating UI (chat) when drawer opens/closes
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("quote-drawer-toggle", { detail: open }));
+  }, [open]);
+
   // Lock body scroll when open
   useEffect(() => {
     if (open) {
