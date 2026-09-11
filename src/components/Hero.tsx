@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Building2 } from "@/components/icons/BrandIcons";
 
 const heroBase =
-  "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/eerik-maalaa/Eerik-maalaa-kattoa";
+  "https://fndkkgfpsgghvewvoysr.supabase.co/storage/v1/object/public/images/Eerik-maalaa/Eerik-maalaa-kattoa";
 const heroSrc = `${heroBase}-1200.avif`;
 const heroSrcSet = [400, 800, 1200, 1500]
   .map((w) => `${heroBase}-${w}.avif ${w}w`)
