@@ -170,12 +170,13 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Add bottom padding on mobile for sticky bar */
-  @media (max-width: 767px) {
+  /* Add bottom padding on mobile & tablet for floating bottom bar */
+  @media (max-width: 1023px) {
     body {
-      padding-bottom: 4.5rem;
+      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
   }
+
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
