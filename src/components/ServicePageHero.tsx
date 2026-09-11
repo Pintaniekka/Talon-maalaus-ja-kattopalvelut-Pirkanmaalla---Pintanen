@@ -34,7 +34,7 @@ const ServicePageHero = ({ title, subtitle, backgroundImage, backgroundSrcSet, c
       )}
 
       {/* Content */}
-      <div className="relative z-[2] section-container text-center text-primary-foreground pt-24 pb-16">
+      <div className="relative z-[2] section-container text-center text-primary-foreground pt-28 xl:pt-36 pb-16">
         {title && (
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

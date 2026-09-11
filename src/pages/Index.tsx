@@ -11,7 +11,7 @@ import ToimintaAlueetBanner from "@/components/ToimintaAlueetBanner";
 import { generalFAQ } from "@/data/faqData";
 import SEO from "@/components/SEO";
 
-const ProcessTimeline = lazyWithRetry(() => import("@/components/ProcessTimeline"));
+
 const ChatPriceCalculator = lazyWithRetry(() => import("@/components/ChatPriceCalculator"));
 const Gallery = lazyWithRetry(() => import("@/components/Gallery"));
 const SEOTextSection = lazyWithRetry(() => import("@/components/SEOTextSection"));
@@ -27,10 +27,8 @@ const Index = () => {
         <ChatPriceCalculator />
       </Suspense>
       <MiksiPintanen />
-      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
-        <ProcessTimeline />
-      </Suspense>
-      <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+  <Suspense fallback={<div className="section-padding" aria-hidden="true" />}>
+
         <Gallery />
       </Suspense>
       <FAQSection items={generalFAQ} />
