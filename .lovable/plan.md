@@ -1,37 +1,38 @@
-# Mobiilin ja tabletin alapalkin uusi ilme
+# Mobiilin ja tabletin alapalkin uusi ilme — "Lasipalkki, tumma pääkutsu"
 
-## Nykytila
+## Mitä muuttuu
 
-Alapalkissa on kaksi tasakokoista täyttöväristä nappia ("Soita meille" sininen, "Pyydä tarjous" tumma) valkoisella pohjalla ja ohuella yläreunan viivalla. Ilme on litteä ja napit kilpailevat keskenään huomiosta.
-
-## Uusi ilme: kelluva lasipalkki
+Alapalkki muuttuu litteästä valkoisesta palkista kelluvaksi lasikortiksi, jossa on selkeä hierarkia: sininen "Soita meille" ja tumma navy "Pyydä tarjous" keltaisella ikonilla.
 
 ```text
-┌────────────────────────────────────────┐
-│  ╭──────────────────────────────────╮  │
-│  │  [☎]  Soita   │  [Pyydä tarjous] │  │
-│  ╰──────────────────────────────────╯  │
-└────────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│ ╭──────────────────────────────────────╮ │
+│ │ [☎ Soita meille] [📄 Pyydä tarjous]  │ │
+│ ╰──────────────────────────────────────╯ │
+└──────────────────────────────────────────┘
 ```
 
-- Palkki ei enää kiinnity ruudun reunaan vaan **kelluu**: pyöristetty (rounded-full/2xl) kortti, pieni marginaali sivuilla ja alareunassa, pehmeä varjo.
-- Tausta **läpikuultava lasipohja** (himmennetty valkoinen + blur), joka sopii sivuston muuhun glassmorphism-tyyliin.
-- **Selkeä hierarkia:** soittaminen kevyt ikonipainike (sininen ikoni, läpinäkyvä pohja), "Pyydä tarjous" pääkutsu maalinkeltaisella (#ffec4e) tummalla tekstillä — sama korostusväri kuin heron pääpainikkeessa.
-- Kevyt painallustuntuma (scale-alas napautuksessa) hover-skaalauksen sijaan, joka ei toimi kosketuksella.
-- Turvallinen alareuna iPhonelle (safe-area-inset), jottei palkki jää eleviivan alle.
+- **Kelluva kortti:** palkki irtoaa ruudun reunasta — sivumarginaalit, pyöristetyt kulmat, pehmeä syvä varjo.
+- **Lasipohja:** läpikuultava valkoinen + taustan sumennus, ohut vaalea reunus.
+- **Soita meille:** brändisininen pohja, valkoinen teksti ja puhelinikoni.
+- **Pyydä tarjous:** tumma navy pohja, valkoinen teksti ja **maalinkeltainen** dokumentti-ikoni — nostaa pääkutsun esiin.
+- **Painallustuntuma:** napit painuvat hieman kasaan napautuksessa (ei hover-suurennusta, joka ei toimi kosketuksella).
+- **Turva-alue:** iPhonen eleviivalle jätetään tilaa, jottei palkki jää sen alle.
 
 ## Näkyvyys ja välit
 
 - Palkki näkyy nykyiseen tapaan mobiilissa ja tabletissa (alle 1024 px).
-- Sivun alareunan tyhjä tila laajennetaan koskemaan myös tablettia (nyt vain alle 768 px), jottei palkki peitä sivun viimeistä sisältöä tabletilla.
+- Sivun alareunan tyhjä tila laajennetaan koskemaan myös tablettia (nyt vain alle 768 px), jottei palkki peitä sivun viimeistä sisältöä.
 
 ## Säilyy ennallaan
 
-- Tekstit "Soita meille" ja "Pyydä tarjous", puhelinnumero ja tarjouslomakkeen avaus.
-- Toiminnallisuus ja saavutettavuus (nav-alue, aria-label, kosketuskohteet vähintään 44 px).
+- Tekstit "Soita meille" ja "Pyydä tarjous" täsmälleen nykyisinä.
+- Puhelinnumero ja tarjouslomakkeen avaus toimivat kuten ennen.
+- Saavutettavuus: nav-alue ja aria-label säilyvät, kosketuskohteet vähintään 44 px.
 
 ## Tekniset yksityiskohdat
 
-- Muokataan vain `src/components/MobileBottomBar.tsx` (rakenne + Tailwind-luokat) ja `src/index.css` (alareunan padding-media-kysely 767px → 1023px, safe-area).
-- Värit semanttisilla tokeneilla (`bg-paint-yellow`, `text-accent`, `bg-card/80`), ei kovakoodattuja hex-arvoja.
-- Tarkistus Playwrightilla mobiili- (393px) ja tablettinäkymässä (820px): palkki kelluu, ei vaakasuuntaista ylivuotoa, sisältö ei jää palkin alle.
+- Muokataan `src/components/MobileBottomBar.tsx` (rakenne + Tailwind-luokat) ja `src/index.css` (alareunan padding 767px → 1023px, `env(safe-area-inset-bottom)`).
+- Värit semanttisilla tokeneilla (`bg-accent`, `bg-navy`, `text-paint-yellow`, `bg-card/80`) — ei kovakoodattuja hex-arvoja komponentissa.
+- Ikonit nykyisistä `BrandIcons`-ikoneista (Phone, FileText).
+- Tarkistus Playwrightilla mobiili- (393 px) ja tablettinäkymässä (820 px): palkki kelluu, ei vaakasuuntaista ylivuotoa, sisältö ei jää palkin alle.
