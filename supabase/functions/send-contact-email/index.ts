@@ -166,6 +166,8 @@ serve(async (req: Request) => {
 
     console.log("Email sent:", emailResponse.data?.id ?? "unknown");
 
+    await crmPromise;
+
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
