@@ -129,6 +129,14 @@ serve(async (req: Request) => {
       ? "Uusi hintalaskurin käyttäjä pintanen.fi-sivustolta"
       : "Uusi tarjouspyyntö pintanen.fi-sivustolta";
 
+    const crmPromise = sendToCrm({
+      nimi: name,
+      puhelin: phone,
+      sahkoposti: email,
+      palvelu: serviceLabel,
+      kuvaus: message,
+    });
+
     const emailResponse = await resend.emails.send({
       from: "Pintanen.fi <noreply@pintanen.fi>",
       to: ["myynti@pintanen.fi"],
