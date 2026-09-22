@@ -37,6 +37,47 @@ const escapeHtml = (value: string) =>
 const normalize = (value: unknown, maxLength: number) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
+const CRM_ENDPOINT = "https://app.pintanen.fi/api/public/vastaanota-liidi";
+
+const sendToCrm = async (lead: {
+  nimi: string;
+  puhelin: string;
+  sahkoposti: string;
+  palvelu: string;
+  kuvaus: string;
+}) => {
+  try {
+    const secret = Deno.env.get("LEAD_INTAKE_SECRET");
+    if (!secret) {
+      console.error("CRM lead intake skipped: LEAD_INTAKE_SECRET is not configured");
+      return;
+    }
+
+    const res = await fetch(CRM_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${secret}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nimi: lead.nimi,
+        puhelin: lead.puhelin,
+        sahkoposti: lead.sahkoposti,
+        osoite: null,
+        kaupunki: null,
+        palvelu: lead.palvelu,
+        kuvaus: lead.kuvaus,
+      }),
+    });
+
+    if (!res.ok) {
+      console.error("CRM lead intake failed:", res.status, await res.text());
+    }
+  } catch (crmError) {
+    console.error("CRM lead intake error:", crmError);
+  }
+};
+
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -88,6 +129,14 @@ serve(async (req: Request) => {
       ? "Uusi hintalaskurin käyttäjä pintanen.fi-sivustolta"
       : "Uusi tarjouspyyntö pintanen.fi-sivustolta";
 
+    const crmPromise = sendToCrm({
+      nimi: name,
+      puhelin: phone,
+      sahkoposti: email,
+      palvelu: serviceLabel,
+      kuvaus: message,
+    });
+
     const emailResponse = await resend.emails.send({
       from: "Pintanen.fi <noreply@pintanen.fi>",
       to: ["myynti@pintanen.fi"],
@@ -116,6 +165,8 @@ serve(async (req: Request) => {
     }
 
     console.log("Email sent:", emailResponse.data?.id ?? "unknown");
+
+    await crmPromise;
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
