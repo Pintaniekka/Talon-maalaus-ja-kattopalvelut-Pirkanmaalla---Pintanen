@@ -24,6 +24,18 @@ const serviceLabels: Record<string, string> = {
   muu: "Muu",
 };
 
+// CRM:n (pintanen-pro-tools) service_type-enum kayttaa arvoa "katon_puhdistus",
+// tama sivusto taas lahettaa "puhdistus" - yhdista avaimet tassa ennen
+// CRM:lle lahettamista, ala laheta ihmisluettavaa labelia.
+const crmServiceKeys: Record<string, string> = {
+  tiilikatto: "tiilikatto",
+  ulkomaalaus: "ulkomaalaus",
+  puhdistus: "katon_puhdistus",
+  muu: "muu",
+};
+
+const toCrmServiceKey = (service: string): string => crmServiceKeys[service] ?? "muu";
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const escapeHtml = (value: string) =>
@@ -133,7 +145,7 @@ serve(async (req: Request) => {
       nimi: name,
       puhelin: phone,
       sahkoposti: email,
-      palvelu: serviceLabel,
+      palvelu: toCrmServiceKey(service),
       kuvaus: message,
     });
 
